@@ -1,0 +1,3 @@
+Roslyn semantic symbol/operation passed: Demo.Twice(int); version=4.14.0.0
+SQLite native provider, foreign-key rejection and rollback passed: 3.46.1
+Managed compile/run passed: .NET 9.0.8

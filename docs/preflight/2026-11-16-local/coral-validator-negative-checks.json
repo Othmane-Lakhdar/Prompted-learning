@@ -1,0 +1,26 @@
+[
+  {
+    "case": "wrong-count",
+    "rejected": true,
+    "reason": "Expected 19 passed, 0 failed in each managed run.",
+    "synthetic": true
+  },
+  {
+    "case": "truncated",
+    "rejected": true,
+    "reason": "Expected two managed test runs.",
+    "synthetic": true
+  },
+  {
+    "case": "exception",
+    "rejected": true,
+    "reason": "Coral reported: Unhandled native exception:",
+    "synthetic": true
+  },
+  {
+    "case": "failed-check",
+    "rejected": true,
+    "reason": "Coral reported: : Failed",
+    "synthetic": true
+  }
+]

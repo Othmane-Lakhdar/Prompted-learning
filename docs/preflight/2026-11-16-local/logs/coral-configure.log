@@ -1,0 +1,20 @@
+-- Selecting Windows SDK version 10.0.26100.0 to target Windows 10.0.26200.
+-- The C compiler identification is MSVC 19.44.35215.0
+-- The CXX compiler identification is MSVC 19.44.35215.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: <VS>/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: <VS>/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+CMake Error at Dotnet.cmake:27 (message):
+  No suitable .NET runtime found: .NET 10 or newer is required.
+Call Stack (most recent call first):
+  CMakeLists.txt:43 (LinkDotnetNetHost)
+
+
+-- Configuring incomplete, errors occurred!

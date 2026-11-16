@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "as_of": "2026-11-16",
-  "status": "proposed_resources_source_inspected_builds_not_run",
+  "status": "pinned_inputs_locally_verified_scoped_builds_and_tests_executed",
   "selection_requirement": "Each candidate contains substantive C++ and C# source in the same project.",
   "size_metric": {
     "id": "selected-source-blob-bytes-v1",
@@ -348,14 +348,19 @@
       "verification": {
         "source_read": "passed",
         "size_measurement": "passed",
-        "clone": "not_run",
-        "build": "not_run",
-        "upstream_tests": "not_run",
-        "extractor_coverage": "not_implemented"
+        "clone": "passed",
+        "build": "passed_windows_x64_release_with_explicit_managed_test_staging",
+        "upstream_tests": "passed_41_native_and_two_runs_of_19_managed",
+        "extractor_coverage": "not_implemented",
+        "local_blob_manifest": "passed_all_listed_files",
+        "tracked_source": "clean_after_build",
+        "evidence": "docs/preflight/2026-11-16-local/README.md"
       },
       "deviations": [
         "RESOURCE-CORAL-001",
-        "RESOURCE-CORAL-002"
+        "RESOURCE-CORAL-002",
+        "RESOURCE-CORAL-003",
+        "PREFLIGHT-CHECK001"
       ]
     },
     {
@@ -1575,19 +1580,26 @@
         "commit": "cd708029e0b2869e80abe31ddb175f7c35361f90",
         "windows_release_asset": "https://github.com/mono/CppSharp/releases/download/CppSharp/llvm-cd7080-windows-vs2022-x64-Release.7z",
         "reported_compressed_bytes": 77628811,
-        "download_verified": false
+        "download_verified": true
       },
       "verification": {
         "source_read": "passed",
         "size_measurement": "passed",
-        "clone": "not_run",
-        "build": "not_run",
-        "upstream_tests": "not_run",
-        "extractor_coverage": "not_implemented"
+        "clone": "passed",
+        "build": "passed_generator_tests_native_parser_csharp_pinvoke_subset",
+        "upstream_tests": "91_passed_1_upstream_ignored_in_generator_tests",
+        "extractor_coverage": "not_implemented",
+        "local_blob_manifest": "passed_all_listed_files",
+        "tracked_source": "clean_after_build",
+        "evidence": "docs/preflight/2026-11-16-local/README.md",
+        "full_windows_build": "not_run_missing_cpp_cli"
       },
       "deviations": [
         "RESOURCE-CPPSHARP-001",
-        "RESOURCE-CPPSHARP-002"
+        "RESOURCE-CPPSHARP-002",
+        "RESOURCE-CPPSHARP-003",
+        "RESOURCE-CPPSHARP-004",
+        "INPUT001"
       ]
     }
   ]

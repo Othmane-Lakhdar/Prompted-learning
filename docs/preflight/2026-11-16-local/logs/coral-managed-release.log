@@ -1,0 +1,11 @@
+  Identification des projets à restaurer...
+  Restauration effectuée de <INPUTS>\Coral\Tests\Testing.Managed\Testing.Managed-Static.csproj (en 255 ms).
+  Sur l'ensemble des projets, 1 sur 2 sont à jour pour la restauration.
+  Coral.Managed-Static -> <INPUTS>\Coral\build-msvc-dotnet10\Tests\Release\Coral.Managed.dll
+  Testing.Managed-Static -> <INPUTS>\Coral\build-msvc-dotnet10\Tests\Release\Testing.Managed.dll
+
+La génération a réussi.
+    0 Avertissement(s)
+    0 Erreur(s)
+
+Temps écoulé 00:00:02.41

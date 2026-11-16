@@ -1,0 +1,115 @@
+[Coral](Trace): Added ALC 'TestContext' with ID '-811116287'
+[Coral](Info): Loading assembly '<INPUTS>\Coral\build-msvc-dotnet10\Tests\Release\Testing.Managed.dll'
+50
+1000
+[Coral](Trace): [AssemblyLoader] Resolving uncached assembly: Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed
+[Coral](Trace): [AssemblyLoader] Trying to find assembly in <INPUTS>\Coral\build-msvc-dotnet10\Tests\Release\Newtonsoft.Json.dll
+[Coral](Trace): [AssemblyLoader] Found assembly Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed
+NuGet packages seem to be working.
+C++: 0
+Hello, World!
+[1 / 19 (SByteMarshalTest)]: Passed
+[2 / 19 (ByteMarshalTest)]: Passed
+[3 / 19 (ShortMarshalTest)]: Passed
+[4 / 19 (UShortMarshalTest)]: Passed
+[5 / 19 (IntMarshalTest)]: Passed
+[6 / 19 (UIntMarshalTest)]: Passed
+[7 / 19 (LongMarshalTest)]: Passed
+[8 / 19 (ULongMarshalTest)]: Passed
+[9 / 19 (FloatMarshalTest)]: Passed
+[10 / 19 (DoubleMarshalTest)]: Passed
+[11 / 19 (BoolMarshalTest)]: Passed
+[12 / 19 (EmptyArrayTest)]: Passed
+[13 / 19 (FloatArrayTest)]: Passed
+[14 / 19 (IntPtrMarshalTest)]: Passed
+[15 / 19 (StringMarshalTest)]: Passed
+[16 / 19 (StringMarshalTest2)]: Passed
+[17 / 19 (DummyStructMarshalTest)]: Passed
+[18 / 19 (DummyStructPtrMarshalTest)]: Passed
+[19 / 19 (TypeMarshalTest)]: Passed
+[Test]: Done. 19 passed, 0 failed.
+1
+500
+50
+1000
+10000
+Override1
+Override2
+[1 / 41 (SByteFieldTest): Passed
+[2 / 41 (ByteFieldTest): Passed
+[3 / 41 (ShortFieldTest): Passed
+[4 / 41 (UShortFieldTest): Passed
+[5 / 41 (IntFieldTest): Passed
+[6 / 41 (UIntFieldTest): Passed
+[7 / 41 (LongFieldTest): Passed
+[8 / 41 (ULongFieldTest): Passed
+[9 / 41 (FloatFieldTest): Passed
+[10 / 41 (DoubleFieldTest): Passed
+[11 / 41 (BoolFieldTest): Passed
+[12 / 41 (StringFieldTest): Passed
+[13 / 41 (SBytePropertyTest): Passed
+[14 / 41 (BytePropertyTest): Passed
+[15 / 41 (ShortPropertyTest): Passed
+[16 / 41 (UShortPropertyTest): Passed
+[17 / 41 (IntPropertyTest): Passed
+[18 / 41 (UIntPropertyTest): Passed
+[19 / 41 (LongPropertyTest): Passed
+[20 / 41 (ULongPropertyTest): Passed
+[21 / 41 (FloatPropertyTest): Passed
+[22 / 41 (DoublePropertyTest): Passed
+[23 / 41 (BoolPropertyTest): Passed
+[24 / 41 (StringPropertyTest): Passed
+[25 / 41 (SByteTest): Passed
+[26 / 41 (ByteTest): Passed
+[27 / 41 (ShortTest): Passed
+[28 / 41 (UShortTest): Passed
+[29 / 41 (IntTest): Passed
+[30 / 41 (UIntTest): Passed
+[31 / 41 (LongTest): Passed
+[32 / 41 (ULongTest): Passed
+[33 / 41 (FloatTest): Passed
+[34 / 41 (DoubleTest): Passed
+[35 / 41 (BoolTest): Passed
+[36 / 41 (IntPtrTest): Passed
+[37 / 41 (StringTest): Passed
+[38 / 41 (DummyStructTest): Passed
+[39 / 41 (DummyStructPtrTest): Passed
+[40 / 41 (OverloadTest): Passed
+[41 / 41 (OverloadTest): Passed
+[NativeTest]: Done. 41 passed, 0 failed.
+[Coral](Trace): Added ALC 'ALCTestMulti' with ID '798911445'
+[Coral](Info): Loading assembly '<INPUTS>\Coral\build-msvc-dotnet10\Tests\Release\Testing.Managed.dll'
+Multiple instances of the same DLL seem to be working
+[Coral](Trace): Added ALC 'ALC2' with ID '-1175896929'
+[Coral](Info): Loading assembly '<INPUTS>\Coral\build-msvc-dotnet10\Tests\Release\Testing.Managed.dll'
+Class: Testing.Managed.MultiInheritanceTest
+	Base: Testing.Managed.DummyBase
+	Interfaces:
+		Testing.Managed.DummyInterfaceA
+		Testing.Managed.DummyInterfaceB
+[Coral](Trace): [AssemblyLoader] Resolving uncached assembly: Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed
+[Coral](Trace): [AssemblyLoader] Trying to find assembly in <INPUTS>\Coral\build-msvc-dotnet10\Tests\Release\Newtonsoft.Json.dll
+[Coral](Trace): [AssemblyLoader] Found assembly Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed
+NuGet packages seem to be working.
+C++: 0
+Hello, World!
+[1 / 19 (SByteMarshalTest)]: Passed
+[2 / 19 (ByteMarshalTest)]: Passed
+[3 / 19 (ShortMarshalTest)]: Passed
+[4 / 19 (UShortMarshalTest)]: Passed
+[5 / 19 (IntMarshalTest)]: Passed
+[6 / 19 (UIntMarshalTest)]: Passed
+[7 / 19 (LongMarshalTest)]: Passed
+[8 / 19 (ULongMarshalTest)]: Passed
+[9 / 19 (FloatMarshalTest)]: Passed
+[10 / 19 (DoubleMarshalTest)]: Passed
+[11 / 19 (BoolMarshalTest)]: Passed
+[12 / 19 (EmptyArrayTest)]: Passed
+[13 / 19 (FloatArrayTest)]: Passed
+[14 / 19 (IntPtrMarshalTest)]: Passed
+[15 / 19 (StringMarshalTest)]: Passed
+[16 / 19 (StringMarshalTest2)]: Passed
+[17 / 19 (DummyStructMarshalTest)]: Passed
+[18 / 19 (DummyStructPtrMarshalTest)]: Passed
+[19 / 19 (TypeMarshalTest)]: Passed
+[Test]: Done. 19 passed, 0 failed.

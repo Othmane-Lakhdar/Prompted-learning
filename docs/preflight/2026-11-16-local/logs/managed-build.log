@@ -1,0 +1,11 @@
+  Identification des projets à restaurer...
+  Restauration effectuée de <PROJECT>\tools\preflight\managed\Preflight.Managed.csproj (en 4.1 sec).
+  Preflight.Managed -> <INPUTS>\managed-probe\bin\Preflight.Managed\release\Preflight.Managed.dll
+
+La génération a réussi.
+    0 Avertissement(s)
+    0 Erreur(s)
+
+Temps écoulé 00:00:09.26
+
+Des mises à jour de la charge de travail sont disponibles. Exécutez `dotnet workload list` pour plus d’informations.

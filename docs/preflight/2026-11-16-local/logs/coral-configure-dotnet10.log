@@ -1,0 +1,19 @@
+-- Selecting Windows SDK version 10.0.26100.0 to target Windows 10.0.26200.
+-- The C compiler identification is MSVC 19.44.35215.0
+-- The CXX compiler identification is MSVC 19.44.35215.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: <VS>/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: <VS>/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found .NET runtime version 10.0.15
+-- Using .NET SDK 10.0.404 from <INPUTS>\toolchains\dotnet-10.0.404\sdk
+-- Using .NET host pack 10.0.15 from <INPUTS>\toolchains\dotnet-10.0.404/packs/Microsoft.NETCore.App.Host.win-x64/10.0.15
+-- Configuring done (5.3s)
+-- Generating done (0.2s)
+-- Build files have been written to: <INPUTS>/Coral/build-msvc-dotnet10

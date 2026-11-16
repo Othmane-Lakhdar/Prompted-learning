@@ -1,0 +1,8 @@
+{
+  "version": "10.0.404",
+  "directory": "<INPUTS>\\toolchains\\dotnet-10.0.404",
+  "archive_bytes": 303618098,
+  "sha512": "330DDD2665B43CD2E428216A0D8EA1AC7BB19B5434FDC530E62010DC3B52823A620BF95489D628E1ED6F5122401793EE4887CCA4A019122361A1231497F632EE",
+  "hash_match": true,
+  "source": "https://builds.dotnet.microsoft.com/dotnet/Sdk/10.0.404/dotnet-sdk-10.0.404-win-x64.zip"
+}

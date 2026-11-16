@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.25)
+project(PreflightNative LANGUAGES CXX)
+enable_testing()
+add_executable(preflight-native main.cpp)
+target_compile_features(preflight-native PRIVATE cxx_std_17)
+add_test(NAME native-compile-link-run COMMAND preflight-native)

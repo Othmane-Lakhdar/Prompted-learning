@@ -1,0 +1,122 @@
+[
+  {
+    "name": "clang-build.log",
+    "raw_sha256": "b326a93a6f4ee5bc1b0b1e31aaf64bd877388624bc37f98619d69bdddf72db3e",
+    "raw_bytes": 4232
+  },
+  {
+    "name": "clang-configure.log",
+    "raw_sha256": "8e47d15e70f28dfb29dd8edf94e91bf4becd6956773853fe46a52533f0d934e2",
+    "raw_bytes": 590
+  },
+  {
+    "name": "clang-test.log",
+    "raw_sha256": "f5048b411b4bb538a8151350cfd522dfa0197971fb83d4c3bccd435d1b6da466",
+    "raw_bytes": 1088
+  },
+  {
+    "name": "collector-invalid-directory.log",
+    "raw_sha256": "441822bd4e403a19410d47d1c8807d88dc9e9c175ac33d5de56afe1b5248f7a8",
+    "raw_bytes": 136
+  },
+  {
+    "name": "coral-build.log",
+    "raw_sha256": "c7bcfc07673efe022b042676de939ae81c47adcb8b450b6d86ac2a225f244d1e",
+    "raw_bytes": 5519
+  },
+  {
+    "name": "coral-clone.log",
+    "raw_sha256": "e2ede84aae71b23fdcc7700a67a5224cf347805ffc6c0a7672ebfa25185e50ae",
+    "raw_bytes": 68
+  },
+  {
+    "name": "coral-configure-dotnet10.log",
+    "raw_sha256": "b5823d68b5819df7f37c09fcd0f26662fbfbeefea54e722184841def078d34fe",
+    "raw_bytes": 1260
+  },
+  {
+    "name": "coral-configure.log",
+    "raw_sha256": "a9a7ce5f41750e9685d752ea062d62590a1712ebd059363318147b6dc2ab11f7",
+    "raw_bytes": 1031
+  },
+  {
+    "name": "coral-initial-validation-failure.log",
+    "raw_sha256": "103b8449e684bc3a8aafe9a7bc638fa3731b3c6c6b58944d56bf41c10cfdc102",
+    "raw_bytes": 51
+  },
+  {
+    "name": "coral-managed-release.log",
+    "raw_sha256": "1455164ba57a704da202537eef767a8595a7f41246756f34f7f6f30f54138c1e",
+    "raw_bytes": 625
+  },
+  {
+    "name": "coral-tests.log",
+    "raw_sha256": "98a174189e81b3621dde6460102bb874a5bfbede2593a6d449f47aa04fbc1d90",
+    "raw_bytes": 5287
+  },
+  {
+    "name": "coral-validation.log",
+    "raw_sha256": "71b7fe8e5184ed96616bc53ea3dc0e3ef5a591c7292448ca5fdb4ccbff34c089",
+    "raw_bytes": 109
+  },
+  {
+    "name": "cppsharp-ast-smoke.log",
+    "raw_sha256": "8430090e59e7030c5cf4ec6f77e02623a112d285aa612d4747a670a67333d36d",
+    "raw_bytes": 421
+  },
+  {
+    "name": "cppsharp-clone.log",
+    "raw_sha256": "fd3b2b58e736587b652844027b65c8a4ab089e2fda090a0dfa5236e97e7a78db",
+    "raw_bytes": 71
+  },
+  {
+    "name": "cppsharp-generate.log",
+    "raw_sha256": "5433cf0f46045aca1c71c86a475895e27f7a0b1bf432bc2f4b773787cd062c03",
+    "raw_bytes": 4252
+  },
+  {
+    "name": "cppsharp-generator-tests.log",
+    "raw_sha256": "7fea8f645ce8428f5575e8c074af6983af50e6538c8031b746545f0c6ce35629",
+    "raw_bytes": 478
+  },
+  {
+    "name": "cppsharp-subset-build.log",
+    "raw_sha256": "e9e07758b6931ee8903bb682cd599a2c35e98d3514b14ed49ce61a871d90b7aa",
+    "raw_bytes": 23277
+  },
+  {
+    "name": "managed-build.log",
+    "raw_sha256": "3eb73e4fa30d74276f1fbf9d0c9683c4218d0dcc482d5c5f0be1d65519a74f7d",
+    "raw_bytes": 533
+  },
+  {
+    "name": "managed-expected-failure.log",
+    "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "raw_bytes": 0
+  },
+  {
+    "name": "managed-run.log",
+    "raw_sha256": "02911ef4cbbb12cdee351c34a53b2b4a9b32da473cec13686e2a933c933a3fb6",
+    "raw_bytes": 191
+  },
+  {
+    "name": "msbuild-evaluation.log",
+    "raw_sha256": "b69162f91ffa2af36261e01737479d5b082641f8182e6a83e2d57baf63124520",
+    "raw_bytes": 1029
+  },
+  {
+    "name": "native-build.log",
+    "raw_sha256": "ca985410f77df29d7138dd105c704ced8153ba44bab4f0333436db25e7d823c2",
+    "raw_bytes": 409
+  },
+  {
+    "name": "native-configure.log",
+    "raw_sha256": "b033ecb07149cd25934fc8c9b729d29ebac9d88f5d09844c3c612042251d66ac",
+    "raw_bytes": 591
+  },
+  {
+    "name": "native-test.log",
+    "raw_sha256": "99f0c11d7f5c8946bf89421f658bd1aae0753b6cdd8c5c0ef9e5937eafb907ab",
+    "raw_bytes": 360
+  }
+]

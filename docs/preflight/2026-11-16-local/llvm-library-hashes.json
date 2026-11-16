@@ -1,0 +1,22 @@
+[
+  {
+    "path": "build\\lib\\clangTooling.lib",
+    "bytes": 2250208,
+    "sha256": "ABEF55F04B2620F1DF00C7EA74895969F32F0D6E40CF90D8E82BD892D7491E10"
+  },
+  {
+    "path": "build\\lib\\clangAnalysis.lib",
+    "bytes": 10256566,
+    "sha256": "6C4B08D2620EF90F36AD421191ED09BD9DF4C4BC32E3A5E8B082F9AA9D91DE0D"
+  },
+  {
+    "path": "build\\lib\\clangBasic.lib",
+    "bytes": 21405176,
+    "sha256": "7CFF78E69CCD3343487BA9ACB97394370CF83712DA4E1E0668618E15D31A8891"
+  },
+  {
+    "path": "build\\lib\\LLVMCore.lib",
+    "bytes": 23569998,
+    "sha256": "D4291A9D133451FA7893E94207F5C50F573FDBE7214D2507B62CAC1D22352144"
+  }
+]

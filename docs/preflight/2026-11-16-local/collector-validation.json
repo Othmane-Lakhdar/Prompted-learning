@@ -1,0 +1,7 @@
+{
+  "case": "invalid_directory",
+  "wrapper_exit": 127,
+  "environment_restored": true,
+  "status": "passed",
+  "intentional_failure": true
+}

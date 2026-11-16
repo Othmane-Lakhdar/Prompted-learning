@@ -1,0 +1,7 @@
+Version MSBuild 17.14.19+164abd434 pour .NET Framework
+
+  1>Checking Build System
+  Building Custom Rule <PROJECT>/tools/preflight/native/CMakeLists.txt
+  main.cpp
+  preflight-native.vcxproj -> <INPUTS>\native-probe\Release\preflight-native.exe
+  Building Custom Rule <PROJECT>/tools/preflight/native/CMakeLists.txt

@@ -1,0 +1,24 @@
+[
+  {
+    "repository": "StudioCherno/Coral",
+    "directory": "<INPUTS>\\Coral",
+    "commit": "320c90de59d9cf81a56f3265d8a5d4a1777431ce",
+    "verified_files": 57,
+    "verified_git_blob_bytes": 207801,
+    "status": "passed",
+    "tracked_worktree_clean": true,
+    "scope": "Clean tracked checkout plus every manifest-listed Git blob ID and byte count; not a new review of the selection policy or a raw worktree-byte measurement.",
+    "untracked_policy": "Build outputs may be untracked or ignored; generated inputs require separate build provenance."
+  },
+  {
+    "repository": "mono/CppSharp",
+    "directory": "<INPUTS>\\CppSharp",
+    "commit": "42ccd59b112072a6bcf3e1406efca174a46c8cf8",
+    "verified_files": 231,
+    "verified_git_blob_bytes": 2353348,
+    "status": "passed",
+    "tracked_worktree_clean": true,
+    "scope": "Clean tracked checkout plus every manifest-listed Git blob ID and byte count; not a new review of the selection policy or a raw worktree-byte measurement.",
+    "untracked_policy": "Build outputs may be untracked or ignored; generated inputs require separate build provenance."
+  }
+]

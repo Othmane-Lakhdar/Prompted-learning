@@ -1,0 +1,93 @@
+Version MSBuild 17.14.19+164abd434 pour .NET Framework
+
+  Checking File Globs
+  1>Checking Build System
+  Building Coral managed code
+
+  Bienvenue dans .NET 10.0┬á!
+  ---------------------
+  Version du kit SDK┬á: 10.0.404
+
+  T├®l├®m├®trie
+  ---------
+  Les outils .NET collectent des donn├®es d'utilisation qui nous aident ├á am├®liorer votre exp├®rience utilisateur. Elles sont collect├®es par Microsoft et partag├®es par la communaut├®. Vous pouvez refuser l'adh├®sion ├á la t├®l├®m├®trie en affectant la valeur┬á'1' ou 'true' ├á la variable d'environnement DOTNET_CLI_TELEMETRY_OPTOUT via l'interpr├®teur de commandes de votre choix.
+
+  Pour plus d'informations sur la t├®l├®m├®trie des outils CLI .NET, acc├®dez ├á https://aka.ms/dotnet-cli-telemetry
+
+  ----------------
+  Installation d'un certificat de d├®veloppement HTTPS ASP.NET Core.
+  Pour faire confiance au certificat, ex├®cutez 'dotnet dev-certs https --trust'
+  En savoir plus sur HTTPS┬á: https://aka.ms/dotnet-https
+
+  ----------------
+  ├®crivez votre premi├¿re application┬á: https://aka.ms/dotnet-hello-world
+  D├®couvrez les nouveaut├®s : https://aka.ms/dotnet-whats-new
+  Explorez la documentation : https://aka.ms/dotnet-docs
+  signaler les probl├¿mes et trouver une source sur GitHub : https://github.com/dotnet/core
+  Utilisez ┬½ dotnet --help ┬╗ pour afficher les commandes disponibles ou visitez : https://aka.ms/dotnet-cli
+  --------------------------------------------------------------------------------------
+    Identification des projets ├á restaurer...
+    Restauration effectu├®e de <INPUTS>\Coral\Coral.Managed\Coral.Managed-Static.csproj (en 84 ms).
+    Coral.Managed-Static -> <INPUTS>\Coral\Build\Release\Coral.Managed.dll
+
+  La g├®n├®ration a r├®ussi.
+      0 Avertissement(s)
+      0 Erreur(s)
+
+  Temps ├®coul├® 00:00:05.94
+  Building Custom Rule <INPUTS>/Coral/cmake/CMakeLists.txt
+  Building Custom Rule <INPUTS>/Coral/cmake/CMakeLists.txt
+  Building example managed code
+  cmake_pch.cxx
+  Building testing managed code
+    Identification des projets ├á restaurer...
+    Identification des projets ├á restaurer...
+    Restauration effectu├®e de <INPUTS>\Coral\Coral.Managed\Coral.Managed-Static.csproj (en 89 ms).
+    Restauration effectu├®e de <INPUTS>\Coral\Example\Example.Managed\Example.Managed-Static.csproj (en 92 ms).
+    Restauration effectu├®e de <INPUTS>\Coral\Coral.Managed\Coral.Managed-Static.csproj (en 86 ms).
+    Restauration effectu├®e de <INPUTS>\Coral\Tests\Testing.Managed\Testing.Managed-Static.csproj (en 330 ms).
+    Coral.Managed-Static -> <INPUTS>\Coral\build-msvc-dotnet10\Example\Coral.Managed.dll
+    Coral.Managed-Static -> <INPUTS>\Coral\build-msvc-dotnet10\Tests\Coral.Managed.dll
+    Example.Managed-Static -> <INPUTS>\Coral\build-msvc-dotnet10\Example\Example.Managed.dll
+
+  La g├®n├®ration a r├®ussi.
+      0 Avertissement(s)
+      0 Erreur(s)
+
+  Temps ├®coul├® 00:00:02.95
+  Building Custom Rule <INPUTS>/Coral/cmake/CMakeLists.txt
+    Testing.Managed-Static -> <INPUTS>\Coral\build-msvc-dotnet10\Tests\Testing.Managed.dll
+
+  La g├®n├®ration a r├®ussi.
+      0 Avertissement(s)
+      0 Erreur(s)
+
+  Temps ├®coul├® 00:00:03.10
+  Building Custom Rule <INPUTS>/Coral/cmake/CMakeLists.txt
+  Assembly.cpp
+  Attribute.cpp
+  ConstructorInfo.cpp
+  DotnetServices.cpp
+  EventInfo.cpp
+  FieldInfo.cpp
+  GC.cpp
+  HostInstance.cpp
+  ManagedObject.cpp
+  Memory.cpp
+  MethodInfo.cpp
+  PropertyInfo.cpp
+  String.cpp
+  StringHelper.cpp
+  Type.cpp
+  TypeCache.cpp
+  Génération de code en cours...
+  Coral.Native.vcxproj -> <INPUTS>\Coral\build-msvc-dotnet10\Release\Coral.Native.lib
+  Building Custom Rule <INPUTS>/Coral/cmake/CMakeLists.txt
+  Building Custom Rule <INPUTS>/Coral/cmake/CMakeLists.txt
+  Main.cpp
+  Main.cpp
+<VS>\VC\Tools\MSVC\14.44.35207\include\ranges(11): warning STL4038: The contents of <ranges> are available only with C++20 or later. [<INPUTS>\Coral\build-msvc-dotnet10\Testing.Native.vcxproj]
+<VS>\VC\Tools\MSVC\14.44.35207\include\ranges(11): warning STL4038: The contents of <ranges> are available only with C++20 or later. [<INPUTS>\Coral\build-msvc-dotnet10\Example.Native.vcxproj]
+  Example.Native.vcxproj -> <INPUTS>\Coral\build-msvc-dotnet10\Example\Release\Example.Native.exe
+  Testing.Native.vcxproj -> <INPUTS>\Coral\build-msvc-dotnet10\Tests\Release\Testing.Native.exe
+  Building Custom Rule <INPUTS>/Coral/cmake/CMakeLists.txt

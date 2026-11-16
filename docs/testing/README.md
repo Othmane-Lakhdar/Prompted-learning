@@ -1,6 +1,6 @@
 # Mixed C++ and C# test resource candidates
 
-These two proposed resources each contain substantive C++ and C# in the same project. Sources, build definitions and source sizes have been inspected. No clone, build, upstream test or extractor run has been performed by the assistant.
+These pinned resources each contain substantive C++ and C# in the same project. Both were cloned locally and their selected blob sizes reverified. Coral's native/managed tests passed; CppSharp's native parser/C# P/Invoke generator-test subset built and ran (91 passed, 1 upstream ignore). Full CppSharp Windows/C++/CLI testing remains blocked. No extractor run has been performed. See the [local preflight report and exact commands](../preflight/2026-11-16-local/README.md).
 
 | Resource | Pin | Selected C# source | Selected C++ source and headers | Total | Classification |
 |---|---|---|---|---|---|
@@ -35,7 +35,7 @@ git -C CppSharp rev-parse HEAD
 
 Compare each HEAD with its recorded pin. A detached checkout is deliberate for reproducible test inputs. Building the unpinned default branch would test a different source revision.
 
-User-local clones do not automatically give the assistant filesystem or build access. Preserve the revision, environment, exact commands, exit codes and logs when providing results.
+This chat has verified local filesystem and build access. Preserve revision, environment, commands, exit codes and logs for subsequent runs.
 
 ## Coral build entry point and checks still required
 
@@ -52,11 +52,11 @@ cmake -S Coral/cmake -B Coral/build-msvc -G "Visual Studio 17 2022" -A x64 -DCOR
 cmake --build Coral/build-msvc --config Release
 ```
 
-These commands have been reviewed against the source but have not been executed. NuGet/network access and exact installed SDK/host-pack selection still need verification.
+These commands were executed. Installed .NET 7/9 initially failed configuration; the verified route uses an explicit path to private SDK 10.0.404/runtime and host pack 10.0.15. NuGet restore and the declared build passed. See the local report for the exact DOTNET override.
 
-The native test program loads Testing.Managed.dll and Coral managed runtime files relative to its executable. The CMake build places native and managed outputs in different directories; verify staging of assemblies, dependencies, configuration files and nethost before running the test executable. A working test-launch procedure remains an explicit prerequisite.
+The native test program loads Testing.Managed.dll and Coral runtime files relative to its executable. The verified test recipe explicitly rebuilds managed tests and their reference in Release into the native executable directory, then stages nethost.dll. This also corrects the CMake test command's omitted --configuration argument for the accepted test run; the original CMake command alone mixes configurations.
 
-[Tests/Testing.Native/Source/Main.cpp](https://github.com/StudioCherno/Coral/blob/320c90de59d9cf81a56f3265d8a5d4a1777431ce/Tests/Testing.Native/Source/Main.cpp) prints failed checks but ends main with return 0. The CMake file creates the test executable without registering CTest tests. Therefore neither exit code zero nor a CTest run with no registered cases establishes success. The future harness must validate expected native and managed summaries, failure output, exceptions and required test counts. See RESOURCE-CORAL-001 and RESOURCE-CORAL-002 in [the deviation log](../deviations.json).
+[Tests/Testing.Native/Source/Main.cpp](https://github.com/StudioCherno/Coral/blob/320c90de59d9cf81a56f3265d8a5d4a1777431ce/Tests/Testing.Native/Source/Main.cpp) prints failed checks but ends main with return 0. CMake does not register CTest cases. Neither exit zero nor a zero-case CTest run establishes success. The added tools/preflight/Assert-CoralLog.ps1 checks one 41-pass native summary, two 19-pass managed summaries, the expected managed test names and failure markers. Positive and negative validation results are recorded. See RESOURCE-CORAL-001 and RESOURCE-CORAL-002 in [the deviation log](../deviations.json).
 
 ## CppSharp build entry point and checks still required
 
@@ -64,7 +64,7 @@ Pinned sources: [build.sh](https://github.com/mono/CppSharp/blob/42ccd59b112072a
 
 The proposed Windows x64 Release path needs VS2022 with Desktop development with C++, Windows SDK, C++/CLI support, and MSBuild.exe visible in the VS developer environment. Also provide Git Bash, curl, archive tools including 7-Zip, a suitable .NET SDK/runtime, and GitHub/NuGet access. The scripts download Premake 5.0.0-beta2.
 
-An explicit net8.0 configuration is the proposed baseline, not a verified successful build. The repository has no global.json; leaving the target unspecified makes the script derive one from dotnet --version. Record SDK and runtime versions instead of relying on whatever happens to be newest.
+An explicit net8.0 configuration was verified for the declared P/Invoke generator-test subset using SDK 9.0.304 and runtime 8.0.19. The repository has no global.json; leaving the target unspecified derives it from dotnet --version. Record SDK and runtime versions instead of relying on whichever happens to be newest.
 
 Run the following from Git Bash with the VS developer environment available, starting in the common parent directory:
 
@@ -76,9 +76,9 @@ bash build.sh -build_only -configuration Release -platform x64
 bash test.sh -configuration Release -platform x64
 ```
 
-These commands are supported by the pinned scripts but remain unexecuted. Release is intentional: the upstream CI notes that Debug tests were disabled because of their duration. GettingStarted's older VS2019/v142 instructions differ from the pinned scripts and CI using VS2022.
+The commands above describe the full upstream Windows route; they were not run as a full suite. The verified adaptation uses CI=true during generation and builds only Generator.Tests with VS MSBuild, then runs that explicit assembly. Release is intentional: upstream CI notes Debug-test duration. GettingStarted's older VS2019/v142 instructions differ from the pinned scripts and CI using VS2022. The local report preserves the tested subset and its limits.
 
-The pinned LLVM commit is cd708029e0b2869e80abe31ddb175f7c35361f90. A matching Windows VS2022 x64 Release archive is listed in upstream release metadata (77,628,811 compressed bytes). Its presence does not verify download integrity or a working build; lack of a suitable prebuilt package can require a much larger LLVM source build.
+The pinned LLVM commit is cd708029e0b2869e80abe31ddb175f7c35361f90. Its Windows VS2022 x64 Release archive was downloaded (77,628,811 compressed bytes), extracted and used in the successful scoped native build. A separate Clang AST/CFG capability executable also linked and ran against those libraries. No upstream archive checksum was supplied by the build script; downloaded-package identity, local file hashes and execution evidence are recorded separately.
 
 The normal Windows parser uses generated C++/CLI bindings. CI mode can select a C# P/Invoke parser binding, but Windows CLI tests remain in the solution. Do not interpret CI=true as a fully CLI-free build. M0 must state which compilation units and language variants the extractor supports. Ordinary native C++ support through Clang does not imply C++/CLI support, and unavailable coverage cannot be counted as passed.
 
@@ -86,4 +86,4 @@ The normal Windows parser uses generated C++/CLI bindings. CI mode can select a 
 
 Their own builds and tests can validate the chosen resource configuration. They cannot prove that the extractor records the right entities, relationships, flow facts, contexts or omissions. M0/M1 must add controlled examples with known expected results, explicit unsupported cases and checks that deliberately detect deviations.
 
-The two resources are suggestions with verified source identity and size. They remain unverified build/test inputs until actual results are recorded. The prior TinyXML2/Newtonsoft.Json pair was replaced because each of the newly requested candidates must contain both languages; it was not a failed build experiment.
+The two resources now have actual build/test evidence for the scopes above. This is not full CppSharp Windows coverage or extractor validation. The prior TinyXML2/Newtonsoft.Json pair was replaced because each newly requested candidate must contain both languages; it was not a failed build experiment.

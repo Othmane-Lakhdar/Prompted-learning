@@ -1,0 +1,521 @@
+[
+  {
+    "evidence_file": "clang-build.log.json",
+    "executable": "<VS>\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe",
+    "arguments": [
+      "--build",
+      "<INPUTS>\\clang-probe",
+      "--config",
+      "Release"
+    ],
+    "working_directory": "<INPUTS>",
+    "environment_overrides": {},
+    "relevant_environment": {
+      "CI": null,
+      "VCToolsVersion": null,
+      "WindowsSDKVersion": null,
+      "VSCMD_VER": null,
+      "VisualStudioVersion": null,
+      "DOTNET_ROOT": null
+    },
+    "started_utc": "2026-11-16T22:31:14.8347935+00:00",
+    "elapsed_seconds": 7.967,
+    "exit_code": 0,
+    "launch_error": null,
+    "log": "<INPUTS>\\preflight-logs\\clang-build.log"
+  },
+  {
+    "evidence_file": "clang-configure.log.json",
+    "executable": "<VS>\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe",
+    "arguments": [
+      "-S",
+      "<PROJECT>\\tools\\preflight\\clang",
+      "-B",
+      "<INPUTS>\\clang-probe",
+      "-G",
+      "Visual Studio 17 2022",
+      "-A",
+      "x64",
+      "-DLLVM_PACKAGE=<INPUTS>\\CppSharp\\build\\llvm\\llvm-cd7080-windows-vs2022-x64-Release"
+    ],
+    "working_directory": "<INPUTS>",
+    "environment_overrides": {},
+    "relevant_environment": {
+      "CI": null,
+      "VCToolsVersion": null,
+      "WindowsSDKVersion": null,
+      "VSCMD_VER": null,
+      "VisualStudioVersion": null,
+      "DOTNET_ROOT": null
+    },
+    "started_utc": "2026-11-16T22:31:09.8941920+00:00",
+    "elapsed_seconds": 4.882,
+    "exit_code": 0,
+    "launch_error": null,
+    "log": "<INPUTS>\\preflight-logs\\clang-configure.log"
+  },
+  {
+    "evidence_file": "clang-test.log.json",
+    "executable": "<VS>\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\ctest.exe",
+    "arguments": [
+      "--test-dir",
+      "<INPUTS>\\clang-probe",
+      "-C",
+      "Release",
+      "--verbose",
+      "--no-tests=error"
+    ],
+    "working_directory": "<INPUTS>",
+    "environment_overrides": {},
+    "relevant_environment": {
+      "CI": null,
+      "VCToolsVersion": null,
+      "WindowsSDKVersion": null,
+      "VSCMD_VER": null,
+      "VisualStudioVersion": null,
+      "DOTNET_ROOT": null
+    },
+    "started_utc": "2026-11-16T22:33:09.2030343+00:00",
+    "elapsed_seconds": 0.262,
+    "exit_code": 0,
+    "launch_error": null,
+    "log": "<INPUTS>\\preflight-logs\\clang-test.log"
+  },
+  {
+    "evidence_file": "collector-invalid-directory.log.json",
+    "executable": "dotnet",
+    "arguments": [
+      "--version"
+    ],
+    "working_directory": "<INPUTS>\\intentionally-nonexistent-preflight-directory",
+    "environment_overrides": {
+      "PREFLIGHT_SENTINEL": "temporary"
+    },
+    "relevant_environment": {
+      "CI": null,
+      "VCToolsVersion": null,
+      "WindowsSDKVersion": null,
+      "VSCMD_VER": null,
+      "VisualStudioVersion": null,
+      "DOTNET_ROOT": null,
+      "DOTNET_ROOT_X64": null
+    },
+    "started_utc": "2026-11-16T22:34:24.1847988+00:00",
+    "elapsed_seconds": 0.035,
+    "exit_code": null,
+    "launch_error": "Cannot find path '<INPUTS>\\intentionally-nonexistent-preflight-directory' because it does not exist.",
+    "log": "<INPUTS>\\preflight-logs\\collector-invalid-directory.log"
+  },
+  {
+    "evidence_file": "coral-build.log.json",
+    "executable": "<VS>\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe",
+    "arguments": [
+      "--build",
+      "<INPUTS>\\Coral\\build-msvc-dotnet10",
+      "--config",
+      "Release",
+      "--parallel",
+      "2"
+    ],
+    "working_directory": "<INPUTS>",
+    "environment_overrides": {
+      "DOTNET_ROOT": "<INPUTS>\\toolchains\\dotnet-10.0.404"
+    },
+    "relevant_environment": {
+      "CI": null,
+      "VCToolsVersion": null,
+      "WindowsSDKVersion": null,
+      "VSCMD_VER": null,
+      "VisualStudioVersion": null,
+      "DOTNET_ROOT": "<INPUTS>\\toolchains\\dotnet-10.0.404"
+    },
+    "started_utc": "2026-11-16T22:29:40.7397434+00:00",
+    "elapsed_seconds": 19.161,
+    "exit_code": 0,
+    "launch_error": null,
+    "log": "<INPUTS>\\preflight-logs\\coral-build.log"
+  },
+  {
+    "evidence_file": "coral-configure-dotnet10.log.json",
+    "executable": "<VS>\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe",
+    "arguments": [
+      "-S",
+      "<INPUTS>\\Coral\\cmake",
+      "-B",
+      "<INPUTS>\\Coral\\build-msvc-dotnet10",
+      "-G",
+      "Visual Studio 17 2022",
+      "-A",
+      "x64",
+      "-DCORAL_TESTING=ON",
+      "-DCORAL_EXAMPLE=ON",
+      "-DDOTNET=<INPUTS>\\toolchains\\dotnet-10.0.404\\dotnet.exe"
+    ],
+    "working_directory": "<INPUTS>",
+    "environment_overrides": {
+      "DOTNET_ROOT": "<INPUTS>\\toolchains\\dotnet-10.0.404"
+    },
+    "relevant_environment": {
+      "CI": null,
+      "VCToolsVersion": null,
+      "WindowsSDKVersion": null,
+      "VSCMD_VER": null,
+      "VisualStudioVersion": null,
+      "DOTNET_ROOT": "<INPUTS>\\toolchains\\dotnet-10.0.404"
+    },
+    "started_utc": "2026-11-16T22:29:35.0245147+00:00",
+    "elapsed_seconds": 5.662,
+    "exit_code": 0,
+    "launch_error": null,
+    "log": "<INPUTS>\\preflight-logs\\coral-configure-dotnet10.log"
+  },
+  {
+    "evidence_file": "coral-configure.log.json",
+    "executable": "<VS>\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe",
+    "arguments": [
+      "-S",
+      "<INPUTS>\\Coral\\cmake",
+      "-B",
+      "<INPUTS>\\Coral\\build-msvc",
+      "-G",
+      "Visual Studio 17 2022",
+      "-A",
+      "x64",
+      "-DCORAL_TESTING=ON",
+      "-DCORAL_EXAMPLE=ON"
+    ],
+    "working_directory": "<INPUTS>",
+    "started_utc": "2026-11-16T22:26:19.9609538+00:00",
+    "elapsed_seconds": 6.736,
+    "exit_code": 1,
+    "launch_error": null,
+    "log": "<INPUTS>\\preflight-logs\\coral-configure.log"
+  },
+  {
+    "evidence_file": "coral-managed-release.log.json",
+    "executable": "<INPUTS>\\toolchains\\dotnet-10.0.404\\dotnet.exe",
+    "arguments": [
+      "build",
+      "Tests\\Testing.Managed\\Testing.Managed-Static.csproj",
+      "--configuration",
+      "Release",
+      "--output",
+      "<INPUTS>\\Coral\\build-msvc-dotnet10\\Tests\\Release",
+      "--nologo"
+    ],
+    "working_directory": "<INPUTS>\\Coral",
+    "environment_overrides": {
+      "DOTNET_ROOT": "<INPUTS>\\toolchains\\dotnet-10.0.404"
+    },
+    "relevant_environment": {
+      "CI": null,
+      "VCToolsVersion": null,
+      "WindowsSDKVersion": null,
+      "VSCMD_VER": null,
+      "VisualStudioVersion": null,
+      "DOTNET_ROOT": "<INPUTS>\\toolchains\\dotnet-10.0.404"
+    },
+    "started_utc": "2026-11-16T22:31:09.8948619+00:00",
+    "elapsed_seconds": 2.832,
+    "exit_code": 0,
+    "launch_error": null,
+    "log": "<INPUTS>\\preflight-logs\\coral-managed-release.log"
+  },
+  {
+    "evidence_file": "coral-tests.log.json",
+    "executable": "<INPUTS>\\Coral\\build-msvc-dotnet10\\Tests\\Release\\Testing.Native.exe",
+    "arguments": [],
+    "working_directory": "<INPUTS>\\Coral\\build-msvc-dotnet10\\Tests\\Release",
+    "environment_overrides": {
+      "DOTNET_ROOT_X64": "<INPUTS>\\toolchains\\dotnet-10.0.404",
+      "DOTNET_ROOT": "<INPUTS>\\toolchains\\dotnet-10.0.404"
+    },
+    "relevant_environment": {
+      "CI": null,
+      "VCToolsVersion": null,
+      "WindowsSDKVersion": null,
+      "VSCMD_VER": null,
+      "VisualStudioVersion": null,
+      "DOTNET_ROOT": "<INPUTS>\\toolchains\\dotnet-10.0.404"
+    },
+    "started_utc": "2026-11-16T22:32:00.0574846+00:00",
+    "elapsed_seconds": 0.789,
+    "exit_code": 0,
+    "launch_error": null,
+    "log": "<INPUTS>\\preflight-logs\\coral-tests.log"
+  },
+  {
+    "evidence_file": "cppsharp-ast-smoke.log.json",
+    "executable": "dotnet",
+    "arguments": [
+      "test",
+      "bin\\Release\\CppSharp.Generator.Tests.dll",
+      "--filter",
+      "FullyQualifiedName=CppSharp.Generator.Tests.AST.TestAST.TestASTParameter",
+      "--logger",
+      "trx;LogFileName=cppsharp-ast-smoke.trx",
+      "--results-directory",
+      "<INPUTS>\\preflight-logs\\test-results"
+    ],
+    "working_directory": "<INPUTS>\\CppSharp",
+    "environment_overrides": {},
+    "relevant_environment": {
+      "CI": null,
+      "VCToolsVersion": null,
+      "WindowsSDKVersion": null,
+      "VSCMD_VER": null,
+      "VisualStudioVersion": null,
+      "DOTNET_ROOT": null
+    },
+    "started_utc": "2026-11-16T22:28:37.1093918+00:00",
+    "elapsed_seconds": 9.313,
+    "exit_code": 0,
+    "launch_error": null,
+    "log": "<INPUTS>\\preflight-logs\\cppsharp-ast-smoke.log"
+  },
+  {
+    "evidence_file": "cppsharp-generate.log.json",
+    "executable": "C:\\Program Files\\Git\\bin\\bash.exe",
+    "arguments": [
+      "build.sh",
+      "generate",
+      "-configuration",
+      "Release",
+      "-platform",
+      "x64",
+      "-vs",
+      "2022",
+      "-target-framework",
+      "net8.0"
+    ],
+    "working_directory": "<INPUTS>\\CppSharp\\build",
+    "started_utc": "2026-11-16T22:26:17.8857672+00:00",
+    "elapsed_seconds": 15.762,
+    "exit_code": 0,
+    "launch_error": null,
+    "log": "<INPUTS>\\preflight-logs\\cppsharp-generate.log"
+  },
+  {
+    "evidence_file": "cppsharp-generator-tests.log.json",
+    "executable": "dotnet",
+    "arguments": [
+      "test",
+      "bin\\Release\\CppSharp.Generator.Tests.dll",
+      "--logger",
+      "trx;LogFileName=cppsharp-generator.trx",
+      "--results-directory",
+      "<INPUTS>\\preflight-logs\\test-results"
+    ],
+    "working_directory": "<INPUTS>\\CppSharp",
+    "environment_overrides": {},
+    "relevant_environment": {
+      "CI": null,
+      "VCToolsVersion": null,
+      "WindowsSDKVersion": null,
+      "VSCMD_VER": null,
+      "VisualStudioVersion": null,
+      "DOTNET_ROOT": null
+    },
+    "started_utc": "2026-11-16T22:29:06.5457750+00:00",
+    "elapsed_seconds": 16.231,
+    "exit_code": 0,
+    "launch_error": null,
+    "log": "<INPUTS>\\preflight-logs\\cppsharp-generator-tests.log"
+  },
+  {
+    "evidence_file": "cppsharp-subset-build.log.json",
+    "executable": "<VS>\\MSBuild\\Current\\Bin\\MSBuild.exe",
+    "arguments": [
+      "src\\Generator.Tests\\CppSharp.Generator.Tests.csproj",
+      "-restore",
+      "-p:Configuration=Release",
+      "-p:Platform=x64",
+      "-p:CI=true",
+      "-v:minimal",
+      "-nologo",
+      "-m:2",
+      "-bl:<INPUTS>\\preflight-logs\\cppsharp-subset.binlog"
+    ],
+    "working_directory": "<INPUTS>\\CppSharp",
+    "environment_overrides": {
+      "CI": "true"
+    },
+    "relevant_environment": {
+      "CI": "true",
+      "VCToolsVersion": "14.44.35207",
+      "WindowsSDKVersion": "10.0.26100.0\\",
+      "VSCMD_VER": "17.14.13",
+      "VisualStudioVersion": "17.0",
+      "DOTNET_ROOT": null
+    },
+    "started_utc": "2026-11-16T22:27:10.4254149+00:00",
+    "elapsed_seconds": 49.977,
+    "exit_code": 0,
+    "launch_error": null,
+    "log": "<INPUTS>\\preflight-logs\\cppsharp-subset-build.log"
+  },
+  {
+    "evidence_file": "managed-build.log.json",
+    "executable": "dotnet",
+    "arguments": [
+      "build",
+      "<PROJECT>\\tools\\preflight\\managed\\Preflight.Managed.csproj",
+      "--configuration",
+      "Release",
+      "--artifacts-path",
+      "<INPUTS>\\managed-probe",
+      "--no-incremental",
+      "-p:RestoreNoCache=true",
+      "--nologo"
+    ],
+    "working_directory": "<INPUTS>",
+    "started_utc": "2026-11-16T22:26:11.7161256+00:00",
+    "elapsed_seconds": 9.782,
+    "exit_code": 0,
+    "launch_error": null,
+    "log": "<INPUTS>\\preflight-logs\\managed-build.log"
+  },
+  {
+    "evidence_file": "managed-expected-failure.log.json",
+    "executable": "dotnet",
+    "arguments": [
+      "<INPUTS>\\managed-probe\\bin\\Preflight.Managed\\release\\Preflight.Managed.dll",
+      "--expected-failure"
+    ],
+    "working_directory": "<INPUTS>",
+    "environment_overrides": {},
+    "relevant_environment": {
+      "CI": null,
+      "VCToolsVersion": null,
+      "WindowsSDKVersion": null,
+      "VSCMD_VER": null,
+      "VisualStudioVersion": null,
+      "DOTNET_ROOT": null
+    },
+    "started_utc": "2026-11-16T22:28:37.1091330+00:00",
+    "elapsed_seconds": 0.168,
+    "exit_code": 7,
+    "launch_error": null,
+    "log": "<INPUTS>\\preflight-logs\\managed-expected-failure.log"
+  },
+  {
+    "evidence_file": "managed-run.log.json",
+    "executable": "dotnet",
+    "arguments": [
+      "<INPUTS>\\managed-probe\\bin\\Preflight.Managed\\release\\Preflight.Managed.dll"
+    ],
+    "working_directory": "<INPUTS>",
+    "environment_overrides": {},
+    "relevant_environment": {
+      "CI": null,
+      "VCToolsVersion": null,
+      "WindowsSDKVersion": null,
+      "VSCMD_VER": null,
+      "VisualStudioVersion": null,
+      "DOTNET_ROOT": null
+    },
+    "started_utc": "2026-11-16T22:27:07.3805064+00:00",
+    "elapsed_seconds": 1.341,
+    "exit_code": 0,
+    "launch_error": null,
+    "log": "<INPUTS>\\preflight-logs\\managed-run.log"
+  },
+  {
+    "evidence_file": "msbuild-evaluation.log.json",
+    "executable": "dotnet",
+    "arguments": [
+      "msbuild",
+      "tools\\preflight\\managed\\Preflight.Managed.csproj",
+      "-getProperty:TargetFramework,Configuration,MSBuildVersion",
+      "-getItem:Compile"
+    ],
+    "working_directory": "<PROJECT>",
+    "environment_overrides": {},
+    "relevant_environment": {
+      "CI": null,
+      "VCToolsVersion": null,
+      "WindowsSDKVersion": null,
+      "VSCMD_VER": null,
+      "VisualStudioVersion": null,
+      "DOTNET_ROOT": null,
+      "DOTNET_ROOT_X64": null
+    },
+    "started_utc": "2026-11-16T22:34:24.2612649+00:00",
+    "elapsed_seconds": 0.735,
+    "exit_code": 0,
+    "launch_error": null,
+    "log": "<INPUTS>\\preflight-logs\\msbuild-evaluation.log"
+  },
+  {
+    "evidence_file": "native-build.log.json",
+    "executable": "<VS>\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe",
+    "arguments": [
+      "--build",
+      "<INPUTS>\\native-probe",
+      "--config",
+      "Release"
+    ],
+    "working_directory": "<INPUTS>",
+    "environment_overrides": {},
+    "relevant_environment": {
+      "CI": null,
+      "VCToolsVersion": null,
+      "WindowsSDKVersion": null,
+      "VSCMD_VER": null,
+      "VisualStudioVersion": null,
+      "DOTNET_ROOT": null
+    },
+    "started_utc": "2026-11-16T22:27:07.3763133+00:00",
+    "elapsed_seconds": 2.447,
+    "exit_code": 0,
+    "launch_error": null,
+    "log": "<INPUTS>\\preflight-logs\\native-build.log"
+  },
+  {
+    "evidence_file": "native-configure.log.json",
+    "executable": "<VS>\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\cmake.exe",
+    "arguments": [
+      "-S",
+      "<PROJECT>\\tools\\preflight\\native",
+      "-B",
+      "<INPUTS>\\native-probe",
+      "-G",
+      "Visual Studio 17 2022",
+      "-A",
+      "x64"
+    ],
+    "working_directory": "<INPUTS>",
+    "started_utc": "2026-11-16T22:26:11.7168545+00:00",
+    "elapsed_seconds": 8.159,
+    "exit_code": 0,
+    "launch_error": null,
+    "log": "<INPUTS>\\preflight-logs\\native-configure.log"
+  },
+  {
+    "evidence_file": "native-test.log.json",
+    "executable": "<VS>\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\bin\\ctest.exe",
+    "arguments": [
+      "--test-dir",
+      "<INPUTS>\\native-probe",
+      "-C",
+      "Release",
+      "--output-on-failure",
+      "--no-tests=error"
+    ],
+    "working_directory": "<INPUTS>",
+    "environment_overrides": {},
+    "relevant_environment": {
+      "CI": null,
+      "VCToolsVersion": null,
+      "WindowsSDKVersion": null,
+      "VSCMD_VER": null,
+      "VisualStudioVersion": null,
+      "DOTNET_ROOT": null
+    },
+    "started_utc": "2026-11-16T22:27:09.8848922+00:00",
+    "elapsed_seconds": 0.212,
+    "exit_code": 0,
+    "launch_error": null,
+    "log": "<INPUTS>\\preflight-logs\\native-test.log"
+  }
+]

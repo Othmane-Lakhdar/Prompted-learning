@@ -1,0 +1,8 @@
+Version de VSTest 17.14.1 (x64)
+
+Démarrage de l'exécution de tests, patientez...
+Au total, 1 fichiers de test ont correspondu au modèle spécifié.
+  Ignoré TestUniqueNamesAcrossTranslationUnits [< 1 ms]
+Fichier de résultats : <INPUTS>\preflight-logs\test-results\cppsharp-generator.trx
+
+Réussi!  - échec :     0, réussite :    91, ignorée(s) :     1, total :    92, durée : 14 s - CppSharp.Generator.Tests.dll (net8.0)

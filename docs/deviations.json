@@ -4,11 +4,11 @@
   "entries": [
     {
       "id": "ENV001",
-      "status": "open",
+      "status": "resolved_for_local_execution",
       "kind": "execution_blocker",
       "stage": "preflight",
       "expected": "A usable command runner can inspect the workspace and run Git/build/test tools.",
-      "observed": "The pwd probe failed before command launch. The selected environment subsequently reported failed while querying executor configuration capabilities.",
+      "observed": "The former cloud runner failed. This Windows chat executed actual clones, native/managed builds and tests; it is a separate verified execution path.",
       "evidence": [
         {
           "check": "environment_status",
@@ -27,6 +27,10 @@
         {
           "check": "selected environment notification",
           "result": "status=failed; failed to query executor configuration capabilities for environment ccarenv_b64_Y2NhcmVudl9iNWQ3ZTlhYThkZDQ4MTkxOGQ0MjNhMmJlNjAwN2E5ZQ"
+        },
+        {
+          "report": "docs/preflight/2026-11-16-local/README.md",
+          "commands": "docs/preflight/2026-11-16-local/commands.json"
         }
       ],
       "affected": [
@@ -37,12 +41,24 @@
         "tests",
         "runtime measurements"
       ],
-      "blocks_dependent_execution": true,
-      "corrective_action": "Establish a working execution environment or verify a CI runner; alternatively label user-supplied local results with their provenance.",
+      "blocks_dependent_execution": false,
+      "corrective_action": "Use the verified local checkout and record each command; retain the historical cloud failure.",
       "verification": {
-        "status": "not_run",
-        "required": "Successful actual command, clone and build/test probes in the declared environment."
-      }
+        "status": "passed",
+        "scope": "Windows local execution, process exits/logs, filesystem, build/test probes"
+      },
+      "history": [
+        {
+          "as_of": "2026-11-16",
+          "environment": "prior cloud preflight",
+          "status": "open",
+          "observed": "The pwd probe failed before command launch. The selected environment subsequently reported failed while querying executor configuration capabilities.",
+          "verification": {
+            "status": "not_run",
+            "required": "Successful actual command, clone and build/test probes in the declared environment."
+          }
+        }
+      ]
     },
     {
       "id": "ACCESS001",
@@ -124,15 +140,19 @@
     },
     {
       "id": "CI001",
-      "status": "unverified",
+      "status": "unverified_optional_alternative",
       "kind": "execution_alternative",
       "stage": "preflight",
       "expected": "A real workflow can acquire a suitable runner and execute build/test commands if CI is used.",
-      "observed": "No existing run was available; workflow authoring, trigger, runner and artifact path have not been exercised.",
+      "observed": "No CI runner has been exercised. Local Windows execution now supplies the build path; CI is not a prerequisite for that path.",
       "evidence": [
         {
           "check": "Actions runs",
           "result": "total_count=0 at baseline"
+        },
+        {
+          "report": "docs/preflight/2026-11-16-local/README.md",
+          "commands": "docs/preflight/2026-11-16-local/commands.json"
         }
       ],
       "affected": [
@@ -140,42 +160,72 @@
         "Windows/MSVC validation",
         "CI log and artifact collection"
       ],
-      "blocks_dependent_execution": true,
-      "corrective_action": "Implement a bounded capability workflow only when proceeding with that execution path, then inspect the actual run and artifacts.",
+      "blocks_dependent_execution": false,
+      "corrective_action": "Verify workflow execution if CI is adopted later.",
       "verification": {
-        "status": "not_run"
-      }
+        "status": "not_run",
+        "scope": "CI; local execution is independently verified"
+      },
+      "history": [
+        {
+          "as_of": "2026-11-16",
+          "environment": "prior cloud preflight",
+          "status": "unverified",
+          "observed": "No existing run was available; workflow authoring, trigger, runner and artifact path have not been exercised.",
+          "verification": {
+            "status": "not_run"
+          }
+        }
+      ]
     },
     {
       "id": "TEST001",
-      "status": "pending_execution",
+      "status": "verified_for_declared_resource_scopes",
       "kind": "unverified_test_resources",
       "stage": "preflight",
       "expected": "Selected pinned resources can be cloned, restored, built and tested with recorded commands and versions.",
-      "observed": "Repository reads and source-size measurements are available; no selected-resource clone, build or test has been run by the assistant.",
+      "observed": "Both pins cloned and measured from local Git objects. Coral native/managed tests passed. CppSharp native parser/C# PInvoke generator subset built and ran 91 passes with 1 upstream ignore; full Windows solution not run.",
       "evidence": [
         {
           "manifest": "docs/testing/candidates.json",
           "instructions": "docs/testing/README.md"
+        },
+        {
+          "report": "docs/preflight/2026-11-16-local/README.md",
+          "commands": "docs/preflight/2026-11-16-local/commands.json"
         }
       ],
       "affected": [
         "candidate build claims",
         "extractor pilot assumptions"
       ],
-      "blocks_dependent_execution": true,
-      "corrective_action": "Run the pinned candidate builds and tests, record outcomes, and add controlled expected extractor fixtures in the appropriate stages.",
+      "blocks_dependent_execution": false,
+      "corrective_action": "Use only these declared resource scopes; retain the C++/CLI gate and define extractor feature fixtures in M0/M1.",
       "verification": {
-        "status": "not_run"
-      }
+        "status": "passed_with_scope_limits",
+        "coral": "41 native plus 19 managed in each of 2 contexts",
+        "cppsharp": "Generator.Tests: 91 passed, 1 explicitly ignored; full solution not tested",
+        "extractor": "not_implemented"
+      },
+      "history": [
+        {
+          "as_of": "2026-11-16",
+          "environment": "prior cloud preflight",
+          "status": "pending_execution",
+          "observed": "Repository reads and source-size measurements are available; no selected-resource clone, build or test has been run by the assistant.",
+          "verification": {
+            "status": "not_run"
+          }
+        }
+      ]
     },
     {
       "id": "RESOURCE-CORAL-001",
-      "status": "open_test_harness_gap",
+      "status": "adapted_with_verified_external_checker",
       "kind": "failure_detection",
       "stage": "preflight",
       "expected": "An upstream automated test run exposes failed checks as a failed run.",
-      "observed": "Pinned Coral RunTests prints failures but main returns 0; CMake defines a test executable without registering CTest tests.",
+      "observed": "Upstream still exits 0 even on failures and has no CTest registration. The external checker verifies expected native/managed counts, all managed test names and failure markers. Four synthetic false-green logs were rejected.",
       "evidence": [
         {
           "repository": "StudioCherno/Coral",
@@ -186,25 +236,48 @@
         {
           "path": "cmake/CMakeLists.txt",
           "finding": "CORAL_TESTING creates Testing.Native; no enable_testing/add_test calls."
+        },
+        {
+          "report": "docs/preflight/2026-11-16-local/README.md",
+          "commands": "docs/preflight/2026-11-16-local/commands.json"
         }
       ],
       "affected": [
         "Coral test-result interpretation",
         "false green upstream test status"
       ],
-      "blocks_dependent_execution": true,
-      "corrective_action": "Before accepting automated results, define an external noninteractive harness that checks required native/managed summaries and errors, validates counts and does not infer success from exit 0 or zero CTest cases. Keep upstream source pinned and any adaptation explicit.",
+      "blocks_dependent_execution": false,
+      "corrective_action": "Always use Assert-CoralLog.ps1 with captured process metadata; do not infer test success from exit 0.",
       "verification": {
-        "status": "source_inspected_not_executed"
-      }
+        "status": "passed",
+        "positive": "41 native passes; two managed runs of 19 passes",
+        "negative_cases": [
+          "wrong count",
+          "missing managed runs",
+          "exception",
+          "failed check"
+        ],
+        "source_pin": "320c90de59d9cf81a56f3265d8a5d4a1777431ce"
+      },
+      "history": [
+        {
+          "as_of": "2026-11-16",
+          "environment": "prior cloud preflight",
+          "status": "open_test_harness_gap",
+          "observed": "Pinned Coral RunTests prints failures but main returns 0; CMake defines a test executable without registering CTest tests.",
+          "verification": {
+            "status": "source_inspected_not_executed"
+          }
+        }
+      ]
     },
     {
       "id": "RESOURCE-CORAL-002",
-      "status": "documented_prerequisites_not_build_verified",
+      "status": "verified_for_declared_test_deployment",
       "kind": "build_contract_gap",
       "stage": "preflight",
       "expected": "The build procedure uses tool versions and layout compatible with the selected source.",
-      "observed": "Managed projects target net10.0; CMake uses block() despite a declared minimum of 3.19; native and managed test outputs use different directories. The CMake route explicitly invokes dotnet CLI for the managed part with VS2022.",
+      "observed": "Initial configure failed because installed runtimes stopped at 9. A private, official SHA512-verified SDK 10.0.404/runtime and host pack 10.0.15 enabled configure/build. Release managed tests/reference and nethost were staged beside Testing.Native.exe; tests passed.",
       "evidence": [
         {
           "repository": "StudioCherno/Coral",
@@ -215,25 +288,43 @@
             "cmake/Dotnet.cmake",
             "Tests/Testing.Native/Source/Main.cpp"
           ]
+        },
+        {
+          "report": "docs/preflight/2026-11-16-local/README.md",
+          "commands": "docs/preflight/2026-11-16-local/commands.json"
         }
       ],
       "affected": [
         "candidate build prerequisites",
         "managed/native test deployment"
       ],
-      "blocks_dependent_execution": true,
-      "corrective_action": "Use a compatible .NET 10 SDK/runtime/host pack, CMake 3.25+ and the declared native toolchain. Verify staging of managed assemblies/dependencies/config files and nethost for the native executable. Do not claim an all-in-one VS2022 managed build or validated run before execution.",
+      "blocks_dependent_execution": false,
+      "corrective_action": "Use the recorded private SDK and explicit deployment recipe; see separate configuration omission record.",
       "verification": {
-        "status": "source_inspected_not_executed"
-      }
+        "status": "passed",
+        "sdk": "10.0.404",
+        "runtime": "10.0.15",
+        "build": "VS2022 MSVC x64 Release; standalone dotnet managed build"
+      },
+      "history": [
+        {
+          "as_of": "2026-11-16",
+          "environment": "prior cloud preflight",
+          "status": "documented_prerequisites_not_build_verified",
+          "observed": "Managed projects target net10.0; CMake uses block() despite a declared minimum of 3.19; native and managed test outputs use different directories. The CMake route explicitly invokes dotnet CLI for the managed part with VS2022.",
+          "verification": {
+            "status": "source_inspected_not_executed"
+          }
+        }
+      ]
     },
     {
       "id": "RESOURCE-CPPSHARP-001",
-      "status": "open_support_boundary",
+      "status": "open_full_windows_and_extractor_support_boundary",
       "kind": "language_support",
       "stage": "preflight",
       "expected": "Candidate coverage distinguishes supported native C++/C# from optional or generated language variants.",
-      "observed": "The Windows parser normally uses generated C++/CLI; CI mode switches the parser to C# P/Invoke, but Windows CLI tests remain in the solution.",
+      "observed": "C++/CLI component absent. CI=true selects C# PInvoke parser but Windows CLI tests remain generated. The explicit Generator.Tests project graph successfully built the native parser and managed layers; full solution was not built.",
       "evidence": [
         {
           "repository": "mono/CppSharp",
@@ -242,26 +333,43 @@
             "src/Parser/CppSharp.Parser.csproj",
             "build/Tests.lua"
           ]
+        },
+        {
+          "report": "docs/preflight/2026-11-16-local/README.md",
+          "commands": "docs/preflight/2026-11-16-local/commands.json"
         }
       ],
       "affected": [
-        "compiler compatibility",
-        "selected build context",
-        "extractor coverage claims"
+        "full CppSharp Windows/C++CLI build and tests",
+        "whole-repository coverage claims",
+        "M0 C++CLI support policy"
       ],
       "blocks_dependent_execution": true,
-      "corrective_action": "Install the required C++/CLI component for an upstream Windows build. In M0 specify the extraction scope and support matrix; do not treat C++/CLI as ordinary Clang-supported C++ or claim whole-repository support from a native/PInvoke subset.",
+      "corrective_action": "Keep the PInvoke subset explicit. Add C++/CLI and run the corresponding tests before claiming full upstream Windows support. M0 must separately declare extraction coverage.",
       "verification": {
-        "status": "source_inspected_not_executed"
-      }
+        "status": "partial",
+        "passed": "native parser plus C# PInvoke generator tests",
+        "blocked": "full Windows C++CLI solution and tests"
+      },
+      "history": [
+        {
+          "as_of": "2026-11-16",
+          "environment": "prior cloud preflight",
+          "status": "open_support_boundary",
+          "observed": "The Windows parser normally uses generated C++/CLI; CI mode switches the parser to C# P/Invoke, but Windows CLI tests remain in the solution.",
+          "verification": {
+            "status": "source_inspected_not_executed"
+          }
+        }
+      ]
     },
     {
       "id": "RESOURCE-CPPSHARP-002",
-      "status": "documented_prerequisites_not_build_verified",
+      "status": "verified_for_scoped_configuration",
       "kind": "build_configuration",
       "stage": "preflight",
       "expected": "Build instructions and actual selected tools/targets agree and dependencies are reproducible.",
-      "observed": "GettingStarted refers to VS2019/v142 while pinned scripts/CI use VS2022. Without an explicit target framework the script derives it from dotnet --version. LLVM prebuilt availability is only metadata-verified.",
+      "observed": "Pinned generation downloaded Premake and LLVM successfully. VS2022 MSBuild built the scoped net8.0/x64/Release/CI=true graph using SDK9; runtime8.0.19 executed tests.",
       "evidence": [
         {
           "repository": "mono/CppSharp",
@@ -275,6 +383,10 @@
         {
           "llvm_commit": "cd708029e0b2869e80abe31ddb175f7c35361f90",
           "reported_archive_bytes": 77628811
+        },
+        {
+          "report": "docs/preflight/2026-11-16-local/README.md",
+          "commands": "docs/preflight/2026-11-16-local/commands.json"
         }
       ],
       "affected": [
@@ -282,10 +394,168 @@
         "dependency acquisition",
         "test duration"
       ],
-      "blocks_dependent_execution": true,
-      "corrective_action": "Use the pinned script-supported Windows x64 Release configuration and an explicit target framework; record exact SDK/runtime/tool versions, archive identity and actual build/test outcomes. Do not infer success from an available release asset.",
+      "blocks_dependent_execution": false,
+      "corrective_action": "Retain exact generated config and versions; do not extrapolate to unrun configurations.",
       "verification": {
-        "status": "source_inspected_not_executed"
+        "status": "passed",
+        "llvm_commit": "cd708029e0b2869e80abe31ddb175f7c35361f90",
+        "download_bytes": 77628811,
+        "scope": "Generator.Tests project graph, not complete solution"
+      },
+      "history": [
+        {
+          "as_of": "2026-11-16",
+          "environment": "prior cloud preflight",
+          "status": "documented_prerequisites_not_build_verified",
+          "observed": "GettingStarted refers to VS2019/v142 while pinned scripts/CI use VS2022. Without an explicit target framework the script derives it from dotnet --version. LLVM prebuilt availability is only metadata-verified.",
+          "verification": {
+            "status": "source_inspected_not_executed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "INPUT001",
+      "status": "resolved",
+      "kind": "revision_mismatch",
+      "stage": "preflight",
+      "expected": "Test CppSharp at the agreed pin.",
+      "observed": "User ZIP comment identifies 182c3b180b8f0d4e6af1f80ffad85d681979d728 rather than 42ccd59b112072a6bcf3e1406efca174a46c8cf8. ZIP untouched; fresh pinned clone used.",
+      "evidence": [
+        {
+          "report": "docs/preflight/2026-11-16-local/README.md",
+          "commands": "docs/preflight/2026-11-16-local/commands.json"
+        }
+      ],
+      "affected": [
+        "input identity"
+      ],
+      "blocks_dependent_execution": false,
+      "corrective_action": "Use verified clone, not this ZIP.",
+      "verification": {
+        "status": "resolved",
+        "evidence": "docs/preflight/2026-11-16-local/input-verification.json"
+      }
+    },
+    {
+      "id": "PREFLIGHT-CHECK001",
+      "status": "resolved",
+      "kind": "incorrect_test_expectation",
+      "stage": "preflight",
+      "expected": "Count all active attributed managed tests independently from runtime results.",
+      "observed": "Initial review expected 18 and missed StringMarshalTest2 because its search matched names ending Test(. Checker rejected actual 19-test summaries. Recount of source attributes independently establishes 19; NativeInstanceTest is commented out.",
+      "evidence": [
+        {
+          "report": "docs/preflight/2026-11-16-local/README.md",
+          "commands": "docs/preflight/2026-11-16-local/commands.json"
+        }
+      ],
+      "affected": [
+        "Coral test-result interpretation"
+      ],
+      "blocks_dependent_execution": false,
+      "corrective_action": "Keep all 19 expected names in the checker and retain initial failure evidence.",
+      "verification": {
+        "status": "resolved",
+        "positive": "existing run accepted after source-backed correction",
+        "negative": "four intentionally invalid logs rejected",
+        "evidence": "docs/preflight/2026-11-16-local/coral-validator-negative-checks.json"
+      }
+    },
+    {
+      "id": "PREFLIGHT-CHECK002",
+      "status": "resolved",
+      "kind": "probe_robustness",
+      "stage": "preflight",
+      "expected": "Reject dirty tracked inputs and restore process state on setup failure.",
+      "observed": "Review found Git-object-only validation and Push-Location outside cleanup guard. An initial restoration attempt converted absent environment values to empty strings. Guards and explicit removal of originally absent variables corrected these issues.",
+      "evidence": [
+        {
+          "report": "docs/preflight/2026-11-16-local/README.md",
+          "commands": "docs/preflight/2026-11-16-local/commands.json"
+        }
+      ],
+      "affected": [
+        "future probe evidence"
+      ],
+      "blocks_dependent_execution": false,
+      "corrective_action": "Verify clean tracked worktree separately from Git objects; guard setup and restore original environment.",
+      "verification": {
+        "status": "resolved",
+        "evidence": "docs/preflight/2026-11-16-local/collector-validation.json",
+        "input_check": "both candidate tracked worktrees clean after builds"
+      }
+    },
+    {
+      "id": "RESOURCE-CORAL-003",
+      "status": "recorded",
+      "kind": "upstream_configuration_omission",
+      "stage": "preflight",
+      "expected": "A Release build consistently selects Release managed test outputs.",
+      "observed": "CMake testing/example managed commands omit --configuration and default to Debug. Native and Coral.Managed were Release. The accepted test deployment explicitly rebuilt Testing.Managed and its reference in Release.",
+      "evidence": [
+        {
+          "report": "docs/preflight/2026-11-16-local/README.md",
+          "commands": "docs/preflight/2026-11-16-local/commands.json"
+        }
+      ],
+      "affected": [
+        "all-Release claims for original CMake command",
+        "test deployment"
+      ],
+      "blocks_dependent_execution": false,
+      "corrective_action": "Use the documented explicit managed Release build and staging. Example execution/configuration was not validated.",
+      "verification": {
+        "status": "adapted_for_scoped_test_run",
+        "upstream_source": "unchanged"
+      }
+    },
+    {
+      "id": "RESOURCE-CPPSHARP-003",
+      "status": "recorded",
+      "kind": "upstream_resource_cleanup",
+      "stage": "preflight",
+      "expected": "Rebuild resource cleanup targets the actual output directory.",
+      "observed": "Generated postbuild rmdir/mkdir prepend an erroneous percent sign to TargetDir, causing a file-not-found diagnostic. The final xcopy is correct. All 237 copied resource files matched SHA256, with no extra files, in this fresh run.",
+      "evidence": [
+        {
+          "report": "docs/preflight/2026-11-16-local/README.md",
+          "commands": "docs/preflight/2026-11-16-local/commands.json"
+        }
+      ],
+      "affected": [
+        "incremental resource cleanup",
+        "freshness on rebuild"
+      ],
+      "blocks_dependent_execution": true,
+      "corrective_action": "Repair or explicitly bypass upstream cleanup before relying on incremental resource freshness; current fresh-build/test evidence remains valid.",
+      "verification": {
+        "status": "open",
+        "resource_copy": "docs/preflight/2026-11-16-local/cppsharp-resource-copy.json"
+      }
+    },
+    {
+      "id": "RESOURCE-CPPSHARP-004",
+      "status": "recorded",
+      "kind": "upstream_ignored_test_and_result_metadata",
+      "stage": "preflight",
+      "expected": "Report individual executed and skipped tests faithfully.",
+      "observed": "Generator.Tests has 91 passed and one explicit Ignore: TestUniqueNamesAcrossTranslationUnits, because nameless enums are no longer uniquely named. TRX aggregate notExecuted=0 disagrees with the individual NotExecuted result.",
+      "evidence": [
+        {
+          "report": "docs/preflight/2026-11-16-local/README.md",
+          "commands": "docs/preflight/2026-11-16-local/commands.json"
+        }
+      ],
+      "affected": [
+        "coverage claims",
+        "test result counting"
+      ],
+      "blocks_dependent_execution": false,
+      "corrective_action": "Report per-test outcomes and the ignored behavior; do not count it as passed.",
+      "verification": {
+        "status": "recorded_limitation",
+        "evidence": "docs/preflight/2026-11-16-local/cppsharp-test-summary.json"
       }
     }
   ]

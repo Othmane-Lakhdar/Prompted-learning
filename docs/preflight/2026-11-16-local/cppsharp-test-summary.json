@@ -1,0 +1,29 @@
+[
+  {
+    "file": "cppsharp-ast-smoke.trx",
+    "test_results": 1,
+    "outcomes": {
+      "Passed": 1
+    },
+    "nonpassing": [],
+    "aggregate_counters": "<Counters total=\"1\" executed=\"1\" passed=\"1\" failed=\"0\" error=\"0\" timeout=\"0\" aborted=\"0\" inconclusive=\"0\" passedButRunAborted=\"0\" notRunnable=\"0\" notExecuted=\"0\" disconnected=\"0\" warning=\"0\" completed=\"0\" inProgress=\"0\" pending=\"0\" xmlns=\"http://microsoft.com/schemas/VisualStudio/TeamTest/2010\" />",
+    "sha256": "FB8BE3505037066BBC63842D6D66E0EBA89B12FFCDBB0FA40229842D47994263"
+  },
+  {
+    "file": "cppsharp-generator.trx",
+    "test_results": 92,
+    "outcomes": {
+      "Passed": 91,
+      "NotExecuted": 1
+    },
+    "nonpassing": [
+      {
+        "name": "TestUniqueNamesAcrossTranslationUnits",
+        "outcome": "NotExecuted",
+        "message": "Nameless enums are no longer uniquely named.Nameless enums are no longer uniquely named."
+      }
+    ],
+    "aggregate_counters": "<Counters total=\"92\" executed=\"91\" passed=\"91\" failed=\"0\" error=\"0\" timeout=\"0\" aborted=\"0\" inconclusive=\"0\" passedButRunAborted=\"0\" notRunnable=\"0\" notExecuted=\"0\" disconnected=\"0\" warning=\"0\" completed=\"0\" inProgress=\"0\" pending=\"0\" xmlns=\"http://microsoft.com/schemas/VisualStudio/TeamTest/2010\" />",
+    "sha256": "DBC2E1CC874A9717551BDAC20B03A436638C7D5100E3D58708EF1A786B93B36E"
+  }
+]

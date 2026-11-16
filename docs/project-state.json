@@ -13,18 +13,28 @@
   "deviation_log": "docs/deviations.json",
   "next_stage": "M0 field dictionary, schema contracts, requirements traceability and pilot specification",
   "notes": [
-    "This branch contains preflight documentation and repository instructions only.",
-    "Coral and CppSharp are proposed pinned mixed-language inputs with measured source sizes; their builds/tests remain unexecuted.",
-    "The user proposes local clones; those do not automatically expose a command runner to the assistant.",
-    "M0 field-level contracts and support gates must be completed before corresponding extractor implementation."
+    "Preflight probes and evidence only; M0 contracts are not complete and extractor implementation has not started.",
+    "Verified local Windows execution replaces the failed cloud runner for this chat.",
+    "Coral tests passed after private SDK10 setup and explicit Release deployment; CppSharp native/CSharp PInvoke generator subset passed with one upstream ignore.",
+    "Full CppSharp Windows C++CLI build/tests and broad extractor compatibility remain gates.",
+    "Original test ZIPs remain untouched and untracked; sources/build outputs/toolchain are in the separate sibling inputs directory."
   ],
   "capability_status": {
     "github_branch_and_content_commits": "verified",
     "write_evidence_commit": "0d7f481f21e74e3aabf5c9dc9a14f95b5175d0a4",
-    "local_execution": "blocked_environment_failed",
-    "local_clone": "not_run",
-    "candidate_builds": "not_run",
-    "ci_execution": "unverified"
+    "local_execution": "verified",
+    "local_clone": "verified_both_pins",
+    "candidate_builds": "coral_passed_cppsharp_declared_subset_passed",
+    "ci_execution": "unverified_optional_alternative",
+    "local_git_commit_and_push": "pending_current_audit_delivery",
+    "candidate_tests": "coral_passed_cppsharp_91_passed_1_ignored",
+    "roslyn": "semantic_symbol_and_operation_probe_passed",
+    "clang": "candidate_local_libraries_ast_cfg_probe_passed",
+    "sqlite": "native_provider_constraints_and_rollback_probe_passed",
+    "full_cppsharp_windows": "blocked_missing_cpp_cli",
+    "ai_benchmark": "unverified_m0_execution_route_needed"
   },
-  "test_resources": "docs/testing/candidates.json"
+  "test_resources": "docs/testing/candidates.json",
+  "preflight_status": "completed_with_declared_scope_limits",
+  "local_preflight_report": "docs/preflight/2026-11-16-local/README.md"
 }
