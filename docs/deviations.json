@@ -1,0 +1,292 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-11-16",
+  "entries": [
+    {
+      "id": "ENV001",
+      "status": "open",
+      "kind": "execution_blocker",
+      "stage": "preflight",
+      "expected": "A usable command runner can inspect the workspace and run Git/build/test tools.",
+      "observed": "The pwd probe failed before command launch. The selected environment subsequently reported failed while querying executor configuration capabilities.",
+      "evidence": [
+        {
+          "check": "environment_status",
+          "result": "observations_current=true; observed_phase=starting; failure=null"
+        },
+        {
+          "check": "exec_command",
+          "command": "pwd",
+          "workdir": "/workspace",
+          "result": "No usable execution environment is available. Wait for an environment to become available before using this tool."
+        },
+        {
+          "check": "environment_diagnostics metadata",
+          "result": "history_status=not_found; records=[]; legacy_snapshot_available=false"
+        },
+        {
+          "check": "selected environment notification",
+          "result": "status=failed; failed to query executor configuration capabilities for environment ccarenv_b64_Y2NhcmVudl9iNWQ3ZTlhYThkZDQ4MTkxOGQ0MjNhMmJlNjAwN2E5ZQ"
+        }
+      ],
+      "affected": [
+        "local cloning",
+        "compiler and SDK checks",
+        "dependency restore",
+        "builds",
+        "tests",
+        "runtime measurements"
+      ],
+      "blocks_dependent_execution": true,
+      "corrective_action": "Establish a working execution environment or verify a CI runner; alternatively label user-supplied local results with their provenance.",
+      "verification": {
+        "status": "not_run",
+        "required": "Successful actual command, clone and build/test probes in the declared environment."
+      }
+    },
+    {
+      "id": "ACCESS001",
+      "status": "resolved_for_branch_and_content_commits",
+      "kind": "capability_verification",
+      "stage": "preflight",
+      "expected": "Create a branch and publish a coherent documentation commit in the dedicated repository.",
+      "observed": "Branch creation, base-tree preservation, commit creation, expected-head ref update and exact file readback succeeded.",
+      "evidence": [
+        {
+          "branch": "codex/extractor-preflight-m0",
+          "base_commit": "7bb07d6680bb78ee45e3da86ebd2b9ce52c176ad",
+          "verified_commit": "0d7f481f21e74e3aabf5c9dc9a14f95b5175d0a4",
+          "readback_files": [
+            "AGENTS.md",
+            "docs/checkpoints/2026-11-16-preimplementation.md",
+            "docs/project-state.json"
+          ]
+        }
+      ],
+      "affected": [
+        "GitHub API authoring"
+      ],
+      "blocks_dependent_execution": false,
+      "corrective_action": "None for the verified path. Verify workflow writes, Git-protocol push or other paths separately if needed.",
+      "verification": {
+        "status": "passed",
+        "scope": "GitHub API branch and ordinary-file commit operations only"
+      }
+    },
+    {
+      "id": "API001",
+      "status": "open_limitation",
+      "kind": "connector_endpoint_restriction",
+      "stage": "preflight",
+      "expected": "Inspect Actions workflow definitions through the workflow-list API.",
+      "observed": "Connector rejected /actions/workflows before returning repository workflow metadata.",
+      "evidence": [
+        {
+          "endpoint": "GET /repos/Othmane-Lakhdar/Prompted-learning/actions/workflows",
+          "error": "HTTP 400 INVALID_ARGUMENT: GitHub Fetch URL is not an allowed public GitHub repository or search endpoint."
+        }
+      ],
+      "affected": [
+        "CI configuration inspection"
+      ],
+      "blocks_dependent_execution": false,
+      "corrective_action": "Use allowed repository contents and run endpoints for available information; verify actual CI separately.",
+      "verification": {
+        "status": "partial",
+        "available_alternative": "Actions run listing succeeded with total_count=0 at the baseline."
+      }
+    },
+    {
+      "id": "API002",
+      "status": "recorded_with_partial_alternative",
+      "kind": "connector_endpoint_restriction",
+      "stage": "preflight",
+      "expected": "Inspect effective rules for main through the branch-rules API.",
+      "observed": "Connector rejected /rules/branches/main.",
+      "evidence": [
+        {
+          "endpoint": "GET /repos/Othmane-Lakhdar/Prompted-learning/rules/branches/main",
+          "error": "HTTP 400 INVALID_ARGUMENT: GitHub Fetch URL is not an allowed public GitHub repository or search endpoint."
+        },
+        {
+          "check": "branch and ruleset reads",
+          "result": "main protected=false; rulesets=[] at the baseline"
+        }
+      ],
+      "affected": [
+        "repository policy inspection"
+      ],
+      "blocks_dependent_execution": false,
+      "corrective_action": "Recheck supported policy endpoints before operations that depend on restrictions; do not infer all permissions from account admin status.",
+      "verification": {
+        "status": "partial"
+      }
+    },
+    {
+      "id": "CI001",
+      "status": "unverified",
+      "kind": "execution_alternative",
+      "stage": "preflight",
+      "expected": "A real workflow can acquire a suitable runner and execute build/test commands if CI is used.",
+      "observed": "No existing run was available; workflow authoring, trigger, runner and artifact path have not been exercised.",
+      "evidence": [
+        {
+          "check": "Actions runs",
+          "result": "total_count=0 at baseline"
+        }
+      ],
+      "affected": [
+        "automated remote builds",
+        "Windows/MSVC validation",
+        "CI log and artifact collection"
+      ],
+      "blocks_dependent_execution": true,
+      "corrective_action": "Implement a bounded capability workflow only when proceeding with that execution path, then inspect the actual run and artifacts.",
+      "verification": {
+        "status": "not_run"
+      }
+    },
+    {
+      "id": "TEST001",
+      "status": "pending_execution",
+      "kind": "unverified_test_resources",
+      "stage": "preflight",
+      "expected": "Selected pinned resources can be cloned, restored, built and tested with recorded commands and versions.",
+      "observed": "Repository reads and source-size measurements are available; no selected-resource clone, build or test has been run by the assistant.",
+      "evidence": [
+        {
+          "manifest": "docs/testing/candidates.json",
+          "instructions": "docs/testing/README.md"
+        }
+      ],
+      "affected": [
+        "candidate build claims",
+        "extractor pilot assumptions"
+      ],
+      "blocks_dependent_execution": true,
+      "corrective_action": "Run the pinned candidate builds and tests, record outcomes, and add controlled expected extractor fixtures in the appropriate stages.",
+      "verification": {
+        "status": "not_run"
+      }
+    },
+    {
+      "id": "RESOURCE-CORAL-001",
+      "status": "open_test_harness_gap",
+      "kind": "failure_detection",
+      "stage": "preflight",
+      "expected": "An upstream automated test run exposes failed checks as a failed run.",
+      "observed": "Pinned Coral RunTests prints failures but main returns 0; CMake defines a test executable without registering CTest tests.",
+      "evidence": [
+        {
+          "repository": "StudioCherno/Coral",
+          "commit": "320c90de59d9cf81a56f3265d8a5d4a1777431ce",
+          "path": "Tests/Testing.Native/Source/Main.cpp",
+          "finding": "RunTests logs pass/fail counts; main ends with return 0."
+        },
+        {
+          "path": "cmake/CMakeLists.txt",
+          "finding": "CORAL_TESTING creates Testing.Native; no enable_testing/add_test calls."
+        }
+      ],
+      "affected": [
+        "Coral test-result interpretation",
+        "false green upstream test status"
+      ],
+      "blocks_dependent_execution": true,
+      "corrective_action": "Before accepting automated results, define an external noninteractive harness that checks required native/managed summaries and errors, validates counts and does not infer success from exit 0 or zero CTest cases. Keep upstream source pinned and any adaptation explicit.",
+      "verification": {
+        "status": "source_inspected_not_executed"
+      }
+    },
+    {
+      "id": "RESOURCE-CORAL-002",
+      "status": "documented_prerequisites_not_build_verified",
+      "kind": "build_contract_gap",
+      "stage": "preflight",
+      "expected": "The build procedure uses tool versions and layout compatible with the selected source.",
+      "observed": "Managed projects target net10.0; CMake uses block() despite a declared minimum of 3.19; native and managed test outputs use different directories. The CMake route explicitly invokes dotnet CLI for the managed part with VS2022.",
+      "evidence": [
+        {
+          "repository": "StudioCherno/Coral",
+          "commit": "320c90de59d9cf81a56f3265d8a5d4a1777431ce",
+          "paths": [
+            "Coral.Managed/Coral.Managed-Static.csproj",
+            "cmake/CMakeLists.txt",
+            "cmake/Dotnet.cmake",
+            "Tests/Testing.Native/Source/Main.cpp"
+          ]
+        }
+      ],
+      "affected": [
+        "candidate build prerequisites",
+        "managed/native test deployment"
+      ],
+      "blocks_dependent_execution": true,
+      "corrective_action": "Use a compatible .NET 10 SDK/runtime/host pack, CMake 3.25+ and the declared native toolchain. Verify staging of managed assemblies/dependencies/config files and nethost for the native executable. Do not claim an all-in-one VS2022 managed build or validated run before execution.",
+      "verification": {
+        "status": "source_inspected_not_executed"
+      }
+    },
+    {
+      "id": "RESOURCE-CPPSHARP-001",
+      "status": "open_support_boundary",
+      "kind": "language_support",
+      "stage": "preflight",
+      "expected": "Candidate coverage distinguishes supported native C++/C# from optional or generated language variants.",
+      "observed": "The Windows parser normally uses generated C++/CLI; CI mode switches the parser to C# P/Invoke, but Windows CLI tests remain in the solution.",
+      "evidence": [
+        {
+          "repository": "mono/CppSharp",
+          "commit": "42ccd59b112072a6bcf3e1406efca174a46c8cf8",
+          "paths": [
+            "src/Parser/CppSharp.Parser.csproj",
+            "build/Tests.lua"
+          ]
+        }
+      ],
+      "affected": [
+        "compiler compatibility",
+        "selected build context",
+        "extractor coverage claims"
+      ],
+      "blocks_dependent_execution": true,
+      "corrective_action": "Install the required C++/CLI component for an upstream Windows build. In M0 specify the extraction scope and support matrix; do not treat C++/CLI as ordinary Clang-supported C++ or claim whole-repository support from a native/PInvoke subset.",
+      "verification": {
+        "status": "source_inspected_not_executed"
+      }
+    },
+    {
+      "id": "RESOURCE-CPPSHARP-002",
+      "status": "documented_prerequisites_not_build_verified",
+      "kind": "build_configuration",
+      "stage": "preflight",
+      "expected": "Build instructions and actual selected tools/targets agree and dependencies are reproducible.",
+      "observed": "GettingStarted refers to VS2019/v142 while pinned scripts/CI use VS2022. Without an explicit target framework the script derives it from dotnet --version. LLVM prebuilt availability is only metadata-verified.",
+      "evidence": [
+        {
+          "repository": "mono/CppSharp",
+          "commit": "42ccd59b112072a6bcf3e1406efca174a46c8cf8",
+          "paths": [
+            "build/build.sh",
+            ".github/workflows/main.yml",
+            "docs/GettingStarted.md"
+          ]
+        },
+        {
+          "llvm_commit": "cd708029e0b2869e80abe31ddb175f7c35361f90",
+          "reported_archive_bytes": 77628811
+        }
+      ],
+      "affected": [
+        "candidate build prerequisites",
+        "dependency acquisition",
+        "test duration"
+      ],
+      "blocks_dependent_execution": true,
+      "corrective_action": "Use the pinned script-supported Windows x64 Release configuration and an explicit target framework; record exact SDK/runtime/tool versions, archive identity and actual build/test outcomes. Do not infer success from an available release asset.",
+      "verification": {
+        "status": "source_inspected_not_executed"
+      }
+    }
+  ]
+}

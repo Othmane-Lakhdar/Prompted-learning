@@ -13,7 +13,18 @@
   "deviation_log": "docs/deviations.json",
   "next_stage": "M0 field dictionary, schema contracts, requirements traceability and pilot specification",
   "notes": [
-    "The capability audit and candidate instructions will be added after verifying this bootstrap commit.",
-    "Local execution is blocked; no clone, compiler, build, test or generated database result is claimed."
-  ]
+    "This branch contains preflight documentation and repository instructions only.",
+    "Coral and CppSharp are proposed pinned mixed-language inputs with measured source sizes; their builds/tests remain unexecuted.",
+    "The user proposes local clones; those do not automatically expose a command runner to the assistant.",
+    "M0 field-level contracts and support gates must be completed before corresponding extractor implementation."
+  ],
+  "capability_status": {
+    "github_branch_and_content_commits": "verified",
+    "write_evidence_commit": "0d7f481f21e74e3aabf5c9dc9a14f95b5175d0a4",
+    "local_execution": "blocked_environment_failed",
+    "local_clone": "not_run",
+    "candidate_builds": "not_run",
+    "ci_execution": "unverified"
+  },
+  "test_resources": "docs/testing/candidates.json"
 }

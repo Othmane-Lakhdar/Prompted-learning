@@ -1,0 +1,1594 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-11-16",
+  "status": "proposed_resources_source_inspected_builds_not_run",
+  "selection_requirement": "Each candidate contains substantive C++ and C# source in the same project.",
+  "size_metric": {
+    "id": "selected-source-blob-bytes-v1",
+    "definition": "Sum byte sizes of selected tracked Git blobs at the pinned commit. Bytes include whitespace, comments and source encoding. C++ headers count as source.",
+    "small": {
+      "min_exclusive": 0,
+      "max_inclusive": 262144
+    },
+    "medium": {
+      "min_exclusive": 262144,
+      "max_inclusive": 8388608
+    },
+    "notes": [
+      "Thresholds are project-specific, not an industry classification.",
+      "File count is supplementary; this is not SLOC, Git repository disk size, binary size or projected database size.",
+      "Explicit size exclusions do not authorize omitting necessary generated inputs/dependencies from builds or extraction coverage."
+    ]
+  },
+  "candidates": [
+    {
+      "id": "coral-small",
+      "repository": "StudioCherno/Coral",
+      "url": "https://github.com/StudioCherno/Coral",
+      "commit": "320c90de59d9cf81a56f3265d8a5d4a1777431ce",
+      "classification": "small",
+      "license": "MIT",
+      "integration": "C++ native hosting library uses .NET HostFXR and a C# managed assembly for loading, reflection and invocation.",
+      "measurement": {
+        "tree_truncated": false,
+        "total_files": 57,
+        "total_bytes": 207801,
+        "languages": {
+          "C#": {
+            "files": 14,
+            "bytes": 97650
+          },
+          "C++ including headers": {
+            "files": 43,
+            "bytes": 110151
+          }
+        },
+        "include_rules": [
+          ".cs files under Coral.Managed/Source/",
+          ".h/.hpp/.cpp/.cc/.cxx files under Coral.Native/Include/ or Coral.Native/Source/"
+        ],
+        "exclude_notes": [
+          "Tests, Example, build artifacts and build scripts are outside these selected source roots.",
+          "Coral.Managed/Source/Dummy.cpp is an excluded build placeholder."
+        ],
+        "files": [
+          {
+            "path": "Coral.Managed/Source/AssemblyLoader.cs",
+            "bytes": 16127,
+            "blob_sha": "beb1ebe2debcae75b701f002f27a2e9950198ccc"
+          },
+          {
+            "path": "Coral.Managed/Source/ExtensionMethods.cs",
+            "bytes": 207,
+            "blob_sha": "5880c7c6c0a3720faf5729293100d8b8d5caf445"
+          },
+          {
+            "path": "Coral.Managed/Source/GarbageCollector.cs",
+            "bytes": 718,
+            "blob_sha": "11ced9a0d4fc305781a57f3a077bd5ca15349dc5"
+          },
+          {
+            "path": "Coral.Managed/Source/InternalCalls.cs",
+            "bytes": 2151,
+            "blob_sha": "b45044f696b8a7103ab3457c69b9b932273c9073"
+          },
+          {
+            "path": "Coral.Managed/Source/InteropTypes.cs",
+            "bytes": 7188,
+            "blob_sha": "14204e5515c5dcb562f0d3deb76abb9511ff3756"
+          },
+          {
+            "path": "Coral.Managed/Source/MSBuildRunner.cs",
+            "bytes": 1175,
+            "blob_sha": "820b817d866418cbb2d66f73f160ce61e2df816d"
+          },
+          {
+            "path": "Coral.Managed/Source/ManagedHost.cs",
+            "bytes": 1108,
+            "blob_sha": "e70c06f334ba786c526a3d594b9d5fba25d96e13"
+          },
+          {
+            "path": "Coral.Managed/Source/ManagedObject.cs",
+            "bytes": 16689,
+            "blob_sha": "cddac8d175bb83dbc0420d11b55a90998774602e"
+          },
+          {
+            "path": "Coral.Managed/Source/Marshalling.cs",
+            "bytes": 9197,
+            "blob_sha": "d9fe30d98f4099b9b6b582bbe4bb43d8353557bf"
+          },
+          {
+            "path": "Coral.Managed/Source/NativeLogger.cs",
+            "bytes": 1782,
+            "blob_sha": "181709635f06efdc119556a2299f923d7a311413"
+          },
+          {
+            "path": "Coral.Managed/Source/ReflectionCacheContext.cs",
+            "bytes": 2488,
+            "blob_sha": "45b708cecc9a52b9faf1b073bf59f07bba774703"
+          },
+          {
+            "path": "Coral.Managed/Source/TypeInterface.cs",
+            "bytes": 36389,
+            "blob_sha": "79b3d618782b47807d06bf3b4c6cb47b8facb3e3"
+          },
+          {
+            "path": "Coral.Managed/Source/TypeNotFoundException.cs",
+            "bytes": 299,
+            "blob_sha": "feab45243c503151992ff0d1b58683cd136c6557"
+          },
+          {
+            "path": "Coral.Managed/Source/UniqueList.cs",
+            "bytes": 2132,
+            "blob_sha": "9af0640d69ccd4f29a27c1805617e833e9229bfe"
+          },
+          {
+            "path": "Coral.Native/Include/Coral/Array.hpp",
+            "bytes": 3169,
+            "blob_sha": "60e8c3b1205be5129852479b9fa4647fdc43e7cf"
+          },
+          {
+            "path": "Coral.Native/Include/Coral/Assembly.hpp",
+            "bytes": 2274,
+            "blob_sha": "1bcb3ac859385813d65bb38b3c80bc8ffd06e5b7"
+          },
+          {
+            "path": "Coral.Native/Include/Coral/Attribute.hpp",
+            "bytes": 647,
+            "blob_sha": "efe7d10387c4aafda89506084a75ffe5cd904c06"
+          },
+          {
+            "path": "Coral.Native/Include/Coral/ConstructorInfo.hpp",
+            "bytes": 344,
+            "blob_sha": "54d6b381396530a16f0dfa6bbdc1aa3d41d7af3a"
+          },
+          {
+            "path": "Coral.Native/Include/Coral/Core.hpp",
+            "bytes": 2225,
+            "blob_sha": "93f8e0cc20d15edd1a4c44ca3c233ed7c950e9ba"
+          },
+          {
+            "path": "Coral.Native/Include/Coral/DotnetServices.hpp",
+            "bytes": 178,
+            "blob_sha": "4d62e4938cd60e6a827b384e3009ad6d525a3a7c"
+          },
+          {
+            "path": "Coral.Native/Include/Coral/EventInfo.hpp",
+            "bytes": 453,
+            "blob_sha": "7eb6bbe5d20a32b297065b6bc7bf814453234daa"
+          },
+          {
+            "path": "Coral.Native/Include/Coral/FPUGuard.hpp",
+            "bytes": 1397,
+            "blob_sha": "97cb93fa93a2d4519b969e3c14cd6839bd569d95"
+          },
+          {
+            "path": "Coral.Native/Include/Coral/FieldInfo.hpp",
+            "bytes": 458,
+            "blob_sha": "fe9661a330e5b85ff1bc2b1a40cf8d90ff0f3f54"
+          },
+          {
+            "path": "Coral.Native/Include/Coral/GC.hpp",
+            "bytes": 656,
+            "blob_sha": "8de0d7a1aeb45a7a8709fa7ab00258ca8a2f7add"
+          },
+          {
+            "path": "Coral.Native/Include/Coral/HostInstance.hpp",
+            "bytes": 3758,
+            "blob_sha": "9a072713b27086de158df5848bce9330c6a6fa52"
+          },
+          {
+            "path": "Coral.Native/Include/Coral/ManagedObject.hpp",
+            "bytes": 4407,
+            "blob_sha": "2e1044144255c87af5fe4fd07a4e60f3e9558520"
+          },
+          {
+            "path": "Coral.Native/Include/Coral/Memory.hpp",
+            "bytes": 273,
+            "blob_sha": "ddfb0897f8a8d581c7e37c024f91284d0533874f"
+          },
+          {
+            "path": "Coral.Native/Include/Coral/MessageLevel.hpp",
+            "bytes": 1039,
+            "blob_sha": "c3685dbce5aedc7c08c7ad468f19cffba2a14c0f"
+          },
+          {
+            "path": "Coral.Native/Include/Coral/MethodInfo.hpp",
+            "bytes": 533,
+            "blob_sha": "e99e726c6d74249c60922d31c80dcaba70c6d5a5"
+          },
+          {
+            "path": "Coral.Native/Include/Coral/PropertyInfo.hpp",
+            "bytes": 517,
+            "blob_sha": "3ffb36d8c4679739d30e77646ac3f5001e4e8d2a"
+          },
+          {
+            "path": "Coral.Native/Include/Coral/StableVector.hpp",
+            "bytes": 5485,
+            "blob_sha": "345df5bb2c1aa100a65af5beaaebf699ca59738f"
+          },
+          {
+            "path": "Coral.Native/Include/Coral/String.hpp",
+            "bytes": 1885,
+            "blob_sha": "cb9a18700b98738fce7f49bcdeff11e76a4c8377"
+          },
+          {
+            "path": "Coral.Native/Include/Coral/StringHelper.hpp",
+            "bytes": 220,
+            "blob_sha": "99d1141b0ed03eb99f43057143f532f542515aec"
+          },
+          {
+            "path": "Coral.Native/Include/Coral/Type.hpp",
+            "bytes": 4868,
+            "blob_sha": "7304613db8ad5d312180979e2894cfa82a3f2e11"
+          },
+          {
+            "path": "Coral.Native/Include/Coral/TypeCache.hpp",
+            "bytes": 717,
+            "blob_sha": "cafdba4483c09fb5ecfbc09e731aefc08386ccfc"
+          },
+          {
+            "path": "Coral.Native/Include/Coral/Utility.hpp",
+            "bytes": 3069,
+            "blob_sha": "293ccfa5fb3daab7af8c43cd890a9b01cdb5774c"
+          },
+          {
+            "path": "Coral.Native/Source/Coral/Assembly.cpp",
+            "bytes": 5266,
+            "blob_sha": "d03c860f3e842e9be9bdd3104411562e6e7819d8"
+          },
+          {
+            "path": "Coral.Native/Source/Coral/Attribute.cpp",
+            "bytes": 982,
+            "blob_sha": "71b467601dac35ba7f3a850b1e525eed5add58bd"
+          },
+          {
+            "path": "Coral.Native/Source/Coral/ConstructorInfo.cpp",
+            "bytes": 1014,
+            "blob_sha": "e7a1922d1df65e297bbd883789f1a70b8ab127b0"
+          },
+          {
+            "path": "Coral.Native/Source/Coral/CoralManagedFunctions.hpp",
+            "bytes": 10779,
+            "blob_sha": "ccf157c9bbf973fb21dc9c3418bea77a949d18e1"
+          },
+          {
+            "path": "Coral.Native/Source/Coral/DotnetServices.cpp",
+            "bytes": 351,
+            "blob_sha": "873a6b0491d874a0908193be8647fba14c934ba3"
+          },
+          {
+            "path": "Coral.Native/Source/Coral/EventInfo.cpp",
+            "bytes": 1448,
+            "blob_sha": "d765d04457503633ab8e41797cd6de2663082d9f"
+          },
+          {
+            "path": "Coral.Native/Source/Coral/FieldInfo.cpp",
+            "bytes": 1499,
+            "blob_sha": "57ff8f6142211934369b8a6a239b00c40637a974"
+          },
+          {
+            "path": "Coral.Native/Source/Coral/GC.cpp",
+            "bytes": 485,
+            "blob_sha": "8b1f1e0a54beffaddf3d17ad4b62db48d9a602ee"
+          },
+          {
+            "path": "Coral.Native/Source/Coral/HostFXRErrorCodes.hpp",
+            "bytes": 1579,
+            "blob_sha": "a488007b647d78035e9e3ce64d49a8da031661ed"
+          },
+          {
+            "path": "Coral.Native/Source/Coral/HostInstance.cpp",
+            "bytes": 27362,
+            "blob_sha": "fef07927973ad156e39d49574de6153ad7eabb7e"
+          },
+          {
+            "path": "Coral.Native/Source/Coral/ManagedObject.cpp",
+            "bytes": 3642,
+            "blob_sha": "94149ad5140ad071c06ef545f8fd29b8b497d834"
+          },
+          {
+            "path": "Coral.Native/Source/Coral/Memory.cpp",
+            "bytes": 1229,
+            "blob_sha": "0fc9c08e73f94ceae2857d7d4db5f31da9e9b06a"
+          },
+          {
+            "path": "Coral.Native/Source/Coral/MethodInfo.cpp",
+            "bytes": 2014,
+            "blob_sha": "2025e698874097febb9f282fb2f709be5f186d1b"
+          },
+          {
+            "path": "Coral.Native/Source/Coral/PropertyInfo.cpp",
+            "bytes": 1716,
+            "blob_sha": "2e62173f24f8a4954ae851a9eda350eca0515430"
+          },
+          {
+            "path": "Coral.Native/Source/Coral/String.cpp",
+            "bytes": 1765,
+            "blob_sha": "40ef75d9fc85ce05e64fc22ca5dc3a3cde267437"
+          },
+          {
+            "path": "Coral.Native/Source/Coral/StringHelper.cpp",
+            "bytes": 1073,
+            "blob_sha": "49de49603b8af2b57af6d71a5f728ddccfe67fcf"
+          },
+          {
+            "path": "Coral.Native/Source/Coral/Type.cpp",
+            "bytes": 7423,
+            "blob_sha": "91b70e929bc1f19d27ac238b8d09fa0ee7110a9c"
+          },
+          {
+            "path": "Coral.Native/Source/Coral/TypeCache.cpp",
+            "bytes": 967,
+            "blob_sha": "701e90521d8a207997025ad3ca50649aeae6f283"
+          },
+          {
+            "path": "Coral.Native/Source/Coral/Verify.hpp",
+            "bytes": 530,
+            "blob_sha": "96900c8c790a7e26047c9c902a9f75b745ee2b40"
+          },
+          {
+            "path": "Coral.Native/Source/CoralPCH.cpp",
+            "bytes": 24,
+            "blob_sha": "2c73cc212a1f1ace7b92802379038791d3c78945"
+          },
+          {
+            "path": "Coral.Native/Source/CoralPCH.hpp",
+            "bytes": 431,
+            "blob_sha": "c7946d544374969038f6015d80f6f3584c62f2f5"
+          }
+        ]
+      },
+      "prerequisites": [
+        "C++17 compiler and SDK; Windows candidate uses VS2022 Desktop development with C++ and Windows SDK.",
+        "Pinned managed projects target net10.0: compatible .NET 10 SDK, runtime and native host pack.",
+        "For the CMake route, use CMake 3.25+ because Dotnet.cmake uses block(); declared top-level minimum alone is insufficient.",
+        "NuGet access for managed testing dependencies; native runtime files and managed assemblies must be staged for tests."
+      ],
+      "verification": {
+        "source_read": "passed",
+        "size_measurement": "passed",
+        "clone": "not_run",
+        "build": "not_run",
+        "upstream_tests": "not_run",
+        "extractor_coverage": "not_implemented"
+      },
+      "deviations": [
+        "RESOURCE-CORAL-001",
+        "RESOURCE-CORAL-002"
+      ]
+    },
+    {
+      "id": "cppsharp-medium",
+      "repository": "mono/CppSharp",
+      "url": "https://github.com/mono/CppSharp",
+      "release": "v1.2",
+      "commit": "42ccd59b112072a6bcf3e1406efca174a46c8cf8",
+      "classification": "medium",
+      "license": "MIT repository license; retain additional BSD/LLVM notices on individual files.",
+      "integration": "Own native C++ parser using Clang connects to C# AST, parser and binding-generation components through generated bindings.",
+      "measurement": {
+        "tree_truncated": false,
+        "total_files": 231,
+        "total_bytes": 2353348,
+        "languages": {
+          "C#": {
+            "files": 207,
+            "bytes": 2033907
+          },
+          "C++": {
+            "files": 24,
+            "bytes": 319441
+          }
+        },
+        "include_rules": [
+          "src/**/*.{cs,cpp,cc,cxx,h,hpp}",
+          "include/CppSharp.h"
+        ],
+        "exclude_prefixes": [
+          "src/Generator.Tests/",
+          "src/CppParser/Bindings/"
+        ],
+        "exclude_files": [
+          "src/CppParser/Expr.h",
+          "src/CppParser/Expr.cpp",
+          "src/CppParser/ParseExpr.cpp",
+          "src/CppParser/Stmt.h",
+          "src/CppParser/Stmt.cpp",
+          "src/CppParser/ParseStmt.cpp",
+          "src/AST/Expr.cs",
+          "src/AST/Stmt.cs",
+          "src/AST/StmtVisitor.cs",
+          "src/Parser/ASTConverter.Expr.cs",
+          "src/Parser/ASTConverter.Stmt.cs",
+          "src/CppParser/CXXABI.h"
+        ],
+        "exclude_notes": [
+          "include/FastDelegates.h is third-party and outside the selected scope.",
+          "The listed generated files are excluded only from size classification; required generated bindings remain part of build/coverage accounting."
+        ],
+        "files": [
+          {
+            "path": "include/CppSharp.h",
+            "bytes": 15082,
+            "blob_sha": "385ed34bd67b4058bb0126db99cff0460d67f8f0"
+          },
+          {
+            "path": "src/AST/ASTContext.cs",
+            "bytes": 5908,
+            "blob_sha": "e52107e0d0fb78c6431510451b5bc44b4917697c"
+          },
+          {
+            "path": "src/AST/ASTVisitor.cs",
+            "bytes": 23020,
+            "blob_sha": "d84969ae95d257d1dce1cdce3afa1ae032f016c0"
+          },
+          {
+            "path": "src/AST/Assembly.cs",
+            "bytes": 96,
+            "blob_sha": "8c01cdbad7184f4ee57563d359bc4655f5ba7d04"
+          },
+          {
+            "path": "src/AST/Attribute.cs",
+            "bytes": 404,
+            "blob_sha": "886b293db7835a24e6514f5ebd4c4f30743bf452"
+          },
+          {
+            "path": "src/AST/Class.cs",
+            "bytes": 8321,
+            "blob_sha": "758cc3eb41c12010d9e585b16db36c879c03affa"
+          },
+          {
+            "path": "src/AST/ClassExtensions.cs",
+            "bytes": 11734,
+            "blob_sha": "b2a696795453a8d9a85f9fb8b0ca0dd475e65ae1"
+          },
+          {
+            "path": "src/AST/ClassLayout.cs",
+            "bytes": 5487,
+            "blob_sha": "06d97e47c8b0cf72f00f54da1d42bde4b68cb03d"
+          },
+          {
+            "path": "src/AST/Comment.cs",
+            "bytes": 18407,
+            "blob_sha": "dc70f20af7ee32e7bc9c1be87353e9ebb053cdeb"
+          },
+          {
+            "path": "src/AST/Conversions.cs",
+            "bytes": 158,
+            "blob_sha": "0d42545a0aba55c1e2a93dbed43a48fb85300c86"
+          },
+          {
+            "path": "src/AST/Declaration.cs",
+            "bytes": 13737,
+            "blob_sha": "2fc50d312266bd2d3a3c6ed9c7b244f7a65cdfd9"
+          },
+          {
+            "path": "src/AST/DeclarationsList.cs",
+            "bytes": 5077,
+            "blob_sha": "b15693bc11f871a0bcba94399ecbafe3d09611e4"
+          },
+          {
+            "path": "src/AST/Delegate.cs",
+            "bytes": 248,
+            "blob_sha": "b71d34a19626653531832ea5e940d586a6ad47cd"
+          },
+          {
+            "path": "src/AST/Enumeration.cs",
+            "bytes": 2910,
+            "blob_sha": "339551e8ad477a30f1ca14f9b259d17104e818c8"
+          },
+          {
+            "path": "src/AST/Event.cs",
+            "bytes": 546,
+            "blob_sha": "28b6383296cf1d45c1c8fb360cb4ee7cd652b4a7"
+          },
+          {
+            "path": "src/AST/Expression.cs",
+            "bytes": 4319,
+            "blob_sha": "d312761b2a979cf82597edd3001f7c6988b38d4f"
+          },
+          {
+            "path": "src/AST/Field.cs",
+            "bytes": 1064,
+            "blob_sha": "70bad80466c45a8502439ff2b7174539df290269"
+          },
+          {
+            "path": "src/AST/Friend.cs",
+            "bytes": 412,
+            "blob_sha": "a6ee26d2e233d29e421a5406e92199e38645b321"
+          },
+          {
+            "path": "src/AST/Function.cs",
+            "bytes": 8645,
+            "blob_sha": "6ffd28e762a544b6c7844f3462d4256f2aa9eb74"
+          },
+          {
+            "path": "src/AST/FunctionExtensions.cs",
+            "bytes": 4578,
+            "blob_sha": "fe3c812397405e54578841079ea8195586e5cb04"
+          },
+          {
+            "path": "src/AST/IExpressionPrinter.cs",
+            "bytes": 229,
+            "blob_sha": "4cbcb162804b4009c08299ffb0d6050684b4f10d"
+          },
+          {
+            "path": "src/AST/LayoutBase.cs",
+            "bytes": 152,
+            "blob_sha": "f92ecb51514dbeee28ebc6051d435c51431699d6"
+          },
+          {
+            "path": "src/AST/LayoutField.cs",
+            "bytes": 528,
+            "blob_sha": "003cacda3e556eebcc70845096446c6e5d5cac85"
+          },
+          {
+            "path": "src/AST/Method.cs",
+            "bytes": 4811,
+            "blob_sha": "bc5426eb456d07a3fb290ff25c9900642d0b40ff"
+          },
+          {
+            "path": "src/AST/Module.cs",
+            "bytes": 2437,
+            "blob_sha": "7e2b9611720f95551ccbb0855eb8a54af54234b9"
+          },
+          {
+            "path": "src/AST/Namespace.cs",
+            "bytes": 12161,
+            "blob_sha": "13f9cf3223cfd272c3e62c9652350d25d938aa7d"
+          },
+          {
+            "path": "src/AST/Preprocessor.cs",
+            "bytes": 1759,
+            "blob_sha": "f3343d67308b69c9e60af9ea3dcb7cb8f531714d"
+          },
+          {
+            "path": "src/AST/Property.cs",
+            "bytes": 2601,
+            "blob_sha": "d8cb2e778dd368a1e7c5e5d58079c61512e0d2d2"
+          },
+          {
+            "path": "src/AST/PropertyExtensions.cs",
+            "bytes": 517,
+            "blob_sha": "f14259944d2af7b6e5e91bdc368f3b49d1893b4c"
+          },
+          {
+            "path": "src/AST/Reference.cs",
+            "bytes": 428,
+            "blob_sha": "7b35399a043e2ddc6b66c127b1882003a2bb7148"
+          },
+          {
+            "path": "src/AST/SourceLocation.cs",
+            "bytes": 2319,
+            "blob_sha": "62673d6230596ff049ccf024776404849da9dada"
+          },
+          {
+            "path": "src/AST/Statement.cs",
+            "bytes": 448,
+            "blob_sha": "2f55888bfbb0753ed625dca8ff852426a1d2dbc0"
+          },
+          {
+            "path": "src/AST/SymbolContext.cs",
+            "bytes": 2663,
+            "blob_sha": "d4772aa1022f260202fb8b91bf0e8c7050a212f4"
+          },
+          {
+            "path": "src/AST/TargetTriple.cs",
+            "bytes": 774,
+            "blob_sha": "fc57732093be9ea136c8d5a55f2055a2c560060d"
+          },
+          {
+            "path": "src/AST/Template.cs",
+            "bytes": 14948,
+            "blob_sha": "9ce6118701cacb1b1521a68574be4d9d280c91af"
+          },
+          {
+            "path": "src/AST/TranslationUnit.cs",
+            "bytes": 2387,
+            "blob_sha": "de641198ef8b064219a24c8e61e5e2cd5348c6f6"
+          },
+          {
+            "path": "src/AST/Type.cs",
+            "bytes": 36876,
+            "blob_sha": "6a2ac2374444fb7253f4a4f974debbd608d51381"
+          },
+          {
+            "path": "src/AST/TypeExtensions.cs",
+            "bytes": 15584,
+            "blob_sha": "4ffefbea0b82bd991b3a4794899b399a443902e7"
+          },
+          {
+            "path": "src/AST/Typedef.cs",
+            "bytes": 976,
+            "blob_sha": "41adf647a77f06236d2422fb6cee42a59c4c79d1"
+          },
+          {
+            "path": "src/AST/Variable.cs",
+            "bytes": 514,
+            "blob_sha": "d7a22eb1772c324ed9cde3282c957a9cd6699dd1"
+          },
+          {
+            "path": "src/CLI/CLI.cs",
+            "bytes": 15211,
+            "blob_sha": "6a31df01c658dba053119f7944cd44682794e33e"
+          },
+          {
+            "path": "src/CLI/Generator.cs",
+            "bytes": 8584,
+            "blob_sha": "917fe565bdf7082f6e5a290c05ea8c7bcd01d279"
+          },
+          {
+            "path": "src/CLI/LuaContext.cs",
+            "bytes": 2137,
+            "blob_sha": "dcb6407472bddfe91f0de25d4d48fda066316892"
+          },
+          {
+            "path": "src/CLI/Options.cs",
+            "bytes": 1691,
+            "blob_sha": "239093879e83640b98225024a972b1bf9c6a982c"
+          },
+          {
+            "path": "src/Core/Compilation.cs",
+            "bytes": 929,
+            "blob_sha": "011ab9829e3905aa4d80c91fc24d7ed3057ca088"
+          },
+          {
+            "path": "src/Core/Diagnostics.cs",
+            "bytes": 4267,
+            "blob_sha": "b0626bc3b36fd70b715c036e43d4d9a363eb4c0d"
+          },
+          {
+            "path": "src/Core/Platform.cs",
+            "bytes": 2133,
+            "blob_sha": "f046cf8f4e97bbaae82a331347f8e960f6aef6f4"
+          },
+          {
+            "path": "src/Core/Toolchains/MSVCToolchain.cs",
+            "bytes": 17402,
+            "blob_sha": "91964cd486f6938c5d3991d3946e09f5c5591abb"
+          },
+          {
+            "path": "src/Core/Toolchains/ManagedToolchain.cs",
+            "bytes": 2144,
+            "blob_sha": "9ae43193062fc5677e87a53b0e32a0ecb5a20d2a"
+          },
+          {
+            "path": "src/Core/Toolchains/XcodeToolchain.cs",
+            "bytes": 4307,
+            "blob_sha": "ef8589c03f285da7c7a02a68bf6ff1d40ddd2408"
+          },
+          {
+            "path": "src/CppParser/APValuePrinter.h",
+            "bytes": 3292,
+            "blob_sha": "0d7c7343fc5b68ed03b5e39d73ee1e40eb2d939b"
+          },
+          {
+            "path": "src/CppParser/AST.cpp",
+            "bytes": 40705,
+            "blob_sha": "e5823a23b2eb9d3d003b348f508c76b3701aa5a0"
+          },
+          {
+            "path": "src/CppParser/AST.h",
+            "bytes": 5564,
+            "blob_sha": "3a09a33277fdccee3a2c3d3186263d1cf5602bc1"
+          },
+          {
+            "path": "src/CppParser/ASTNameMangler.cpp",
+            "bytes": 3747,
+            "blob_sha": "017657e5ad7b96aa6a3d2f10276ca975886fc11c"
+          },
+          {
+            "path": "src/CppParser/ASTNameMangler.h",
+            "bytes": 1327,
+            "blob_sha": "d94822a95f35f584446e0581a94640d97c93eae4"
+          },
+          {
+            "path": "src/CppParser/Bootstrap/Bootstrap.cs",
+            "bytes": 37242,
+            "blob_sha": "916e7214d13e966b4fa619b5959791edf16da755"
+          },
+          {
+            "path": "src/CppParser/Bootstrap/CodeGeneratorHelpers.cs",
+            "bytes": 18636,
+            "blob_sha": "810a6ea49bef453ff703d5124e137eb41f0f20c7"
+          },
+          {
+            "path": "src/CppParser/Bootstrap/IgnoreMethodsWithParametersPass.cs",
+            "bytes": 647,
+            "blob_sha": "c43fd3aceb65b90955dafedcf300c06e62bf2ffd"
+          },
+          {
+            "path": "src/CppParser/Bootstrap/StmtCodeGenerators.cs",
+            "bytes": 18269,
+            "blob_sha": "faaf2ef2005598ec2f54458861e8990f142b0122"
+          },
+          {
+            "path": "src/CppParser/Comments.cpp",
+            "bytes": 7899,
+            "blob_sha": "28753903cf2b7f80ec39d6506ebd7e126cc0e7d3"
+          },
+          {
+            "path": "src/CppParser/CppParser.cpp",
+            "bytes": 2235,
+            "blob_sha": "9284b6e566b51bb19455f7fcd469e8b580fa6380"
+          },
+          {
+            "path": "src/CppParser/CppParser.h",
+            "bytes": 3469,
+            "blob_sha": "79b62f501b4d6089c3db9877cbde5d4622e2eb41"
+          },
+          {
+            "path": "src/CppParser/Decl.h",
+            "bytes": 20927,
+            "blob_sha": "b931e88eb8178e0c82012f6fe51bdd3bbd9ad8db"
+          },
+          {
+            "path": "src/CppParser/ELFDumper.h",
+            "bytes": 5187,
+            "blob_sha": "1f5bdcb6bc7889fc787f5c40640e3fe500c695f5"
+          },
+          {
+            "path": "src/CppParser/Helpers.h",
+            "bytes": 2469,
+            "blob_sha": "3857c79d43f58dbea103dfc50961a6637cf6d6ad"
+          },
+          {
+            "path": "src/CppParser/Link.cpp",
+            "bytes": 6423,
+            "blob_sha": "e8d6d7807d0018a489787dd32f374ca0259b5d47"
+          },
+          {
+            "path": "src/CppParser/Parser.cpp",
+            "bytes": 164416,
+            "blob_sha": "18d0cf94dbedee82d5ef30e42d4ddcfb421c1834"
+          },
+          {
+            "path": "src/CppParser/Parser.h",
+            "bytes": 11428,
+            "blob_sha": "7b287880fdb755f41e96d421cb197f3a21f7be28"
+          },
+          {
+            "path": "src/CppParser/ParserGen/ParserGen.cs",
+            "bytes": 10149,
+            "blob_sha": "98258a5e20b795018a1c254613d654e92dda68d3"
+          },
+          {
+            "path": "src/CppParser/Sources.cpp",
+            "bytes": 246,
+            "blob_sha": "506e1031c516c5005ab6cae5e234a2a44ad2b545"
+          },
+          {
+            "path": "src/CppParser/Sources.h",
+            "bytes": 548,
+            "blob_sha": "11f37a7bee666ce7e6a4e155e70a77fc9c205211"
+          },
+          {
+            "path": "src/CppParser/Target.cpp",
+            "bytes": 1201,
+            "blob_sha": "f9d377e1264714f5d067ae403e3b242390c8d1f3"
+          },
+          {
+            "path": "src/CppParser/Target.h",
+            "bytes": 2109,
+            "blob_sha": "fabf99a63a954e42b437b6ddd80b87de96f7a767"
+          },
+          {
+            "path": "src/CppParser/Types.h",
+            "bytes": 6851,
+            "blob_sha": "e8a05f32f1f380b20753cd235ae95117dbbdfb46"
+          },
+          {
+            "path": "src/Generator/AST/ASTRecord.cs",
+            "bytes": 6330,
+            "blob_sha": "4fd44815ffa65dc4c5bce5a19a1dba2a6963458e"
+          },
+          {
+            "path": "src/Generator/AST/Utils.cs",
+            "bytes": 13310,
+            "blob_sha": "b659acd88c967f8189fceafbdca1bb1cadcc2437"
+          },
+          {
+            "path": "src/Generator/AST/VTables.cs",
+            "bytes": 3191,
+            "blob_sha": "59bc2909cd5d5e4fa6afff59534f76359c7414ee"
+          },
+          {
+            "path": "src/Generator/BindingContext.cs",
+            "bytes": 2084,
+            "blob_sha": "cf0cbd3e41d74605ad65409784c987b1f8b7e504"
+          },
+          {
+            "path": "src/Generator/ClassOptions.cs",
+            "bytes": 132,
+            "blob_sha": "6b835c2edeb2209a9384d8718fd2f5f9776cb1a6"
+          },
+          {
+            "path": "src/Generator/Driver.cs",
+            "bytes": 16978,
+            "blob_sha": "cf20a268dc698064e0498401568d46a28ee92780"
+          },
+          {
+            "path": "src/Generator/Extensions/FunctionExtensions.cs",
+            "bytes": 370,
+            "blob_sha": "471cef08f064070a52367f9bb8f7ec5939b2060e"
+          },
+          {
+            "path": "src/Generator/Extensions/LayoutFieldExtensions.cs",
+            "bytes": 1608,
+            "blob_sha": "d9ffabf1642d22f1e83d1b902e642d88fa1bb660"
+          },
+          {
+            "path": "src/Generator/Extensions/ParserIntTypeExtensions.cs",
+            "bytes": 593,
+            "blob_sha": "d677f842d672fd44a44abde9f66e1b07ddb15f24"
+          },
+          {
+            "path": "src/Generator/Extensions/PrimitiveTypeExtensions.cs",
+            "bytes": 4462,
+            "blob_sha": "7c42f5e9bf9e5ac0f4bc1e20415af1edb813bbf5"
+          },
+          {
+            "path": "src/Generator/Extensions/TypeExtensions.cs",
+            "bytes": 1848,
+            "blob_sha": "df28b169ddf86614dfc394b1f6a6a01bb41e219f"
+          },
+          {
+            "path": "src/Generator/Generator.cs",
+            "bytes": 5285,
+            "blob_sha": "42a8ba69a5a9ecaaa8882373ebf1c528b45c3a32"
+          },
+          {
+            "path": "src/Generator/GeneratorKind.cs",
+            "bytes": 6044,
+            "blob_sha": "b93c452adaa83259f284faaca12dbaaef5e24659"
+          },
+          {
+            "path": "src/Generator/Generators/C/CCodeGenerator.cs",
+            "bytes": 17020,
+            "blob_sha": "f0bf231d85fc1656d0789afa16790087186be279"
+          },
+          {
+            "path": "src/Generator/Generators/C/CGenerator.cs",
+            "bytes": 819,
+            "blob_sha": "07884929cfe1afb47704948610c3259a2f1caf21"
+          },
+          {
+            "path": "src/Generator/Generators/C/CppDefaultValuePrinter.cs",
+            "bytes": 2064,
+            "blob_sha": "6987d434eca269e2426a34bb671f443dd6881ee2"
+          },
+          {
+            "path": "src/Generator/Generators/C/CppGenerator.cs",
+            "bytes": 1892,
+            "blob_sha": "f02de85fbc535c30cfb7cd6cc89f7ab1344581cd"
+          },
+          {
+            "path": "src/Generator/Generators/C/CppHeaders.cs",
+            "bytes": 23188,
+            "blob_sha": "b39d6877d20da2765e50112a0b4e340be70441f8"
+          },
+          {
+            "path": "src/Generator/Generators/C/CppMarshal.cs",
+            "bytes": 22937,
+            "blob_sha": "d60a5d6564515debfbf444719c2db5e66615ace5"
+          },
+          {
+            "path": "src/Generator/Generators/C/CppSources.cs",
+            "bytes": 25441,
+            "blob_sha": "061809b4ca5793d6e1c7b685cf7f2227512d12d2"
+          },
+          {
+            "path": "src/Generator/Generators/C/CppTypePrinter.cs",
+            "bytes": 32108,
+            "blob_sha": "23f46c2996f19d5da561e65f326f4fec167b1966"
+          },
+          {
+            "path": "src/Generator/Generators/CLI/CLIGenerator.cs",
+            "bytes": 1069,
+            "blob_sha": "b3f93eb8274164349d80c94e900bfd141575afcd"
+          },
+          {
+            "path": "src/Generator/Generators/CLI/CLIHeaders.cs",
+            "bytes": 28463,
+            "blob_sha": "7408c93e86472a75b33f05c130d19b2fe707ffd5"
+          },
+          {
+            "path": "src/Generator/Generators/CLI/CLIMarshal.cs",
+            "bytes": 32540,
+            "blob_sha": "7e52b9bd255cd9f4cf89aa4fc61755a8baa1d792"
+          },
+          {
+            "path": "src/Generator/Generators/CLI/CLISources.cs",
+            "bytes": 46274,
+            "blob_sha": "3a1b692bc358d6fc858667a8a5dbd2456fd8f1f7"
+          },
+          {
+            "path": "src/Generator/Generators/CLI/CLITemplate.cs",
+            "bytes": 1977,
+            "blob_sha": "405f31ed102ee5ea71fb14a3782536467b277131"
+          },
+          {
+            "path": "src/Generator/Generators/CLI/CLITypePrinter.cs",
+            "bytes": 14616,
+            "blob_sha": "970130f5daf904249b9dae49625a1aab7b435f55"
+          },
+          {
+            "path": "src/Generator/Generators/CLI/CLITypeReferences.cs",
+            "bytes": 7328,
+            "blob_sha": "7280020c14bb688b0b8d77bbcb1b19f4a64bdfcb"
+          },
+          {
+            "path": "src/Generator/Generators/CSharp/CSharpCommentPrinter.cs",
+            "bytes": 15402,
+            "blob_sha": "3c0adbee8d8ec967e453b8981fd66bc796b498d2"
+          },
+          {
+            "path": "src/Generator/Generators/CSharp/CSharpExpressionPrinter.cs",
+            "bytes": 3814,
+            "blob_sha": "3884d1694c8abaa77934c824233000419943a272"
+          },
+          {
+            "path": "src/Generator/Generators/CSharp/CSharpGenerator.cs",
+            "bytes": 1440,
+            "blob_sha": "611f3c6bdc8ee982a2be840edca7bb87f68c1e6d"
+          },
+          {
+            "path": "src/Generator/Generators/CSharp/CSharpLibrarySymbolTable.cs",
+            "bytes": 2751,
+            "blob_sha": "b477a91d99c7ca649d3931b691b94f753e6d55d6"
+          },
+          {
+            "path": "src/Generator/Generators/CSharp/CSharpMarshal.cs",
+            "bytes": 43118,
+            "blob_sha": "3dfbd1e8373047d91f78cc6b4cff211c3f4d1b14"
+          },
+          {
+            "path": "src/Generator/Generators/CSharp/CSharpSources.cs",
+            "bytes": 150086,
+            "blob_sha": "ae60637d7880f2003cb29de69159221c594d1012"
+          },
+          {
+            "path": "src/Generator/Generators/CSharp/CSharpSourcesExtensions.cs",
+            "bytes": 7567,
+            "blob_sha": "d3cd5d70f584e395947695d2169fbb65be91ab4e"
+          },
+          {
+            "path": "src/Generator/Generators/CSharp/CSharpTypePrinter.cs",
+            "bytes": 31189,
+            "blob_sha": "ba100fc796ecca45923280352797998e089597ab"
+          },
+          {
+            "path": "src/Generator/Generators/CodeGenerator.cs",
+            "bytes": 42479,
+            "blob_sha": "baede2ae9c1b559d269cd02be434d7dbbb2d4340"
+          },
+          {
+            "path": "src/Generator/Generators/Emscripten/EmscriptenGenerator.cs",
+            "bytes": 2516,
+            "blob_sha": "2aa3c6aecbcc209ae761d688ee445de1e4666fa4"
+          },
+          {
+            "path": "src/Generator/Generators/Emscripten/EmscriptenHeaders.cs",
+            "bytes": 1350,
+            "blob_sha": "2cd8a3e40031973b1d564c5cc35b2a4135589360"
+          },
+          {
+            "path": "src/Generator/Generators/Emscripten/EmscriptenMarshal.cs",
+            "bytes": 616,
+            "blob_sha": "0e05a740427bd29abea7b14de46f5dcd42c49171"
+          },
+          {
+            "path": "src/Generator/Generators/Emscripten/EmscriptenModule.cs",
+            "bytes": 2919,
+            "blob_sha": "e92c4bcf7c8c6763876c8b363109d4dd469946d2"
+          },
+          {
+            "path": "src/Generator/Generators/Emscripten/EmscriptenSources.cs",
+            "bytes": 7545,
+            "blob_sha": "c1c99a1d9a26046ffb19860fd00511cd4022fed6"
+          },
+          {
+            "path": "src/Generator/Generators/Emscripten/EmscriptenTypePrinter.cs",
+            "bytes": 240,
+            "blob_sha": "b5d5cd8816c2ed5b42f777f1db9efb97e3f1b183"
+          },
+          {
+            "path": "src/Generator/Generators/ExtensionMethods.cs",
+            "bytes": 3167,
+            "blob_sha": "c24a4703815a1032a601cac1c81159565e6904cf"
+          },
+          {
+            "path": "src/Generator/Generators/ITypePrinter.cs",
+            "bytes": 2879,
+            "blob_sha": "20d4bf87bce6a9bf2c7e58d2ded0a0188da63c09"
+          },
+          {
+            "path": "src/Generator/Generators/MSBuildGenerator.cs",
+            "bytes": 2001,
+            "blob_sha": "dfa3f50c236319b7ce6bff2d297f74e82e7e80d3"
+          },
+          {
+            "path": "src/Generator/Generators/Marshal.cs",
+            "bytes": 1593,
+            "blob_sha": "1dcd9dced36bcdfb179a890218f27764d54191fd"
+          },
+          {
+            "path": "src/Generator/Generators/NAPI/NAPIGenerator.cs",
+            "bytes": 2640,
+            "blob_sha": "f9058cc761d380a7d6a6a86022c619e3195a37ed"
+          },
+          {
+            "path": "src/Generator/Generators/NAPI/NAPIHeaders.cs",
+            "bytes": 608,
+            "blob_sha": "f63fb02dd8dcaff31aa6d9c841350261d4c4deda"
+          },
+          {
+            "path": "src/Generator/Generators/NAPI/NAPIHelpers.cs",
+            "bytes": 15374,
+            "blob_sha": "858c488ceaf1929eaec3fbd19148d9f57ffedec9"
+          },
+          {
+            "path": "src/Generator/Generators/NAPI/NAPIMarshal.cs",
+            "bytes": 28495,
+            "blob_sha": "3eb23b528d56fad6a545fe38a7db6402750e1ea7"
+          },
+          {
+            "path": "src/Generator/Generators/NAPI/NAPIModule.cs",
+            "bytes": 1738,
+            "blob_sha": "0726cc9775451ab998799e1ba798c6927f1c3f04"
+          },
+          {
+            "path": "src/Generator/Generators/NAPI/NAPISources.cs",
+            "bytes": 31801,
+            "blob_sha": "a78d2948b41db6549e242448c05173f65e78886e"
+          },
+          {
+            "path": "src/Generator/Generators/NAPI/NAPITypeCheckGen.cs",
+            "bytes": 3408,
+            "blob_sha": "335585f656d4ef6fa05940fd7364867f74c73e65"
+          },
+          {
+            "path": "src/Generator/Generators/NAPI/NAPITypeCheckPass.cs",
+            "bytes": 2189,
+            "blob_sha": "abae42ebc239e8d6dd292722b403c03d2a9df7d4"
+          },
+          {
+            "path": "src/Generator/Generators/NAPI/NAPITypePrinter.cs",
+            "bytes": 219,
+            "blob_sha": "55109863b718fcf317348648d0fedc20256251cb"
+          },
+          {
+            "path": "src/Generator/Generators/QuickJS/QuickJSGenerator.cs",
+            "bytes": 4881,
+            "blob_sha": "d7e7bc746be09aeca5ea36472869211448637334"
+          },
+          {
+            "path": "src/Generator/Generators/QuickJS/QuickJSHeaders.cs",
+            "bytes": 1618,
+            "blob_sha": "20f53039505531ed708597f4d8ee26c2d7d10ad6"
+          },
+          {
+            "path": "src/Generator/Generators/QuickJS/QuickJSMarshal.cs",
+            "bytes": 28056,
+            "blob_sha": "02b109470c5684284ff430c69b8a89a37aa8cd1b"
+          },
+          {
+            "path": "src/Generator/Generators/QuickJS/QuickJSModule.cs",
+            "bytes": 4310,
+            "blob_sha": "dc3ad1feb5838f3a350a09a8bf4bf01123f2e307"
+          },
+          {
+            "path": "src/Generator/Generators/QuickJS/QuickJSSources.cs",
+            "bytes": 36062,
+            "blob_sha": "f4d88ccd06838a63991aff667aa7103e0f0d1b86"
+          },
+          {
+            "path": "src/Generator/Generators/QuickJS/QuickJSTypeCheckGen.cs",
+            "bytes": 4792,
+            "blob_sha": "b39a3d1f90caf1fff7850b40529a4b74428e49f4"
+          },
+          {
+            "path": "src/Generator/Generators/QuickJS/QuickJSTypePrinter.cs",
+            "bytes": 195,
+            "blob_sha": "76e185e2b2c0c5e68f259143fd612a4531c59571"
+          },
+          {
+            "path": "src/Generator/Generators/QuickJS/Runtime/CppSharp_QuickJS.cpp",
+            "bytes": 294,
+            "blob_sha": "4c4b9768118e1a55a07ebc36d22eeb4c22058d63"
+          },
+          {
+            "path": "src/Generator/Generators/QuickJS/Runtime/CppSharp_QuickJS.h",
+            "bytes": 7476,
+            "blob_sha": "682bff17b6a57706f9c3c84da85cec725a07eaa4"
+          },
+          {
+            "path": "src/Generator/Generators/QuickJS/Runtime/CppSharp_QuickJS_Signal.cpp",
+            "bytes": 6039,
+            "blob_sha": "8cc4264b41b16d3fd25e8256adfa119db6317c93"
+          },
+          {
+            "path": "src/Generator/Generators/QuickJS/Runtime/CppSharp_QuickJS_Signal.h",
+            "bytes": 507,
+            "blob_sha": "a4490fb8a08c6ad860514cde7d128c2e0fbe6cea"
+          },
+          {
+            "path": "src/Generator/Generators/TS/TSGenerator.cs",
+            "bytes": 790,
+            "blob_sha": "b4e3402c4582d6a18aaf29ded4cde6a6f486a65a"
+          },
+          {
+            "path": "src/Generator/Generators/TS/TSSources.cs",
+            "bytes": 15664,
+            "blob_sha": "8642136ce9e98323c88b79697690a4ad3e35659a"
+          },
+          {
+            "path": "src/Generator/Generators/TS/TSTypePrinter.cs",
+            "bytes": 6065,
+            "blob_sha": "2c61cbfbe81a2cb185271ee6cd3425beff2ed96c"
+          },
+          {
+            "path": "src/Generator/Generators/TypePrinter.cs",
+            "bytes": 13719,
+            "blob_sha": "807b81b4e15e8bb2dbdb931d78387f7c3b61ee75"
+          },
+          {
+            "path": "src/Generator/Library.cs",
+            "bytes": 26967,
+            "blob_sha": "403c2e85e93d1dfc35ee473cbba9140033c4b57b"
+          },
+          {
+            "path": "src/Generator/Options.cs",
+            "bytes": 10777,
+            "blob_sha": "1c078b474c1d0f98075daa2ab2ed906b13bef92d"
+          },
+          {
+            "path": "src/Generator/Passes/CheckAbiParameters.cs",
+            "bytes": 3560,
+            "blob_sha": "a6360960b39a5186927c144715f048964c93beda"
+          },
+          {
+            "path": "src/Generator/Passes/CheckAmbiguousFunctions.cs",
+            "bytes": 9487,
+            "blob_sha": "3cb23588723d5554eda54cdd1f42b46954fc480b"
+          },
+          {
+            "path": "src/Generator/Passes/CheckDuplicatedNamesPass.cs",
+            "bytes": 10389,
+            "blob_sha": "13d4bc2f29d6d023abfe9f85dbeb1d02cd2e7cc2"
+          },
+          {
+            "path": "src/Generator/Passes/CheckEnumsPass.cs",
+            "bytes": 2396,
+            "blob_sha": "5cbd8611f8c1428b8ad33f252ac03c650c20da39"
+          },
+          {
+            "path": "src/Generator/Passes/CheckIgnoredDecls.cs",
+            "bytes": 20046,
+            "blob_sha": "84721f208f23480373ddf31a896cb6d9f43630d2"
+          },
+          {
+            "path": "src/Generator/Passes/CheckKeywordNamesPass.cs",
+            "bytes": 862,
+            "blob_sha": "fa5670462fa280456bb4efa93cb0d2e07e89efed"
+          },
+          {
+            "path": "src/Generator/Passes/CheckMacrosPass.cs",
+            "bytes": 8612,
+            "blob_sha": "4da8203a03a011e597d4d90524da2ebb336bbfbe"
+          },
+          {
+            "path": "src/Generator/Passes/CheckOperatorsOverloads.cs",
+            "bytes": 6725,
+            "blob_sha": "a2597fa5884a7c92b857d8366a50969e61c1db03"
+          },
+          {
+            "path": "src/Generator/Passes/CheckStaticClassPass.cs",
+            "bytes": 5872,
+            "blob_sha": "79f896c83584c929fb214d0b213060c11506a6f3"
+          },
+          {
+            "path": "src/Generator/Passes/CheckVirtualOverrideReturnCovariance.cs",
+            "bytes": 6172,
+            "blob_sha": "12d04d9d03e49c39ac1b03d2be4a34d530dc5a5a"
+          },
+          {
+            "path": "src/Generator/Passes/CleanCommentsPass.cs",
+            "bytes": 5160,
+            "blob_sha": "71ddb8e120db4398f9cd82f0aeaca7873416364b"
+          },
+          {
+            "path": "src/Generator/Passes/CleanInvalidDeclNamesPass.cs",
+            "bytes": 4830,
+            "blob_sha": "9920449bcdb924a94927dc8801047df72d85e749"
+          },
+          {
+            "path": "src/Generator/Passes/CleanUnitPass.cs",
+            "bytes": 2187,
+            "blob_sha": "ef02a4c7ef04a2966b93cc3c9f6a5c3ca07af2b7"
+          },
+          {
+            "path": "src/Generator/Passes/ConstructorToConversionOperatorPass.cs",
+            "bytes": 4419,
+            "blob_sha": "b6cb106fe4d5b87a881b4c48058291728e25dd1d"
+          },
+          {
+            "path": "src/Generator/Passes/DelegatesPass.cs",
+            "bytes": 12011,
+            "blob_sha": "591eb2d07ed62065f4c81021272e867bf4da152c"
+          },
+          {
+            "path": "src/Generator/Passes/EqualiseAccessOfOverrideAndBasePass.cs",
+            "bytes": 1533,
+            "blob_sha": "f1e1370c49081c762b816a149edfcce7e64cfb2c"
+          },
+          {
+            "path": "src/Generator/Passes/ExpressionHelper.cs",
+            "bytes": 17588,
+            "blob_sha": "be5e924d7cea2ac86eddce5e2060ead579d4d712"
+          },
+          {
+            "path": "src/Generator/Passes/ExtractInterfacePass.cs",
+            "bytes": 580,
+            "blob_sha": "0353f9519f210f1ef69fc6bdd241cf719133021c"
+          },
+          {
+            "path": "src/Generator/Passes/FastDelegateToDelegatesPass.cs",
+            "bytes": 2351,
+            "blob_sha": "1ed8342147415046c6226023b302d3cf969b5bd7"
+          },
+          {
+            "path": "src/Generator/Passes/FieldToPropertyPass.cs",
+            "bytes": 4091,
+            "blob_sha": "c5be5807e80e6f296e7d208043242523df59fff9"
+          },
+          {
+            "path": "src/Generator/Passes/FindSymbolsPass.cs",
+            "bytes": 3298,
+            "blob_sha": "750e8ab1c5a43dc4a9380cafeb81d8ad6f3b0bae"
+          },
+          {
+            "path": "src/Generator/Passes/FixDefaultParamValuesOfOverridesPass.cs",
+            "bytes": 1117,
+            "blob_sha": "6d2162254f137272641d7d7b1071e28d6071106e"
+          },
+          {
+            "path": "src/Generator/Passes/FixParameterUsageFromComments.cs",
+            "bytes": 3288,
+            "blob_sha": "a68167e64617b8910d5cb4c3590e2091eeefe415"
+          },
+          {
+            "path": "src/Generator/Passes/FlattenAnonymousTypesToFields.cs",
+            "bytes": 3332,
+            "blob_sha": "71c078338dab24453a4e45b63e0cbfacfca8486d"
+          },
+          {
+            "path": "src/Generator/Passes/FunctionToInstanceMethodPass.cs",
+            "bytes": 3082,
+            "blob_sha": "57543028f8768fe63b7657d7a696c4614833eb0f"
+          },
+          {
+            "path": "src/Generator/Passes/FunctionToStaticMethodPass.cs",
+            "bytes": 2384,
+            "blob_sha": "a83e1e938a8771e8a32a74d5c20a52ea84190574"
+          },
+          {
+            "path": "src/Generator/Passes/GenerateAbstractImplementationsPass.cs",
+            "bytes": 6535,
+            "blob_sha": "c09ee73786fd24d1087d4251569673ff8f133a71"
+          },
+          {
+            "path": "src/Generator/Passes/GenerateSymbolsPass.cs",
+            "bytes": 16637,
+            "blob_sha": "004b2503ba9a1fab86be937985ddec69448230dc"
+          },
+          {
+            "path": "src/Generator/Passes/GetterSetterToPropertyPass.cs",
+            "bytes": 15759,
+            "blob_sha": "231bab6a74b5babcff22c36c7a23806cb7a18137"
+          },
+          {
+            "path": "src/Generator/Passes/HandleDefaultParamValuesPass.cs",
+            "bytes": 4109,
+            "blob_sha": "38a512d6c0cc0d20db5da4a6d781c3c4f0485ff8"
+          },
+          {
+            "path": "src/Generator/Passes/HandleVariableInitializerPass.cs",
+            "bytes": 937,
+            "blob_sha": "888dfcea7c2b9e522cacb1d804c28567248d0d0f"
+          },
+          {
+            "path": "src/Generator/Passes/IgnoreSystemDeclarationsPass.cs",
+            "bytes": 4435,
+            "blob_sha": "8b90d57b051f3c81cba1f30c9e73e813cb344a5e"
+          },
+          {
+            "path": "src/Generator/Passes/MakeProtectedNestedTypesPublicPass.cs",
+            "bytes": 717,
+            "blob_sha": "a86f340eda31429e906e7ee3228cf4807c609a9c"
+          },
+          {
+            "path": "src/Generator/Passes/MarkEventsWithUniqueIdPass.cs",
+            "bytes": 813,
+            "blob_sha": "3132a36eb935390a51991f521c29c63351807785"
+          },
+          {
+            "path": "src/Generator/Passes/MarkUsedClassInternalsPass.cs",
+            "bytes": 2486,
+            "blob_sha": "0c90d1dfd84d39c2351b6266aa902c8b524c0f72"
+          },
+          {
+            "path": "src/Generator/Passes/MarshalPrimitivePointersAsRefTypePass.cs",
+            "bytes": 987,
+            "blob_sha": "80f248881632a585ada6fdb8ba0e765956c326ec"
+          },
+          {
+            "path": "src/Generator/Passes/MatchParamNamesWithInstantiatedFromPass.cs",
+            "bytes": 1250,
+            "blob_sha": "9a52e49a3d5d193e6f15b2a6de8a42e50f7e8e88"
+          },
+          {
+            "path": "src/Generator/Passes/MoveFunctionToClassPass.cs",
+            "bytes": 2296,
+            "blob_sha": "ebfe808ed7a2c6aad83087b6e0c42ad1beb14e76"
+          },
+          {
+            "path": "src/Generator/Passes/MultipleInheritancePass.cs",
+            "bytes": 11252,
+            "blob_sha": "96c0d4501e17bd620273b9968fda0796ccdf0fef"
+          },
+          {
+            "path": "src/Generator/Passes/ParamTypeToInterfacePass.cs",
+            "bytes": 5379,
+            "blob_sha": "8a0a13f4c18c471fd63a77d7dba30b5eec2e8c18"
+          },
+          {
+            "path": "src/Generator/Passes/Pass.cs",
+            "bytes": 3809,
+            "blob_sha": "3ea925528d7def3e335963610349d0cf7693dcf4"
+          },
+          {
+            "path": "src/Generator/Passes/PassBuilder.cs",
+            "bytes": 1567,
+            "blob_sha": "bb4c86e84536e9dfdf563b105e99904147f873e1"
+          },
+          {
+            "path": "src/Generator/Passes/RenamePass.cs",
+            "bytes": 16846,
+            "blob_sha": "748b3c727157fb4e1d966c9ab364127626ff14af"
+          },
+          {
+            "path": "src/Generator/Passes/ResolveIncompleteDeclsPass.cs",
+            "bytes": 5507,
+            "blob_sha": "d7ebdbc44570cd5de37bc5cd01a5106e00592304"
+          },
+          {
+            "path": "src/Generator/Passes/SpecializationMethodsWithDependentPointersPass.cs",
+            "bytes": 7116,
+            "blob_sha": "a027390b43181091f46552776f39b9f4315c72ac"
+          },
+          {
+            "path": "src/Generator/Passes/StripUnusedSystemTypesPass.cs",
+            "bytes": 3690,
+            "blob_sha": "46aa1c0f70c3dcc1f2133a0a58c65425c9818390"
+          },
+          {
+            "path": "src/Generator/Passes/SymbolsCodeGenerator.cs",
+            "bytes": 16482,
+            "blob_sha": "5c3ba34cd52065cb8d1ad5c147a429bc7679e7e4"
+          },
+          {
+            "path": "src/Generator/Passes/TrimSpecializationsPass.cs",
+            "bytes": 9142,
+            "blob_sha": "c72a72325b85341c4cdb2465bf7acd71cca58f55"
+          },
+          {
+            "path": "src/Generator/Passes/ValidateOperatorsPass.cs",
+            "bytes": 6349,
+            "blob_sha": "690bb092a82d16677b942b6d3a9e18f486ca934b"
+          },
+          {
+            "path": "src/Generator/Types/DeclMap.cs",
+            "bytes": 1329,
+            "blob_sha": "d1e9b63f97e89f4af0d54fe51fcd948155515c2c"
+          },
+          {
+            "path": "src/Generator/Types/DeclMapDatabase.cs",
+            "bytes": 2975,
+            "blob_sha": "2bdc7b090687350cd1a25f02e57025f07515a00e"
+          },
+          {
+            "path": "src/Generator/Types/Std/Stdlib.CLI.cs",
+            "bytes": 11925,
+            "blob_sha": "ffbe2dbaef6afc912539f3a468aac36eae5d2b3f"
+          },
+          {
+            "path": "src/Generator/Types/Std/Stdlib.CSharp.cs",
+            "bytes": 18991,
+            "blob_sha": "30dd436b49386e7eb33cc9620f6cd51be4c8619e"
+          },
+          {
+            "path": "src/Generator/Types/Std/Stdlib.cs",
+            "bytes": 160,
+            "blob_sha": "afe7adb92062d5bc111f2a0a210c866bc9539e8f"
+          },
+          {
+            "path": "src/Generator/Types/TypeIgnoreChecker.cs",
+            "bytes": 6272,
+            "blob_sha": "707a16774d9225c7e2930b81a0cb32e58da31d76"
+          },
+          {
+            "path": "src/Generator/Types/TypeMap.cs",
+            "bytes": 2677,
+            "blob_sha": "5f701c6c4a440a065e33b0c7bbf2f9a5b5a975c5"
+          },
+          {
+            "path": "src/Generator/Types/TypeMapDatabase.cs",
+            "bytes": 6059,
+            "blob_sha": "69aa4a39ba4ba6aa78adacc334fab88599665490"
+          },
+          {
+            "path": "src/Generator/Utils/BlockGenerator.cs",
+            "bytes": 10945,
+            "blob_sha": "56a2b1934b70bb5af9461a807a9fec4311890b7b"
+          },
+          {
+            "path": "src/Generator/Utils/ExpressionEvaluator.cs",
+            "bytes": 201312,
+            "blob_sha": "88054e746d95006411ddb28037f2162cf805785e"
+          },
+          {
+            "path": "src/Generator/Utils/FSM/ConsoleWriter.cs",
+            "bytes": 560,
+            "blob_sha": "43dce140ffb603c3656bb2765f7e57f9a2a57a04"
+          },
+          {
+            "path": "src/Generator/Utils/FSM/DFSM.cs",
+            "bytes": 5821,
+            "blob_sha": "e49b1c32fcb721f000300d07e7b5e1277ef5e0bf"
+          },
+          {
+            "path": "src/Generator/Utils/FSM/Minimize.cs",
+            "bytes": 2937,
+            "blob_sha": "2cbdc557151511c2633df2811b11f92c31aea7e8"
+          },
+          {
+            "path": "src/Generator/Utils/FSM/NDFSM.cs",
+            "bytes": 3310,
+            "blob_sha": "f784cdd4f7a135d18eacf83564db65d00bdfb825"
+          },
+          {
+            "path": "src/Generator/Utils/FSM/Program.cs",
+            "bytes": 740,
+            "blob_sha": "fe3522f7ade74d548887ec64d1fc189ab1e086b9"
+          },
+          {
+            "path": "src/Generator/Utils/FSM/Transition.cs",
+            "bytes": 579,
+            "blob_sha": "46c7a8261e742b1cba6a216a866c61df8ec134fd"
+          },
+          {
+            "path": "src/Generator/Utils/HtmlEncoder.cs",
+            "bytes": 21408,
+            "blob_sha": "4f557ca8b159ae18f86fc6ab16cfe1e9b6592825"
+          },
+          {
+            "path": "src/Generator/Utils/IEnumerableExtensions.cs",
+            "bytes": 1261,
+            "blob_sha": "95e786f964d29e10def0a22fcdfaf0adf1acf9a6"
+          },
+          {
+            "path": "src/Generator/Utils/Options.cs",
+            "bytes": 49027,
+            "blob_sha": "c3d4808d6ead70d4dd1ea865db5af8c38cdbdf76"
+          },
+          {
+            "path": "src/Generator/Utils/OrderedSet.cs",
+            "bytes": 2097,
+            "blob_sha": "2e40e833d39c26cfce579168fe07cbf2b5b74297"
+          },
+          {
+            "path": "src/Generator/Utils/ProcessHelper.cs",
+            "bytes": 1902,
+            "blob_sha": "96a562bf20d68bcd6a13c2c17809105f35bdcb70"
+          },
+          {
+            "path": "src/Generator/Utils/TextGenerator.cs",
+            "bytes": 4536,
+            "blob_sha": "9dbbedffe2327fd82e73d47bcabb32d824eb1262"
+          },
+          {
+            "path": "src/Generator/Utils/Utils.cs",
+            "bytes": 5552,
+            "blob_sha": "44e777cf9a16cd5bc850f29a2655bd860464e5cb"
+          },
+          {
+            "path": "src/Parser/ASTConverter.cs",
+            "bytes": 95979,
+            "blob_sha": "ca12758675d621105b4c3ae7867bdd7667ffad1a"
+          },
+          {
+            "path": "src/Parser/BuildConfig.cs",
+            "bytes": 125,
+            "blob_sha": "9d33eda2b3680b3c14c47e87bdc51d44334a43bc"
+          },
+          {
+            "path": "src/Parser/LinkerOptions.cs",
+            "bytes": 8533,
+            "blob_sha": "c460487aa872be15799f32b247237875c112364e"
+          },
+          {
+            "path": "src/Parser/Parser.cs",
+            "bytes": 2815,
+            "blob_sha": "66d5daceaa40ad095117956a73c8139ad860bdfe"
+          },
+          {
+            "path": "src/Parser/ParserOptions.cs",
+            "bytes": 15374,
+            "blob_sha": "397baba672b21ffeb5567925be503a8b367aef08"
+          },
+          {
+            "path": "src/Runtime/MarshalUtil.cs",
+            "bytes": 2040,
+            "blob_sha": "7ba1c6f8a459331a7e58fc761df8410feac31e76"
+          },
+          {
+            "path": "src/Runtime/Pointer.cs",
+            "bytes": 265,
+            "blob_sha": "2afed527716af8a40015514c437eddebf449ba08"
+          },
+          {
+            "path": "src/Runtime/SafeUnmanagedMemoryHandle.cs",
+            "bytes": 853,
+            "blob_sha": "da6515890d8a32e65aae60f880a5fe30d685d68f"
+          },
+          {
+            "path": "src/Runtime/SymbolResolver.cs",
+            "bytes": 5645,
+            "blob_sha": "68fc2b049a6cd8f299e251101a44d72909d4ff73"
+          },
+          {
+            "path": "src/Runtime/UTF32Marshaller.cs",
+            "bytes": 1552,
+            "blob_sha": "03f2d637fa3b59f0bf8207df77535888d826592b"
+          },
+          {
+            "path": "src/Runtime/UTF8Marshaller.cs",
+            "bytes": 1803,
+            "blob_sha": "cc9fa50c7b4da605ebcce2fa4907f1fdf759cf1e"
+          },
+          {
+            "path": "src/Runtime/VTables.cs",
+            "bytes": 2134,
+            "blob_sha": "a7fc1e754714cdceb26a938f0aef319109fde6e8"
+          }
+        ]
+      },
+      "prerequisites": [
+        "Proposed Windows x64 Release baseline: VS2022 Desktop development with C++, Windows SDK, C++/CLI support and MSBuild.exe on PATH.",
+        "Explicit net8.0 baseline requires suitable .NET SDK/runtime; this combination is proposed, not build-verified.",
+        "Git Bash, curl, archive tools including 7-Zip, NuGet/GitHub access.",
+        "Scripts download Premake 5.0.0-beta2 and matching LLVM dependencies."
+      ],
+      "llvm": {
+        "commit": "cd708029e0b2869e80abe31ddb175f7c35361f90",
+        "windows_release_asset": "https://github.com/mono/CppSharp/releases/download/CppSharp/llvm-cd7080-windows-vs2022-x64-Release.7z",
+        "reported_compressed_bytes": 77628811,
+        "download_verified": false
+      },
+      "verification": {
+        "source_read": "passed",
+        "size_measurement": "passed",
+        "clone": "not_run",
+        "build": "not_run",
+        "upstream_tests": "not_run",
+        "extractor_coverage": "not_implemented"
+      },
+      "deviations": [
+        "RESOURCE-CPPSHARP-001",
+        "RESOURCE-CPPSHARP-002"
+      ]
+    }
+  ]
+}
