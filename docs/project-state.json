@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-11-16",
+  "project": "C++ and C# code extraction",
+  "stage": "preflight",
+  "m0_status": "not_completed",
+  "implementation_status": "not_started",
+  "repository": "Othmane-Lakhdar/Prompted-learning",
+  "work_branch": "codex/extractor-preflight-m0",
+  "base_commit": "7bb07d6680bb78ee45e3da86ebd2b9ce52c176ad",
+  "checkpoint": "docs/checkpoints/2026-11-16-preimplementation.md",
+  "capability_audit": "docs/capabilities.md",
+  "deviation_log": "docs/deviations.json",
+  "next_stage": "M0 field dictionary, schema contracts, requirements traceability and pilot specification",
+  "notes": [
+    "The capability audit and candidate instructions will be added after verifying this bootstrap commit.",
+    "Local execution is blocked; no clone, compiler, build, test or generated database result is claimed."
+  ]
+}
