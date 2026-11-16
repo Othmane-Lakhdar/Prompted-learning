@@ -557,6 +557,31 @@
         "status": "recorded_limitation",
         "evidence": "docs/preflight/2026-11-16-local/cppsharp-test-summary.json"
       }
+    },
+    {
+      "id": "GITAUTH001",
+      "status": "open_with_verified_api_alternative",
+      "kind": "local_git_https_authentication",
+      "stage": "preflight",
+      "expected": "Publish the reviewed local commit using the configured HTTPS Git credentials.",
+      "observed": "Local commit succeeded; Git push returned exit128 with invalid username or token. Connected GitHub tools created an identical tree and published a commit with a guarded non-force ref update. Fetch/readback confirmed tree equality.",
+      "evidence": [
+        {
+          "record": "docs/preflight/2026-11-16-local/publication.json"
+        }
+      ],
+      "affected": [
+        "local Git-protocol push"
+      ],
+      "blocks_dependent_execution": false,
+      "corrective_action": "Use the verified GitHub API publication path; repair the local HTTPS credential separately before claiming Git-protocol push works. Preserve the local commit on its backup branch.",
+      "verification": {
+        "status": "partial",
+        "local_commit": "passed",
+        "git_push": "failed",
+        "api_publication": "passed",
+        "tree_readback": "passed"
+      }
     }
   ]
 }

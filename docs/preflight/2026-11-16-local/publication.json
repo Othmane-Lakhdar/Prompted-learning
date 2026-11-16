@@ -1,0 +1,23 @@
+{
+  "local_commit": "46d08eb32f209ca47a0fe8665e2bf5dc4f00d1b3",
+  "local_backup_branch": "codex/preflight-local-audit-20261116",
+  "https_git_push": {
+    "status": "failed",
+    "exit_code": 128,
+    "error": "Invalid username or token. Password authentication is not supported for Git operations."
+  },
+  "github_api_publication": {
+    "status": "passed",
+    "commit": "0ddfb61bbba284467c13bc02aacf765f29eb179f",
+    "tree": "631545cf7bb84c08f7e0f9ec961a59c93b343a87",
+    "expected_previous_head": "dfc85380777635d57adc7d897634270cd26bba21",
+    "force": false
+  },
+  "verification": {
+    "remote_fetched": true,
+    "local_and_remote_trees_equal": true,
+    "local_work_branch_synchronized": true,
+    "tracked_worktree_clean": true
+  },
+  "note": "API commit metadata differs from the local commit; file trees are identical. Original local commit preserved on backup branch. This record predates the metadata-only commit recording publication."
+}

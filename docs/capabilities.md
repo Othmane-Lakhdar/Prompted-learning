@@ -17,7 +17,7 @@ See the [local report](preflight/2026-11-16-local/README.md), [command records](
 | G01 | Passed: local instructions, refs, history and remote inspected; origin fetched and existing work branch selected. |
 | G02 | Passed: exact candidate revisions cloned; all 288 manifest-listed blob IDs and sizes verified. |
 | G03 | Passed: authorized branch now has a local tracking checkout. |
-| G04–G05 | Earlier GitHub API commit/publication path verified. Local commit/push evidence is tracked in project-state.json after delivery of this audit. No force push or main-branch update. |
+| G04–G05 | Local commit passed; HTTPS Git push failed authentication. Connected GitHub tools published an identical tree using a guarded non-force ref update; fetch/readback verified it. See publication.json in the local report. No main-branch update. |
 | G06 | Passed: actual nonempty local diffs and Git history inspected. |
 | G07 | Passed: Git-protocol clone/fetch/checkout. No gitlinks in either pinned tree; no LFS transfer required. |
 | G08 | Local edits and branch switching work. Worktree creation and conflict resolution not exercised. Commit/push recorded separately. |

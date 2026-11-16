@@ -26,15 +26,20 @@
     "local_clone": "verified_both_pins",
     "candidate_builds": "coral_passed_cppsharp_declared_subset_passed",
     "ci_execution": "unverified_optional_alternative",
-    "local_git_commit_and_push": "pending_current_audit_delivery",
     "candidate_tests": "coral_passed_cppsharp_91_passed_1_ignored",
     "roslyn": "semantic_symbol_and_operation_probe_passed",
     "clang": "candidate_local_libraries_ast_cfg_probe_passed",
     "sqlite": "native_provider_constraints_and_rollback_probe_passed",
     "full_cppsharp_windows": "blocked_missing_cpp_cli",
-    "ai_benchmark": "unverified_m0_execution_route_needed"
+    "ai_benchmark": "unverified_m0_execution_route_needed",
+    "local_git_commit": "verified",
+    "local_https_git_push": "failed_authentication",
+    "github_api_current_publication": "verified",
+    "local_write_evidence_commit": "46d08eb32f209ca47a0fe8665e2bf5dc4f00d1b3",
+    "api_write_evidence_commit": "0ddfb61bbba284467c13bc02aacf765f29eb179f"
   },
   "test_resources": "docs/testing/candidates.json",
   "preflight_status": "completed_with_declared_scope_limits",
-  "local_preflight_report": "docs/preflight/2026-11-16-local/README.md"
+  "local_preflight_report": "docs/preflight/2026-11-16-local/README.md",
+  "publication_evidence": "docs/preflight/2026-11-16-local/publication.json"
 }

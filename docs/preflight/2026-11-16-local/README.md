@@ -2,6 +2,8 @@
 
 Preflight completed with declared scope limits. M0 and extractor implementation have not started. Source pins, export profiles and the historical checkpoint are unchanged.
 
+Local commit succeeded but HTTPS Git push failed authentication. The connected GitHub tools published an identical file tree; fetch/readback verified equality and the work branch is synchronized. The original local commit is preserved on a backup branch. [Publication evidence](publication.json) records both paths; Git-protocol push is still not verified.
+
 ## Verified results
 
 | Check | Result |
