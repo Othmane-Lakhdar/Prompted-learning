@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "purpose": "Review history; passing a previous artifact version does not cover later additions or reopenings.",
+  "reviews": [
+    {
+      "reviewer": "preflight_review",
+      "stage": "M0",
+      "verdict": "passed_for_reviewed_artifacts",
+      "hashes": {
+        "schema.sql": "c434aa20fdd652c3378322f8321ccbee18f08590d5bfa18013729d1e931d1319",
+        "contracts.json": "5803bcb2cb78b3bb8fffa97f96907111f49647dd3319c4f68601d29f5f2dbd41",
+        "contracts.md": "d42ce3d62f4d7853b83cf9d8f8a895cebd6df5f2d0c588748500462d1384d151"
+      },
+      "executed_validation": {
+        "requirements_negative_mutations": 13,
+        "contract_checks": 55
+      },
+      "scope": [
+        "inventory/schema/collection consistency",
+        "pilot build and compiler evidence",
+        "profile boundary design",
+        "benchmark revision2 grading and context scopes",
+        "source-only capture and query contracts",
+        "builtin C++ annotation spelling"
+      ],
+      "limits": [
+        "not extractor acceptance",
+        "not controller isolation",
+        "not the 360-trial experiment"
+      ]
+    },
+    {
+      "reviewer": "m0_requirements",
+      "stage": "M0",
+      "verdict": "reopened_before_implementation",
+      "findings": [
+        "M0DESIGN011",
+        "M0DESIGN012",
+        "M0DESIGN013"
+      ],
+      "reason": "Implementation feasibility exposed underspecified worker interchange, identity dependency order and table-level projection ownership."
+    },
+    {
+      "reviewer": "preflight_review",
+      "stage": "M0",
+      "verdict": "passed_bounded_additions_only",
+      "hashes": {
+        "evidence/roslyn-cfg-correspondence.json": "4f8b761bbba3630129b96bfd75417ede7ebc1acc74115f9c01dce2cc633602af",
+        "evidence/msbuild-context-evaluation.json": "03fd7a6d0b5c0c60961a74cf52ec10202c0546ff36ef14fa7f1d4ec5622271e8",
+        "../../tools/preflight/roslyn-oracle/Program.cs": "6f090568fc2b1e0ad587e43466c6cd9f3783f6c2213802354367f53b48e52e1b",
+        "benchmark.json": "2dfa6855477dc9db2d47b1fce1b502b71f4069d4c79222014957aed707892f8f",
+        "benchmark-protocol.md": "2c4147236a819642874eda9a34b99069c1943c0975e0ae464d46750090282add"
+      },
+      "verified": [
+        "Raw and command hashes match, four commands exited0",
+        "Six CFG blocks and16 unambiguous pilot correspondences;22-node source oracle unchanged",
+        "Two managed source inputs/163 reference providers and one native TU/header",
+        "Same source operations/citations available in all arms; benchmark gold unchanged"
+      ],
+      "limits": [
+        "Overall reopened M0 gate still pending new worker/identity/projection contracts"
+      ]
+    }
+  ],
+  "current_gate": "pending_new_contract_corrections_and_independent_review"
+}

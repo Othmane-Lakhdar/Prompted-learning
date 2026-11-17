@@ -1,0 +1,86 @@
+{
+  "review": "preflight_review",
+  "stage": "M0 before any product/profile trial",
+  "previous_sha256": "658df9b7a752296cf924c1c717c6f94b4151eb503899c498f64ab68bb24ee197",
+  "findings": [
+    "Undisclosed exact string gold would penalize correct paraphrases/formatting",
+    "Missing explicit context selectors and set ordering"
+  ],
+  "correction": "Explicit contexts, per-context counts, representation rules, semantic equivalence and grading examples; concrete native overload signatures.",
+  "previous_questions": [
+    {
+      "id": "Q13",
+      "question": "What predicate selects Choose's two paths, and what expression is assigned to result on each path?",
+      "gold_m1": {
+        "predicate": "value > 0",
+        "true_value": "Add(value,1)",
+        "false_value": "0"
+      }
+    },
+    {
+      "id": "Q14",
+      "question": "Across all modeled Choose paths, how many assignments may reach the return of result, and does either one alone must-reach it?",
+      "gold_m1": {
+        "may_reaching_definitions": 2,
+        "either_alone_must_reach": false
+      }
+    },
+    {
+      "id": "Q15",
+      "question": "At Choose's narrow Add call, which expressions supply the left and right formal parameters?",
+      "gold_m1": {
+        "left": "value",
+        "right": "1"
+      }
+    },
+    {
+      "id": "Q16",
+      "question": "What is the actual runtime value of Choose's parameter in every real invocation?",
+      "gold_m1": {
+        "state": "unknown",
+        "reason": "runtime_input_not_observed"
+      }
+    },
+    {
+      "id": "Q17",
+      "question": "How many written direct call sites occur in Choose, and which overload is selected?",
+      "gold_m1": {
+        "call_sites": 1,
+        "target": "narrow Add",
+        "dispatch": "direct"
+      }
+    },
+    {
+      "id": "Q18",
+      "question": "Under the explicit assumption that Choose alone is the root and only these internal direct calls are traversed, which pilot functions are reachable?",
+      "gold_m1": {
+        "reachable": [
+          "Choose(int)",
+          "Add(int,int)"
+        ],
+        "outside": [
+          "Unused(int)",
+          "Add(wide,wide)"
+        ],
+        "scope": "declared_internal_graph"
+      }
+    },
+    {
+      "id": "Q19",
+      "question": "Does absence of internal call sites prove Unused is dead code in this library?",
+      "gold_m1": {
+        "proven_dead": false,
+        "reason": "external_entry_not_excluded"
+      }
+    },
+    {
+      "id": "Q20",
+      "question": "Does this dataset prove that no external callback or consumer can invoke Unused?",
+      "gold_m1": {
+        "state": "unknown",
+        "reason": "external_callers_not_enumerated"
+      }
+    }
+  ],
+  "verification": "M1 grading tests must exercise positive paraphrases and wrong-overload negatives before comparison."
+}

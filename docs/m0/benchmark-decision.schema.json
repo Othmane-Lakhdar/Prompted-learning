@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "benchmark-decision/1",
+  "type": "object",
+  "properties": {
+    "action": { "type": "string", "enum": ["query", "answer"] },
+    "operation": { "type": "string" },
+    "arguments": { "type": "string" },
+    "answer": { "type": "string" },
+    "citations": { "type": "array", "items": { "type": "string" } }
+  },
+  "required": ["action", "operation", "arguments", "answer", "citations"],
+  "additionalProperties": false
+}

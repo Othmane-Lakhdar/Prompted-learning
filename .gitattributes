@@ -10,3 +10,5 @@ docs/m0/*.sql text eol=lf
 docs/m0/*.mjs text eol=lf
 docs/m0/*.txt text eol=lf
 docs/m0/evidence/** text eol=lf
+docs/m0/*.py text eol=lf
+tools/preflight/roslyn-oracle/Program.cs text eol=lf

@@ -1,0 +1,299 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "scope": "Bounded M0 compiler capability/correspondence oracle, not extractor acceptance.",
+  "assertions": [
+    "Executable method root is parentless",
+    "6 blocks and correct true/false successor interpretation",
+    "Return read lives in BranchValue and Return-semantic successor",
+    "16 CFG operation observations have exactly one syntax/kind candidate in this frozen pilot",
+    "CFG operation objects are not source-tree operation instances",
+    "Prior22-node semantic oracle unchanged"
+  ],
+  "raw_oracle_sha256": "ea31fafb5880aeb951ad9938e0737c902bd95efa0d47a23863c861d1f93bf834",
+  "producer": "bounded M0 Roslyn CFG correspondence oracle; not extractor",
+  "executable_root": "MethodBodyOperation",
+  "root_has_parent": false,
+  "blocks": [
+    {
+      "ordinal": 0,
+      "kind": "Entry",
+      "condition_kind": "None",
+      "operation_count": 0,
+      "branch_value_kind": null,
+      "conditional_destination": null,
+      "conditional_semantics": null,
+      "fallthrough_destination": 1,
+      "fallthrough_semantics": "Regular"
+    },
+    {
+      "ordinal": 1,
+      "kind": "Block",
+      "condition_kind": "WhenFalse",
+      "operation_count": 0,
+      "branch_value_kind": "Binary",
+      "conditional_destination": 3,
+      "conditional_semantics": "Regular",
+      "fallthrough_destination": 2,
+      "fallthrough_semantics": "Regular"
+    },
+    {
+      "ordinal": 2,
+      "kind": "Block",
+      "condition_kind": "None",
+      "operation_count": 1,
+      "branch_value_kind": null,
+      "conditional_destination": null,
+      "conditional_semantics": null,
+      "fallthrough_destination": 4,
+      "fallthrough_semantics": "Regular"
+    },
+    {
+      "ordinal": 3,
+      "kind": "Block",
+      "condition_kind": "None",
+      "operation_count": 1,
+      "branch_value_kind": null,
+      "conditional_destination": null,
+      "conditional_semantics": null,
+      "fallthrough_destination": 4,
+      "fallthrough_semantics": "Regular"
+    },
+    {
+      "ordinal": 4,
+      "kind": "Block",
+      "condition_kind": "None",
+      "operation_count": 0,
+      "branch_value_kind": "LocalReference",
+      "conditional_destination": null,
+      "conditional_semantics": null,
+      "fallthrough_destination": 5,
+      "fallthrough_semantics": "Return"
+    },
+    {
+      "ordinal": 5,
+      "kind": "Exit",
+      "condition_kind": "None",
+      "operation_count": 0,
+      "branch_value_kind": null,
+      "conditional_destination": null,
+      "conditional_semantics": null,
+      "fallthrough_destination": null,
+      "fallthrough_semantics": null
+    }
+  ],
+  "observations": [
+    {
+      "block": 1,
+      "role": "branch_value",
+      "kind": "Binary",
+      "start_utf16": 290,
+      "end_utf16": 299,
+      "source_paths": [
+        "0/1/0"
+      ],
+      "same_operation_instance": false
+    },
+    {
+      "block": 1,
+      "role": "branch_value/child",
+      "kind": "ParameterReference",
+      "start_utf16": 290,
+      "end_utf16": 295,
+      "source_paths": [
+        "0/1/0/0"
+      ],
+      "same_operation_instance": false
+    },
+    {
+      "block": 1,
+      "role": "branch_value/child",
+      "kind": "Literal",
+      "start_utf16": 298,
+      "end_utf16": 299,
+      "source_paths": [
+        "0/1/0/1"
+      ],
+      "same_operation_instance": false
+    },
+    {
+      "block": 2,
+      "role": "operation",
+      "kind": "ExpressionStatement",
+      "start_utf16": 313,
+      "end_utf16": 336,
+      "source_paths": [
+        "0/1/1"
+      ],
+      "same_operation_instance": false
+    },
+    {
+      "block": 2,
+      "role": "operation/child",
+      "kind": "SimpleAssignment",
+      "start_utf16": 313,
+      "end_utf16": 335,
+      "source_paths": [
+        "0/1/1/0"
+      ],
+      "same_operation_instance": false
+    },
+    {
+      "block": 2,
+      "role": "operation/child/child",
+      "kind": "LocalReference",
+      "start_utf16": 313,
+      "end_utf16": 319,
+      "source_paths": [
+        "0/1/1/0/0"
+      ],
+      "same_operation_instance": false
+    },
+    {
+      "block": 2,
+      "role": "operation/child/child",
+      "kind": "Invocation",
+      "start_utf16": 322,
+      "end_utf16": 335,
+      "source_paths": [
+        "0/1/1/0/1"
+      ],
+      "same_operation_instance": false
+    },
+    {
+      "block": 2,
+      "role": "operation/child/child/child",
+      "kind": "Argument",
+      "start_utf16": 326,
+      "end_utf16": 331,
+      "source_paths": [
+        "0/1/1/0/1/0"
+      ],
+      "same_operation_instance": false
+    },
+    {
+      "block": 2,
+      "role": "operation/child/child/child/child",
+      "kind": "ParameterReference",
+      "start_utf16": 326,
+      "end_utf16": 331,
+      "source_paths": [
+        "0/1/1/0/1/0/0"
+      ],
+      "same_operation_instance": false
+    },
+    {
+      "block": 2,
+      "role": "operation/child/child/child",
+      "kind": "Argument",
+      "start_utf16": 333,
+      "end_utf16": 334,
+      "source_paths": [
+        "0/1/1/0/1/1"
+      ],
+      "same_operation_instance": false
+    },
+    {
+      "block": 2,
+      "role": "operation/child/child/child/child",
+      "kind": "Literal",
+      "start_utf16": 333,
+      "end_utf16": 334,
+      "source_paths": [
+        "0/1/1/0/1/1/0"
+      ],
+      "same_operation_instance": false
+    },
+    {
+      "block": 3,
+      "role": "operation",
+      "kind": "ExpressionStatement",
+      "start_utf16": 362,
+      "end_utf16": 373,
+      "source_paths": [
+        "0/1/2"
+      ],
+      "same_operation_instance": false
+    },
+    {
+      "block": 3,
+      "role": "operation/child",
+      "kind": "SimpleAssignment",
+      "start_utf16": 362,
+      "end_utf16": 372,
+      "source_paths": [
+        "0/1/2/0"
+      ],
+      "same_operation_instance": false
+    },
+    {
+      "block": 3,
+      "role": "operation/child/child",
+      "kind": "LocalReference",
+      "start_utf16": 362,
+      "end_utf16": 368,
+      "source_paths": [
+        "0/1/2/0/0"
+      ],
+      "same_operation_instance": false
+    },
+    {
+      "block": 3,
+      "role": "operation/child/child",
+      "kind": "Literal",
+      "start_utf16": 371,
+      "end_utf16": 372,
+      "source_paths": [
+        "0/1/2/0/1"
+      ],
+      "same_operation_instance": false
+    },
+    {
+      "block": 4,
+      "role": "branch_value",
+      "kind": "LocalReference",
+      "start_utf16": 389,
+      "end_utf16": 395,
+      "source_paths": [
+        "0/2/0"
+      ],
+      "same_operation_instance": false
+    }
+  ],
+  "commands": [
+    {
+      "phase": "build",
+      "arguments": [
+        "build",
+        "tools/preflight/roslyn-oracle/Preflight.RoslynOracle.csproj",
+        "--nologo",
+        "-v:minimal",
+        "-p:BaseIntermediateOutputPath=<INPUTS>/m0-roslyn-cfg-oracle/obj/",
+        "-p:OutputPath=<INPUTS>/m0-roslyn-cfg-oracle/bin/"
+      ],
+      "elapsed_seconds": 6.359,
+      "exit_code": 0,
+      "raw_log_sha256": "cb305473429b257be419fbe9897c4613dde1f40e6934f0d0cac214bfccbe20a0",
+      "raw_command_sha256": "29a5bf6c51c3e8142199defba1641d8b3d8598ed407f38d3447caca96879135c"
+    },
+    {
+      "phase": "run",
+      "arguments": [
+        "<INPUTS>/m0-roslyn-cfg-oracle/bin/Preflight.RoslynOracle.dll",
+        "tests/fixtures/pilot/csharp",
+        "<INPUTS>/m0-roslyn-cfg-oracle/operation-oracle.json",
+        "--cfg"
+      ],
+      "elapsed_seconds": 1.213,
+      "exit_code": 0,
+      "raw_log_sha256": "391ea5bb516bddc2be5022f42186036a3631d52dda0e80ea83e8c628e4092402",
+      "raw_command_sha256": "b9e82a70a7c58a8dadd8d754800adfaa586265e373c63380f66da544337ab00a"
+    }
+  ],
+  "implementation_obligations": [
+    "Do not persist compiler object addresses",
+    "Use original source-operation local keys; reject ambiguous/absent correspondence as incomplete",
+    "Process branch and return values as well as Operations",
+    "These pilot observations do not establish generalized flow support"
+  ]
+}

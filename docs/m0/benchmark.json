@@ -1,0 +1,1072 @@
+{
+  "version": 1,
+  "status": "frozen_question_design_not_experiment_results",
+  "fixture_set": [
+    "FX-PILOT-CS",
+    "FX-PILOT-CPP"
+  ],
+  "arms": [
+    "source",
+    "P1",
+    "P2",
+    "P3",
+    "P4"
+  ],
+  "attempts_per_question_arm": 3,
+  "required_trial_count": 360,
+  "model": {
+    "requested_version": "gpt-6.1-sol",
+    "reasoning_effort": "low",
+    "cli_version": "0.169.0-alpha.11.1",
+    "provider_revision": "not_exposed",
+    "catalog_policy": "Record hash before and after each complete batch; any exposed model/catalog change invalidates cross-arm comparability and requires the complete affected batch rerun. Never substitute a fallback."
+  },
+  "budgets": {
+    "input_context_tokens": 24000,
+    "total_input_plus_output_tokens_per_attempt": 128000,
+    "maximum_decisions": 10,
+    "maximum_queries": 8,
+    "wall_time_seconds": 120,
+    "maximum_query_records": 100,
+    "maximum_query_bytes": 16384,
+    "source_bytes_per_fetch": 8192,
+    "graph_depth": 4
+  },
+  "protocol": "benchmark-protocol.md",
+  "instructions": "benchmark-instructions.txt",
+  "decision_schema": "benchmark-decision.schema.json",
+  "scoring": {
+    "facts": "One point per semantically correct required atomic fact. Exact numbers/booleans, declared signature/type aliases and per-field order policies are machine-checkable. Do not mark a correct novel paraphrase wrong merely because it is outside an alias list; send it to blinded semantic review.",
+    "citations": "Each required supported fact needs at least one returned source/evidence ID that actually supports it; invented/out-of-scope IDs fail citation credit.",
+    "unsupported_claims": "Record count separately; do not offset them with extra correct facts.",
+    "uncertainty": "Correct state and boundary required for uncertainty questions; saying unknown for an established pilot fact earns no fact credit.",
+    "grading": "Record protocol/schema validity separately from semantic fact correctness. Validate keys/types, normalize only explicitly permitted equivalents, then compare atomic facts. Free prose reasons and ambiguous novel forms require blinded evidence review; no hidden literal-code match. Preserve raw answers and all adjudications.",
+    "blinding": "Remove profile label and randomize trial order before independent grading where feasible; retain a separate private mapping for aggregate reporting.",
+    "equivalence_rules": {
+      "signatures": "Remove only known pilot namespace/type qualification; normalize whitespace/type aliases without changing arity, signedness or width. Never equate narrow and wide overloads.",
+      "expressions": "Ignore formatting whitespace outside literals; known qualifier removal allowed; value>0 and 0<value equivalent only for this side-effect-free parameter test.",
+      "observation_kind": {
+        "static_inference": [
+          "static_inference",
+          "static_reasoning",
+          "static_evaluation"
+        ],
+        "runtime_observation": [
+          "runtime_observation",
+          "observed_execution"
+        ]
+      },
+      "states": "Normalize spaces/hyphens to underscores for known state labels; never equate unknown with not_collected.",
+      "reason_prose": "Assess the expected causal concept with source evidence; exact internal code optional.",
+      "arrays": "Use each question array_semantics. Unordered sets ignore item order but reject duplicates as a separately recorded format issue; exact set membership still matters.",
+      "fallback": "Unknown wording goes to blinded review; unresolved grading cannot be presented as a scored completed result."
+    },
+    "grading_examples": [
+      {
+        "question": "Q13",
+        "answer_fragment": {
+          "predicate": "0 < value",
+          "true_value": "Pilot.Arithmetic.Add(value, 1)",
+          "false_value": "0"
+        },
+        "expected": "all three semantic facts correct"
+      },
+      {
+        "question": "Q17",
+        "answer_fragment": {
+          "target": "pilot::Add(int, int)"
+        },
+        "expected": "target correct"
+      },
+      {
+        "question": "Q17",
+        "answer_fragment": {
+          "target": "pilot::Add(long long, long long)"
+        },
+        "expected": "target incorrect; wrong overload"
+      },
+      {
+        "question": "Q18",
+        "answer_fragment": {
+          "reachable": [
+            "pilot::Add(int,int)",
+            "pilot::Choose(int)"
+          ]
+        },
+        "expected": "reachable set correct; order immaterial"
+      },
+      {
+        "question": "Q09",
+        "answer_fragment": {
+          "observation_kind": "static_reasoning"
+        },
+        "expected": "observation kind correct"
+      },
+      {
+        "question": "Q19",
+        "answer_fragment": {
+          "proven_dead": false,
+          "reason": "An outside consumer may call this library function."
+        },
+        "expected": "both facts semantically correct"
+      },
+      {
+        "question": "Q16",
+        "answer_fragment": {
+          "state": "known",
+          "reason": "The runtime argument is always zero."
+        },
+        "expected": "incorrect state and unsupported runtime claim"
+      },
+      {
+        "question": "Q12",
+        "answer_fragment": {
+          "text": "cafe 🚀"
+        },
+        "expected": "incorrect exact source text"
+      }
+    ]
+  },
+  "failure_policy": "Preserve every scheduled trial, including timeout, malformed response, nonprotocol tool use, missing usage, query failure, budget exhaustion or missing output. No selective favorable retries; a transport correction creates a new versioned complete batch, retaining failed batch results.",
+  "measurement": {
+    "storage": [
+      "database_bytes",
+      "standalone_package_bytes",
+      "shared_source_bytes",
+      "table_index_bytes_when_measurable",
+      "section_payload_bytes",
+      "anchor_metadata_bytes",
+      "record_unit_context_counts"
+    ],
+    "production": [
+      "parse_analysis_wall_ms",
+      "export_wall_ms",
+      "process_peak_working_set_bytes",
+      "canonical_temporary_bytes",
+      "incremental_cost_when_implemented"
+    ],
+    "retrieval": [
+      "latency_ms",
+      "query_count",
+      "records_returned",
+      "source_snippets",
+      "source_bytes",
+      "failed_repeated_queries"
+    ],
+    "ai": [
+      "actual_input_tokens",
+      "cached_input_tokens_subset",
+      "output_tokens",
+      "reasoning_output_tokens_if_exposed",
+      "elapsed_ms",
+      "monetary_cost_if_known"
+    ],
+    "monetary_cost_state": "unknown for the current ChatGPT-account route unless a usable rate is supplied; never record zero",
+    "quality": [
+      "required_facts_correct",
+      "required_facts_missing",
+      "unsupported_claims",
+      "uncertainty_correct",
+      "valid_supporting_citations"
+    ]
+  },
+  "later_milestones": "Keep all 24 question texts and attempts. Freeze stage-specific gold amendments before querying new outputs when recorded build evidence or supported analyses change; preserve old gold and evidence. Do not drop unavailable questions.",
+  "questions": [
+    {
+      "id": "Q01",
+      "category": "identity_members",
+      "question": "In the C# pilot, how many canonical Pilot.Arithmetic types and written type declarations exist?",
+      "answer_shape": {
+        "canonical_types": "number",
+        "written_declarations": "number"
+      },
+      "gold_m1": {
+        "canonical_types": 1,
+        "written_declarations": 2
+      },
+      "acceptable_evidence": [
+        "csharp/Arithmetic.cs:partial class Arithmetic",
+        "csharp/Arithmetic.More.cs:partial class Arithmetic"
+      ],
+      "eligible_operations": [
+        "entity",
+        "members",
+        "source"
+      ],
+      "required_uncertainty": false,
+      "contexts": [
+        "pilot-csharp-release-x64"
+      ],
+      "count_scope": "selected_context",
+      "array_semantics": {},
+      "representation": {
+        "numbers": "JSON numbers; exact integer value",
+        "booleans": "JSON booleans",
+        "names": "Preserve case; qualified names accepted; only explicit in-scope aliases may be normalized.",
+        "strings": "Use semantic equivalence rules; novel correct wording is sent to blinded review, not automatically marked wrong.",
+        "states": "Use known, unknown, not_collected or not_applicable when a state is requested."
+      }
+    },
+    {
+      "id": "Q02",
+      "category": "identity_members",
+      "question": "List the parameter and return types of both C# Add overloads, using int32 and int64 notation.",
+      "answer_shape": {
+        "overloads": "array of strings"
+      },
+      "gold_m1": {
+        "overloads": [
+          "(int32,int32)->int32",
+          "(int64,int64)->int64"
+        ]
+      },
+      "acceptable_evidence": [
+        "csharp/Arithmetic.cs:Add",
+        "csharp/Arithmetic.More.cs:Add"
+      ],
+      "eligible_operations": [
+        "search_symbols",
+        "entity",
+        "members",
+        "source"
+      ],
+      "required_uncertainty": false,
+      "contexts": [
+        "pilot-csharp-release-x64"
+      ],
+      "count_scope": "selected_context",
+      "array_semantics": {
+        "overloads": "unordered_set"
+      },
+      "representation": {
+        "numbers": "JSON numbers; exact integer value",
+        "booleans": "JSON booleans",
+        "names": "Preserve case; qualified names accepted; only explicit in-scope aliases may be normalized.",
+        "strings": "Use semantic equivalence rules; novel correct wording is sent to blinded review, not automatically marked wrong.",
+        "states": "Use known, unknown, not_collected or not_applicable when a state is requested.",
+        "signatures": "(parameter_type,parameter_type)->return_type; int32/System.Int32/int and int64/System.Int64/long are equivalent C# type spellings."
+      }
+    },
+    {
+      "id": "Q03",
+      "category": "identity_members",
+      "question": "In the C++ pilot, how many canonical free functions exist, and how many written declarations/definitions of Choose?",
+      "answer_shape": {
+        "canonical_functions": "number",
+        "choose_appearances": "number",
+        "choose_definitions": "number"
+      },
+      "gold_m1": {
+        "canonical_functions": 4,
+        "choose_appearances": 2,
+        "choose_definitions": 1
+      },
+      "acceptable_evidence": [
+        "native/Arithmetic.hpp",
+        "native/Arithmetic.cpp"
+      ],
+      "eligible_operations": [
+        "search_symbols",
+        "entity",
+        "source"
+      ],
+      "required_uncertainty": false,
+      "contexts": [
+        "pilot-native-release-x64"
+      ],
+      "count_scope": "selected_context",
+      "array_semantics": {},
+      "representation": {
+        "numbers": "JSON numbers; exact integer value",
+        "booleans": "JSON booleans",
+        "names": "Preserve case; qualified names accepted; only explicit in-scope aliases may be normalized.",
+        "strings": "Use semantic equivalence rules; novel correct wording is sent to blinded review, not automatically marked wrong.",
+        "states": "Use known, unknown, not_collected or not_applicable when a state is requested."
+      }
+    },
+    {
+      "id": "Q04",
+      "category": "identity_members",
+      "question": "Who declares the four explicit C# methods, and does reading them as members require copying inherited definitions?",
+      "answer_shape": {
+        "declaring_type": "string",
+        "explicit_methods": "number",
+        "copy_inherited_definitions": "boolean"
+      },
+      "gold_m1": {
+        "declaring_type": "Pilot.Arithmetic",
+        "explicit_methods": 4,
+        "copy_inherited_definitions": false
+      },
+      "acceptable_evidence": [
+        "csharp/Arithmetic.cs",
+        "csharp/Arithmetic.More.cs"
+      ],
+      "eligible_operations": [
+        "members",
+        "entity",
+        "source"
+      ],
+      "required_uncertainty": false,
+      "contexts": [
+        "pilot-csharp-release-x64"
+      ],
+      "count_scope": "selected_context",
+      "array_semantics": {},
+      "representation": {
+        "numbers": "JSON numbers; exact integer value",
+        "booleans": "JSON booleans",
+        "names": "Preserve case; qualified names accepted; only explicit in-scope aliases may be normalized.",
+        "strings": "Use semantic equivalence rules; novel correct wording is sent to blinded review, not automatically marked wrong.",
+        "states": "Use known, unknown, not_collected or not_applicable when a state is requested."
+      }
+    },
+    {
+      "id": "Q05",
+      "category": "dependencies_groups",
+      "question": "Which internal header does the C++ translation unit include, and how many written include occurrences are there?",
+      "answer_shape": {
+        "translation_unit": "string",
+        "header": "string",
+        "include_occurrences": "number"
+      },
+      "gold_m1": {
+        "translation_unit": "Arithmetic.cpp",
+        "header": "Arithmetic.hpp",
+        "include_occurrences": 1
+      },
+      "acceptable_evidence": [
+        "native/Arithmetic.cpp:#include"
+      ],
+      "eligible_operations": [
+        "relationships",
+        "source"
+      ],
+      "required_uncertainty": false,
+      "contexts": [
+        "pilot-native-release-x64"
+      ],
+      "count_scope": "selected_context",
+      "array_semantics": {},
+      "representation": {
+        "numbers": "JSON numbers; exact integer value",
+        "booleans": "JSON booleans",
+        "names": "Preserve case; qualified names accepted; only explicit in-scope aliases may be normalized.",
+        "strings": "Use semantic equivalence rules; novel correct wording is sent to blinded review, not automatically marked wrong.",
+        "states": "Use known, unknown, not_collected or not_applicable when a state is requested."
+      }
+    },
+    {
+      "id": "Q06",
+      "category": "dependencies_groups",
+      "question": "Which C# source files are explicitly selected for compilation by Pilot.csproj?",
+      "answer_shape": {
+        "files": "array of strings"
+      },
+      "gold_m1": {
+        "files": [
+          "Arithmetic.cs",
+          "Arithmetic.More.cs"
+        ]
+      },
+      "acceptable_evidence": [
+        "csharp/Pilot.csproj:Compile"
+      ],
+      "eligible_operations": [
+        "build_context",
+        "source"
+      ],
+      "required_uncertainty": false,
+      "contexts": [
+        "pilot-csharp-release-x64"
+      ],
+      "count_scope": "selected_context",
+      "array_semantics": {
+        "files": "unordered_set"
+      },
+      "representation": {
+        "numbers": "JSON numbers; exact integer value",
+        "booleans": "JSON booleans",
+        "names": "Preserve case; qualified names accepted; only explicit in-scope aliases may be normalized.",
+        "strings": "Use semantic equivalence rules; novel correct wording is sent to blinded review, not automatically marked wrong.",
+        "states": "Use known, unknown, not_collected or not_applicable when a state is requested."
+      }
+    },
+    {
+      "id": "Q07",
+      "category": "dependencies_groups",
+      "question": "Does Choose depend directly on the narrow or wide Add overload in each language?",
+      "answer_shape": {
+        "csharp_target": "string",
+        "cpp_target": "string",
+        "wide_overload_called": "boolean"
+      },
+      "gold_m1": {
+        "csharp_target": "Add(int32,int32)",
+        "cpp_target": "Add(int,int)",
+        "wide_overload_called": false
+      },
+      "acceptable_evidence": [
+        "csharp/Arithmetic.cs:Choose",
+        "native/Arithmetic.cpp:Choose",
+        "both Add declarations"
+      ],
+      "eligible_operations": [
+        "callees",
+        "relationships",
+        "source"
+      ],
+      "required_uncertainty": false,
+      "contexts": [
+        "pilot-csharp-release-x64",
+        "pilot-native-release-x64"
+      ],
+      "count_scope": "separate_per_named_context; shared boolean applies to each, never summed",
+      "array_semantics": {},
+      "representation": {
+        "numbers": "JSON numbers; exact integer value",
+        "booleans": "JSON booleans",
+        "names": "Preserve case; qualified names accepted; only explicit in-scope aliases may be normalized.",
+        "strings": "Use semantic equivalence rules; novel correct wording is sent to blinded review, not automatically marked wrong.",
+        "states": "Use known, unknown, not_collected or not_applicable when a state is requested.",
+        "signatures": "Add(parameter_type,parameter_type), with optional namespace/type qualification; preserve overload width and arity."
+      }
+    },
+    {
+      "id": "Q08",
+      "category": "dependencies_groups",
+      "question": "Are the logical C# namespace and physical input directory the same grouping identity? Name both.",
+      "answer_shape": {
+        "namespace": "string",
+        "directory": "string",
+        "same_group_identity": "boolean"
+      },
+      "gold_m1": {
+        "namespace": "Pilot",
+        "directory": "csharp",
+        "same_group_identity": false
+      },
+      "acceptable_evidence": [
+        "csharp/Arithmetic.cs:namespace",
+        "retained source root/path metadata"
+      ],
+      "eligible_operations": [
+        "groups",
+        "source"
+      ],
+      "required_uncertainty": false,
+      "contexts": [
+        "pilot-csharp-release-x64"
+      ],
+      "count_scope": "selected_context",
+      "array_semantics": {},
+      "representation": {
+        "numbers": "JSON numbers; exact integer value",
+        "booleans": "JSON booleans",
+        "names": "Preserve case; qualified names accepted; only explicit in-scope aliases may be normalized.",
+        "strings": "Use semantic equivalence rules; novel correct wording is sent to blinded review, not automatically marked wrong.",
+        "states": "Use known, unknown, not_collected or not_applicable when a state is requested."
+      }
+    },
+    {
+      "id": "Q09",
+      "category": "local_behavior",
+      "question": "By static reasoning, what does Choose(2) return in both pilot languages? This is not an observed application run.",
+      "answer_shape": {
+        "csharp_result": "number",
+        "cpp_result": "number",
+        "observation_kind": "string"
+      },
+      "gold_m1": {
+        "csharp_result": 3,
+        "cpp_result": 3,
+        "observation_kind": "static_inference"
+      },
+      "acceptable_evidence": [
+        "both Choose and int Add definitions"
+      ],
+      "eligible_operations": [
+        "body",
+        "source"
+      ],
+      "required_uncertainty": false,
+      "contexts": [
+        "pilot-csharp-release-x64",
+        "pilot-native-release-x64"
+      ],
+      "count_scope": "separate_per_named_context; shared boolean applies to each, never summed",
+      "array_semantics": {},
+      "representation": {
+        "numbers": "JSON numbers; exact integer value",
+        "booleans": "JSON booleans",
+        "names": "Preserve case; qualified names accepted; only explicit in-scope aliases may be normalized.",
+        "strings": "Use semantic equivalence rules; novel correct wording is sent to blinded review, not automatically marked wrong.",
+        "states": "Use known, unknown, not_collected or not_applicable when a state is requested.",
+        "observation_kind": "Allowed concepts: static_inference or runtime_observation; static_reasoning and static_evaluation are equivalent to static_inference."
+      }
+    },
+    {
+      "id": "Q10",
+      "category": "local_behavior",
+      "question": "By static reasoning, what does Choose(-2) return in both pilot languages?",
+      "answer_shape": {
+        "csharp_result": "number",
+        "cpp_result": "number",
+        "observation_kind": "string"
+      },
+      "gold_m1": {
+        "csharp_result": 0,
+        "cpp_result": 0,
+        "observation_kind": "static_inference"
+      },
+      "acceptable_evidence": [
+        "both Choose definitions"
+      ],
+      "eligible_operations": [
+        "body",
+        "source"
+      ],
+      "required_uncertainty": false,
+      "contexts": [
+        "pilot-csharp-release-x64",
+        "pilot-native-release-x64"
+      ],
+      "count_scope": "separate_per_named_context; shared boolean applies to each, never summed",
+      "array_semantics": {},
+      "representation": {
+        "numbers": "JSON numbers; exact integer value",
+        "booleans": "JSON booleans",
+        "names": "Preserve case; qualified names accepted; only explicit in-scope aliases may be normalized.",
+        "strings": "Use semantic equivalence rules; novel correct wording is sent to blinded review, not automatically marked wrong.",
+        "states": "Use known, unknown, not_collected or not_applicable when a state is requested.",
+        "observation_kind": "Allowed concepts: static_inference or runtime_observation; static_reasoning and static_evaluation are equivalent to static_inference."
+      }
+    },
+    {
+      "id": "Q11",
+      "category": "local_behavior",
+      "question": "What arithmetic operator is used in the narrow Add body, and can the C++ function promise mathematical addition for every int pair without an overflow assumption?",
+      "answer_shape": {
+        "operator": "string",
+        "cpp_unrestricted_mathematical_guarantee": "boolean",
+        "reason": "string"
+      },
+      "gold_m1": {
+        "operator": "+",
+        "cpp_unrestricted_mathematical_guarantee": false,
+        "reason": "signed_overflow_undefined"
+      },
+      "acceptable_evidence": [
+        "native/Arithmetic.cpp:Add(int,int)",
+        "C++ integer arithmetic analysis assumption in capabilities"
+      ],
+      "eligible_operations": [
+        "body",
+        "capabilities",
+        "source"
+      ],
+      "required_uncertainty": false,
+      "contexts": [
+        "pilot-native-release-x64"
+      ],
+      "count_scope": "selected_context",
+      "array_semantics": {},
+      "representation": {
+        "numbers": "JSON numbers; exact integer value",
+        "booleans": "JSON booleans",
+        "names": "Preserve case; qualified names accepted; only explicit in-scope aliases may be normalized.",
+        "strings": "Use semantic equivalence rules; novel correct wording is sent to blinded review, not automatically marked wrong.",
+        "states": "Use known, unknown, not_collected or not_applicable when a state is requested.",
+        "reason": "Short natural-language explanation; judged by its causal meaning, not an undisclosed exact reason-code string."
+      }
+    },
+    {
+      "id": "Q12",
+      "category": "local_behavior",
+      "question": "What exact non-ASCII text appears in the byte-span fixture comment in both languages, and must retrieved source match the archived file version?",
+      "answer_shape": {
+        "text": "string",
+        "matching_archived_version_required": "boolean"
+      },
+      "gold_m1": {
+        "text": "café 🚀",
+        "matching_archived_version_required": true
+      },
+      "acceptable_evidence": [
+        "both Arithmetic source comments",
+        "source response file hash/version"
+      ],
+      "eligible_operations": [
+        "source"
+      ],
+      "required_uncertainty": false,
+      "contexts": [
+        "pilot-csharp-release-x64",
+        "pilot-native-release-x64"
+      ],
+      "count_scope": "separate_per_named_context; shared boolean applies to each, never summed",
+      "array_semantics": {},
+      "representation": {
+        "numbers": "JSON numbers; exact integer value",
+        "booleans": "JSON booleans",
+        "names": "Preserve case; qualified names accepted; only explicit in-scope aliases may be normalized.",
+        "strings": "Use semantic equivalence rules; novel correct wording is sent to blinded review, not automatically marked wrong.",
+        "states": "Use known, unknown, not_collected or not_applicable when a state is requested.",
+        "text": "The requested non-ASCII text is exact decoded Unicode, including its internal space; do not case-fold or Unicode-normalize it."
+      }
+    },
+    {
+      "id": "Q13",
+      "category": "control_data_flow",
+      "question": "For the C# pilot context only: What predicate selects Choose's two paths, and what expression is assigned to result on each path?",
+      "answer_shape": {
+        "predicate": "string",
+        "true_value": "string",
+        "false_value": "string"
+      },
+      "gold_m1": {
+        "predicate": "value > 0",
+        "true_value": "Add(value,1)",
+        "false_value": "0"
+      },
+      "acceptable_evidence": [
+        "both Choose bodies"
+      ],
+      "eligible_operations": [
+        "control_flow",
+        "body",
+        "source"
+      ],
+      "required_uncertainty": false,
+      "contexts": [
+        "pilot-csharp-release-x64"
+      ],
+      "count_scope": "selected_context",
+      "array_semantics": {},
+      "representation": {
+        "numbers": "JSON numbers; exact integer value",
+        "booleans": "JSON booleans",
+        "names": "Preserve case; qualified names accepted; only explicit in-scope aliases may be normalized.",
+        "strings": "Use semantic equivalence rules; novel correct wording is sent to blinded review, not automatically marked wrong.",
+        "states": "Use known, unknown, not_collected or not_applicable when a state is requested.",
+        "expressions": "Whitespace and known Pilot.Arithmetic qualification are immaterial; preserve operator, arguments and branch orientation."
+      }
+    },
+    {
+      "id": "Q14",
+      "category": "control_data_flow",
+      "question": "For the C# pilot context only: Across all modeled Choose paths, how many assignments may reach the return of result, and does either one alone must-reach it?",
+      "answer_shape": {
+        "may_reaching_definitions": "number",
+        "either_alone_must_reach": "boolean"
+      },
+      "gold_m1": {
+        "may_reaching_definitions": 2,
+        "either_alone_must_reach": false
+      },
+      "acceptable_evidence": [
+        "both assignments and return",
+        "data-flow result when available"
+      ],
+      "eligible_operations": [
+        "data_flow",
+        "control_flow",
+        "source"
+      ],
+      "required_uncertainty": false,
+      "contexts": [
+        "pilot-csharp-release-x64"
+      ],
+      "count_scope": "selected_context",
+      "array_semantics": {},
+      "representation": {
+        "numbers": "JSON numbers; exact integer value",
+        "booleans": "JSON booleans",
+        "names": "Preserve case; qualified names accepted; only explicit in-scope aliases may be normalized.",
+        "strings": "Use semantic equivalence rules; novel correct wording is sent to blinded review, not automatically marked wrong.",
+        "states": "Use known, unknown, not_collected or not_applicable when a state is requested."
+      }
+    },
+    {
+      "id": "Q15",
+      "category": "control_data_flow",
+      "question": "For the C# pilot context only: At Choose's narrow Add call, which expressions supply the left and right formal parameters?",
+      "answer_shape": {
+        "left": "string",
+        "right": "string"
+      },
+      "gold_m1": {
+        "left": "value",
+        "right": "1"
+      },
+      "acceptable_evidence": [
+        "Choose call and Add parameter definitions"
+      ],
+      "eligible_operations": [
+        "callees",
+        "data_flow",
+        "body",
+        "source"
+      ],
+      "required_uncertainty": false,
+      "contexts": [
+        "pilot-csharp-release-x64"
+      ],
+      "count_scope": "selected_context",
+      "array_semantics": {},
+      "representation": {
+        "numbers": "JSON numbers; exact integer value",
+        "booleans": "JSON booleans",
+        "names": "Preserve case; qualified names accepted; only explicit in-scope aliases may be normalized.",
+        "strings": "Use semantic equivalence rules; novel correct wording is sent to blinded review, not automatically marked wrong.",
+        "states": "Use known, unknown, not_collected or not_applicable when a state is requested."
+      }
+    },
+    {
+      "id": "Q16",
+      "category": "control_data_flow",
+      "question": "For the C# pilot context only: What is the actual runtime value of Choose's parameter in every real invocation?",
+      "answer_shape": {
+        "state": "string",
+        "reason": "string"
+      },
+      "gold_m1": {
+        "state": "unknown",
+        "reason": "runtime_input_not_observed"
+      },
+      "acceptable_evidence": [
+        "parameter declaration",
+        "capabilities declaring BDR deferred",
+        "identical capture collection-input policy citation for the relevant observation family"
+      ],
+      "eligible_operations": [
+        "entity",
+        "capabilities",
+        "source"
+      ],
+      "required_uncertainty": true,
+      "contexts": [
+        "pilot-csharp-release-x64"
+      ],
+      "count_scope": "selected_context",
+      "array_semantics": {},
+      "representation": {
+        "numbers": "JSON numbers; exact integer value",
+        "booleans": "JSON booleans",
+        "names": "Preserve case; qualified names accepted; only explicit in-scope aliases may be normalized.",
+        "strings": "Use semantic equivalence rules; novel correct wording is sent to blinded review, not automatically marked wrong.",
+        "states": "Use known, unknown, not_collected or not_applicable when a state is requested.",
+        "reason": "Short natural-language explanation; judged by its causal meaning, not an undisclosed exact reason-code string."
+      }
+    },
+    {
+      "id": "Q17",
+      "category": "calls_reachability",
+      "question": "For the C++ pilot context only: How many written direct call sites occur in Choose, and which overload is selected?",
+      "answer_shape": {
+        "call_sites": "number",
+        "target": "string",
+        "dispatch": "string"
+      },
+      "gold_m1": {
+        "call_sites": 1,
+        "target": "Add(int,int)",
+        "dispatch": "direct"
+      },
+      "acceptable_evidence": [
+        "Choose source call",
+        "resolved call-site evidence"
+      ],
+      "eligible_operations": [
+        "callees",
+        "source"
+      ],
+      "required_uncertainty": false,
+      "contexts": [
+        "pilot-native-release-x64"
+      ],
+      "count_scope": "selected_context",
+      "array_semantics": {},
+      "representation": {
+        "numbers": "JSON numbers; exact integer value",
+        "booleans": "JSON booleans",
+        "names": "Preserve case; qualified names accepted; only explicit in-scope aliases may be normalized.",
+        "strings": "Use semantic equivalence rules; novel correct wording is sent to blinded review, not automatically marked wrong.",
+        "states": "Use known, unknown, not_collected or not_applicable when a state is requested.",
+        "target": "Function name plus parameter types; namespace qualification optional within this single declared pilot context."
+      }
+    },
+    {
+      "id": "Q18",
+      "category": "calls_reachability",
+      "question": "For the C++ pilot context only: Under the explicit assumption that Choose alone is the root and only these internal direct calls are traversed, which pilot functions are reachable?",
+      "answer_shape": {
+        "reachable": "array of strings",
+        "outside": "array of strings",
+        "scope": "string"
+      },
+      "gold_m1": {
+        "reachable": [
+          "Choose(int)",
+          "Add(int,int)"
+        ],
+        "outside": [
+          "Unused(int)",
+          "Add(long long,long long)"
+        ],
+        "scope": "declared_internal_graph"
+      },
+      "acceptable_evidence": [
+        "both Choose and Add bodies",
+        "existing scoped reachability result when available"
+      ],
+      "eligible_operations": [
+        "reachability",
+        "callees",
+        "source"
+      ],
+      "required_uncertainty": false,
+      "contexts": [
+        "pilot-native-release-x64"
+      ],
+      "count_scope": "selected_context",
+      "array_semantics": {
+        "reachable": "unordered_set",
+        "outside": "unordered_set"
+      },
+      "representation": {
+        "numbers": "JSON numbers; exact integer value",
+        "booleans": "JSON booleans",
+        "names": "Preserve case; qualified names accepted; only explicit in-scope aliases may be normalized.",
+        "strings": "Use semantic equivalence rules; novel correct wording is sent to blinded review, not automatically marked wrong.",
+        "states": "Use known, unknown, not_collected or not_applicable when a state is requested.",
+        "signatures": "C++ function name plus exact parameter types; namespace qualification optional. long long and signed long long denote the same type."
+      }
+    },
+    {
+      "id": "Q19",
+      "category": "calls_reachability",
+      "question": "For the C++ pilot context only: Does absence of internal call sites prove Unused is dead code in this library?",
+      "answer_shape": {
+        "proven_dead": "boolean",
+        "reason": "string"
+      },
+      "gold_m1": {
+        "proven_dead": false,
+        "reason": "external_entry_not_excluded"
+      },
+      "acceptable_evidence": [
+        "Unused declaration",
+        "library root/coverage policy"
+      ],
+      "eligible_operations": [
+        "reachability",
+        "capabilities",
+        "source"
+      ],
+      "required_uncertainty": true,
+      "contexts": [
+        "pilot-native-release-x64"
+      ],
+      "count_scope": "selected_context",
+      "array_semantics": {},
+      "representation": {
+        "numbers": "JSON numbers; exact integer value",
+        "booleans": "JSON booleans",
+        "names": "Preserve case; qualified names accepted; only explicit in-scope aliases may be normalized.",
+        "strings": "Use semantic equivalence rules; novel correct wording is sent to blinded review, not automatically marked wrong.",
+        "states": "Use known, unknown, not_collected or not_applicable when a state is requested.",
+        "reason": "Short natural-language explanation; judged by its causal meaning, not an undisclosed exact reason-code string."
+      }
+    },
+    {
+      "id": "Q20",
+      "category": "calls_reachability",
+      "question": "For the C++ pilot context only: Does this dataset prove that no external callback or consumer can invoke Unused?",
+      "answer_shape": {
+        "state": "string",
+        "reason": "string"
+      },
+      "gold_m1": {
+        "state": "unknown",
+        "reason": "external_callers_not_enumerated"
+      },
+      "acceptable_evidence": [
+        "exported/public declarations",
+        "library boundary coverage"
+      ],
+      "eligible_operations": [
+        "reachability",
+        "capabilities",
+        "source"
+      ],
+      "required_uncertainty": true,
+      "contexts": [
+        "pilot-native-release-x64"
+      ],
+      "count_scope": "selected_context",
+      "array_semantics": {},
+      "representation": {
+        "numbers": "JSON numbers; exact integer value",
+        "booleans": "JSON booleans",
+        "names": "Preserve case; qualified names accepted; only explicit in-scope aliases may be normalized.",
+        "strings": "Use semantic equivalence rules; novel correct wording is sent to blinded review, not automatically marked wrong.",
+        "states": "Use known, unknown, not_collected or not_applicable when a state is requested.",
+        "reason": "Short natural-language explanation; judged by its causal meaning, not an undisclosed exact reason-code string."
+      }
+    },
+    {
+      "id": "Q21",
+      "category": "build_artifact_provenance",
+      "question": "What language version, target framework (if applicable), configuration and platform are requested for each pilot project?",
+      "answer_shape": {
+        "csharp_language": "string",
+        "csharp_framework": "string",
+        "cpp_language": "string",
+        "configuration": "string",
+        "platform": "string"
+      },
+      "gold_m1": {
+        "csharp_language": "12.0",
+        "csharp_framework": "net8.0",
+        "cpp_language": "c++17",
+        "configuration": "Release",
+        "platform": "x64"
+      },
+      "acceptable_evidence": [
+        "both project definitions",
+        "selected context metadata"
+      ],
+      "eligible_operations": [
+        "build_context",
+        "source"
+      ],
+      "required_uncertainty": false,
+      "contexts": [
+        "pilot-csharp-release-x64",
+        "pilot-native-release-x64"
+      ],
+      "count_scope": "separate_per_named_context; shared boolean applies to each, never summed",
+      "array_semantics": {},
+      "representation": {
+        "numbers": "JSON numbers; exact integer value",
+        "booleans": "JSON booleans",
+        "names": "Preserve case; qualified names accepted; only explicit in-scope aliases may be normalized.",
+        "strings": "Use semantic equivalence rules; novel correct wording is sent to blinded review, not automatically marked wrong.",
+        "states": "Use known, unknown, not_collected or not_applicable when a state is requested."
+      }
+    },
+    {
+      "id": "Q22",
+      "category": "build_artifact_provenance",
+      "question": "How many selected C# source inputs and C++ translation units are there, and is the internal header a separate translation unit?",
+      "answer_shape": {
+        "csharp_source_inputs": "number",
+        "cpp_translation_units": "number",
+        "header_is_translation_unit": "boolean"
+      },
+      "gold_m1": {
+        "csharp_source_inputs": 2,
+        "cpp_translation_units": 1,
+        "header_is_translation_unit": false
+      },
+      "acceptable_evidence": [
+        "both project Compile/ClCompile items",
+        "internal include"
+      ],
+      "eligible_operations": [
+        "build_context",
+        "source"
+      ],
+      "required_uncertainty": false,
+      "contexts": [
+        "pilot-csharp-release-x64",
+        "pilot-native-release-x64"
+      ],
+      "count_scope": "separate_per_named_context; shared boolean applies to each, never summed",
+      "array_semantics": {},
+      "representation": {
+        "numbers": "JSON numbers; exact integer value",
+        "booleans": "JSON booleans",
+        "names": "Preserve case; qualified names accepted; only explicit in-scope aliases may be normalized.",
+        "strings": "Use semantic equivalence rules; novel correct wording is sent to blinded review, not automatically marked wrong.",
+        "states": "Use known, unknown, not_collected or not_applicable when a state is requested."
+      }
+    },
+    {
+      "id": "Q23",
+      "category": "build_artifact_provenance",
+      "question": "Do the extraction dataset's records prove an observed build of these pilot artifacts succeeded?",
+      "answer_shape": {
+        "state": "string",
+        "success_proven": "boolean"
+      },
+      "gold_m1": {
+        "state": "not_collected",
+        "success_proven": false
+      },
+      "acceptable_evidence": [
+        "build-run coverage; evaluated contexts are not observed executions",
+        "identical capture collection-input policy citation for the relevant observation family"
+      ],
+      "eligible_operations": [
+        "build_actions",
+        "capabilities"
+      ],
+      "required_uncertainty": true,
+      "contexts": [
+        "pilot-csharp-release-x64",
+        "pilot-native-release-x64"
+      ],
+      "count_scope": "separate_per_named_context; shared boolean applies to each, never summed",
+      "array_semantics": {},
+      "representation": {
+        "numbers": "JSON numbers; exact integer value",
+        "booleans": "JSON booleans",
+        "names": "Preserve case; qualified names accepted; only explicit in-scope aliases may be normalized.",
+        "strings": "Use semantic equivalence rules; novel correct wording is sent to blinded review, not automatically marked wrong.",
+        "states": "Use known, unknown, not_collected or not_applicable when a state is requested."
+      }
+    },
+    {
+      "id": "Q24",
+      "category": "build_artifact_provenance",
+      "question": "What observed build duration, cache-reuse outcome and source-to-binary mapping does the extraction dataset establish?",
+      "answer_shape": {
+        "duration_state": "string",
+        "cache_state": "string",
+        "mapping_state": "string"
+      },
+      "gold_m1": {
+        "duration_state": "not_collected",
+        "cache_state": "not_collected",
+        "mapping_state": "not_collected"
+      },
+      "acceptable_evidence": [
+        "build/artifact collection coverage",
+        "identical capture collection-input policy citation for the relevant observation family"
+      ],
+      "eligible_operations": [
+        "build_actions",
+        "artifacts",
+        "capabilities"
+      ],
+      "required_uncertainty": true,
+      "contexts": [
+        "pilot-csharp-release-x64",
+        "pilot-native-release-x64"
+      ],
+      "count_scope": "separate_per_named_context; shared boolean applies to each, never summed",
+      "array_semantics": {},
+      "representation": {
+        "numbers": "JSON numbers; exact integer value",
+        "booleans": "JSON booleans",
+        "names": "Preserve case; qualified names accepted; only explicit in-scope aliases may be normalized.",
+        "strings": "Use semantic equivalence rules; novel correct wording is sent to blinded review, not automatically marked wrong.",
+        "states": "Use known, unknown, not_collected or not_applicable when a state is requested."
+      }
+    }
+  ],
+  "question_revision": 2,
+  "operation_policy": "eligible_operations lists illustrative structured retrieval routes, not a restrictive allowlist. Every question and arm also permits source_capabilities, source_files, source_search and source under the same strict source contracts and budgets."
+}

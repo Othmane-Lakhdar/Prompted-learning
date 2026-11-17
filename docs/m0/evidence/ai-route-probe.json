@@ -2,7 +2,7 @@
   "date": "2026-11-17",
   "cli_version": "0.169.0-alpha.11.1",
   "auth": "existing ChatGPT login; credentials not read or copied",
-  "status": "structured_protocol_and_usage_probe_passed",
+  "status": "frozen_instruction_and_response_schema_probe_passed_after_recorded_correction",
   "attempts": [
     {
       "id": "open-stdin",
@@ -292,6 +292,205 @@
           }
         }
       ]
+    },
+    {
+      "id": "final-query",
+      "result": {
+        "args": [
+          "exec",
+          "--ignore-user-config",
+          "--ephemeral",
+          "--skip-git-repo-check",
+          "--sandbox",
+          "read-only",
+          "--json",
+          "--color",
+          "never",
+          "--output-schema",
+          "<PROJECT>/docs/m0/benchmark-decision.schema.json",
+          "-m",
+          "gpt-6.1-sol",
+          "-c",
+          "approval_policy=\"never\"",
+          "-c",
+          "features.shell_tool=false",
+          "-c",
+          "features.shell_snapshot=false",
+          "-c",
+          "features.multi_agent=false",
+          "-c",
+          "features.view_image=false",
+          "-c",
+          "web_search=\"disabled\"",
+          "-c",
+          "model_reasoning_effort=\"low\"",
+          "-c",
+          "project_doc_max_bytes=0",
+          "-c",
+          "model_context_window=24000",
+          "-c",
+          "model_instructions_file=\"<PROJECT>/docs/m0/benchmark-instructions.txt\"",
+          "-"
+        ],
+        "prompt": "Protocol capability probe, not an experiment result. Question: What value does record probe-1 contain? answer_shape={\"value\":\"number\"}. Selected context=probe. Allowed operation=lookup with arguments {\"id\":string}. No evidence yet. Request evidence through the protocol.",
+        "code": 1,
+        "signal": null,
+        "elapsed_ms": 2255
+      },
+      "raw_stdout_sha256": "f30d56828f3eba08e323de86971175cc7491176d8913274f7a74c6044ff9a019",
+      "events": [
+        {
+          "type": "turn.started"
+        },
+        {
+          "type": "error",
+          "message": "{\"type\":\"error\",\"error\":{\"message\":\"Invalid schema for response_format 'codex_output_schema': 'schema.properties.citations.uniqueItems' is not permitted when strict is true.\",\"type\":\"invalid_request_error\",\"param\":\"text.format.schema\",\"code\":\"invalid_json_schema\"},\"status\":400}"
+        },
+        {
+          "type": "turn.failed",
+          "error": {
+            "message": "{\"type\":\"error\",\"error\":{\"message\":\"Invalid schema for response_format 'codex_output_schema': 'schema.properties.citations.uniqueItems' is not permitted when strict is true.\",\"type\":\"invalid_request_error\",\"param\":\"text.format.schema\",\"code\":\"invalid_json_schema\"},\"status\":400}"
+          }
+        }
+      ]
+    },
+    {
+      "id": "final-query-corrected",
+      "result": {
+        "args": [
+          "exec",
+          "--ignore-user-config",
+          "--ephemeral",
+          "--skip-git-repo-check",
+          "--sandbox",
+          "read-only",
+          "--json",
+          "--color",
+          "never",
+          "--output-schema",
+          "<PROJECT>/docs/m0/benchmark-decision.schema.json",
+          "-m",
+          "gpt-6.1-sol",
+          "-c",
+          "approval_policy=\"never\"",
+          "-c",
+          "features.shell_tool=false",
+          "-c",
+          "features.shell_snapshot=false",
+          "-c",
+          "features.multi_agent=false",
+          "-c",
+          "features.view_image=false",
+          "-c",
+          "web_search=\"disabled\"",
+          "-c",
+          "model_reasoning_effort=\"low\"",
+          "-c",
+          "project_doc_max_bytes=0",
+          "-c",
+          "model_context_window=24000",
+          "-c",
+          "model_instructions_file=\"<PROJECT>/docs/m0/benchmark-instructions.txt\"",
+          "-"
+        ],
+        "prompt": "Protocol capability probe, not an experiment result. Question: What value does record probe-1 contain? answer_shape={\"value\":\"number\"}. Selected context=probe. Allowed operation=lookup with arguments {\"id\":string}. No evidence yet. Request evidence through the protocol.",
+        "code": 0,
+        "signal": null,
+        "elapsed_ms": 4744
+      },
+      "raw_stdout_sha256": "4b6d4390c04a14699f5cbe94cc77d9a80567212bf0cfddf4accfa6af93b1eadd",
+      "events": [
+        {
+          "type": "turn.started"
+        },
+        {
+          "type": "item.completed",
+          "item": {
+            "id": "item_0",
+            "type": "agent_message",
+            "text": "{\"action\":\"query\",\"operation\":\"lookup\",\"arguments\":\"{\\\"id\\\":\\\"probe-1\\\"}\",\"answer\":\"\",\"citations\":[]}"
+          }
+        },
+        {
+          "type": "turn.completed",
+          "usage": {
+            "input_tokens": 7674,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 36,
+            "reasoning_output_tokens": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "final-answer",
+      "result": {
+        "args": [
+          "exec",
+          "--ignore-user-config",
+          "--ephemeral",
+          "--skip-git-repo-check",
+          "--sandbox",
+          "read-only",
+          "--json",
+          "--color",
+          "never",
+          "--output-schema",
+          "<PROJECT>/docs/m0/benchmark-decision.schema.json",
+          "-m",
+          "gpt-6.1-sol",
+          "-c",
+          "approval_policy=\"never\"",
+          "-c",
+          "features.shell_tool=false",
+          "-c",
+          "features.shell_snapshot=false",
+          "-c",
+          "features.multi_agent=false",
+          "-c",
+          "features.view_image=false",
+          "-c",
+          "web_search=\"disabled\"",
+          "-c",
+          "model_reasoning_effort=\"low\"",
+          "-c",
+          "project_doc_max_bytes=0",
+          "-c",
+          "model_context_window=24000",
+          "-c",
+          "model_instructions_file=\"<PROJECT>/docs/m0/benchmark-instructions.txt\"",
+          "-"
+        ],
+        "prompt": "Protocol capability probe, not an experiment result. Question: What value does record probe-1 contain? answer_shape={\"value\":\"number\"}. Selected context=probe. Allowed operation=lookup with arguments {\"id\":string}. No evidence yet. Request evidence through the protocol.\nPrior protocol decision: lookup record probe-1.\nController response as evidence: {\"id\":\"probe-1\",\"value\":7,\"evidence_id\":\"source:probe-1\"}. Answer using the required answer_shape. No further query is needed.",
+        "code": 0,
+        "signal": null,
+        "elapsed_ms": 4618
+      },
+      "raw_stdout_sha256": "3c9fc978ac95a2d6f8e847371c5d458d125036065a9ce7abf12d3735e2ef52a6",
+      "events": [
+        {
+          "type": "turn.started"
+        },
+        {
+          "type": "item.completed",
+          "item": {
+            "id": "item_0",
+            "type": "agent_message",
+            "text": "{\"action\":\"answer\",\"operation\":\"\",\"arguments\":\"\",\"answer\":\"{\\\"value\\\":7}\",\"citations\":[\"source:probe-1\"]}"
+          }
+        },
+        {
+          "type": "turn.completed",
+          "usage": {
+            "input_tokens": 8045,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 37,
+            "reasoning_output_tokens": 0
+          }
+        }
+      ]
     }
   ],
   "boundaries": [
@@ -309,5 +508,15 @@
     "display_name": "GPT-6.1-Sol",
     "supported_in_api": true,
     "catalog_entry_sha256": "3184dcc52d0c953922eadaff0d9e3858e8f878e1a857ea08fa3c2d0522cb69ef"
-  }
+  },
+  "frozen_files": [
+    {
+      "file": "docs/m0/benchmark-instructions.txt",
+      "sha256": "5738a5fd0098d5df917d38d151f156e47346fab0d49682b2e3e80f47ddd35be8"
+    },
+    {
+      "file": "docs/m0/benchmark-decision.schema.json",
+      "sha256": "4d765a8a1303a166dfb76cf76438d83800a5b7d869337329a6594cb94ec01b00"
+    }
+  ]
 }

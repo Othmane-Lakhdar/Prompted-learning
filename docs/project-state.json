@@ -33,7 +33,7 @@
     "clang": "candidate_local_libraries_ast_cfg_probe_passed",
     "sqlite": "native_provider_constraints_and_rollback_probe_passed",
     "full_cppsharp_windows": "blocked_missing_cpp_cli",
-    "ai_benchmark": "unverified_m0_execution_route_needed",
+    "ai_benchmark": "structured_route_verified_comparison_and_controller_gates_not_run",
     "local_git_commit": "verified",
     "local_https_git_push": "failed_authentication",
     "github_api_current_publication": "verified",

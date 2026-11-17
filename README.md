@@ -2,8 +2,9 @@
 
 Planning and implementation workspace for a C++ and C# code-extraction tool.
 
-Current stage: preflight completed with declared scope limits; M0 design contracts are next. Extractor implementation has not started.
+Current stage: M0 design and independent review are in progress after the completed preflight. Extractor implementation has not started. The remaining worker, identity and projection findings must pass review before M1.
 
+- [M0 contracts, acceptance plan and evidence](docs/m0/README.md)
 - [Capability inventory and checked status](docs/capabilities.md)
 - [Pinned mixed-language test resources and clone/build instructions](docs/testing/README.md)
 - [Machine-readable candidate sizes and source selections](docs/testing/candidates.json)
