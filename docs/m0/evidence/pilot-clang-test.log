@@ -1,0 +1,8 @@
+Internal ctest changing into directory: <INPUTS>/m0-pilot-build/clang
+Test project <INPUTS>/m0-pilot-build/clang
+    Start 1: native-pilot-msvc-compatibility
+1/1 Test #1: native-pilot-msvc-compatibility ...   Passed    0.52 sec
+
+100% tests passed, 0 tests failed out of 1
+
+Total Test time (real) =   0.60 sec

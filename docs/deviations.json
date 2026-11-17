@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "as_of": "2026-11-16",
+  "as_of": "2026-11-17",
   "entries": [
     {
       "id": "ENV001",
@@ -581,6 +581,409 @@
         "git_push": "failed",
         "api_publication": "passed",
         "tree_readback": "passed"
+      }
+    },
+    {
+      "id": "M0OPS001",
+      "status": "resolved",
+      "kind": "tool_payload_limit",
+      "stage": "M0",
+      "expected": "Persist complete source specifications in one JavaScript tool call.",
+      "observed": "Automatic review rejected the call because JavaScript execution exceeded its 64000-byte limit; no file write occurred.",
+      "evidence": [
+        {
+          "tool": "mcp__node_repl__js",
+          "result": "JavaScript execution exceeds the 64000-byte strict auto-review limit"
+        },
+        {
+          "record": "docs/specifications/sources.json"
+        }
+      ],
+      "affected": [
+        "specification snapshots"
+      ],
+      "blocks_dependent_execution": false,
+      "corrective_action": "Write the same complete source blocks in bounded chunks and hash all three completed files.",
+      "verification": {
+        "status": "passed",
+        "sources": 3,
+        "blocks": [
+          581,
+          98,
+          175
+        ]
+      }
+    },
+    {
+      "id": "M0AI001",
+      "status": "resolved_stdin_transport_only",
+      "kind": "benchmark_route_probe",
+      "stage": "M0",
+      "expected": "Run one bounded noninteractive model request.",
+      "observed": "The child stdin pipe remained open; CLI waited for additional input and was terminated after 60 seconds before any model response.",
+      "evidence": [
+        {
+          "record": "docs/m0/evidence/ai-route-probe.json",
+          "attempt": "open-stdin"
+        }
+      ],
+      "affected": [
+        "AI execution-route invocation"
+      ],
+      "blocks_dependent_execution": false,
+      "corrective_action": "Close child stdin explicitly. Preserve the timed-out invocation separately.",
+      "verification": {
+        "status": "passed_transport_proceeds",
+        "note": "Later requests reached service; this does not by itself validate benchmark protocol."
+      }
+    },
+    {
+      "id": "M0AI002",
+      "status": "resolved_model_selection_only",
+      "kind": "benchmark_model_selection",
+      "stage": "M0",
+      "expected": "Requested model slug resolves to an account-supported model.",
+      "observed": "gpt-6.1 was rejected as unsupported for this ChatGPT login. Local model catalog lists gpt-6.1-sol, whose request completed with usage counts.",
+      "evidence": [
+        {
+          "record": "docs/m0/evidence/ai-route-probe.json",
+          "attempts": [
+            "closed-stdin",
+            "supported-model"
+          ]
+        }
+      ],
+      "affected": [
+        "AI model pin"
+      ],
+      "blocks_dependent_execution": false,
+      "corrective_action": "Pin gpt-6.1-sol explicitly and retain CLI/catalog version metadata. Do not silently substitute model aliases during comparison.",
+      "verification": {
+        "status": "passed_basic_inference",
+        "note": "Structured request/response protocol and arm isolation remain to be verified before benchmark use."
+      }
+    },
+    {
+      "id": "M0DESIGN001",
+      "status": "open",
+      "kind": "schema_constraint_gap",
+      "stage": "M0",
+      "expected": "Unknown, unsupported, partial and omission states require a nonempty reason.",
+      "observed": "Independent review found CHECK expressions using length(reason)>0 without IS NOT NULL; SQLite accepts a NULL CHECK result.",
+      "evidence": [
+        {
+          "record": "docs/m0/schema.sql",
+          "review": "preflight_review early schema review"
+        }
+      ],
+      "affected": [
+        "reason-bearing state constraints",
+        "M0 schema gate"
+      ],
+      "blocks_dependent_execution": true,
+      "corrective_action": "Contract agent must add explicit non-NULL checks and demonstrate rejection with negative inserts.",
+      "verification": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "M0DESIGN002",
+      "status": "open",
+      "kind": "context_identity_gap",
+      "stage": "M0",
+      "expected": "A logical group/member pair can have distinct memberships in multiple build contexts.",
+      "observed": "Independent review found the draft group_membership primary key omitted context_id.",
+      "evidence": [
+        {
+          "record": "docs/m0/schema.sql",
+          "review": "preflight_review early schema review"
+        }
+      ],
+      "affected": [
+        "BDG memberships",
+        "context isolation",
+        "M0 schema gate"
+      ],
+      "blocks_dependent_execution": true,
+      "corrective_action": "Define context-sensitive membership identity including context-independent semantics and validate both contexts coexist.",
+      "verification": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "M0DESIGN003",
+      "status": "open_under_design_review",
+      "kind": "optional_capture_ownership",
+      "stage": "M0",
+      "expected": "Required BD0.5 captured-variable identities survive all baseline profiles.",
+      "observed": "Draft mapping placed captured-variable identity only in optional BD0.13.",
+      "evidence": [
+        {
+          "records": [
+            "docs/m0/requirements.json",
+            "docs/m0/field-dictionary.json",
+            "docs/m0/schema.sql",
+            "docs/m0/contracts.md"
+          ],
+          "reviewers": [
+            "m0_requirements",
+            "preflight_review"
+          ]
+        }
+      ],
+      "affected": [
+        "BD0.5",
+        "AC-PROFILES"
+      ],
+      "blocks_dependent_execution": true,
+      "corrective_action": "Map compiler-established capture membership to retained member_relation(role=capture); keep derived effects in BD0.13; test P1 preservation.",
+      "verification": {
+        "status": "pending_integrated_validation"
+      }
+    },
+    {
+      "id": "M0DESIGN004",
+      "status": "open_under_design_review",
+      "kind": "field_collection_contract",
+      "stage": "M0",
+      "expected": "Collections have correct cardinality, global/per-role order and owner/context selectors, including known-empty versus uncollected.",
+      "observed": "Draft generated dictionary omitted child collections whose rows have IDs, used 0..N for singleton entity_detail, and misdescribed operation ordering and contextual membership selectors.",
+      "evidence": [
+        {
+          "records": [
+            "docs/m0/requirements.json",
+            "docs/m0/field-dictionary.json",
+            "docs/m0/schema.sql",
+            "docs/m0/contracts.md"
+          ],
+          "reviewers": [
+            "m0_requirements",
+            "preflight_review"
+          ]
+        }
+      ],
+      "affected": [
+        "field dictionary",
+        "field_state",
+        "M0 gate"
+      ],
+      "blocks_dependent_execution": true,
+      "corrective_action": "Enumerate all required collections, correct cardinality/order, extend state addressing and add targeted negative validation.",
+      "verification": {
+        "status": "pending_integrated_validation"
+      }
+    },
+    {
+      "id": "M0DESIGN005",
+      "status": "open_under_design_review",
+      "kind": "evaluated_item_metadata_owner",
+      "stage": "M0",
+      "expected": "Evaluated item metadata links to its specific project item/participation and context.",
+      "observed": "Independent review found build_setting name/value rows lacked evaluated-item ownership.",
+      "evidence": [
+        {
+          "records": [
+            "docs/m0/requirements.json",
+            "docs/m0/field-dictionary.json",
+            "docs/m0/schema.sql",
+            "docs/m0/contracts.md"
+          ],
+          "reviewers": [
+            "m0_requirements",
+            "preflight_review"
+          ]
+        }
+      ],
+      "affected": [
+        "BDB.3",
+        "BDB.4"
+      ],
+      "blocks_dependent_execution": true,
+      "corrective_action": "Add a concrete item ownership reference and update dictionary, queries and validation.",
+      "verification": {
+        "status": "pending_integrated_validation"
+      }
+    },
+    {
+      "id": "M0DESIGN006",
+      "status": "open_under_design_review",
+      "kind": "contract_representation_gap",
+      "stage": "M0",
+      "expected": "Template substitutions, retained response-file dependencies and child-row field states have explicit representations.",
+      "observed": "Requirements designer found draft gaps in all three before downstream implementation.",
+      "evidence": [
+        {
+          "records": [
+            "docs/m0/requirements.json",
+            "docs/m0/field-dictionary.json",
+            "docs/m0/schema.sql",
+            "docs/m0/contracts.md"
+          ],
+          "reviewers": [
+            "m0_requirements",
+            "preflight_review"
+          ]
+        }
+      ],
+      "affected": [
+        "BD0.5",
+        "BD0.6",
+        "BDB.1",
+        "BDB.3",
+        "field states"
+      ],
+      "blocks_dependent_execution": true,
+      "corrective_action": "Add normalized template substitution, context_input and defined row-state addressing; validate mappings.",
+      "verification": {
+        "status": "pending_integrated_validation"
+      }
+    },
+    {
+      "id": "M0DESIGN007",
+      "status": "open_under_design_review",
+      "kind": "vocabulary_and_endpoint_gap",
+      "stage": "M0",
+      "expected": "Shared passing/access/file-role vocabularies and each relationship endpoint/direction are concrete.",
+      "observed": "Independent review found generic strings and incomplete endpoint mappings insufficient to implement or validate every relationship.",
+      "evidence": [
+        {
+          "records": [
+            "docs/m0/requirements.json",
+            "docs/m0/field-dictionary.json",
+            "docs/m0/schema.sql",
+            "docs/m0/contracts.md"
+          ],
+          "reviewers": [
+            "m0_requirements",
+            "preflight_review"
+          ]
+        }
+      ],
+      "affected": [
+        "vocabularies",
+        "BD0.10",
+        "M0 gate"
+      ],
+      "blocks_dependent_execution": true,
+      "corrective_action": "Declare enumerations and complete directional endpoint contracts, with validation.",
+      "verification": {
+        "status": "pending_integrated_validation"
+      }
+    },
+    {
+      "id": "M0OPS002",
+      "status": "resolved",
+      "kind": "validation_encoding",
+      "stage": "M0",
+      "expected": "Read UTF8 specification data for validation.",
+      "observed": "A requirements-agent Python validation command used Windows cp1252 default decoding and failed.",
+      "evidence": [
+        {
+          "check": "m0_requirements validation report",
+          "result": "Rerun with explicit UTF8 passed."
+        }
+      ],
+      "affected": [
+        "design validation invocation"
+      ],
+      "blocks_dependent_execution": false,
+      "corrective_action": "Read structured data explicitly as UTF8; do not rely on host locale.",
+      "verification": {
+        "status": "passed_after_correction"
+      }
+    },
+    {
+      "id": "M0OPS003",
+      "status": "resolved",
+      "kind": "incorrect_assumed_fixture_path",
+      "stage": "M0",
+      "expected": "Read actual frozen pilot source files.",
+      "observed": "Contracts agent initially attempted nonexistent Pilot.cs/pilot.cpp before enumerating actual Arithmetic paths.",
+      "evidence": [
+        {
+          "check": "m0_contracts report",
+          "result": "File enumeration corrected paths; no mutation or downstream result based on failed reads."
+        }
+      ],
+      "affected": [
+        "fixture inspection"
+      ],
+      "blocks_dependent_execution": false,
+      "corrective_action": "Use observed fixture paths from pilot.json and source tree.",
+      "verification": {
+        "status": "passed_actual_files_read"
+      }
+    },
+    {
+      "id": "M0AI003",
+      "status": "documented_adaptation",
+      "kind": "provider_revision_visibility",
+      "stage": "M0",
+      "expected": "Hold the model version constant and make comparisons reproducible.",
+      "observed": "CLI exposes selected model version gpt-6.1-sol and usage, but not a hidden immutable provider build revision.",
+      "evidence": [
+        {
+          "record": "docs/m0/evidence/ai-route-probe.json"
+        },
+        {
+          "review": "Independent reviewer accepts controlling the exposed version with this disclosed boundary; no immutable backend equivalence claim."
+        }
+      ],
+      "affected": [
+        "AI reproducibility metadata"
+      ],
+      "blocks_dependent_execution": false,
+      "corrective_action": "Pin exposed model/effort/CLI/prompts; hash catalog before/after each complete batch; prohibit fallback; invalidate/rerun whole batch after detected model changes; retain hidden revision as not_exposed.",
+      "verification": {
+        "status": "accepted_design_adaptation",
+        "batch_execution": "M1_pending"
+      }
+    },
+    {
+      "id": "M0BUILD001",
+      "status": "recorded_warning",
+      "kind": "third_party_compiler_warning",
+      "stage": "M0",
+      "expected": "Compile the bounded Clang compatibility probe and record diagnostics.",
+      "observed": "MSVC emitted C4291 placement-delete warnings in pinned Clang headers; build and specified AST/CFG probe passed.",
+      "evidence": [
+        {
+          "log": "docs/m0/evidence/pilot-clang-build.log"
+        }
+      ],
+      "affected": [
+        "native probe exception/allocation cleanup beyond tested path"
+      ],
+      "blocks_dependent_execution": false,
+      "corrective_action": "Retain warnings and scope success to tested path. Do not claim warning-free build or verified allocation-failure cleanup; robust worker failure tests remain required.",
+      "verification": {
+        "status": "specified_probe_passed",
+        "exception_cleanup": "not_tested"
+      }
+    },
+    {
+      "id": "M0OPS004",
+      "status": "resolved",
+      "kind": "evidence_whitespace_validation",
+      "stage": "M0",
+      "expected": "Readable evidence diff passes whitespace validation while specification snapshots remain exact.",
+      "observed": "git diff --check flagged compiler-log trailing spaces and the source Page final blank block.",
+      "evidence": [
+        {
+          "record": "docs/m0/evidence/evidence-hashes.json"
+        },
+        {
+          "record": ".gitattributes"
+        }
+      ],
+      "affected": [
+        "source snapshot byte preservation",
+        "evidence formatting"
+      ],
+      "blocks_dependent_execution": false,
+      "corrective_action": "Trim only sanitized log-copy trailing spaces, refresh committed hashes, and exempt blank-at-EOF only for complete source snapshots. Preserve raw hashes and original Page text.",
+      "verification": {
+        "status": "passed"
       }
     }
   ]

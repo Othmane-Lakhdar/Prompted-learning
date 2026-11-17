@@ -1,0 +1,24 @@
+{
+  "tables": 114,
+  "columns": 783,
+  "json_schema_valid": true,
+  "query_positives": 2,
+  "negative_cases": [
+    "unknown_top_level",
+    "unknown_operation",
+    "unknown_argument",
+    "negative_limit",
+    "missing_graph_limits",
+    "unknown_state_null_reason",
+    "metadata_without_owner",
+    "invalid_access",
+    "invalid_return_passing",
+    "invalid_file_role"
+  ],
+  "positive_sql_cases": [
+    "metadata attached to two distinct nonfile items",
+    "known null and string-null parameter defaults distinguished"
+  ],
+  "ddl_integrity": "ok",
+  "scope": "Design schema and isolated SQL constraints. Deferred-FK population rolled back; no product semantic-validator or query implementation claimed."
+}

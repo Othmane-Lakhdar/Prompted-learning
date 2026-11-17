@@ -1,0 +1,92 @@
+{
+  "date": "2026-11-17",
+  "raw_directory": "<INPUTS>/m0-logs",
+  "sanitization": "Root-path aliases, LF newlines, and compiler allocation pointer addresses replaced. Raw logs retained locally. Trailing horizontal whitespace removed from committed text copies.",
+  "files": [
+    {
+      "file": "contracts-schema-final-validation.json",
+      "raw_sha256": "5b6d4fb07357ae8b4082b607abdf7e25b241166fdf3e1d55a85cdf0dc6f43e35",
+      "committed_sha256": "623ac3d2368c401d6fe088d5fa1ac2bb795ca9791679eddcacd694ab71f4d9b7"
+    },
+    {
+      "file": "contracts-schema-validation.json",
+      "raw_sha256": "fa7ad757fae97fd81658edb92cd319866e73603de9c1d8c0e4faeb607d0d2b7e",
+      "committed_sha256": "8e1d96a3b0a1f4b108b4ba798d1a5c5503d8052f87f78a789e19fb134a3a317a"
+    },
+    {
+      "file": "pilot-clang-ast-oracle.log",
+      "raw_sha256": "90eb6d82554a8d4497e7c2522e5dc7a48af343eddb96b905b1faa8e47be3d6e5",
+      "committed_sha256": "f41f177cc5aa8cc87be9af7ef7c9fb342c1b13e6907962f0f161990551a3285b"
+    },
+    {
+      "file": "pilot-clang-ast-oracle.log.json",
+      "raw_sha256": "37d8497438fba48448102bb0ebe0fe8e5fd84e3ffb4507eb2b273310acd1c245",
+      "committed_sha256": "69584972fff5c2c5a3284e7a52dbfd5d54f7ba819e2fc2417b4b3788970f2d3a"
+    },
+    {
+      "file": "pilot-clang-build.log",
+      "raw_sha256": "f9fe7875ade57c4658a5f5cdb4511ae28a62f8e2fb9073b41b1ee3d042f35408",
+      "committed_sha256": "8db5d8e063cb38f504f0c7ff3f2735779bacaa08ffc657e1503abcda5ef3e8df"
+    },
+    {
+      "file": "pilot-clang-build.log.json",
+      "raw_sha256": "f0ac7f76ffcd2e548dafff55fed42c4f7536bf666281adcdf3f9771bf7c69845",
+      "committed_sha256": "3813382c20abd000aa5f927515689b7ea80aeffe782d0248c574ee6e551d5350"
+    },
+    {
+      "file": "pilot-clang-configure.log",
+      "raw_sha256": "d38ab9f99d9218a09de5b3a6573fac062b4ad7cf222facbea014ab5430031177",
+      "committed_sha256": "554461ceda12fc9f6cf3508143f290ab922aa773de32daa79f83f032995ba9fb"
+    },
+    {
+      "file": "pilot-clang-configure.log.json",
+      "raw_sha256": "7ade6d3ea342df687c31ddea8299633a26b5b48de136805ddae3ae5c2db93118",
+      "committed_sha256": "07db6f73b16725e4e52d6f28e174bc84edb7fc00776b96d594b1ec8e21a64ad8"
+    },
+    {
+      "file": "pilot-clang-oracle-build.log",
+      "raw_sha256": "096ecbe37a707aba02eead7842fc9dc4033a517d7bfa99cc068cedbcdf91ac90",
+      "committed_sha256": "872a5877663aee08f0af97cb2f2dac6cb4c90ef6540f847930fdc928ce15a87d"
+    },
+    {
+      "file": "pilot-clang-oracle-build.log.json",
+      "raw_sha256": "e23dc8dd2c11ac653bc55f491402f90f7d8e61bcbe04f87f962e077b42ffb239",
+      "committed_sha256": "eeb27697dba0343a4655631ba3c949d01c0caf6ff9455b72cc57d005616af968"
+    },
+    {
+      "file": "pilot-clang-test.log",
+      "raw_sha256": "26ff1246a93c1e7962b4c21945839bc454c64aa341bba52298376c4bd417c30f",
+      "committed_sha256": "00080b87c6edc44b14504828ee4ea3b1ae41d91e857f8c8b6c3a89f4ed70cda2"
+    },
+    {
+      "file": "pilot-clang-test.log.json",
+      "raw_sha256": "11a9fce92ad8147981c2a01310b67dad3082f069af3dbcc5710f431190032dd4",
+      "committed_sha256": "98a67bbd402d5d76cdfbf766d44d4e65d0cb38bcadcf10eaf7c6b9dabf292805"
+    },
+    {
+      "file": "pilot-csharp-build.log",
+      "raw_sha256": "dc418cb8f7681e6c4111e6f39dfda24e852636147f2b67fcd0ea5ce6800c29c2",
+      "committed_sha256": "5a4fd13f21ccd78de711b0de5291a6526b50c0576ef0360193303cf68ce45287"
+    },
+    {
+      "file": "pilot-csharp-build.log.json",
+      "raw_sha256": "5e0b308810137cff0f95d7d91f18a164db5305b3abbfcd15d045655f450d42e8",
+      "committed_sha256": "dfb6a8d66b4ef3a7376db60f76a203177c400f8fa3d2c558fb121d1592de2c56"
+    },
+    {
+      "file": "pilot-native-build.log",
+      "raw_sha256": "2eb131fdf7bc4ff7ebe1326bbd512b73884af2b6caf1c0a54dc8bc4ad5cd61b7",
+      "committed_sha256": "a6c9a9a0251eb8d76d7c5ffdbb390d354b4c8387911de9e13880e6e0c576dcd8"
+    },
+    {
+      "file": "pilot-native-build.log.json",
+      "raw_sha256": "9ccbeab6601fd889a82bb71d0eaf2a77f3fd7a21a7c501a13699ee47146ecca3",
+      "committed_sha256": "c3b06c200b1a13babdf0e6fa5b76106c44496acd740d8917ce674df5bfb55de1"
+    },
+    {
+      "file": "roslyn-pilot-operation-oracle.json",
+      "raw_sha256": "e0eb79c46250aa0182c604c48f218894095d44552ca8aa7a5b0a22ea46468a3d",
+      "committed_sha256": "caae1b965d8d772dfc88521f3bd910d7dbdd9fa1fd826442224342cae72122da"
+    }
+  ]
+}

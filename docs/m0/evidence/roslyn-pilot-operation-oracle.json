@@ -1,0 +1,263 @@
+{
+  "producer": "bounded M0 compiler oracle; not extractor",
+  "roslyn": "4.14.0.0",
+  "language": "CSharp12",
+  "target_framework": "net8.0",
+  "reference_pack": "8.0.19",
+  "compilation_errors": 0,
+  "input_files": [
+    {
+      "name": "Arithmetic.More.cs",
+      "sha256": "1f35ac7b3c4d961afec435e863bcaa855f0ba06e2a2d864f5f6b34b8d368e72b"
+    },
+    {
+      "name": "Arithmetic.cs",
+      "sha256": "72006f84de73832687ed9c01b6c3c83b671a8afb6ceac104dfba39e721458aa4"
+    }
+  ],
+  "node_count": 22,
+  "nodes": [
+    {
+      "path": "0",
+      "kind": "Block",
+      "implicit_node": false,
+      "type": null,
+      "target": null,
+      "specific": null,
+      "start_utf16": 256,
+      "end_utf16": 402,
+      "constant": null
+    },
+    {
+      "path": "0/0",
+      "kind": "VariableDeclarationGroup",
+      "implicit_node": false,
+      "type": null,
+      "target": null,
+      "specific": null,
+      "start_utf16": 266,
+      "end_utf16": 277,
+      "constant": null
+    },
+    {
+      "path": "0/0/0",
+      "kind": "VariableDeclaration",
+      "implicit_node": false,
+      "type": null,
+      "target": null,
+      "specific": null,
+      "start_utf16": 266,
+      "end_utf16": 276,
+      "constant": null
+    },
+    {
+      "path": "0/0/0/0",
+      "kind": "VariableDeclarator",
+      "implicit_node": false,
+      "type": null,
+      "target": "result",
+      "specific": null,
+      "start_utf16": 270,
+      "end_utf16": 276,
+      "constant": null
+    },
+    {
+      "path": "0/1",
+      "kind": "Conditional",
+      "implicit_node": false,
+      "type": null,
+      "target": null,
+      "specific": null,
+      "start_utf16": 286,
+      "end_utf16": 373,
+      "constant": null
+    },
+    {
+      "path": "0/1/0",
+      "kind": "Binary",
+      "implicit_node": false,
+      "type": "bool",
+      "target": null,
+      "specific": "GreaterThan",
+      "start_utf16": 290,
+      "end_utf16": 299,
+      "constant": null
+    },
+    {
+      "path": "0/1/0/0",
+      "kind": "ParameterReference",
+      "implicit_node": false,
+      "type": "int",
+      "target": "value",
+      "specific": null,
+      "start_utf16": 290,
+      "end_utf16": 295,
+      "constant": null
+    },
+    {
+      "path": "0/1/0/1",
+      "kind": "Literal",
+      "implicit_node": false,
+      "type": "int",
+      "target": null,
+      "specific": null,
+      "start_utf16": 298,
+      "end_utf16": 299,
+      "constant": "0"
+    },
+    {
+      "path": "0/1/1",
+      "kind": "ExpressionStatement",
+      "implicit_node": false,
+      "type": null,
+      "target": null,
+      "specific": null,
+      "start_utf16": 313,
+      "end_utf16": 336,
+      "constant": null
+    },
+    {
+      "path": "0/1/1/0",
+      "kind": "SimpleAssignment",
+      "implicit_node": false,
+      "type": "int",
+      "target": null,
+      "specific": null,
+      "start_utf16": 313,
+      "end_utf16": 335,
+      "constant": null
+    },
+    {
+      "path": "0/1/1/0/0",
+      "kind": "LocalReference",
+      "implicit_node": false,
+      "type": "int",
+      "target": "result",
+      "specific": null,
+      "start_utf16": 313,
+      "end_utf16": 319,
+      "constant": null
+    },
+    {
+      "path": "0/1/1/0/1",
+      "kind": "Invocation",
+      "implicit_node": false,
+      "type": "int",
+      "target": "Pilot.Arithmetic.Add(int, int)",
+      "specific": null,
+      "start_utf16": 322,
+      "end_utf16": 335,
+      "constant": null
+    },
+    {
+      "path": "0/1/1/0/1/0",
+      "kind": "Argument",
+      "implicit_node": false,
+      "type": null,
+      "target": null,
+      "specific": "Explicit",
+      "start_utf16": 326,
+      "end_utf16": 331,
+      "constant": null
+    },
+    {
+      "path": "0/1/1/0/1/0/0",
+      "kind": "ParameterReference",
+      "implicit_node": false,
+      "type": "int",
+      "target": "value",
+      "specific": null,
+      "start_utf16": 326,
+      "end_utf16": 331,
+      "constant": null
+    },
+    {
+      "path": "0/1/1/0/1/1",
+      "kind": "Argument",
+      "implicit_node": false,
+      "type": null,
+      "target": null,
+      "specific": "Explicit",
+      "start_utf16": 333,
+      "end_utf16": 334,
+      "constant": null
+    },
+    {
+      "path": "0/1/1/0/1/1/0",
+      "kind": "Literal",
+      "implicit_node": false,
+      "type": "int",
+      "target": null,
+      "specific": null,
+      "start_utf16": 333,
+      "end_utf16": 334,
+      "constant": "1"
+    },
+    {
+      "path": "0/1/2",
+      "kind": "ExpressionStatement",
+      "implicit_node": false,
+      "type": null,
+      "target": null,
+      "specific": null,
+      "start_utf16": 362,
+      "end_utf16": 373,
+      "constant": null
+    },
+    {
+      "path": "0/1/2/0",
+      "kind": "SimpleAssignment",
+      "implicit_node": false,
+      "type": "int",
+      "target": null,
+      "specific": null,
+      "start_utf16": 362,
+      "end_utf16": 372,
+      "constant": null
+    },
+    {
+      "path": "0/1/2/0/0",
+      "kind": "LocalReference",
+      "implicit_node": false,
+      "type": "int",
+      "target": "result",
+      "specific": null,
+      "start_utf16": 362,
+      "end_utf16": 368,
+      "constant": null
+    },
+    {
+      "path": "0/1/2/0/1",
+      "kind": "Literal",
+      "implicit_node": false,
+      "type": "int",
+      "target": null,
+      "specific": null,
+      "start_utf16": 371,
+      "end_utf16": 372,
+      "constant": "0"
+    },
+    {
+      "path": "0/2",
+      "kind": "Return",
+      "implicit_node": false,
+      "type": null,
+      "target": null,
+      "specific": null,
+      "start_utf16": 382,
+      "end_utf16": 396,
+      "constant": null
+    },
+    {
+      "path": "0/2/0",
+      "kind": "LocalReference",
+      "implicit_node": false,
+      "type": "int",
+      "target": "result",
+      "specific": null,
+      "start_utf16": 389,
+      "end_utf16": 395,
+      "constant": null
+    }
+  ]
+}

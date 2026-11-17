@@ -1,0 +1,313 @@
+{
+  "date": "2026-11-17",
+  "cli_version": "0.169.0-alpha.11.1",
+  "auth": "existing ChatGPT login; credentials not read or copied",
+  "status": "structured_protocol_and_usage_probe_passed",
+  "attempts": [
+    {
+      "id": "open-stdin",
+      "result": {
+        "command": "codex",
+        "args": [
+          "exec",
+          "--ignore-user-config",
+          "--ephemeral",
+          "--skip-git-repo-check",
+          "--sandbox",
+          "read-only",
+          "--json",
+          "--color",
+          "never",
+          "-m",
+          "gpt-6.1",
+          "-c",
+          "approval_policy=\"never\"",
+          "-c",
+          "features.shell_tool=false",
+          "-c",
+          "features.multi_agent=false",
+          "-c",
+          "web_search=\"disabled\"",
+          "-c",
+          "model_reasoning_effort=\"low\"",
+          "Reply with exactly {\"route\":\"ok\",\"sum\":5} for 2+3. Do not call tools."
+        ],
+        "code": null,
+        "signal": "SIGTERM",
+        "elapsed_ms": 60059
+      },
+      "raw_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "events": []
+    },
+    {
+      "id": "closed-stdin",
+      "result": {
+        "command": "codex",
+        "args": [
+          "exec",
+          "--ignore-user-config",
+          "--ephemeral",
+          "--skip-git-repo-check",
+          "--sandbox",
+          "read-only",
+          "--json",
+          "--color",
+          "never",
+          "-m",
+          "gpt-6.1",
+          "-c",
+          "approval_policy=\"never\"",
+          "-c",
+          "features.shell_tool=false",
+          "-c",
+          "features.multi_agent=false",
+          "-c",
+          "web_search=\"disabled\"",
+          "-c",
+          "model_reasoning_effort=\"low\"",
+          "Reply with exactly {\"route\":\"ok\",\"sum\":5} for 2+3. Do not call tools."
+        ],
+        "code": 1,
+        "signal": null,
+        "elapsed_ms": 2709,
+        "stdin": "closed"
+      },
+      "raw_stdout_sha256": "290cfbb7def8559f68f396fe792a3ff744ce3545a61c160f59900bbbbbc18270",
+      "events": [
+        {
+          "type": "item.completed",
+          "item": {
+            "id": "item_0",
+            "type": "error",
+            "message": "Model metadata for `gpt-6.1` not found. Defaulting to fallback metadata; this can degrade performance and cause issues."
+          }
+        },
+        {
+          "type": "turn.started"
+        },
+        {
+          "type": "error",
+          "message": "The 'gpt-6.1' model is not supported when using Codex with a ChatGPT account."
+        },
+        {
+          "type": "turn.failed",
+          "error": {
+            "message": "The 'gpt-6.1' model is not supported when using Codex with a ChatGPT account."
+          }
+        }
+      ]
+    },
+    {
+      "id": "supported-model",
+      "result": {
+        "command": "codex",
+        "args": [
+          "exec",
+          "--ignore-user-config",
+          "--ephemeral",
+          "--skip-git-repo-check",
+          "--sandbox",
+          "read-only",
+          "--json",
+          "--color",
+          "never",
+          "-m",
+          "gpt-6.1-sol",
+          "-c",
+          "approval_policy=\"never\"",
+          "-c",
+          "features.shell_tool=false",
+          "-c",
+          "features.multi_agent=false",
+          "-c",
+          "web_search=\"disabled\"",
+          "-c",
+          "model_reasoning_effort=\"low\"",
+          "Reply with exactly {\"route\":\"ok\",\"sum\":5} for 2+3. Do not call tools."
+        ],
+        "code": 0,
+        "signal": null,
+        "elapsed_ms": 3918,
+        "stdin": "closed"
+      },
+      "raw_stdout_sha256": "63a3eeaaf25be08ca056af53d899d94b82b747ebc2c649db15eb5c207e2596ed",
+      "events": [
+        {
+          "type": "turn.started"
+        },
+        {
+          "type": "item.completed",
+          "item": {
+            "id": "item_0",
+            "type": "agent_message",
+            "text": "{\"route\":\"ok\",\"sum\":5}"
+          }
+        },
+        {
+          "type": "turn.completed",
+          "usage": {
+            "input_tokens": 11500,
+            "cached_input_tokens": 9088,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 13,
+            "reasoning_output_tokens": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "protocol-query",
+      "result": {
+        "args": [
+          "exec",
+          "--ignore-user-config",
+          "--ephemeral",
+          "--skip-git-repo-check",
+          "--sandbox",
+          "read-only",
+          "--json",
+          "--color",
+          "never",
+          "--output-schema",
+          "<PROBE>/decision.schema.json",
+          "-m",
+          "gpt-6.1-sol",
+          "-c",
+          "approval_policy=\"never\"",
+          "-c",
+          "features.shell_tool=false",
+          "-c",
+          "features.shell_snapshot=false",
+          "-c",
+          "features.multi_agent=false",
+          "-c",
+          "features.view_image=false",
+          "-c",
+          "web_search=\"disabled\"",
+          "-c",
+          "model_reasoning_effort=\"low\"",
+          "-c",
+          "project_doc_max_bytes=0",
+          "-c",
+          "model_context_window=24000",
+          "-c",
+          "model_instructions_file=\"<PROBE>/instructions.txt\"",
+          "-"
+        ],
+        "prompt": "A fresh controlled probe asks: what is the value of record probe-1? You have no evidence yet. Allowed protocol operation: lookup, arguments JSON with id. Request that evidence using action=query, operation=lookup, arguments containing id=probe-1, empty answer and citations. Do not use built-in tools.",
+        "code": 0,
+        "signal": null,
+        "elapsed_ms": 4745
+      },
+      "raw_stdout_sha256": "9ce5994c5d26611c200acffc20f7a1e98f99065c84605de13083dca6dfce939d",
+      "events": [
+        {
+          "type": "turn.started"
+        },
+        {
+          "type": "item.completed",
+          "item": {
+            "id": "item_0",
+            "type": "agent_message",
+            "text": "{\"action\":\"query\",\"operation\":\"lookup\",\"arguments\":\"{\\\"id\\\":\\\"probe-1\\\"}\",\"answer\":\"\",\"citations\":[]}"
+          }
+        },
+        {
+          "type": "turn.completed",
+          "usage": {
+            "input_tokens": 7753,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 36,
+            "reasoning_output_tokens": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "protocol-answer",
+      "result": {
+        "args": [
+          "exec",
+          "--ignore-user-config",
+          "--ephemeral",
+          "--skip-git-repo-check",
+          "--sandbox",
+          "read-only",
+          "--json",
+          "--color",
+          "never",
+          "--output-schema",
+          "<PROBE>/decision.schema.json",
+          "-m",
+          "gpt-6.1-sol",
+          "-c",
+          "approval_policy=\"never\"",
+          "-c",
+          "features.shell_tool=false",
+          "-c",
+          "features.shell_snapshot=false",
+          "-c",
+          "features.multi_agent=false",
+          "-c",
+          "features.view_image=false",
+          "-c",
+          "web_search=\"disabled\"",
+          "-c",
+          "model_reasoning_effort=\"low\"",
+          "-c",
+          "project_doc_max_bytes=0",
+          "-c",
+          "model_context_window=24000",
+          "-c",
+          "model_instructions_file=\"<PROBE>/instructions.txt\"",
+          "-"
+        ],
+        "prompt": "A fresh controlled probe asks: what is the value of record probe-1? You have no evidence yet. Allowed protocol operation: lookup, arguments JSON with id. Request that evidence using action=query, operation=lookup, arguments containing id=probe-1, empty answer and citations. Do not use built-in tools.\nPrior decision: {\"action\":\"query\",\"operation\":\"lookup\",\"arguments\":\"{\\\"id\\\":\\\"probe-1\\\"}\",\"answer\":\"\",\"citations\":[]}\nController response: {\"id\":\"probe-1\",\"value\":7,\"evidence_id\":\"source:probe-1\"}. Return action=answer, empty operation/arguments, answer containing the value and cite source:probe-1.",
+        "code": 0,
+        "signal": null,
+        "elapsed_ms": 5390
+      },
+      "raw_stdout_sha256": "bd7eb84df66edbe0313d5b0cf89c48927f4728d9484e626eace6ec8e408cd525",
+      "events": [
+        {
+          "type": "turn.started"
+        },
+        {
+          "type": "item.completed",
+          "item": {
+            "id": "item_0",
+            "type": "agent_message",
+            "text": "{\"action\":\"answer\",\"operation\":\"\",\"arguments\":\"\",\"answer\":\"7\",\"citations\":[\"source:probe-1\"]}"
+          }
+        },
+        {
+          "type": "turn.completed",
+          "usage": {
+            "input_tokens": 7829,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 33,
+            "reasoning_output_tokens": 0
+          }
+        }
+      ]
+    }
+  ],
+  "boundaries": [
+    "Capability probe only; no extractor or benchmark result",
+    "Controller/profile isolation, budget enforcement and scoring require M1 tests",
+    "Valid benchmark trials must contain no built-in tool events",
+    "Actual model build revision beyond requested slug is not exposed by this CLI stream; retain slug/catalog hash/date and CLI version, and fail comparisons across a detected model change"
+  ],
+  "references": [
+    "https://developers.openai.com/codex/noninteractive",
+    "https://developers.openai.com/codex/config-reference"
+  ],
+  "model_metadata": {
+    "slug": "gpt-6.1-sol",
+    "display_name": "GPT-6.1-Sol",
+    "supported_in_api": true,
+    "catalog_entry_sha256": "3184dcc52d0c953922eadaff0d9e3858e8f878e1a857ea08fa3c2d0522cb69ef"
+  }
+}

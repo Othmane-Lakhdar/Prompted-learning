@@ -1,0 +1,126 @@
+{
+  "version": 1,
+  "status": "inputs_specified_builds_verified_extractor_not_implemented",
+  "source_root": "tests/fixtures/pilot",
+  "files": [
+    {
+      "path": "csharp/Pilot.csproj",
+      "bytes": 730,
+      "sha256": "e74d220a00e7d9bd948b02fe0f8bb4415d1c1bbacac24adfd3890b00c3ff7c8f"
+    },
+    {
+      "path": "csharp/Arithmetic.cs",
+      "bytes": 473,
+      "sha256": "72006f84de73832687ed9c01b6c3c83b671a8afb6ceac104dfba39e721458aa4"
+    },
+    {
+      "path": "csharp/Arithmetic.More.cs",
+      "bytes": 182,
+      "sha256": "1f35ac7b3c4d961afec435e863bcaa855f0ba06e2a2d864f5f6b34b8d368e72b"
+    },
+    {
+      "path": "native/Pilot.vcxproj",
+      "bytes": 1530,
+      "sha256": "8afeed6a2f66c7a5e74015f926f533521ee4531e6687f6b336c0c315181092be"
+    },
+    {
+      "path": "native/Arithmetic.hpp",
+      "bytes": 179,
+      "sha256": "c4b178701eee5e955b7d34209334d84765296f61c4e2c22a3cf6a99c5134e2fd"
+    },
+    {
+      "path": "native/Arithmetic.cpp",
+      "bytes": 451,
+      "sha256": "0d45a74df34e1dc8e656f0c9e15adb7235a52672b06063ea74760aaa603a2603"
+    }
+  ],
+  "source_policy": {
+    "roots": [
+      "csharp",
+      "native"
+    ],
+    "include": "All six manifest files, with exact bytes; compilation participation separately evaluated.",
+    "exclude": [
+      {
+        "pattern": "**/bin/**",
+        "reason": "build products"
+      },
+      {
+        "pattern": "**/obj/**",
+        "reason": "build products; capture generated compilation inputs separately if evaluated"
+      }
+    ],
+    "external": "Framework/SDK headers and assemblies are external dependencies; retain permitted used symbol identity/signature/library only, plus BDB provenance.",
+    "generated": "Pilot disables managed assembly/target-framework generated attributes. Unexpected discovered internal compiler inputs must be captured before finalization or reported as missing; no silent scope widening."
+  },
+  "contexts": [
+    {
+      "id": "pilot-csharp-release-x64",
+      "fixture": "FX-PILOT-CS",
+      "project": "csharp/Pilot.csproj",
+      "configuration": "Release",
+      "platform": "x64",
+      "language": "csharp",
+      "language_version": "12.0",
+      "target_framework": "net8.0",
+      "sdk": "9.0.304",
+      "msbuild": "17.14.19",
+      "assembly": "Pilot",
+      "selected_compile_files": [
+        "csharp/Arithmetic.cs",
+        "csharp/Arithmetic.More.cs"
+      ],
+      "analysis_adapter": {
+        "name": "Roslyn",
+        "version": "4.14.0"
+      },
+      "entry_policy": "library; no implicit runtime roots"
+    },
+    {
+      "id": "pilot-native-release-x64",
+      "fixture": "FX-PILOT-CPP",
+      "project": "native/Pilot.vcxproj",
+      "configuration": "Release",
+      "platform": "x64",
+      "language": "cpp",
+      "language_version": "c++17",
+      "toolset": "v143",
+      "compiler": "MSVC19.44.35215",
+      "windows_sdk": "10.0.26100.0",
+      "selected_compile_files": [
+        "native/Arithmetic.cpp"
+      ],
+      "internal_includes": [
+        "native/Arithmetic.hpp"
+      ],
+      "analysis_adapter": {
+        "name": "Clang",
+        "version": "19.1.7",
+        "target": "x86_64-pc-windows-msvc",
+        "arguments": [
+          "-std=c++17",
+          "-fms-extensions",
+          "-fms-compatibility",
+          "-fms-compatibility-version=19.44",
+          "-DNDEBUG",
+          "-I<manifest-native-root>"
+        ]
+      },
+      "entry_policy": "library; no implicit runtime roots"
+    }
+  ],
+  "producing_tools": {
+    "host_runtime": ".NET10.0.15",
+    "sdk": "10.0.404",
+    "roslyn": "4.14.0",
+    "sqlite_package": "Microsoft.Data.Sqlite9.0.8",
+    "native_worker": "Clang19.1.7 libraries / MSVCx64",
+    "status": "Design selection; actual integrated host is an M1 check."
+  },
+  "upstream_resources": {
+    "manifest": "../testing/candidates.json",
+    "pins_unchanged": true,
+    "require_both_languages_in_each": true,
+    "coverage_claim": "Coral verified test scope and CppSharp native/CSharp-PInvoke generator subset only. Full CppSharp C++CLI remains unverified."
+  }
+}

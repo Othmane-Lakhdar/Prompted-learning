@@ -1,0 +1,27 @@
+{
+  "executable": "<VS>/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/bin/cmake.exe",
+  "arguments": [
+    "--build",
+    "<INPUTS>/m0-pilot-build/clang",
+    "--config",
+    "Release",
+    "--parallel",
+    "2"
+  ],
+  "working_directory": "<PROJECT>",
+  "environment_overrides": {},
+  "relevant_environment": {
+    "CI": null,
+    "VCToolsVersion": null,
+    "WindowsSDKVersion": null,
+    "VSCMD_VER": null,
+    "VisualStudioVersion": null,
+    "DOTNET_ROOT": null,
+    "DOTNET_ROOT_X64": null
+  },
+  "started_utc": "2026-11-17T06:53:53.0848689+00:00",
+  "elapsed_seconds": 20.703,
+  "exit_code": 0,
+  "launch_error": null,
+  "log": "<INPUTS>\\m0-logs\\pilot-clang-build.log"
+}

@@ -1,0 +1,26 @@
+FunctionDecl <pointer> prev <pointer> <<PROJECT>/tests/fixtures/pilot/native/Arithmetic.cpp:8:1, line:15:1> line:8:26 Choose 'int (int)'
+|-ParmVarDecl <pointer> <col:33, col:37> col:37 used value 'int'
+|-CompoundStmt <pointer> <col:44, line:15:1>
+| |-DeclStmt <pointer> <line:9:5, col:15>
+| | `-VarDecl <pointer> <col:5, col:9> col:9 used result 'int'
+| |-IfStmt <pointer> <line:10:5, line:13:18> has_else
+| | |-BinaryOperator <pointer> <line:10:9, col:17> 'bool' '>'
+| | | |-ImplicitCastExpr <pointer> <col:9> 'int' <LValueToRValue>
+| | | | `-DeclRefExpr <pointer> <col:9> 'int' lvalue ParmVar <pointer> 'value' 'int'
+| | | `-IntegerLiteral <pointer> <col:17> 'int' 0
+| | |-BinaryOperator <pointer> <line:11:9, col:30> 'int' lvalue '='
+| | | |-DeclRefExpr <pointer> <col:9> 'int' lvalue Var <pointer> 'result' 'int'
+| | | `-CallExpr <pointer> <col:18, col:30> 'int'
+| | |   |-ImplicitCastExpr <pointer> <col:18> 'int (*)(int, int)' <FunctionToPointerDecay>
+| | |   | `-DeclRefExpr <pointer> <col:18> 'int (int, int)' lvalue Function <pointer> 'Add' 'int (int, int)'
+| | |   |-ImplicitCastExpr <pointer> <col:22> 'int' <LValueToRValue>
+| | |   | `-DeclRefExpr <pointer> <col:22> 'int' lvalue ParmVar <pointer> 'value' 'int'
+| | |   `-IntegerLiteral <pointer> <col:29> 'int' 1
+| | `-BinaryOperator <pointer> <line:13:9, col:18> 'int' lvalue '='
+| |   |-DeclRefExpr <pointer> <col:9> 'int' lvalue Var <pointer> 'result' 'int'
+| |   `-IntegerLiteral <pointer> <col:18> 'int' 0
+| `-ReturnStmt <pointer> <line:14:5, col:12>
+|   `-ImplicitCastExpr <pointer> <col:12> 'int' <LValueToRValue>
+|     `-DeclRefExpr <pointer> <col:12> 'int' lvalue Var <pointer> 'result' 'int'
+`-NoInlineAttr <pointer> <line:8:12>
+Clang 19.1.7: Windows x64 MSVC19.44 dialect; internal header; noinline attribute; 4 identities, 8 declarations, 4 definitions, 1 Choose CFG, 1 branch passed

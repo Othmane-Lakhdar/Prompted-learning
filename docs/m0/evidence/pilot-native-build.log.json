@@ -1,0 +1,27 @@
+{
+  "executable": "<VS>/MSBuild/Current/Bin/MSBuild.exe",
+  "arguments": [
+    "tests/fixtures/pilot/native/Pilot.vcxproj",
+    "-p:Configuration=Release",
+    "-p:Platform=x64",
+    "-p:IntDir=<INPUTS>/m0-pilot-build/native/obj/",
+    "-p:OutDir=<INPUTS>/m0-pilot-build/native/bin/",
+    "-v:minimal"
+  ],
+  "working_directory": "<PROJECT>",
+  "environment_overrides": {},
+  "relevant_environment": {
+    "CI": null,
+    "VCToolsVersion": null,
+    "WindowsSDKVersion": null,
+    "VSCMD_VER": null,
+    "VisualStudioVersion": null,
+    "DOTNET_ROOT": null,
+    "DOTNET_ROOT_X64": null
+  },
+  "started_utc": "2026-11-17T06:51:08.2008051+00:00",
+  "elapsed_seconds": 1.8,
+  "exit_code": 0,
+  "launch_error": null,
+  "log": "<INPUTS>\\m0-logs\\pilot-native-build.log"
+}

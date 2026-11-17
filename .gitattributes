@@ -1,0 +1,12 @@
+# Fixture bytes are evidence; Git must not rewrite their encoding or newlines.
+tests/fixtures/** -text
+# Contract/source snapshot digests are defined over LF UTF-8 files.
+docs/specifications/* text eol=lf
+# Preserve the complete original Page block text, including its final blank block.
+docs/specifications/*.md whitespace=-blank-at-eof
+docs/m0/*.md text eol=lf
+docs/m0/*.json text eol=lf
+docs/m0/*.sql text eol=lf
+docs/m0/*.mjs text eol=lf
+docs/m0/*.txt text eol=lf
+docs/m0/evidence/** text eol=lf

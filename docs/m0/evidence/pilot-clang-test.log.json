@@ -1,0 +1,26 @@
+{
+  "executable": "<VS>/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/bin/ctest.exe",
+  "arguments": [
+    "--test-dir",
+    "<INPUTS>/m0-pilot-build/clang",
+    "-C",
+    "Release",
+    "--output-on-failure"
+  ],
+  "working_directory": "<PROJECT>",
+  "environment_overrides": {},
+  "relevant_environment": {
+    "CI": null,
+    "VCToolsVersion": null,
+    "WindowsSDKVersion": null,
+    "VSCMD_VER": null,
+    "VisualStudioVersion": null,
+    "DOTNET_ROOT": null,
+    "DOTNET_ROOT_X64": null
+  },
+  "started_utc": "2026-11-17T06:54:33.7564459+00:00",
+  "elapsed_seconds": 0.737,
+  "exit_code": 0,
+  "launch_error": null,
+  "log": "<INPUTS>\\m0-logs\\pilot-clang-test.log"
+}

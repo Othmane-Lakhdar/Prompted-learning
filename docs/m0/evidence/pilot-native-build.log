@@ -1,0 +1,4 @@
+Version MSBuild 17.14.19+164abd434 pour .NET Framework
+
+  Arithmetic.cpp
+  Pilot.vcxproj -> <INPUTS>\m0-pilot-build\native\bin\Pilot.lib

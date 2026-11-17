@@ -1,0 +1,32 @@
+Version MSBuild 17.14.19+164abd434 pour .NET Framework
+
+  1>Checking Build System
+  Building Custom Rule <PROJECT>/tools/preflight/clang-pilot/CMakeLists.txt
+  main.cpp
+<INPUTS>\CppSharp\build\llvm\llvm-cd7080-windows-vs2022-x64-Release\clang\include\clang\AST\DeclCXX.h(120,38): warning C4291: 'void *clang::Decl::operator new(size_t,const clang::ASTContext &,clang::DeclContext *,size_t)' : opérateur delete correspondant introuvable ; la mémoire ne sera pas libérée si l'initialisation lève une exception [<INPUTS>\m0-pilot-build\clang\clang-pilot.vcxproj]
+  (compiler le fichier source '../../../Prompted-Learning/tools/preflight/clang-pilot/main.cpp')
+      <INPUTS>\CppSharp\build\llvm\llvm-cd7080-windows-vs2022-x64-Release\clang\include\clang\AST\DeclBase.h(366,9):
+      voir la déclaration de 'clang::Decl::operator new'
+
+<INPUTS>\CppSharp\build\llvm\llvm-cd7080-windows-vs2022-x64-Release\clang\include\clang\AST\DeclCXX.h(3264,38): warning C4291: 'void *clang::Decl::operator new(size_t,const clang::ASTContext &,clang::DeclContext *,size_t)' : opérateur delete correspondant introuvable ; la mémoire ne sera pas libérée si l'initialisation lève une exception [<INPUTS>\m0-pilot-build\clang\clang-pilot.vcxproj]
+  (compiler le fichier source '../../../Prompted-Learning/tools/preflight/clang-pilot/main.cpp')
+      <INPUTS>\CppSharp\build\llvm\llvm-cd7080-windows-vs2022-x64-Release\clang\include\clang\AST\DeclBase.h(366,9):
+      voir la déclaration de 'clang::Decl::operator new'
+
+<INPUTS>\CppSharp\build\llvm\llvm-cd7080-windows-vs2022-x64-Release\clang\include\clang\AST\DeclCXX.h(3268,53): warning C4291: 'void *clang::Decl::operator new(size_t,const clang::ASTContext &,clang::GlobalDeclID,size_t)' : opérateur delete correspondant introuvable ; la mémoire ne sera pas libérée si l'initialisation lève une exception [<INPUTS>\m0-pilot-build\clang\clang-pilot.vcxproj]
+  (compiler le fichier source '../../../Prompted-Learning/tools/preflight/clang-pilot/main.cpp')
+      <INPUTS>\CppSharp\build\llvm\llvm-cd7080-windows-vs2022-x64-Release\clang\include\clang\AST\DeclBase.h(362,9):
+      voir la déclaration de 'clang::Decl::operator new'
+
+<INPUTS>\CppSharp\build\llvm\llvm-cd7080-windows-vs2022-x64-Release\clang\include\clang\AST\DeclCXX.h(3367,24): warning C4291: 'void *clang::Decl::operator new(size_t,const clang::ASTContext &,clang::DeclContext *,size_t)' : opérateur delete correspondant introuvable ; la mémoire ne sera pas libérée si l'initialisation lève une exception [<INPUTS>\m0-pilot-build\clang\clang-pilot.vcxproj]
+  (compiler le fichier source '../../../Prompted-Learning/tools/preflight/clang-pilot/main.cpp')
+      <INPUTS>\CppSharp\build\llvm\llvm-cd7080-windows-vs2022-x64-Release\clang\include\clang\AST\DeclBase.h(366,9):
+      voir la déclaration de 'clang::Decl::operator new'
+
+<INPUTS>\CppSharp\build\llvm\llvm-cd7080-windows-vs2022-x64-Release\clang\include\clang\AST\DeclTemplate.h(1768,43): warning C4291: 'void *clang::Decl::operator new(size_t,const clang::ASTContext &,clang::DeclContext *,size_t)' : opérateur delete correspondant introuvable ; la mémoire ne sera pas libérée si l'initialisation lève une exception [<INPUTS>\m0-pilot-build\clang\clang-pilot.vcxproj]
+  (compiler le fichier source '../../../Prompted-Learning/tools/preflight/clang-pilot/main.cpp')
+      <INPUTS>\CppSharp\build\llvm\llvm-cd7080-windows-vs2022-x64-Release\clang\include\clang\AST\DeclBase.h(366,9):
+      voir la déclaration de 'clang::Decl::operator new'
+
+  clang-pilot.vcxproj -> <INPUTS>\m0-pilot-build\clang\Release\clang-pilot.exe
+  Building Custom Rule <PROJECT>/tools/preflight/clang-pilot/CMakeLists.txt

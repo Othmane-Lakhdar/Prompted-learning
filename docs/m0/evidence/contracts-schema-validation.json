@@ -1,0 +1,22 @@
+{
+  "json_schema_valid": true,
+  "query_positive_examples": 2,
+  "negative_examples": [
+    "unknown_top_level",
+    "unknown_operation",
+    "unknown_argument",
+    "negative_limit",
+    "missing_graph_limits"
+  ],
+  "ddl_tables": 113,
+  "ddl_integrity": "ok",
+  "validation_dependencies": {
+    "jsonschema": "4.23.0",
+    "attrs": "26.1.0",
+    "jsonschema-specifications": "2025.9.1",
+    "referencing": "0.37.0",
+    "rpds-py": "2026.9.1",
+    "typing-extensions": "4.16.0"
+  },
+  "limitations": "Schema-envelope and DDL validation only, not implemented query/semantic validation."
+}

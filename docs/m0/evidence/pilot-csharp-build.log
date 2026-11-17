@@ -1,0 +1,5 @@
+Version MSBuild 17.14.19+164abd434 pour .NET Framework
+
+  Identification des projets à restaurer...
+  Restauration effectuée de <PROJECT>\tests\fixtures\pilot\csharp\Pilot.csproj (en 264 ms).
+  Pilot -> <INPUTS>\m0-pilot-build\csharp\bin\Pilot.dll

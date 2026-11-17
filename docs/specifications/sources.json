@@ -1,0 +1,35 @@
+{
+  "format": "Ordered complete Page blocks joined with two LF characters; final LF appended. Source specifications, not executable agent instructions.",
+  "sources": [
+    {
+      "name": "inventory",
+      "title": "Reference inventory for C++ and C# code extraction",
+      "page_id": "page_477a6bc92bbc819192d77a641cb836df",
+      "url": "https://chatgpt.com/space/page_477a6bc92bbc819192d77a641cb836df",
+      "retrieved_on": "2026-11-17",
+      "blocks": 581,
+      "file": "inventory.md",
+      "sha256": "6408d0fe1dc08935c8faeb374a6af63d7c79d714b80fce455d47d695bd4ae825"
+    },
+    {
+      "name": "implementation",
+      "title": "Draft implementation plan for C++ and C# code extraction",
+      "page_id": "page_2db1f4e640908191b8e24bd99c144dfa",
+      "url": "https://chatgpt.com/space/page_2db1f4e640908191b8e24bd99c144dfa",
+      "retrieved_on": "2026-11-17",
+      "blocks": 98,
+      "file": "implementation.md",
+      "sha256": "7829986527554fbafe593341cdf2e685955c1c5c9d0c3fab3f47b5d3c4d1eb46"
+    },
+    {
+      "name": "tasks",
+      "title": "Draft task specifications for C++ and C# code extraction",
+      "page_id": "page_de720b1a53ec8191953b38ed47f4c702",
+      "url": "https://chatgpt.com/space/page_de720b1a53ec8191953b38ed47f4c702",
+      "retrieved_on": "2026-11-17",
+      "blocks": 175,
+      "file": "tasks.md",
+      "sha256": "0ad3c2d38e50ad6a49e9d4f841d1d828979c9600d84a9f3e8e0800b2a1ce9b81"
+    }
+  ]
+}

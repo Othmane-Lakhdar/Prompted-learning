@@ -1,0 +1,28 @@
+{
+  "executable": "<VS>/MSBuild/Current/Bin/MSBuild.exe",
+  "arguments": [
+    "tests/fixtures/pilot/csharp/Pilot.csproj",
+    "-restore",
+    "-p:Configuration=Release",
+    "-p:Platform=x64",
+    "-p:BaseIntermediateOutputPath=<INPUTS>/m0-pilot-build/csharp/obj/",
+    "-p:OutputPath=<INPUTS>/m0-pilot-build/csharp/bin/",
+    "-v:minimal"
+  ],
+  "working_directory": "<PROJECT>",
+  "environment_overrides": {},
+  "relevant_environment": {
+    "CI": null,
+    "VCToolsVersion": null,
+    "WindowsSDKVersion": null,
+    "VSCMD_VER": null,
+    "VisualStudioVersion": null,
+    "DOTNET_ROOT": null,
+    "DOTNET_ROOT_X64": null
+  },
+  "started_utc": "2026-11-17T06:51:08.2014143+00:00",
+  "elapsed_seconds": 6.607,
+  "exit_code": 0,
+  "launch_error": null,
+  "log": "<INPUTS>\\m0-logs\\pilot-csharp-build.log"
+}
