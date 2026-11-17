@@ -5537,7 +5537,10 @@
       "status": "field_contract",
       "fields": [
         "cfg_operation.operation_id",
-        "cfg_operation.ordinal"
+        "cfg_operation.ordinal",
+        "cfg_operation.correspondence",
+        "cfg_operation.phase",
+        "cfg_operation.compiler_element_kind"
       ],
       "contract_refs": [
         "contracts.md#operations-and-analysis"

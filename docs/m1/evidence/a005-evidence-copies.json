@@ -1,0 +1,37 @@
+[
+  {
+    "source": "C:/_Travail/tools/Prompted-Learning-inputs/a005-design-report-2.json",
+    "source_sha256": "1ed918437bdf9e68d80fb4dd0be8c00bc488f9007fb849a89cb11ff279efcdde",
+    "destination": "docs/m1/evidence/a005-design-validation.json",
+    "destination_sha256": "1ed918437bdf9e68d80fb4dd0be8c00bc488f9007fb849a89cb11ff279efcdde",
+    "transformation": "exact bytes"
+  },
+  {
+    "source": "C:/_Travail/tools/Prompted-Learning-inputs/a005-requirements-report-1.json",
+    "source_sha256": "af25c0c7e9b9d673cf92044f799bdb6ea03f4629e75cbb5dcbd114154a7bf3d2",
+    "destination": "docs/m1/evidence/a005-requirements-validation.json",
+    "destination_sha256": "af25c0c7e9b9d673cf92044f799bdb6ea03f4629e75cbb5dcbd114154a7bf3d2",
+    "transformation": "exact bytes"
+  },
+  {
+    "source": "C:/_Travail/tools/Prompted-Learning-inputs/a005-contracts-report-1.json",
+    "source_sha256": "8507f6bbec8575bc3b78fa54819a736bc1c839387d3c762bc0eb88257effda39",
+    "destination": "docs/m1/evidence/a005-contract-validation.json",
+    "destination_sha256": "8507f6bbec8575bc3b78fa54819a736bc1c839387d3c762bc0eb88257effda39",
+    "transformation": "exact bytes"
+  },
+  {
+    "source": "C:/_Travail/tools/Prompted-Learning-inputs/a005-worker-report-1.json",
+    "source_sha256": "40144cf5c586a05c024b75bc5d585ffcff4719835f5893cd726bb58c300e2e15",
+    "destination": "docs/m1/evidence/a005-worker-contract-validation.json",
+    "destination_sha256": "efd9bdf0f0ceb1bfec3f27e9f176b82545efa0d2adaa101c4eab1d13550a55b0",
+    "transformation": "CRLF to LF only"
+  },
+  {
+    "source": "C:/_Travail/tools/Prompted-Learning-inputs/m1c1-contract-report.json",
+    "source_sha256": "65e5b8d1d67e2f51edcf5cfacaefdbd09a1fc20e7bbcc320e39ca5d05403243e",
+    "destination": "docs/m1/evidence/m1c1-contract-tests.json",
+    "destination_sha256": "490bc8d1de909656321db145fbc25c120ffcbe529c725617cd5dfddb392bbec5",
+    "transformation": "CRLF to LF only"
+  }
+]

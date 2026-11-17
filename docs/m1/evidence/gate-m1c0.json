@@ -48,10 +48,11 @@
     "verified_binary_paths": 8,
     "verified_evidence_copies": 4,
     "verified_after_final_test": true,
-    "findings": "All material C0 findings corrected and tested. Gate/state/deviation final prose authored subsequently by coordinator."
+    "findings": "All material C0 findings corrected and tested. Gate/state/deviation final prose authored subsequently by coordinator.",
+    "execution_worktree_manifest_sha256": "0caf834404f88cb8084dd4c9a5a07ca1781693cb0e26df140b5ea89e7c1d1837"
   },
   "inputs_manifest": "m1c0-reviewed-inputs.json",
-  "inputs_manifest_sha256": "0caf834404f88cb8084dd4c9a5a07ca1781693cb0e26df140b5ea89e7c1d1837",
+  "inputs_manifest_sha256": "46d34b28fcc55c6fde583f8dd03b727999406c00b6ed029fa76eca6af6392501",
   "evidence_copies": "m1c0-evidence-copies.json",
   "contract_sha256": "11b8c2c29bb401b72838df7ce565c44182a9a1edb46149116b96f1b047fc94ab",
   "schema_sha256": "126c053ffc3c40827b7a236d7d362977c1b5509d0634f3515c00fea4f639dfb2",
@@ -79,5 +80,6 @@
     "weekly_remaining_percent": 28,
     "window_minutes": 10080,
     "resets_at": 1795453198
-  }
+  },
+  "publication_encoding": "m1c-publication-encoding.json"
 }

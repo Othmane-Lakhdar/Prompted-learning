@@ -86,9 +86,10 @@
             "M1C3: canonical semantic validation and independent gate review"
           ],
           "sequencing_note": "M1B is not full T03 completion. Direct source call-site facts are T03 inputs to T04; only analysis-dependent candidates/reachability belong to T04. No M1C implementation is authorized before M1B gate publication. FLOW-PILOT governs M1 scope; full T04 also describes M3 expansion and must not be implemented early.",
-          "status": "C0_passed_C1_prerequisites_pending",
+          "status": "C1_prerequisites_passed_implementation_pending",
           "step_gates": {
-            "M1C0": "../m1/evidence/gate-m1c0.json"
+            "M1C0": "../m1/evidence/gate-m1c0.json",
+            "M1C1_prerequisites": "../m1/evidence/gate-m1c1-prerequisites.json"
           }
         },
         {

@@ -1,0 +1,192 @@
+{
+  "schema": "independent-native-cfg-oracle-execution/1",
+  "status": "passed",
+  "stage": "M1C1 prerequisite only",
+  "base_commit": "4f1e2659be63000a1a35fe0582cae5a39e5d0a6c",
+  "run": {
+    "start_utc": "2026-11-17T11:42:27.7907610Z",
+    "exit_code": 0,
+    "timeout_ms": 30000,
+    "end_utc": "2026-11-17T11:42:28.1540566Z"
+  },
+  "attempts": {
+    "configure": 1,
+    "build": 1,
+    "execute": 1
+  },
+  "probe_sources": [
+    {
+      "path": "tools/preflight/clang-cfg-oracle/CMakeLists.txt",
+      "byte_length": 998,
+      "sha256": "3fdffd9f6da84c6964cb56bd63ece3cd9ed6f26b48cb53ddff2bae079549d6d6"
+    },
+    {
+      "path": "tools/preflight/clang-cfg-oracle/main.cpp",
+      "byte_length": 19468,
+      "sha256": "15f4f00fad1e6a24c623220584e557d08fa727fa02876f0c23d350ca8fbfbf5e"
+    }
+  ],
+  "tools": [
+    {
+      "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/bin/cmake.exe",
+      "byte_length": 13132376,
+      "sha256": "b540efece9172930877dff0c9fedda7a69b0dd82446e0e8bba13372aac6c8ac8"
+    },
+    {
+      "path": "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe",
+      "byte_length": 677464,
+      "sha256": "a9a3a13e4d019cfc0a9d823b3ee0cc383c6f3f86b00f861ac066032d869997e5"
+    },
+    {
+      "path": "C:/_Travail/tools/Prompted-Learning-inputs/CppSharp/build/llvm/llvm-cd7080-windows-vs2022-x64-Release/clang/include/clang/Analysis/CFG.h",
+      "byte_length": 53041,
+      "sha256": "1b4f9552b2fb4ed6e640209dba6d799ef8196ec77ab51c0c6c46d91fa43b097a"
+    },
+    {
+      "path": "C:/_Travail/tools/Prompted-Learning-inputs/m1c-native-cfg-oracle/Release/clang-cfg-oracle.exe",
+      "byte_length": 29033472,
+      "sha256": "56341ae8b4e5e03cce3eadfd0f67341f3f653bc4bea373d72c3d1caa4178b534"
+    }
+  ],
+  "tool_versions": {
+    "clang": "19.1.7",
+    "msvc": "19.44.35215.0",
+    "msbuild": "17.14.19+164abd434",
+    "windows_sdk": "10.0.26100.0",
+    "llvm_package": "C:/_Travail/tools/Prompted-Learning-inputs/CppSharp/build/llvm/llvm-cd7080-windows-vs2022-x64-Release"
+  },
+  "working_directory": "C:/_Travail/tools/Prompted-Learning",
+  "commands": {
+    "configure": [
+      "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/bin/cmake.exe",
+      "-S",
+      "tools/preflight/clang-cfg-oracle",
+      "-B",
+      "C:/_Travail/tools/Prompted-Learning-inputs/m1c-native-cfg-oracle",
+      "-G",
+      "Visual Studio 17 2022",
+      "-A",
+      "x64",
+      "-DLLVM_PACKAGE=C:/_Travail/tools/Prompted-Learning-inputs/CppSharp/build/llvm/llvm-cd7080-windows-vs2022-x64-Release"
+    ],
+    "build": [
+      "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/bin/cmake.exe",
+      "--build",
+      "C:/_Travail/tools/Prompted-Learning-inputs/m1c-native-cfg-oracle",
+      "--config",
+      "Release",
+      "--parallel",
+      "2"
+    ],
+    "execute": [
+      "C:/_Travail/tools/Prompted-Learning-inputs/m1c-native-cfg-oracle/Release/clang-cfg-oracle.exe",
+      "C:/_Travail/tools/Prompted-Learning/tests/fixtures/pilot/native",
+      "C:/_Travail/tools/Prompted-Learning-inputs/m1c-native-cfg-oracle-raw.json"
+    ]
+  },
+  "source_inputs": [
+    {
+      "path": "tests/fixtures/pilot/native/Arithmetic.cpp",
+      "byte_length": 451,
+      "sha256": "0d45a74df34e1dc8e656f0c9e15adb7235a52672b06063ea74760aaa603a2603"
+    },
+    {
+      "path": "tests/fixtures/pilot/native/Arithmetic.hpp",
+      "byte_length": 179,
+      "sha256": "c4b178701eee5e955b7d34209334d84765296f61c4e2c22a3cf6a99c5134e2fd"
+    }
+  ],
+  "outputs": {
+    "raw": {
+      "path": "C:/_Travail/tools/Prompted-Learning-inputs/m1c-native-cfg-oracle-raw.json",
+      "byte_length": 12814,
+      "sha256": "caf4a6abaaf19536e5cd897b5f5ba368ad31191d3a60adbccdce6ffb5f2102c6"
+    },
+    "retained": {
+      "path": "docs/m1/evidence/native-cfg-oracle.json",
+      "byte_length": 12814,
+      "sha256": "caf4a6abaaf19536e5cd897b5f5ba368ad31191d3a60adbccdce6ffb5f2102c6"
+    },
+    "transformation": "Exact byte copy; raw output already contains logical paths, UTF-8/LF and no pointer addresses"
+  },
+  "logs": [
+    {
+      "kind": "configure",
+      "raw": {
+        "path": "C:/_Travail/tools/Prompted-Learning-inputs/m1c-native-cfg-oracle-configure.log",
+        "byte_length": 600,
+        "sha256": "507f6523f4fb3bc550c40a87657408c516683b746ce3a3b90659ffbdcd71dfe2"
+      },
+      "retained_text": "-- Selecting Windows SDK version 10.0.26100.0 to target Windows 10.0.26200.\n-- The CXX compiler identification is MSVC 19.44.35215.0\n-- Detecting CXX compiler ABI info\n-- Detecting CXX compiler ABI info - done\n-- Check for working CXX compiler: C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe - skipped\n-- Detecting CXX compile features\n-- Detecting CXX compile features - done\n-- Configuring done (5.1s)\n-- Generating done (0.4s)\n-- Build files have been written to: <inputs>/m1c-native-cfg-oracle\n",
+      "retained_text_sha256": "dfac255a8d15e550e989ae242f50b77b03fe2643a88a3426450ff033d223f682",
+      "transformation": "UTF-8 decode; LF text; absolute repo/inputs prefixes replaced by declared aliases"
+    },
+    {
+      "kind": "build",
+      "raw": {
+        "path": "C:/_Travail/tools/Prompted-Learning-inputs/m1c-native-cfg-oracle-build.log",
+        "byte_length": 438,
+        "sha256": "0a2190d59e05a0ecbaed2d9447a669afec5aa57be990cc1cccc5aadf9ffe190d"
+      },
+      "retained_text": "Version MSBuild 17.14.19+164abd434 pour .NET Framework\n\n  1>Checking Build System\n  Building Custom Rule <repo>/tools/preflight/clang-cfg-oracle/CMakeLists.txt\n  main.cpp\n  clang-cfg-oracle.vcxproj -> <inputs>\\m1c-native-cfg-oracle\\Release\\clang-cfg-oracle.exe\n  Building Custom Rule <repo>/tools/preflight/clang-cfg-oracle/CMakeLists.txt\n",
+      "retained_text_sha256": "0411d0c579f480314029ed8f93a796a0623400f300b556a4fc10dfb1dd4324f1",
+      "transformation": "UTF-8 decode; LF text; absolute repo/inputs prefixes replaced by declared aliases"
+    },
+    {
+      "kind": "stdout",
+      "raw": {
+        "path": "C:/_Travail/tools/Prompted-Learning-inputs/m1c-native-cfg-oracle-stdout.log",
+        "byte_length": 32,
+        "sha256": "7b19109798a1c232a221a9a31fec7e5e5270ba481282da6614842c7fe7f478b5"
+      },
+      "retained_text": "native CFG observation written\n",
+      "retained_text_sha256": "6698793d1d492323c10e8bf1ea95d99888a69730a767ea432b71ac5265234a7f",
+      "transformation": "UTF-8 decode; LF text; absolute repo/inputs prefixes replaced by declared aliases"
+    },
+    {
+      "kind": "stderr",
+      "raw": {
+        "path": "C:/_Travail/tools/Prompted-Learning-inputs/m1c-native-cfg-oracle-stderr.log",
+        "byte_length": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "retained_text": "",
+      "retained_text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "transformation": "UTF-8 decode; LF text; absolute repo/inputs prefixes replaced by declared aliases"
+    }
+  ],
+  "checks": {
+    "compiler_observation": "passed: six blocks, seven actual CFGStmt members, six edges and exact same-session pointer lookups",
+    "source_points": "passed: all five written scalar source paths have unique expected block and exact original-byte text; parameter entry is separate",
+    "source_tree": "passed: 22 distinct source nodes, four implicit casts, explicit DeclStmt/VarDecl",
+    "internal_output_consistency": "passed: contiguous ordinals, member/source origin agreement, edge/predecessor agreement, valid source bounds",
+    "production_worker_unchanged": {
+      "path": "C:/_Travail/tools/Prompted-Learning-inputs/m1-native-build/Release/prompted-learning-clang-worker.exe",
+      "byte_length": 30034944,
+      "sha256": "954bd0629a3c21899116332346221ccf184ea74e8fb3c47c3ff2f08c5189092a"
+    },
+    "carrier_normalization": "design only: seven actual members plus absent IfStmt terminator appended to block4 ordinal2; eight carrier references",
+    "scalar_events": "not run: positions are observations of predeclared source points, not generated events",
+    "production_cfg_adapter": "not run"
+  },
+  "tooling_history": [
+    {
+      "status": "failed_before_write",
+      "reason": "JavaScript template interpolation treated the CMake LLVM_PACKAGE variable as JavaScript; corrected by literal marker substitution"
+    },
+    {
+      "status": "failed_before_write",
+      "reason": "Markdown backtick code fence terminated a JavaScript template while creating documentation; corrected to a tilde fence"
+    },
+    {
+      "status": "failed_before_manifest_write",
+      "reason": "Python rejected utf8-sig as an encoding alias; corrected to utf-8-sig. Already-copied oracle bytes were preserved and checked identical before continuation."
+    }
+  ],
+  "limitations": [
+    "Exact two-file frozen Choose pilot only.",
+    "No exception, cleanup, suspension, pruned-edge or broader C++ support established.",
+    "No scalar-event replay, reaching definitions, import or product CFG implementation tested.",
+    "Output completeness is established by fail-closed successful run; unsupported/unmapped counters are emitted only after checks."
+  ]
+}

@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "contract_defined_review_pending",
   "source_schema": "schema.sql",
-  "schema_sha256": "126c053ffc3c40827b7a236d7d362977c1b5509d0634f3515c00fea4f639dfb2",
+  "schema_sha256": "51d54798e14137e484397a2cf205cbdd330fc38e86ad3aa5d594f2134fe135a9",
   "interpretation": "Physical scalar fields are listed exactly once. Logical collections and inventory requirements are separately identified. Table and collection contracts supply inherited owner and ordering rules; they do not claim implementation. Read every field with its exact DDL constraint and normative contract. Null is never a substitute for a field knowledge state.",
   "milestone_interpretation": "implementation_stage is the section main expansion milestone, not a claim that its complete schema is implemented or permission to implement later-stage features early. M1 includes only the separately accepted pilot slice; support-matrix and acceptance gates govern that slice.",
   "producers": [
@@ -42957,6 +42957,153 @@
       "implementation_stage": "M1",
       "implementation_status": "not_implemented",
       "source_support": "Supporting normalized schema field required by the cited contracts; not a new claim of product support"
+    },
+    {
+      "id": "cfg_operation.correspondence",
+      "storage": {
+        "table": "cfg_operation",
+        "column": "correspondence",
+        "sqlite_type": "TEXT",
+        "nullable": false,
+        "primary_key_ordinal": null
+      },
+      "meaning": "Exact compiler-to-source correspondence method for this ordered CFG member.",
+      "value_type": {
+        "kind": "enum",
+        "values": [
+          "clang_ast_pointer",
+          "roslyn_unique_source",
+          "explicit_lowered"
+        ]
+      },
+      "units": "unitless",
+      "multiplicity": "Exactly one value per physical row",
+      "ordering": "Scalar; parent record/collection ordering is defined by table contract",
+      "applicability": "Rows of cfg_operation as defined by its table contract; language/tool-specific inapplicability is explicit, never inferred from absent data.",
+      "missing_states": [
+        "known"
+      ],
+      "missing_state_contract": "Required identity/discriminator/metadata is known whenever the row exists; missing required values invalidate that row, not a fabricated default.",
+      "producer": "control_flow",
+      "owner": "BD0",
+      "section": "BD0.12",
+      "evidence": "result -> analysis_run/analysis_dependency/analysis_assumption -> evidence(kind=compiler|derivation)",
+      "validation": [
+        "Enforce exact DDL definition: correspondence TEXT NOT NULL CHECK(correspondence IN ('clang_ast_pointer','roslyn_unique_source','explicit_lowered'))",
+        "Preserve the typed compiler member value through canonical storage and every retained BD0.12 profile; never replace with evidence prose.",
+        "A005 pilot permits only clang_ast_pointer or roslyn_unique_source, exact body correspondence and supported member phases; explicit_lowered is unavailable."
+      ],
+      "inventory_requirements": [
+        "BD0.12.F004"
+      ],
+      "contract_refs": [
+        "contracts.md#field-conventions",
+        "contracts.md#operations-and-analysis",
+        "contracts.md#choose-compiler-flow-selection-a005"
+      ],
+      "acceptance": [
+        "AC-SEMANTICS"
+      ],
+      "implementation_stage": "M3",
+      "implementation_status": "not_implemented",
+      "source_support": "Explicit inventory requirement mapping"
+    },
+    {
+      "id": "cfg_operation.phase",
+      "storage": {
+        "table": "cfg_operation",
+        "column": "phase",
+        "sqlite_type": "TEXT",
+        "nullable": false,
+        "primary_key_ordinal": null
+      },
+      "meaning": "Compiler membership phase distinguishing evaluation, branch value, terminator and initializer.",
+      "value_type": {
+        "kind": "enum",
+        "values": [
+          "evaluation",
+          "branch_value",
+          "terminator",
+          "initializer"
+        ]
+      },
+      "units": "unitless",
+      "multiplicity": "Exactly one value per physical row",
+      "ordering": "Scalar; parent record/collection ordering is defined by table contract",
+      "applicability": "Rows of cfg_operation as defined by its table contract; language/tool-specific inapplicability is explicit, never inferred from absent data.",
+      "missing_states": [
+        "known"
+      ],
+      "missing_state_contract": "Required identity/discriminator/metadata is known whenever the row exists; missing required values invalidate that row, not a fabricated default.",
+      "producer": "control_flow",
+      "owner": "BD0",
+      "section": "BD0.12",
+      "evidence": "result -> analysis_run/analysis_dependency/analysis_assumption -> evidence(kind=compiler|derivation)",
+      "validation": [
+        "Enforce exact DDL definition: phase TEXT NOT NULL CHECK(phase IN ('evaluation','branch_value','terminator','initializer'))",
+        "Preserve the typed compiler member value through canonical storage and every retained BD0.12 profile; never replace with evidence prose.",
+        "A005 pilot permits only clang_ast_pointer or roslyn_unique_source, exact body correspondence and supported member phases; explicit_lowered is unavailable."
+      ],
+      "inventory_requirements": [
+        "BD0.12.F004"
+      ],
+      "contract_refs": [
+        "contracts.md#field-conventions",
+        "contracts.md#operations-and-analysis",
+        "contracts.md#choose-compiler-flow-selection-a005"
+      ],
+      "acceptance": [
+        "AC-SEMANTICS"
+      ],
+      "implementation_stage": "M3",
+      "implementation_status": "not_implemented",
+      "source_support": "Explicit inventory requirement mapping"
+    },
+    {
+      "id": "cfg_operation.compiler_element_kind",
+      "storage": {
+        "table": "cfg_operation",
+        "column": "compiler_element_kind",
+        "sqlite_type": "TEXT",
+        "nullable": false,
+        "primary_key_ordinal": null
+      },
+      "meaning": "Exact nonempty compiler CFG element/member kind; no spelling-based replacement.",
+      "value_type": {
+        "kind": "string",
+        "encoding": "Unicode text; nonempty after trim"
+      },
+      "units": "unitless",
+      "multiplicity": "Exactly one value per physical row",
+      "ordering": "Scalar; parent record/collection ordering is defined by table contract",
+      "applicability": "Rows of cfg_operation as defined by its table contract; language/tool-specific inapplicability is explicit, never inferred from absent data.",
+      "missing_states": [
+        "known"
+      ],
+      "missing_state_contract": "Required identity/discriminator/metadata is known whenever the row exists; missing required values invalidate that row, not a fabricated default.",
+      "producer": "control_flow",
+      "owner": "BD0",
+      "section": "BD0.12",
+      "evidence": "result -> analysis_run/analysis_dependency/analysis_assumption -> evidence(kind=compiler|derivation)",
+      "validation": [
+        "Enforce exact DDL definition: compiler_element_kind TEXT NOT NULL CHECK(length(trim(compiler_element_kind))>0)",
+        "Preserve the typed compiler member value through canonical storage and every retained BD0.12 profile; never replace with evidence prose.",
+        "A005 pilot permits only clang_ast_pointer or roslyn_unique_source, exact body correspondence and supported member phases; explicit_lowered is unavailable."
+      ],
+      "inventory_requirements": [
+        "BD0.12.F004"
+      ],
+      "contract_refs": [
+        "contracts.md#field-conventions",
+        "contracts.md#operations-and-analysis",
+        "contracts.md#choose-compiler-flow-selection-a005"
+      ],
+      "acceptance": [
+        "AC-SEMANTICS"
+      ],
+      "implementation_stage": "M3",
+      "implementation_status": "not_implemented",
+      "source_support": "Explicit inventory requirement mapping"
     }
   ],
   "registered_extensions": [

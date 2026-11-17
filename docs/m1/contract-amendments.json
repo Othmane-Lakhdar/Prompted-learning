@@ -65,6 +65,42 @@
         "failed": 0,
         "reviewer": "/root/preflight_review"
       }
+    },
+    {
+      "id": "A005",
+      "stage": "M1C1_prerequisite",
+      "status": "reviewed_prerequisites_and_source_compatibility_passed",
+      "requirement": "Exact selected compiler flow scope, versioned feature-bound identity, truthful selection coverage and lossless typed CFG member provenance.",
+      "problem": "Existing flow feature requests lack body selection; source-only managed hashing has no flow selector; cfg_operation omits correspondence/phase/compiler element kind required by wire.",
+      "change": "Add strict Choose-only selection/settings and /2 semantic fingerprints while preserving source-only /1 recipes and source/common result arrays. Add required typed cfg_operation correspondence, phase and compiler_element_kind; retain existing block/ordinal key and CFG-owned profile payload. Register scalar event replay/limits/reasons and persisted settings without event dumps.",
+      "prior_commit": "4f1e2659be63000a1a35fe0582cae5a39e5d0a6c",
+      "prior_contract_sha256": "11b8c2c29bb401b72838df7ce565c44182a9a1edb46149116b96f1b047fc94ab",
+      "prior_schema_sha256": "126c053ffc3c40827b7a236d7d362977c1b5509d0634f3515c00fea4f639dfb2",
+      "contract_sha256": "5a4f5268a0ffd030e9a71d96748131eba0e99d88c7d1c6a36032b6599c01a915",
+      "schema_sha256": "51d54798e14137e484397a2cf205cbdd330fc38e86ad3aa5d594f2134fe135a9",
+      "dictionary_sha256": "80df59c99123b1a94e2f7f7e876308258a4a7f20f44ac322341eb3da5a18353b",
+      "design": "../m0/contracts.md#choose-compiler-flow-selection-a005",
+      "examples": "../m0/a005-cases.json",
+      "design_validation": {
+        "validator": "../m0/validate-a005.py",
+        "positive_checks": 28,
+        "negative_cases_rejected": 57,
+        "other_validators": {
+          "requirements_negative_cases": 19,
+          "contract_checks": 86,
+          "worker_positive_cases": 6,
+          "worker_negative_cases": 38
+        }
+      },
+      "historical_schema_policy": "Reject old definitions unchanged; create a fresh collecting generation, no implicit migration.",
+      "remaining_prerequisites": [],
+      "product_verification": "C1 flow production/replay/import not implemented; existing source-only100tests passed under A005.",
+      "verification": {
+        "gate": "evidence/gate-m1c1-prerequisites.json",
+        "source_compatibility_tests": 100,
+        "failed": 0,
+        "reviewer": "/root/preflight_review"
+      }
     }
   ]
 }

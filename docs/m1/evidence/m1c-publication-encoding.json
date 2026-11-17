@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "reason": "Execution manifest hashes were recorded from local CRLF metadata; Git published LF. Source/test-result bytes and manifest JSON values are unchanged. Both representations are retained; published gates now identify canonical repository bytes.",
+  "manifests": [
+    {
+      "path": "docs/m1/evidence/m1c0-reviewed-inputs.json",
+      "verified_execution_worktree_sha256": "0caf834404f88cb8084dd4c9a5a07ca1781693cb0e26df140b5ea89e7c1d1837",
+      "canonical_repository_sha256": "46d34b28fcc55c6fde583f8dd03b727999406c00b6ed029fa76eca6af6392501",
+      "preserved_execution_worktree": "C:/_Travail/tools/Prompted-Learning-inputs/m1c-encoding-history/m1c0-reviewed-inputs.json",
+      "transformation": "CRLF to LF only",
+      "json_values_unchanged": true
+    },
+    {
+      "path": "docs/m1/evidence/m1c1-contract-reviewed-inputs.json",
+      "verified_execution_worktree_sha256": "2c8cd497415f8dca28cb644a38ba31e0673332981ca609a77be80ed4b108805f",
+      "canonical_repository_sha256": "c39c4972e00e1d5eee21cc3212997e935a7b9b2af847327d8b8111c352ddb1f4",
+      "preserved_execution_worktree": "C:/_Travail/tools/Prompted-Learning-inputs/m1c-encoding-history/m1c1-contract-reviewed-inputs.json",
+      "transformation": "CRLF to LF only",
+      "json_values_unchanged": true
+    }
+  ],
+  "reviewed_designs": [
+    {
+      "path": "docs/m1/m1c-common-flow-design.md",
+      "reviewed_sha256": "6eebbf9353b57a16c1c38fb973b0815394067e84e47d6a0642a150412df898b6",
+      "preserved_reviewed_file": "C:/_Travail/tools/Prompted-Learning-inputs/m1c-encoding-history/common-design-reviewed.md",
+      "canonical_repository_sha256": "f28378c71f972894933fe1332325941255fb52c0061690f2b1e373fb53812c1b",
+      "changes": "Opening status sentence plus CRLF to LF only; technical text unchanged."
+    },
+    {
+      "path": "docs/m1/m1c-compiler-design.md",
+      "reviewed_sha256": "b279c26afe8e5615bfd6c19645b7e69082cf275f1df4e7615e3e57c8be1c5879",
+      "preserved_reviewed_file": "C:/_Travail/tools/Prompted-Learning-inputs/m1c-encoding-history/compiler-design-reviewed.md",
+      "canonical_repository_sha256": "b279c26afe8e5615bfd6c19645b7e69082cf275f1df4e7615e3e57c8be1c5879",
+      "changes": "Exact reviewed bytes; owner already updated opening status before review."
+    }
+  ]
+}

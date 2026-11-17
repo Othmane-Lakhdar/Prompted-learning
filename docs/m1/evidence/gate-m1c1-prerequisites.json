@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "milestone": "M1C1_prerequisites",
+  "status": "passed",
+  "as_of_utc": "2026-11-17T11:56:58.543942+00:00",
+  "prerequisite_commit": "4f1e2659be63000a1a35fe0582cae5a39e5d0a6c",
+  "scope": "A005 selected CFG contract, lossless typed member schema, exact common interfaces/fingerprints and independently observed native oracle. Source-only compatibility verified; no product-flow functionality claimed.",
+  "contract_sha256": "5a4f5268a0ffd030e9a71d96748131eba0e99d88c7d1c6a36032b6599c01a915",
+  "schema_sha256": "51d54798e14137e484397a2cf205cbdd330fc38e86ad3aa5d594f2134fe135a9",
+  "dictionary_sha256": "80df59c99123b1a94e2f7f7e876308258a4a7f20f44ac322341eb3da5a18353b",
+  "design_validation": {
+    "a005": {
+      "positive_checks": 28,
+      "negative_cases": 57,
+      "report": "a005-design-validation.json"
+    },
+    "requirements": {
+      "negative_cases": 19,
+      "report": "a005-requirements-validation.json"
+    },
+    "contracts": {
+      "checks": 86,
+      "report": "a005-contract-validation.json"
+    },
+    "worker": {
+      "positive_cases": 6,
+      "negative_cases": 38,
+      "report": "a005-worker-contract-validation.json"
+    }
+  },
+  "native_oracle": {
+    "execution_manifest": "native-cfg-oracle-execution.json",
+    "execution_manifest_sha256": "fbf3810ba66fa40569c0ab2cb69ee0b562c9d69525694447a7c148e1745e4e68",
+    "observation": "native-cfg-oracle.json",
+    "observation_sha256": "caf4a6abaaf19536e5cd897b5f5ba368ad31191d3a60adbccdce6ffb5f2102c6",
+    "blocks": 6,
+    "raw_cfg_statement_members": 7,
+    "carrier_members_with_terminator": 8,
+    "edges": 6,
+    "verified_artifact_bindings": 15,
+    "scalar_event_implementation": "not_run"
+  },
+  "compatibility": {
+    "build": "passed",
+    "warnings": 0,
+    "errors": 0,
+    "log": "C:/_Travail/tools/Prompted-Learning-inputs/m1c1-contract-build.log",
+    "tests": 100,
+    "failed": 0,
+    "report": "m1c1-contract-tests.json",
+    "report_sha256": "490bc8d1de909656321db145fbc25c120ffcbe529c725617cd5dfddb392bbec5",
+    "raw_report": "C:/_Travail/tools/Prompted-Learning-inputs/m1c1-contract-report.json",
+    "raw_report_sha256": "65e5b8d1d67e2f51edcf5cfacaefdbd09a1fc20e7bbcc320e39ca5d05403243e",
+    "scope": "Existing source-only M1A/M1B/M1C0 behavior under amended contracts; not CFG production tests."
+  },
+  "inputs_manifest": "m1c1-contract-reviewed-inputs.json",
+  "inputs_manifest_sha256": "c39c4972e00e1d5eee21cc3212997e935a7b9b2af847327d8b8111c352ddb1f4",
+  "review": {
+    "status": "passed",
+    "reviewer": "/root/preflight_review",
+    "verified_source_staged_files": 76,
+    "verified_binary_paths": 8,
+    "verified_evidence_copies": 5,
+    "verified_after_test": true,
+    "reviewed_design_sha256": {
+      "common": "6eebbf9353b57a16c1c38fb973b0815394067e84e47d6a0642a150412df898b6",
+      "compiler": "b279c26afe8e5615bfd6c19645b7e69082cf275f1df4e7615e3e57c8be1c5879"
+    },
+    "current_common_design_sha256": "f28378c71f972894933fe1332325941255fb52c0061690f2b1e373fb53812c1b",
+    "current_compiler_design_sha256": "b279c26afe8e5615bfd6c19645b7e69082cf275f1df4e7615e3e57c8be1c5879",
+    "post_review_change": "Common design opening status sentence links this gate; compiler design is byte-identical to reviewed version. CRLF metadata/common design normalized to LF with original snapshots preserved. Technical content and manifest JSON values unchanged.",
+    "execution_worktree_manifest_sha256": "2c8cd497415f8dca28cb644a38ba31e0673332981ca609a77be80ed4b108805f"
+  },
+  "evidence_copies": "a005-evidence-copies.json",
+  "remaining": [
+    "Implement retained-session native/managed flow producers, common validation/replay and atomic canonical import with agreed interfaces.",
+    "Verify exact selected graphs/events, source-only boundaries, mutation rejection and reopened canonical replay before C1 gate.",
+    "C2 scalar solver and C3 finalization remain gated; M1D/M1E/M2-M5 unstarted."
+  ],
+  "usage": {
+    "checked_at": "2026-11-17T11:54:47.669Z",
+    "weekly_remaining_percent": 22,
+    "window_minutes": 10080,
+    "resets_at": 1795453198
+  },
+  "publication_encoding": "m1c-publication-encoding.json"
+}

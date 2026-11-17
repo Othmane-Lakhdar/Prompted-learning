@@ -1,0 +1,574 @@
+{
+  "schema_version": 1,
+  "stage": "M1C1-contract-compatibility",
+  "created_utc": "2026-11-17T11:51:36.795782+00:00",
+  "scope": "Existing source-only100tests under A005; no CFG product support claim.",
+  "files": [
+    {
+      "path": "PromptedLearning.slnx",
+      "worktree_sha256": "5cae372b45e59fb03e360da59477555f6ef3a45c882a3f60b06c1c4ef636ecd8",
+      "staged_git_blob_sha1": "75a68cb09ac75d9d25f68ae6b098ea14656ee03b",
+      "bytes": 343,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "docs/m0/contracts.json",
+      "worktree_sha256": "5a4f5268a0ffd030e9a71d96748131eba0e99d88c7d1c6a36032b6599c01a915",
+      "staged_git_blob_sha1": "15a301dbf0609d0f637ea0bdc32608e91feea2b7",
+      "bytes": 902021,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "docs/m0/evidence/roslyn-pilot-operation-oracle.json",
+      "worktree_sha256": "caae1b965d8d772dfc88521f3bd910d7dbdd9fa1fd826442224342cae72122da",
+      "staged_git_blob_sha1": "479343ac365414611d5a6cd09af5e948cc733bad",
+      "bytes": 5835,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "docs/m0/field-dictionary.json",
+      "worktree_sha256": "80df59c99123b1a94e2f7f7e876308258a4a7f20f44ac322341eb3da5a18353b",
+      "staged_git_blob_sha1": "2c75c41dc4ebe09ab9ceb3bbaca3d96c874c1006",
+      "bytes": 2379325,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "docs/m0/pilot.json",
+      "worktree_sha256": "cb58c2059ae2a01dfbb4725f88bb517995a94c1588458ee8aef87c431a86cddb",
+      "staged_git_blob_sha1": "fcb61cf0eb34e72360719cc8476059c8e8ab27b9",
+      "bytes": 4051,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "docs/m0/schema.sql",
+      "worktree_sha256": "51d54798e14137e484397a2cf205cbdd330fc38e86ad3aa5d594f2134fe135a9",
+      "staged_git_blob_sha1": "f010df3e7674177e9af735fb8b64dcc3f8620bf8",
+      "bytes": 51080,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "src/PromptedLearning.Core/Build/MsBuildDefinitions.cs",
+      "worktree_sha256": "f04299d3becbdad81ba56572aa726ef89b69d62db1f3a790301905d46566537a",
+      "staged_git_blob_sha1": "1a891554193cb7cf4c82b141568fb2b9e67e91bf",
+      "bytes": 6982,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "src/PromptedLearning.Core/Build/MsBuildEvaluator.cs",
+      "worktree_sha256": "f47705d2d6e965b97be28ebfd2fb02149b98caee62bced43c8cd03b46723a1a7",
+      "staged_git_blob_sha1": "604bb72d40c3a81e3ca84a42dfb3dfdec01c2616",
+      "bytes": 18718,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "src/PromptedLearning.Core/Build/PilotInputGuard.cs",
+      "worktree_sha256": "cadde70bfc6a2b3424d9ff7bca6cfcfe88b8763629597674300219832acb3445",
+      "staged_git_blob_sha1": "29b2ace632880589e8a5e142c1aea9abc5064979",
+      "bytes": 17252,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "src/PromptedLearning.Core/CanonicalJson.cs",
+      "worktree_sha256": "e2ab199d5a69888c1cd2edf368874c4ab1d3025733d29e78f9ffca665fafd646",
+      "staged_git_blob_sha1": "79b162e27c426dce2d0732fe1dda3ff9124a4e40",
+      "bytes": 7143,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "src/PromptedLearning.Core/ContractCatalog.cs",
+      "worktree_sha256": "1999f8e7470fece013f889094362919524703e4d456c9472bb5ddd88989c5c3b",
+      "staged_git_blob_sha1": "d13fe8d0c6b368550e1d177789746897f45f166a",
+      "bytes": 10156,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "src/PromptedLearning.Core/PromptedLearning.Core.csproj",
+      "worktree_sha256": "9b4d7c52a4450ba869d4f3461ecfdbd3252ce0b945638709e6f412bf0bc7a39d",
+      "staged_git_blob_sha1": "e4f34f1f112ec59f6c57b314f4c050713c79546e",
+      "bytes": 552,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "src/PromptedLearning.Core/Semantics/CompilerContracts.cs",
+      "worktree_sha256": "2ff90766890da39e1ea49e4ae8386eba8019e0794d728a6154e3ba709f8c995c",
+      "staged_git_blob_sha1": "3340ecd84bb87d8c1bc9ad2f649fa10ab2b86d59",
+      "bytes": 1524,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "src/PromptedLearning.Core/Semantics/NativePilotAdapter.cs",
+      "worktree_sha256": "7a3208213f2858ff9d8755807a5e9fc1180407007ed6d793a1826a0239d937f7",
+      "staged_git_blob_sha1": "651f36792ff827e8ac494f06cc730799af9e37aa",
+      "bytes": 10298,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "src/PromptedLearning.Core/Semantics/NativeWorkerHost.cs",
+      "worktree_sha256": "92fb22108c70cbf93d75cae4a113ace2adaa5c4ba9f0bb76f392ee380253e822",
+      "staged_git_blob_sha1": "ed966fe153f60ba1af2a1062ae0e11f7fb06ad40",
+      "bytes": 14314,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "src/PromptedLearning.Core/Semantics/SemanticResultValidator.cs",
+      "worktree_sha256": "10c69b17f50baccf875670f93954198b2fe4b223a57fd8b8b31894198702deb5",
+      "staged_git_blob_sha1": "f1db2c48b2332099c050a6aa134164bf9b62c3d3",
+      "bytes": 29148,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "src/PromptedLearning.Core/Semantics/WindowsProcessBudget.cs",
+      "worktree_sha256": "fa766c8e107b25ed543c2f8abbf4921abf980b9270e3f55983ed4de3726191da",
+      "staged_git_blob_sha1": "971c43359bade013a9b8395dbffa8a70c80e2173",
+      "bytes": 2848,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "src/PromptedLearning.Core/Source/CaptureService.cs",
+      "worktree_sha256": "2c2abb89d709be42a6d6d42e1e69854628460d69ac4635b9d15ddac78653f07e",
+      "staged_git_blob_sha1": "e93a9d1ee5c4f31bab3aa409bfca80b219c57d9f",
+      "bytes": 24161,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "src/PromptedLearning.Core/Source/SourceArchive.cs",
+      "worktree_sha256": "b8b5a9974f7f083dcb56af5e5e8b42e60c84f1ba91377d8c76178ded7ba42ef9",
+      "staged_git_blob_sha1": "9b0bf8a2c3556eb903e9afda6a57a20837306785",
+      "bytes": 18164,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "src/PromptedLearning.Core/Source/SourceDecoder.cs",
+      "worktree_sha256": "9048411254d3caf73b4a67e3851ff771e7ae8a0b5767961f7b2499c851bd26f0",
+      "staged_git_blob_sha1": "89f46f71661dcbb93503ed7943ad753cea1d6f8b",
+      "bytes": 4165,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "src/PromptedLearning.Core/Source/SourceModels.cs",
+      "worktree_sha256": "e18bf5afc304b289ba511c752bb314ed26566e5975c2e20e559efa2932fda57b",
+      "staged_git_blob_sha1": "6a4c6426ec8fa648624a61d1d82f353365bb3438",
+      "bytes": 4193,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "src/PromptedLearning.Core/Source/SourcePaths.cs",
+      "worktree_sha256": "cb8dd61cdd7f8429a90faedc76aa44acc204d4e9af209c83301c16466a5b5735",
+      "staged_git_blob_sha1": "949a60193d1139d3ce14c8cff74f99297ec38653",
+      "bytes": 3526,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "src/PromptedLearning.Core/StableId.cs",
+      "worktree_sha256": "1bb1cb10947f913eb381ab5962ca29e6e7058e6076b05ce303420948afa94b2e",
+      "staged_git_blob_sha1": "3b5b8e2ae0066ace2b11709b30474c823e947e44",
+      "bytes": 1444,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "src/PromptedLearning.Managed/ManagedAnalysisRequest.cs",
+      "worktree_sha256": "4a2aaf9d530ac8ba043fe1990a0e65440b726ce10004f0d3090e065693c67efb",
+      "staged_git_blob_sha1": "9a3ef2c4472138285c4ee9611fe9d2f26d4830ff",
+      "bytes": 494,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "src/PromptedLearning.Managed/ManagedFactsBuilder.cs",
+      "worktree_sha256": "35f35526cbac8e53a23cc73e5121ae3adfa92e28ac5086d0d746c09e74a1cb4f",
+      "staged_git_blob_sha1": "5a4c862b8ad62f10a659cd297511821e9e64ebfe",
+      "bytes": 20902,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "src/PromptedLearning.Managed/ManagedPilotAdapter.cs",
+      "worktree_sha256": "31c50eb5f154cde6dff88abfbc4c09d40b05939c3299605d32ee69b73e619757",
+      "staged_git_blob_sha1": "5c6a7197e3e988528c42a238cb433e1c150687c3",
+      "bytes": 14050,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "src/PromptedLearning.Managed/ManagedPilotBinding.cs",
+      "worktree_sha256": "ebcb5c32d7a877dd5c42b0c30a59b2518bfdab61008f87c314dd2665e7a4c614",
+      "staged_git_blob_sha1": "37fb772d1bfcbc958a6ec0f89fe7ff2b1202477a",
+      "bytes": 2542,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "src/PromptedLearning.Managed/PromptedLearning.Managed.csproj",
+      "worktree_sha256": "cb3fa6010730b66804c7a60932db6fc954f4149ebc0a3878abb22e7a93ae97d0",
+      "staged_git_blob_sha1": "61aed418c5d6a0e75c7e78453cd3e7bffbfa7ea8",
+      "bytes": 501,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "src/PromptedLearning.Native/CMakeLists.txt",
+      "worktree_sha256": "deab2dafa39d28266d943bd9b78b908f956caff72b6a696fa382c9f99bd6e80f",
+      "staged_git_blob_sha1": "e495f98b39e8a88dc0941fe85a7fd3fe0e8b42e3",
+      "bytes": 1363,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "src/PromptedLearning.Native/Extraction.cpp",
+      "worktree_sha256": "9f34207790b54d26d8a72b63a0db79562051c2eda9cead148dc27eed5ca68d1f",
+      "staged_git_blob_sha1": "f60c4b55d939e176e78c44cf75e50ecd59d0942f",
+      "bytes": 32222,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "src/PromptedLearning.Native/Protocol.cpp",
+      "worktree_sha256": "7ba773eae7af25a231889df7b2d777efdf3d6e8a8a5cb3e2929ac5d571a2d200",
+      "staged_git_blob_sha1": "f5bcf8c30af2686a841c526a02aae2c63ca28a2c",
+      "bytes": 16813,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "src/PromptedLearning.Native/Protocol.h",
+      "worktree_sha256": "ee969b3765ed9a669ac9b50bcb3a2b2142aa0d11c46113adc2b4925a91e33aea",
+      "staged_git_blob_sha1": "070ac9552981b0c16e34f302f3dff07a566156aa",
+      "bytes": 1369,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "src/PromptedLearning.Native/README.md",
+      "worktree_sha256": "f102347256fd50c4577f962cd674cbfc2d279b88852d19ffb7d9e48f642de627",
+      "staged_git_blob_sha1": "1d5ac89771477367876acd798263a9f773889383",
+      "bytes": 5073,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "src/PromptedLearning.Native/Worker.rc",
+      "worktree_sha256": "0d08ee277b732994e6b6bd4ebe6b95560fb046188cc6013bd240f37f464a4d06",
+      "staged_git_blob_sha1": "6fd328eab49a0f43973dadf31d460fb447919a1c",
+      "bytes": 461,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "src/PromptedLearning.Native/main.cpp",
+      "worktree_sha256": "b42ecf06f4633dd35e29f66b6df6098da328a3fee19684741d95bbc54078cc16",
+      "staged_git_blob_sha1": "17ca80429a394df86185210485ecb8bf736e4432",
+      "bytes": 3514,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "src/PromptedLearning.Storage/CanonicalStore.cs",
+      "worktree_sha256": "14f0fa012451f572ac3423fe1470dc36b3b075919984db1387967789714bc2d4",
+      "staged_git_blob_sha1": "5e638e3ebd92f4045a1bde85660894a9815d2099",
+      "bytes": 16593,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "src/PromptedLearning.Storage/CapturedSourceImport.cs",
+      "worktree_sha256": "ec0c03a1634b3ead4be378625f36b0332682fedcf9a09886e9fb9fdb959100ff",
+      "staged_git_blob_sha1": "81cd17a6d14a5b287cef08b73e448e035e659061",
+      "bytes": 9247,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "src/PromptedLearning.Storage/ContextImport.cs",
+      "worktree_sha256": "8b91ae3c87b5d98390e669c14986035b56631087ddd50845d910d5c09ba9e022",
+      "staged_git_blob_sha1": "65f9335123810c6eaaef21de6f55b940af91e125",
+      "bytes": 23140,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "src/PromptedLearning.Storage/FoundationValidator.cs",
+      "worktree_sha256": "c0941ad1c01e67fbba614cca9e54e4d7948541cb102681b23a9c224852ed1181",
+      "staged_git_blob_sha1": "f5e215a537f30bfc35a72c6b957bc1f3835db695",
+      "bytes": 39431,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "src/PromptedLearning.Storage/PromptedLearning.Storage.csproj",
+      "worktree_sha256": "4fd06d584076434c3c337832c4bb7c759144277c8c99ca77380b4282a35950e0",
+      "staged_git_blob_sha1": "3d6e5b93db7a4beabf2a371e8d7b44ba59ea20fc",
+      "bytes": 816,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "src/PromptedLearning.Storage/SemanticImport.Facts.cs",
+      "worktree_sha256": "5ef2feec422fb3cb1641e44ced7fa310778c0fdd6dabcb5a763cf8934f46176b",
+      "staged_git_blob_sha1": "46acf4675fa800ce7ca6e70ba0b89038a5b8c738",
+      "bytes": 12839,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "src/PromptedLearning.Storage/SemanticImport.Identities.cs",
+      "worktree_sha256": "21680794eb7d7559cb2ee922792f47214434d07053451cde10fe106a60f3ce54",
+      "staged_git_blob_sha1": "2364bbfe4dd60fa16a3275e40158ee7f6427b672",
+      "bytes": 11285,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "src/PromptedLearning.Storage/SemanticImport.Types.cs",
+      "worktree_sha256": "aa1d6665e12629fd338bcdecbcdd4a56faf1d7de65ea05b433169e8f84a3d2c9",
+      "staged_git_blob_sha1": "bf5003ec7cbce2ea92984c42b09ef95be5e48a0f",
+      "bytes": 7075,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "src/PromptedLearning.Storage/SemanticImport.cs",
+      "worktree_sha256": "b0bdca1d678995b2cfc502dc3eab5974fd45563c0f1891c9d6e9fbdc82f76f7b",
+      "staged_git_blob_sha1": "a2a091fd62a2cbf4ab43618204798a1f999af27d",
+      "bytes": 11510,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "src/PromptedLearning.Storage/SemanticStorageValidator.cs",
+      "worktree_sha256": "aee2051a38135ceddef93247ea58594e58008638e19bdbd2834be9bd261341c7",
+      "staged_git_blob_sha1": "ee857692640a0a70c811d6b4740d13b867fe87d1",
+      "bytes": 15505,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "src/PromptedLearning.Storage/SourceCallModel.cs",
+      "worktree_sha256": "4e132f72ad45d82d235843f01d5e545bddd85796ef9a4994c069cfc5f0e48c53",
+      "staged_git_blob_sha1": "7b06326fb5885f952c3dc20b74f859e4b2ec0009",
+      "bytes": 5372,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "src/PromptedLearning.Storage/SourceRelationInputs.cs",
+      "worktree_sha256": "37c2ec365b8645003d960cb49247a71c3950d3225c72015f1855c1cdb39f663a",
+      "staged_git_blob_sha1": "1506c8143d14202d2d130f7af1f8c0c6749de69b",
+      "bytes": 4045,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "src/PromptedLearning.Storage/SourceRelations.cs",
+      "worktree_sha256": "a26eebf662479fed40ba8f931c98c3a2c7fe74e59896f0079b2bf5a9c8baa89d",
+      "staged_git_blob_sha1": "4624603545d72f69b74cc2642e84bef51c999268",
+      "bytes": 15429,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "src/PromptedLearning.Storage/SourceRelationsValidator.cs",
+      "worktree_sha256": "420c0a1769092fae2fc68d0b841fdcd234cc346a1bbde86bf8185af70e0a5baa",
+      "staged_git_blob_sha1": "2ae7fba6f40d2d1627ca870e6018564bc0db0bb5",
+      "bytes": 16028,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "src/PromptedLearning.Storage/StorageSchema.cs",
+      "worktree_sha256": "ae57af0547d3bea9e51f3d4bb819ee361bcb8a737c58efb64cc4c6454752c427",
+      "staged_git_blob_sha1": "bfe349f06ae58ecdcb01a91af154d997db93fbf1",
+      "bytes": 6229,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "tests/PromptedLearning.Tests/CompilerContractTests.cs",
+      "worktree_sha256": "ef859128ef5796f38b31a658beda03d69740dfd8082fe312dd241f7d012c842c",
+      "staged_git_blob_sha1": "412d9df475bfefca42d2b146b3c8355d44d670f3",
+      "bytes": 4078,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "tests/PromptedLearning.Tests/ContextTests.cs",
+      "worktree_sha256": "9092219613afe9df635d1a26435c96aa23a534dadf18bd6aa544287526b184a7",
+      "staged_git_blob_sha1": "10424ee843d735822214d5c058a8573753f55b20",
+      "bytes": 9082,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "tests/PromptedLearning.Tests/FoundationTests.cs",
+      "worktree_sha256": "640cabdf261a22a075c6bb0f2a0ccf5311d826db948476f3a4c7a31de5cca03e",
+      "staged_git_blob_sha1": "f52cc51a425338fd7f51f2654ee61193e7a1642b",
+      "bytes": 8109,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "tests/PromptedLearning.Tests/Managed/ManagedChooseOracle.cs",
+      "worktree_sha256": "c88a9d0d4e76a7f1e80d9f01bf38a5606a16dc1f9cc0d4907053aa38fd10fe0c",
+      "staged_git_blob_sha1": "7af7dc73a853a06fbef6230b083f208c99591f56",
+      "bytes": 12491,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "tests/PromptedLearning.Tests/Managed/ManagedTests.cs",
+      "worktree_sha256": "882bba15dac20bc79121592e623b24dcea529c0e341968fc0011ffa7658009b5",
+      "staged_git_blob_sha1": "d04a06ec75a67c6be844d20655a15efed1d84d11",
+      "bytes": 19770,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "tests/PromptedLearning.Tests/Native/NativeChooseOracle.cs",
+      "worktree_sha256": "d2a491890f5a819cc46f0a55894a8018b5d75b7cb457d95328065dc1aacd7afe",
+      "staged_git_blob_sha1": "2f473bc32bcf1b206dbb7396c6f3f8f892172ac2",
+      "bytes": 8925,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "tests/PromptedLearning.Tests/Native/NativeSemanticTests.cs",
+      "worktree_sha256": "7b1097a048eedce7b6dd7999158c30254d889c82741dc065cd415b4b381515fe",
+      "staged_git_blob_sha1": "a82f11480b6d10a0641c5325934f6f49c73e267e",
+      "bytes": 10817,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "tests/PromptedLearning.Tests/Native/NativeTests.cs",
+      "worktree_sha256": "a9d0dac5d50e66633c19f50d71e269c7dc2659b00e6e402ebee99a5cf4191e8a",
+      "staged_git_blob_sha1": "35a26da765132f8d5535d14237c70c60f6c3bdc3",
+      "bytes": 18255,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "tests/PromptedLearning.Tests/NativeHostTests.cs",
+      "worktree_sha256": "3c113a1747bfc72de08a84e8a4d7e8ef72a0a7b8a07276b4c695e137c2944ec8",
+      "staged_git_blob_sha1": "2579b772e41a3b686de7fc106be63c6ed08a0498",
+      "bytes": 8471,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "tests/PromptedLearning.Tests/PilotGuardTests.cs",
+      "worktree_sha256": "e6b89d4f64b174c03df55f8f911460a45180c2b2f15a2e54baa186173474efaf",
+      "staged_git_blob_sha1": "e096b77dba364982a95f3837a9b95c72dba9846c",
+      "bytes": 16165,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "tests/PromptedLearning.Tests/Program.cs",
+      "worktree_sha256": "daa9d9408fe29a1a5da81d370377ab86c8a1d1ba5851757c1ea2f315943ebd44",
+      "staged_git_blob_sha1": "e88f9edcf5c861c32d8fd770746d3f247678ea65",
+      "bytes": 2046,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "tests/PromptedLearning.Tests/PromptedLearning.Tests.csproj",
+      "worktree_sha256": "a04c1bf4920bea525432c8edf43d2cd44d5f079907687389bf6baffc846d4c0b",
+      "staged_git_blob_sha1": "fb8d8b3e0cef7a7e9682f9b5ed933720ffc3d5ed",
+      "bytes": 663,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "tests/PromptedLearning.Tests/SemanticStorage/SemanticStorageTests.cs",
+      "worktree_sha256": "aa56c1f48ddbb08426738cc6dea7c90858f3db2eea5db13227bda73b2e478885",
+      "staged_git_blob_sha1": "4b827a08eb158efefd89e0c789e66eea82cf1bcc",
+      "bytes": 25496,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "tests/PromptedLearning.Tests/SemanticValidationTests.cs",
+      "worktree_sha256": "5823df0d11b1d21e53e53f6fbec4a6a10c399479ba487f9b61b70c72b552f582",
+      "staged_git_blob_sha1": "c8b08ce1066d53d8c9451ab4e78d1914ee310044",
+      "bytes": 5090,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "tests/PromptedLearning.Tests/Source/SourceTests.cs",
+      "worktree_sha256": "65d222eb2cd344c57ef5cb5d1f7cb79b127cb2bd535ce25673b9222543726ec5",
+      "staged_git_blob_sha1": "9c64946ccfeebba2d69e95398563d4444080ecd2",
+      "bytes": 22908,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "tests/PromptedLearning.Tests/SourceRelations/SourceRelationsTests.cs",
+      "worktree_sha256": "05dfbfdee0e8fccaa817a77a525bc0c63df915ca6f44455c91c6a59b4638fe43",
+      "staged_git_blob_sha1": "355b9616c96f1644c2a5e41806fd0b70a0ec764a",
+      "bytes": 20638,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "tests/PromptedLearning.Tests/Storage/ContextStorageTests.cs",
+      "worktree_sha256": "1557d5c15ec35b98e6335032fc601b2398d69509117f57776d720d6ac5f01f21",
+      "staged_git_blob_sha1": "52984c15fe6da8a9cc2b902632024f2bed5c96c0",
+      "bytes": 13821,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "tests/PromptedLearning.Tests/Storage/StorageTests.cs",
+      "worktree_sha256": "68d11fc29dac63b0efd4fd04c2c899614985b88b5f5ee149926782d938ea3920",
+      "staged_git_blob_sha1": "f6b5503e5ba5f167d579b7e4e95bf8f0b45ace8b",
+      "bytes": 20181,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "tests/PromptedLearning.Tests/TestSupport.cs",
+      "worktree_sha256": "72e4bb5bc8f98ace42307b32bc040c748cb006a3a9f203390d262c063406b372",
+      "staged_git_blob_sha1": "0164895b4336bbe66d85aaed8643caf5e64eafdc",
+      "bytes": 1083,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "tests/fixtures/pilot/README.md",
+      "worktree_sha256": "436d787295d48bc107d4a5ed01f9247b87c984617b8a62feb31bea0238ead08e",
+      "staged_git_blob_sha1": "af5065e4e9b483af6a3f17862d97a9975022054d",
+      "bytes": 1470,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "tests/fixtures/pilot/csharp/Arithmetic.More.cs",
+      "worktree_sha256": "1f35ac7b3c4d961afec435e863bcaa855f0ba06e2a2d864f5f6b34b8d368e72b",
+      "staged_git_blob_sha1": "ea4ddfc832729c792721b7b90923cbcb3affb263",
+      "bytes": 182,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "tests/fixtures/pilot/csharp/Arithmetic.cs",
+      "worktree_sha256": "72006f84de73832687ed9c01b6c3c83b671a8afb6ceac104dfba39e721458aa4",
+      "staged_git_blob_sha1": "09d8c5bc7715ba7bce5fc895effeb41bda7d82de",
+      "bytes": 473,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "tests/fixtures/pilot/csharp/Pilot.csproj",
+      "worktree_sha256": "e74d220a00e7d9bd948b02fe0f8bb4415d1c1bbacac24adfd3890b00c3ff7c8f",
+      "staged_git_blob_sha1": "57eb22bde9ef655480e688d64218c3d6b4b5dd43",
+      "bytes": 730,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "tests/fixtures/pilot/native/Arithmetic.cpp",
+      "worktree_sha256": "0d45a74df34e1dc8e656f0c9e15adb7235a52672b06063ea74760aaa603a2603",
+      "staged_git_blob_sha1": "846e5abceeb6a1c74419937115c9ceffff36b5bc",
+      "bytes": 451,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "tests/fixtures/pilot/native/Arithmetic.hpp",
+      "worktree_sha256": "c4b178701eee5e955b7d34209334d84765296f61c4e2c22a3cf6a99c5134e2fd",
+      "staged_git_blob_sha1": "cf4f10171450cfd863a656fa8824e2146d14ea4d",
+      "bytes": 179,
+      "staged_bytes_equal_worktree": true
+    },
+    {
+      "path": "tests/fixtures/pilot/native/Pilot.vcxproj",
+      "worktree_sha256": "8afeed6a2f66c7a5e74015f926f533521ee4531e6687f6b336c0c315181092be",
+      "staged_git_blob_sha1": "2f20f97968afcb3ffe8facb3e35fbf70403b5e71",
+      "bytes": 1530,
+      "staged_bytes_equal_worktree": true
+    }
+  ],
+  "binaries": [
+    {
+      "path": "C:/_Travail/tools/Prompted-Learning-inputs/m1c1-contract-build/bin/PromptedLearning.Core/release/PromptedLearning.Core.dll",
+      "sha256": "55c540bfd275eb1a4738b0485468f94b5c2f367141efd90221bf93a8b8bcbae6"
+    },
+    {
+      "path": "C:/_Travail/tools/Prompted-Learning-inputs/m1c1-contract-build/bin/PromptedLearning.Tests/release/PromptedLearning.Core.dll",
+      "sha256": "55c540bfd275eb1a4738b0485468f94b5c2f367141efd90221bf93a8b8bcbae6"
+    },
+    {
+      "path": "C:/_Travail/tools/Prompted-Learning-inputs/m1c1-contract-build/bin/PromptedLearning.Managed/release/PromptedLearning.Managed.dll",
+      "sha256": "6a6141af2ff809eb8b634dab714978658db25647a0a26998f19730e5de5fa25d"
+    },
+    {
+      "path": "C:/_Travail/tools/Prompted-Learning-inputs/m1c1-contract-build/bin/PromptedLearning.Tests/release/PromptedLearning.Managed.dll",
+      "sha256": "6a6141af2ff809eb8b634dab714978658db25647a0a26998f19730e5de5fa25d"
+    },
+    {
+      "path": "C:/_Travail/tools/Prompted-Learning-inputs/m1c1-contract-build/bin/PromptedLearning.Storage/release/PromptedLearning.Storage.dll",
+      "sha256": "3e670ecceb1679ec94717f7700103eb272cd2519ca97fc5e97a35e4069d411a1"
+    },
+    {
+      "path": "C:/_Travail/tools/Prompted-Learning-inputs/m1c1-contract-build/bin/PromptedLearning.Tests/release/PromptedLearning.Storage.dll",
+      "sha256": "3e670ecceb1679ec94717f7700103eb272cd2519ca97fc5e97a35e4069d411a1"
+    },
+    {
+      "path": "C:/_Travail/tools/Prompted-Learning-inputs/m1c1-contract-build/bin/PromptedLearning.Tests/release/PromptedLearning.Tests.dll",
+      "sha256": "191128d26f1c175736677ba09c461cab0c21cd5d73dd52db209f85e2ad9e7b76"
+    },
+    {
+      "path": "C:/_Travail/tools/Prompted-Learning-inputs/m1-native-build/Release/prompted-learning-clang-worker.exe",
+      "sha256": "954bd0629a3c21899116332346221ccf184ea74e8fb3c47c3ff2f08c5189092a"
+    }
+  ]
+}

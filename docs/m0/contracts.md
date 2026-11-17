@@ -345,3 +345,112 @@ Abstract function-type parameters derive ordered type/passing facts from the pri
 ## Native pragma storage (A004)
 
 `preprocessing.event_kind=pragma` retains the directive already represented by the native wire contract. The frozen native pilot emits `#pragma once`; its span and written name remain exact. It is not relabeled as a macro or include. A004 adds only the canonical SQL CHECK/dictionary enum alternative. M1B uses a new collecting database generation with the amended schema; an old M1A database is not silently migrated in place. Semantic writes must reject incompatible old schema before importing this producer.
+
+
+## Choose compiler flow selection (A005)
+
+A005 defines the prerequisite contract for the later C1 pilot; independent
+review is required. It is not evidence that a CFG producer or scalar analysis ran. Source-only M1B envelopes keep their existing
+schema names, required properties, source arrays and exact `/1` fingerprints.
+The native request gains `analysis_selection` only for requested `cfg`; it is
+required with `cfg`, and forbidden (including explicit null) for source-only.
+`storage_events` requires `cfg`. The registered ordered feature lists are
+`[source_semantics]`, `[source_semantics,cfg]` and
+`[source_semantics,cfg,storage_events]`. Native selection admits only the native
+selector; the managed feature binding admits only the managed selector.
+
+The strict `choose-analysis-selection` has policy `choose-cfg/1`, exactly one
+selector and settings. The complete compiler identity kind/key/signature is
+frozen in `x-choose-cfg-policy.selection_by_language`, copied from retained
+accepted compiler facts. C# is `M:Pilot.Arithmetic.Choose(System.Int32)`, a static
+method taking/returning builtin System.Int32 with null calling convention and
+language linkage. C++ is `c:@N@pilot@F@Choose#I#`, a function taking/returning
+builtin int, cdecl, C++ linkage and no qualifiers. Both have arity zero,
+value passing and empty constraints. No name-only, display-name, substring,
+source-span or first-match selection is permitted. Exactly one body owner must
+match all fields. Zero/multiple matches fail selection. Add, Unused, alternate
+overloads and extra selector/settings properties are not supported selectors.
+
+Selection settings are the exact `choose-cfg-settings/1` object: compiler policy
+`compiler_cfg_v1`, event policy `scalar-local-events/1`, tracked storage
+`owned_non_escaping_scalar`, call-effect policy
+`by_value_cannot_write_tracked_storage`, compiler options and limits. Native
+options explicitly set the sixteen pinned LLVM19.1.7 BuildOptions booleans in
+the JSON policy to false, including PruneTriviallyFalseEdges. No
+setAlwaysAdd/setAllAlwaysAdd override is allowed; alwaysAddMask stays empty,
+forcedBlkExprs and Observer stay null. Managed options describe the actual
+`ControlFlowGraph.Create(parentless_method_body)` entry point and registered
+`same_body_unique_syntax_kind_semantics/1` correspondence, not invented compiler
+switches. No policy claims advanced lowering, exceptions or alias support.
+
+Limits are fixed per selected body: one selected body, 64 CFG blocks, 128 edges,
+512 ordered members, 128 storage events. Each nested block/member/edge/event
+also counts toward the preexisting total record limit; input/result bytes,
+source operations, deadline and native memory/CPU budgets remain effective.
+These are analysis acquisition limits, never export truncation limits. Managed
+cancellation remains cooperative. Reasons are registered by the A005 policy;
+unknown reasons cannot turn a partial/failed body into a complete result.
+
+Absent selection selects the unchanged `native-worker-semantic-input/1` or
+`managed-semantic-input/1` recipe. Present selection selects `/2`, adding the
+entire selection object to the corresponding prior selected object and binding
+the actual requested feature array. The native recipe still excludes only
+files.bytes_base64 and path_bindings.physical_path from semantic identity;
+request_fingerprint still covers the whole request except itself. Managed file
+order is evaluated Compile order; each file descriptor retains exactly key,
+file_version_id, logical_path, original_sha256, byte_length, encoding and
+bom_bytes. Every participating compiler, adapter and shared replay implementation
+has its actual version/content descriptor in the evaluated context before
+context/unit IDs; a changed binary requires a fresh scope. No timeout or own
+result/block ID enters the semantic fingerprint. Concrete source-only `/1`
+compatibility hashes and `/2` mutation cases are in a005-cases.json.
+
+Persist `analysis_run.settings_json` using the strict
+`compiler-flow-analysis-settings/1` wrapper: schema, family=control_flow,
+policy=compiler_cfg_v1, requested_features and analysis_selection. This binds
+selection/options/limits without storing a graph or event array. The separate
+`compiler-cfg-input/1` recipe binds snapshot/context/unit/body, semantic-input
+and canonical source-view fingerprints, actual producer/validator/normalizer
+tool IDs, the C0 normalization input fingerprint and the exact settings wrapper.
+Its exact components are registered in x-choose-cfg-policy and the
+[common flow preimages](../m1/m1c-common-flow-design.md#proposed-fingerprint-preimages-to-freeze-before-code);
+actual version/content tool descriptors are reached through validated tool IDs.
+It excludes own analysis-result/block IDs, flow outputs, state transitions and clocks. The original
+compiler_cfg_v1 guarantee and assumptions remain byte-for-byte unchanged.
+
+All four source bodies and source-feature coverage remain independently
+complete when source extraction succeeded. Return one CFG outcome per body:
+selected Choose may be complete; the three others have not_attempted,
+reason=not_selected, null entry/exit and no blocks/edges/events. A file containing
+any unselected executable body has partial/not_selected_bodies flow coverage,
+even when it has no selected body. A header/file with no executable body has
+not_attempted/no_selected_body. A selected-body failure remains explicit in
+its body outcome, located diagnostics and file/aggregate reason; it is never
+hidden behind the expected unselected-body partial status. CFG-only requests
+retain storage_events not_attempted/not_requested and no events. Aggregate
+requested-flow status is partial for the frozen four-body pilots, independently
+of complete selected Choose CFGs. These are selection states, not source
+exclusions, profile omissions or query truncation.
+
+`cfg_operation` retains its existing primary key (block_id,ordinal) and source
+operation reference, plus required typed correspondence, phase and
+compiler_element_kind. Correspondence is clang_ast_pointer,
+roslyn_unique_source or explicit_lowered; the last is represented but unsupported
+by this pilot. Phase is evaluation, branch_value, terminator or initializer.
+Compiler element kind is nonempty text. These member values are BD0.12 payload
+owned through cfg_block, retained wherever its CFG is retained; they are not
+mandatory evidence prose and do not leak through omitted CFG payload. Historical
+SQLite definitions missing any field are rejected unchanged; use a fresh
+collecting generation, never an implicit migration.
+
+`scalar-local-events/1` is a registered replay policy over the accepted typed
+source/CFG. It permits parameter_definition/read/write/unknown_effect, preserves
+entry/condition/argument/assignment/return/call phase, and deduplicates by block,
+source operation, event kind and storage (entry is keyed by its parameter).
+Required no-escape/by-value proof is explicit in x-scalar-event-policies; failure
+produces located unknown_effect/unsupported_storage_effect and incomplete selected
+events. It infers neither callee purity nor return value/nonlocal effects. No
+storage-event table, event extension or evidence/settings event dump is added.
+Restart replay consumes canonical source and typed CFG and must reproduce the
+accepted canonical event tuples before C2 can use them. Source-only validators
+continue to reject CFG payload; later C1 needs a separate acceptance/import gate.

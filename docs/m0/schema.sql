@@ -626,6 +626,9 @@ CREATE TABLE cfg_operation (
     block_id TEXT NOT NULL REFERENCES cfg_block(id),
     operation_id TEXT NOT NULL REFERENCES record(id),
     ordinal INTEGER NOT NULL CHECK(ordinal>=0),
+    correspondence TEXT NOT NULL CHECK(correspondence IN ('clang_ast_pointer','roslyn_unique_source','explicit_lowered')),
+    phase TEXT NOT NULL CHECK(phase IN ('evaluation','branch_value','terminator','initializer')),
+    compiler_element_kind TEXT NOT NULL CHECK(length(trim(compiler_element_kind))>0),
     PRIMARY KEY(block_id,ordinal)
 ) STRICT;
 

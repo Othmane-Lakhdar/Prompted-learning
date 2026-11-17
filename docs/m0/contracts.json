@@ -15447,6 +15447,9 @@
           },
           "minItems": 1,
           "uniqueItems": true
+        },
+        "analysis_selection": {
+          "$ref": "#/$defs/cpp-choose-analysis-selection"
         }
       },
       "required": [
@@ -15488,6 +15491,44 @@
                   "const": "cfg"
                 }
               }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "requested_features": {
+                "contains": {
+                  "const": "cfg"
+                }
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "analysis_selection"
+            ],
+            "properties": {
+              "requested_features": {
+                "enum": [
+                  [
+                    "source_semantics",
+                    "cfg"
+                  ],
+                  [
+                    "source_semantics",
+                    "cfg",
+                    "storage_events"
+                  ]
+                ]
+              }
+            }
+          },
+          "else": {
+            "not": {
+              "required": [
+                "analysis_selection"
+              ]
             }
           }
         }
@@ -17631,6 +17672,317 @@
         "compiler_type_key",
         "origin",
         "resolution"
+      ],
+      "additionalProperties": false
+    },
+    "cpp-choose-analysis-selection": {
+      "type": "object",
+      "properties": {
+        "policy": {
+          "const": "choose-cfg/1"
+        },
+        "selectors": {
+          "type": "array",
+          "items": {
+            "const": {
+              "compiler_identity_kind": "compiler",
+              "compiler_key": "c:@N@pilot@F@Choose#I#",
+              "compiler_signature_key": {
+                "calling_convention": "cdecl",
+                "constraints": [],
+                "generic_arity": 0,
+                "kind": "function",
+                "language_linkage": "C++",
+                "name": "Choose",
+                "parameters": [
+                  {
+                    "passing": "value",
+                    "type": {
+                      "name": "int",
+                      "tag": "builtin"
+                    }
+                  }
+                ],
+                "qualifiers": [],
+                "return_passing": "value",
+                "return_type": {
+                  "name": "int",
+                  "tag": "builtin"
+                }
+              }
+            }
+          },
+          "minItems": 1,
+          "maxItems": 1
+        },
+        "settings": {
+          "const": {
+            "schema": "choose-cfg-settings/1",
+            "compiler_cfg_policy": "compiler_cfg_v1",
+            "event_policy": "scalar-local-events/1",
+            "tracked_storage": "owned_non_escaping_scalar",
+            "call_effect_policy": "by_value_cannot_write_tracked_storage",
+            "compiler_options": {
+              "PruneTriviallyFalseEdges": false,
+              "AddEHEdges": false,
+              "AddInitializers": false,
+              "AddImplicitDtors": false,
+              "AddLifetime": false,
+              "AddLoopExit": false,
+              "AddTemporaryDtors": false,
+              "AddScopes": false,
+              "AddStaticInitBranches": false,
+              "AddCXXNewAllocator": false,
+              "AddCXXDefaultInitExprInCtors": false,
+              "AddCXXDefaultInitExprInAggregates": false,
+              "AddRichCXXConstructors": false,
+              "MarkElidedCXXConstructors": false,
+              "AddVirtualBaseBranches": false,
+              "OmitImplicitValueInitializers": false
+            },
+            "limits": {
+              "max_selected_bodies": 1,
+              "max_cfg_blocks": 64,
+              "max_cfg_edges": 128,
+              "max_cfg_members": 512,
+              "max_storage_events": 128
+            }
+          }
+        }
+      },
+      "required": [
+        "policy",
+        "selectors",
+        "settings"
+      ],
+      "additionalProperties": false
+    },
+    "csharp-choose-analysis-selection": {
+      "type": "object",
+      "properties": {
+        "policy": {
+          "const": "choose-cfg/1"
+        },
+        "selectors": {
+          "type": "array",
+          "items": {
+            "const": {
+              "compiler_identity_kind": "compiler",
+              "compiler_key": "M:Pilot.Arithmetic.Choose(System.Int32)",
+              "compiler_signature_key": {
+                "calling_convention": null,
+                "constraints": [],
+                "generic_arity": 0,
+                "kind": "method",
+                "language_linkage": null,
+                "name": "Choose",
+                "parameters": [
+                  {
+                    "passing": "value",
+                    "type": {
+                      "name": "System.Int32",
+                      "tag": "builtin"
+                    }
+                  }
+                ],
+                "qualifiers": [
+                  "static"
+                ],
+                "return_passing": "value",
+                "return_type": {
+                  "name": "System.Int32",
+                  "tag": "builtin"
+                }
+              }
+            }
+          },
+          "minItems": 1,
+          "maxItems": 1
+        },
+        "settings": {
+          "const": {
+            "schema": "choose-cfg-settings/1",
+            "compiler_cfg_policy": "compiler_cfg_v1",
+            "event_policy": "scalar-local-events/1",
+            "tracked_storage": "owned_non_escaping_scalar",
+            "call_effect_policy": "by_value_cannot_write_tracked_storage",
+            "compiler_options": {
+              "graph_creation": "ControlFlowGraph.Create(parentless_method_body)",
+              "correspondence_policy": "same_body_unique_syntax_kind_semantics/1"
+            },
+            "limits": {
+              "max_selected_bodies": 1,
+              "max_cfg_blocks": 64,
+              "max_cfg_edges": 128,
+              "max_cfg_members": 512,
+              "max_storage_events": 128
+            }
+          }
+        }
+      },
+      "required": [
+        "policy",
+        "selectors",
+        "settings"
+      ],
+      "additionalProperties": false
+    },
+    "choose-analysis-selection": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/csharp-choose-analysis-selection"
+        },
+        {
+          "$ref": "#/$defs/cpp-choose-analysis-selection"
+        }
+      ]
+    },
+    "choose-cfg-settings": {
+      "oneOf": [
+        {
+          "const": {
+            "schema": "choose-cfg-settings/1",
+            "compiler_cfg_policy": "compiler_cfg_v1",
+            "event_policy": "scalar-local-events/1",
+            "tracked_storage": "owned_non_escaping_scalar",
+            "call_effect_policy": "by_value_cannot_write_tracked_storage",
+            "compiler_options": {
+              "graph_creation": "ControlFlowGraph.Create(parentless_method_body)",
+              "correspondence_policy": "same_body_unique_syntax_kind_semantics/1"
+            },
+            "limits": {
+              "max_selected_bodies": 1,
+              "max_cfg_blocks": 64,
+              "max_cfg_edges": 128,
+              "max_cfg_members": 512,
+              "max_storage_events": 128
+            }
+          }
+        },
+        {
+          "const": {
+            "schema": "choose-cfg-settings/1",
+            "compiler_cfg_policy": "compiler_cfg_v1",
+            "event_policy": "scalar-local-events/1",
+            "tracked_storage": "owned_non_escaping_scalar",
+            "call_effect_policy": "by_value_cannot_write_tracked_storage",
+            "compiler_options": {
+              "PruneTriviallyFalseEdges": false,
+              "AddEHEdges": false,
+              "AddInitializers": false,
+              "AddImplicitDtors": false,
+              "AddLifetime": false,
+              "AddLoopExit": false,
+              "AddTemporaryDtors": false,
+              "AddScopes": false,
+              "AddStaticInitBranches": false,
+              "AddCXXNewAllocator": false,
+              "AddCXXDefaultInitExprInCtors": false,
+              "AddCXXDefaultInitExprInAggregates": false,
+              "AddRichCXXConstructors": false,
+              "MarkElidedCXXConstructors": false,
+              "AddVirtualBaseBranches": false,
+              "OmitImplicitValueInitializers": false
+            },
+            "limits": {
+              "max_selected_bodies": 1,
+              "max_cfg_blocks": 64,
+              "max_cfg_edges": 128,
+              "max_cfg_members": 512,
+              "max_storage_events": 128
+            }
+          }
+        }
+      ]
+    },
+    "managed-analysis-features": {
+      "type": "object",
+      "properties": {
+        "requested_features": {
+          "enum": [
+            [
+              "source_semantics"
+            ],
+            [
+              "source_semantics",
+              "cfg"
+            ],
+            [
+              "source_semantics",
+              "cfg",
+              "storage_events"
+            ]
+          ]
+        },
+        "analysis_selection": {
+          "$ref": "#/$defs/csharp-choose-analysis-selection"
+        }
+      },
+      "required": [
+        "requested_features"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "requested_features": {
+                "contains": {
+                  "const": "cfg"
+                }
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "analysis_selection"
+            ]
+          },
+          "else": {
+            "not": {
+              "required": [
+                "analysis_selection"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "compiler-flow-analysis-settings": {
+      "type": "object",
+      "properties": {
+        "schema": {
+          "const": "compiler-flow-analysis-settings/1"
+        },
+        "family": {
+          "const": "control_flow"
+        },
+        "policy": {
+          "const": "compiler_cfg_v1"
+        },
+        "requested_features": {
+          "enum": [
+            [
+              "source_semantics",
+              "cfg"
+            ],
+            [
+              "source_semantics",
+              "cfg",
+              "storage_events"
+            ]
+          ]
+        },
+        "analysis_selection": {
+          "$ref": "#/$defs/choose-analysis-selection"
+        }
+      },
+      "required": [
+        "schema",
+        "family",
+        "policy",
+        "requested_features",
+        "analysis_selection"
       ],
       "additionalProperties": false
     }
@@ -27873,7 +28225,14 @@
           "local_column": "block_id",
           "owner_column": "id"
         },
-        "retention": "owner_typed_payload_retained"
+        "retention": "owner_typed_payload_retained",
+        "typed_member_columns": [
+          "operation_id",
+          "ordinal",
+          "correspondence",
+          "phase",
+          "compiler_element_kind"
+        ]
       },
       "compilation_unit": {
         "primary_key": [
@@ -28887,7 +29246,33 @@
       ],
       "hash_form": "SHA256([domain, selected object])"
     },
-    "physical_path_semantics": "Context identity retains path-sensitive semantic values when normalization changes meaning."
+    "physical_path_semantics": "Context identity retains path-sensitive semantic values when normalization changes meaning.",
+    "semantic_input_fingerprint_v2": {
+      "domain": "native-worker-semantic-input/2",
+      "properties": [
+        "snapshot_id",
+        "context_id",
+        "unit_id",
+        "capture_index_fingerprint",
+        "worker",
+        "target",
+        "main_file_key",
+        "files",
+        "options",
+        "path_bindings",
+        "requested_features",
+        "expected_consumed_file_keys",
+        "analysis_selection"
+      ],
+      "files_exclude": [
+        "bytes_base64"
+      ],
+      "path_bindings_exclude": [
+        "physical_path"
+      ],
+      "hash_form": "SHA256([domain, selected object])"
+    },
+    "version_selection": "Absent analysis_selection uses the unchanged /1 recipe; present selection requires cfg and uses /2. Null is never an omitted selection."
   },
   "x-worker-feature-policy": {
     "source_semantics": [
@@ -28979,6 +29364,311 @@
           "The root set is not claimed exhaustive without separate evidence."
         ]
       }
+    }
+  },
+  "x-managed-fingerprints": {
+    "serialization": "canonical JSON no trailing LF",
+    "v1": {
+      "domain": "managed-semantic-input/1",
+      "properties": [
+        "snapshot_id",
+        "context_id",
+        "unit_id",
+        "capture_index_fingerprint",
+        "producer",
+        "files",
+        "requested_features",
+        "expected_consumed_file_keys"
+      ],
+      "requested_features": [
+        "source_semantics"
+      ]
+    },
+    "v2": {
+      "domain": "managed-semantic-input/2",
+      "properties": [
+        "snapshot_id",
+        "context_id",
+        "unit_id",
+        "capture_index_fingerprint",
+        "producer",
+        "files",
+        "requested_features",
+        "expected_consumed_file_keys",
+        "analysis_selection"
+      ]
+    },
+    "files_properties": [
+      "key",
+      "file_version_id",
+      "logical_path",
+      "original_sha256",
+      "byte_length",
+      "encoding",
+      "bom_bytes"
+    ],
+    "file_order": "evaluated Compile order",
+    "hash_form": "SHA256([domain,selected object])",
+    "tool_binding": "Context binds every actual adapter/compiler/shared replay implementation descriptor before source/unit IDs; changing any participating binary requires fresh context and unit."
+  },
+  "x-choose-cfg-policy": {
+    "version": 1,
+    "policy": "choose-cfg/1",
+    "selection_by_language": {
+      "cpp": {
+        "policy": "choose-cfg/1",
+        "selectors": [
+          {
+            "compiler_identity_kind": "compiler",
+            "compiler_key": "c:@N@pilot@F@Choose#I#",
+            "compiler_signature_key": {
+              "calling_convention": "cdecl",
+              "constraints": [],
+              "generic_arity": 0,
+              "kind": "function",
+              "language_linkage": "C++",
+              "name": "Choose",
+              "parameters": [
+                {
+                  "passing": "value",
+                  "type": {
+                    "name": "int",
+                    "tag": "builtin"
+                  }
+                }
+              ],
+              "qualifiers": [],
+              "return_passing": "value",
+              "return_type": {
+                "name": "int",
+                "tag": "builtin"
+              }
+            }
+          }
+        ],
+        "settings": {
+          "schema": "choose-cfg-settings/1",
+          "compiler_cfg_policy": "compiler_cfg_v1",
+          "event_policy": "scalar-local-events/1",
+          "tracked_storage": "owned_non_escaping_scalar",
+          "call_effect_policy": "by_value_cannot_write_tracked_storage",
+          "compiler_options": {
+            "PruneTriviallyFalseEdges": false,
+            "AddEHEdges": false,
+            "AddInitializers": false,
+            "AddImplicitDtors": false,
+            "AddLifetime": false,
+            "AddLoopExit": false,
+            "AddTemporaryDtors": false,
+            "AddScopes": false,
+            "AddStaticInitBranches": false,
+            "AddCXXNewAllocator": false,
+            "AddCXXDefaultInitExprInCtors": false,
+            "AddCXXDefaultInitExprInAggregates": false,
+            "AddRichCXXConstructors": false,
+            "MarkElidedCXXConstructors": false,
+            "AddVirtualBaseBranches": false,
+            "OmitImplicitValueInitializers": false
+          },
+          "limits": {
+            "max_selected_bodies": 1,
+            "max_cfg_blocks": 64,
+            "max_cfg_edges": 128,
+            "max_cfg_members": 512,
+            "max_storage_events": 128
+          }
+        }
+      },
+      "csharp": {
+        "policy": "choose-cfg/1",
+        "selectors": [
+          {
+            "compiler_identity_kind": "compiler",
+            "compiler_key": "M:Pilot.Arithmetic.Choose(System.Int32)",
+            "compiler_signature_key": {
+              "calling_convention": null,
+              "constraints": [],
+              "generic_arity": 0,
+              "kind": "method",
+              "language_linkage": null,
+              "name": "Choose",
+              "parameters": [
+                {
+                  "passing": "value",
+                  "type": {
+                    "name": "System.Int32",
+                    "tag": "builtin"
+                  }
+                }
+              ],
+              "qualifiers": [
+                "static"
+              ],
+              "return_passing": "value",
+              "return_type": {
+                "name": "System.Int32",
+                "tag": "builtin"
+              }
+            }
+          }
+        ],
+        "settings": {
+          "schema": "choose-cfg-settings/1",
+          "compiler_cfg_policy": "compiler_cfg_v1",
+          "event_policy": "scalar-local-events/1",
+          "tracked_storage": "owned_non_escaping_scalar",
+          "call_effect_policy": "by_value_cannot_write_tracked_storage",
+          "compiler_options": {
+            "graph_creation": "ControlFlowGraph.Create(parentless_method_body)",
+            "correspondence_policy": "same_body_unique_syntax_kind_semantics/1"
+          },
+          "limits": {
+            "max_selected_bodies": 1,
+            "max_cfg_blocks": 64,
+            "max_cfg_edges": 128,
+            "max_cfg_members": 512,
+            "max_storage_events": 128
+          }
+        }
+      }
+    },
+    "settings_definition": "#/$defs/compiler-flow-analysis-settings",
+    "reason_codes": [
+      "not_requested",
+      "not_selected",
+      "no_selected_body",
+      "not_selected_bodies",
+      "selection_no_match",
+      "selection_multiple_matches",
+      "unsupported_selector",
+      "cfg_correspondence_missing",
+      "cfg_correspondence_ambiguous",
+      "unsupported_cfg_element",
+      "unsupported_successor_semantics",
+      "unsupported_storage_effect",
+      "max_selected_bodies",
+      "max_cfg_blocks",
+      "max_cfg_edges",
+      "max_cfg_members",
+      "max_storage_events",
+      "required_cfg_unavailable",
+      "cancelled",
+      "time_budget",
+      "record_budget",
+      "selected_body_partial",
+      "selected_body_failed"
+    ],
+    "selection_rule": "Exactly one body owner matches the full compiler identity kind/key/signature. Zero/multiple matches fail; source name/span equality is insufficient. Source-only requests forbid analysis_selection.",
+    "coverage": {
+      "source_features": "All source feature coverage remains based on source extraction independently of selected analysis.",
+      "selected_body": "Choose only; complete requires graph and, when requested, scalar events validated.",
+      "other_bodies": {
+        "status": "not_attempted",
+        "reason": "not_selected",
+        "entry_block_key": null,
+        "exit_block_key": null,
+        "blocks": [],
+        "edges": []
+      },
+      "file_with_unselected_bodies": {
+        "status": "partial",
+        "reason": "not_selected_bodies"
+      },
+      "unrequested_events": {
+        "status": "not_attempted",
+        "reason": "not_requested"
+      },
+      "aggregate": "The frozen four-body pilot has partial/not_selected_bodies overall; a complete selected Choose graph does not establish whole-file complete flow.",
+      "file_without_executable_body": {
+        "status": "not_attempted",
+        "reason": "no_selected_body"
+      },
+      "selected_failure": "File and aggregate reason selected_body_partial or selected_body_failed takes precedence over not_selected_bodies; exact body reason and located diagnostic remain mandatory."
+    },
+    "limits": {
+      "max_selected_bodies": 1,
+      "max_cfg_blocks": 64,
+      "max_cfg_edges": 128,
+      "max_cfg_members": 512,
+      "max_storage_events": 128
+    },
+    "counting": "Every block, member, edge and storage event also counts toward existing max_records; max_cfg_members sums members across all blocks. Existing max_operations/input/result/deadline/memory budgets still apply. No limit truncates an export.",
+    "cfg_input_fingerprint": {
+      "domain": "compiler-cfg-input/1",
+      "components": [
+        "snapshot_id",
+        "context_id",
+        "unit_id",
+        "body_id",
+        "source_semantic_input_fingerprint",
+        "source_view_fingerprint",
+        "producer_tool_id",
+        "validator_tool_id",
+        "normalizer_tool_id",
+        "normalizer_input_fingerprint",
+        "settings"
+      ],
+      "hash_form": "SHA256(CanonicalJson([domain,componentsObject])) without LF",
+      "settings_definition": "#/$defs/compiler-flow-analysis-settings",
+      "source_view_contract": "../m1/m1c-common-flow-design.md#proposed-fingerprint-preimages-to-freeze-before-code",
+      "tool_binding": "All tool IDs resolve to actual binary version/content descriptors. Core validator/replay must be declared before evaluated context IDs. Normalizer is independently evidenced without changing frozen context tools.",
+      "excludes": [
+        "own_result_id",
+        "block_ids",
+        "wall_clock_times",
+        "flow_outputs",
+        "derived_coverage",
+        "collection_state_transitions"
+      ]
+    },
+    "historical_schema": "Prior cfg_operation definitions lacking any required correspondence/phase/compiler_element_kind field are rejected. Create a fresh collecting generation; no implicit migration.",
+    "pilot_correspondence": [
+      "clang_ast_pointer",
+      "roslyn_unique_source"
+    ],
+    "unsupported_correspondence": [
+      "explicit_lowered"
+    ],
+    "native_default_members": {
+      "alwaysAddMask": "empty; no setAlwaysAdd/setAllAlwaysAdd override",
+      "forcedBlkExprs": null,
+      "Observer": null
+    }
+  },
+  "x-scalar-event-policies": {
+    "scalar-local-events/1": {
+      "tracked_storage": "owned_non_escaping_scalar",
+      "call_effect_policy": "by_value_cannot_write_tracked_storage",
+      "event_kinds": [
+        "parameter_definition",
+        "read",
+        "write",
+        "unknown_effect"
+      ],
+      "phases": [
+        "entry",
+        "condition",
+        "argument",
+        "assignment",
+        "return",
+        "call"
+      ],
+      "unknown_effect_reason": "unsupported_storage_effect",
+      "proof": "Complete frozen Choose source tree; owned builtin-int parameter/local; no field/shared storage,address/ref/out/capture,unsupported operations; exact resolved Add(int,int) with both value parameters. Failure makes located unknown_effect/partial; no callee purity or known return value.",
+      "order": "Evaluate reads before assignment write; visit condition only for terminator; parameter entry uses its declaration origin.",
+      "deduplication_key": [
+        "block_key",
+        "operation_key",
+        "event_kind",
+        "storage_entity_key"
+      ],
+      "parameter_entry_key": [
+        "block_key",
+        "storage_entity_key",
+        "parameter_definition"
+      ],
+      "replay": "Reconstruct from canonical source and typed CFG membership; compare exact ordered adapter tuples. Never persist event arrays in settings/evidence/extensions.",
+      "broader_effects": "Nonlocal/shared memory effects and returned values remain uncollected/unknown, not inferred pure."
     }
   }
 }

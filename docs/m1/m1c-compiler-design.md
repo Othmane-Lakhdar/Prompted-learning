@@ -1,9 +1,10 @@
 # M1C1 compiler CFG and scalar-event design
 
-Status: design proposal, not an implementation or gate pass. M1B is published
-at e8c6cca9162a860f49fd2568f33f1491db4d52d6. M1C0 must first complete the
-normalized direct-call source facts recorded in M1BSEQ001. The coordinator must
-open M1C1 before its compiler, validation, import or test implementation starts.
+Status: reviewed design with the independent native oracle below; this is not
+an adapter implementation or M1C1 gate pass. M1C0 passed and was published at
+4f1e2659be63000a1a35fe0582cae5a39e5d0a6c. The coordinator authorized the native
+oracle prerequisite after that publication. A005 and the applicable review gates
+must pass before compiler, validation, import or test implementation starts.
 
 This document applies to the two frozen Choose bodies only. It preserves the
 full [T04 requirements](../specifications/tasks.md#t04-derive-flow-calls-and-reachability)
@@ -27,14 +28,16 @@ The [Clang source oracle](../m0/evidence/pilot-clang-ast-oracle.log) proves the
 22 source nodes and four implicit casts. The earlier native capability test
 established one Choose CFG with one two-successor branch, but did not preserve
 its block IDs, ordered CFG elements or AST-pointer correspondence. Those
-details are **not yet observed evidence**. A bounded independent native oracle,
-authorized only after M1C0, must record those details before native CFG golden
-expectations are frozen. The probe must use the exact source hashes, target,
-Clang version and CFG options below. Preserve sanitized compiler block IDs,
-element kinds, mapped source paths, terminator/condition paths, successors and
-command/tool/input hashes; never persist allocation addresses.
+details were **not observed evidence** when the original design was reviewed.
+The bounded [independent native oracle](evidence/native-cfg-oracle.json) now
+records those details after M1C0, using the exact source hashes, target,
+Clang version and CFG options below. Its [execution manifest](evidence/native-cfg-oracle-execution.json)
+retains commands, tool/input hashes and successful configure/build/run evidence.
+The native table addendum freezes the observations before adapter implementation.
+No allocation addresses are persisted.
 
-No compiler probe, build or implementation test was run for this design.
+The native prerequisite probe was built and run once. No production CFG adapter,
+storage-event implementation or scalar-dataflow test was run for this design.
 
 ## A005 required before implementation
 
@@ -186,14 +189,14 @@ because block 1 has ConditionKind=WhenFalse; fallthrough is the true successor.
 Block 4's Return branch semantics makes its edge a return, despite the edge
 occupying the compiler's fallthrough property.
 
-The native graph must implement the same six-role transition relation and
-exact source paths below. Its numeric block IDs, number of compiler elements,
-member order and any empty subdivisions are not asserted as observed until
-the missing oracle is captured. The native oracle must establish true/false
-successor semantics from IfStmt/CFG API semantics, not copy Roslyn ordinals or
-assume that successor position alone is a universal branch rule. Freeze the
-resulting exact native table before adapter tests are written; discrepancies
-must be logged rather than silently changing expectations to fit the adapter.
+The native graph implements the same six-role transition relation and exact
+source paths below. Its observed numeric IDs, member order and branch meanings
+are frozen in the native table addendum. The probe establishes true/false
+successor semantics by matching each successor's assignment AST to the actual
+IfStmt then/else source subtree, independently of successor position. It does
+not copy Roslyn ordinals or treat successor position as a universal branch rule.
+Adapter discrepancies must be logged rather than changing this independent
+oracle to fit the adapter.
 
 ## Exact scalar storage-event expectations
 
@@ -356,5 +359,69 @@ Design inspection confirms the existing JSON wire has typed blocks, members,
 edges and events and the SQL has CFG/result payloads but no storage-event table.
 The existing SQL member table omits three required wire/provenance fields;
 A005 must close that identified gap before dependent implementation.
-The new document's relative links were checked separately. All execution,
-amendment and implementation checks listed above remain not run/pending.
+The relative links were checked separately. M1C0 and the bounded native oracle
+are now executed; A005 acceptance and production compiler-flow implementation
+remain separate gates.
+
+## Native oracle observations frozen after M1C0
+
+The independent [probe source](../../tools/preflight/clang-cfg-oracle/main.cpp)
+uses Clang 19.1.7 with the sixteen explicit false BuildOptions above and no
+always-add override. The only parser-visible files are the two frozen buffers
+in its InMemoryFileSystem. It verifies their original byte lengths and hashes
+before parsing. The executable links the pinned Clang/LLVM libraries directly,
+without the extractor, canonical storage or scalar-event implementation.
+
+Observed on 2026-11-17: six blocks, seven forward CFGStmt members and six edges;
+entry is block 5 and exit is block 0. Each of the seven member pointers, the
+IfStmt terminator and its condition resolves in the same retained source AST
+map. All 22 source nodes, including DeclStmt/VarDecl and four implicit casts,
+remain distinct. No unmapped pointer, unsupported element, null/pruned successor
+or compiler diagnostic occurred. These zero counts are actual successful probe
+checks, not substitutes for missing observations.
+
+| Block | Role | Forward compiler members (ordinal: path, AST kind) | Outgoing compiler order |
+| --- | --- | --- | --- |
+| 0 | exit | none | none |
+| 1 | return | 0: 0/2/0, ImplicitCastExpr; 1: 0/2, ReturnStmt | 0: return to 0 |
+| 2 | false assignment | 0: 0/1/2, BinaryOperator | 0: continuation to 1 |
+| 3 | true assignment | 0: 0/1/1/1, CallExpr; 1: 0/1/1, BinaryOperator | 0: continuation to 1 |
+| 4 | declaration and condition | 0: 0/0, DeclStmt; 1: 0/1/0, BinaryOperator | 0: true_branch to 3; 1: false_branch to 2 |
+| 5 | entry | none | 0: continuation to 4 |
+
+Block 4 has terminator IfStmt at source path 0/1 and condition path 0/1/0.
+The condition is already a compiler member. Freeze the carrier mapping as
+follows: all seven actual CFGStmt members retain their forward ordinal,
+correspondence=clang_ast_pointer, phase=evaluation and
+compiler_element_kind=Statement. Append the previously absent IfStmt reference
+to block 4 at ordinal 2, phase=terminator, compiler_element_kind=IfStmt.
+The carrier therefore has **eight source-operation member references**;
+the raw compiler observation still has **seven CFGStmt elements**. Do not
+duplicate the condition or invent a separate VarDecl CFG member. The ReturnStmt
+remains an actual evaluation member while its outgoing edge is classified return.
+The added terminator is a source AST reference with a distinct declared phase,
+not a claim that Clang emitted an eighth CFGStmt.
+
+The six predeclared scalar event positions map to native blocks as follows:
+parameter entry to 5; condition read to 4; argument read then assignment write
+to 3; false assignment write to 2; return read to 1. The probe independently
+checks unique block containment of the five written source-operation paths.
+It does not emit storage events or claim that scalar replay/dataflow is tested.
+Its parameter observation reports the definition parameter span in the source;
+the eventual entry event still uses the canonical parameter's retained
+declaration span in the header, as required above.
+
+CallExpr followed by its enclosing assignment in block 3, and ImplicitCastExpr
+followed by its enclosing ReturnStmt in block 1, independently demonstrate why
+replay must deduplicate reads across overlapping compiler elements. Block 4's
+uninitialized DeclStmt must not invent a definition. The IfStmt terminator
+must only replay its condition, never traverse both branch bodies again.
+
+Raw and retained oracle JSON are identical UTF-8/LF bytes:
+caf4a6abaaf19536e5cd897b5f5ba368ad31191d3a60adbccdce6ffb5f2102c6.
+Probe executable SHA-256:
+56341ae8b4e5e03cce3eadfd0f67341f3f653bc4bea373d72c3d1caa4178b534.
+The build/run commands and all input/tool/source bindings are in the execution
+manifest. The production native worker was not rebuilt; its prior SHA-256
+954bd0629a3c21899116332346221ccf184ea74e8fb3c47c3ff2f08c5189092a
+was rechecked unchanged.

@@ -12,3 +12,6 @@ docs/m0/*.txt text eol=lf
 docs/m0/evidence/** text eol=lf
 docs/m0/*.py text eol=lf
 tools/preflight/roslyn-oracle/Program.cs text eol=lf
+
+# Published milestone evidence and design digests use canonical LF bytes.
+docs/m1/** text eol=lf

@@ -1,0 +1,556 @@
+{
+  "blocks": [
+    {
+      "block_id": 0,
+      "condition_source_path": null,
+      "kind": "exit",
+      "members": [],
+      "predecessor_block_ids": [
+        1
+      ],
+      "successors": [],
+      "terminator_source_path": null
+    },
+    {
+      "block_id": 1,
+      "condition_source_path": null,
+      "kind": "ordinary",
+      "members": [
+        {
+          "compiler_kind": "ImplicitCastExpr",
+          "element_kind": "Statement",
+          "ordinal": 0,
+          "origin": {
+            "end_byte": 400,
+            "file": "Arithmetic.cpp",
+            "start_byte": 394
+          },
+          "same_ast_pointer": true,
+          "source_path": "0/2/0"
+        },
+        {
+          "compiler_kind": "ReturnStmt",
+          "element_kind": "Statement",
+          "ordinal": 1,
+          "origin": {
+            "end_byte": 400,
+            "file": "Arithmetic.cpp",
+            "start_byte": 387
+          },
+          "same_ast_pointer": true,
+          "source_path": "0/2"
+        }
+      ],
+      "predecessor_block_ids": [
+        2,
+        3
+      ],
+      "successors": [
+        {
+          "condition_source_path": null,
+          "kind": "return",
+          "ordinal": 0,
+          "source_branch_body_witness": null,
+          "target_block_id": 0
+        }
+      ],
+      "terminator_source_path": null
+    },
+    {
+      "block_id": 2,
+      "condition_source_path": null,
+      "kind": "ordinary",
+      "members": [
+        {
+          "compiler_kind": "BinaryOperator",
+          "element_kind": "Statement",
+          "ordinal": 0,
+          "origin": {
+            "end_byte": 381,
+            "file": "Arithmetic.cpp",
+            "start_byte": 371
+          },
+          "same_ast_pointer": true,
+          "source_path": "0/1/2"
+        }
+      ],
+      "predecessor_block_ids": [
+        4
+      ],
+      "successors": [
+        {
+          "condition_source_path": null,
+          "kind": "continuation",
+          "ordinal": 0,
+          "source_branch_body_witness": null,
+          "target_block_id": 1
+        }
+      ],
+      "terminator_source_path": null
+    },
+    {
+      "block_id": 3,
+      "condition_source_path": null,
+      "kind": "ordinary",
+      "members": [
+        {
+          "compiler_kind": "CallExpr",
+          "element_kind": "Statement",
+          "ordinal": 0,
+          "origin": {
+            "end_byte": 352,
+            "file": "Arithmetic.cpp",
+            "start_byte": 339
+          },
+          "same_ast_pointer": true,
+          "source_path": "0/1/1/1"
+        },
+        {
+          "compiler_kind": "BinaryOperator",
+          "element_kind": "Statement",
+          "ordinal": 1,
+          "origin": {
+            "end_byte": 352,
+            "file": "Arithmetic.cpp",
+            "start_byte": 330
+          },
+          "same_ast_pointer": true,
+          "source_path": "0/1/1"
+        }
+      ],
+      "predecessor_block_ids": [
+        4
+      ],
+      "successors": [
+        {
+          "condition_source_path": null,
+          "kind": "continuation",
+          "ordinal": 0,
+          "source_branch_body_witness": null,
+          "target_block_id": 1
+        }
+      ],
+      "terminator_source_path": null
+    },
+    {
+      "block_id": 4,
+      "condition_source_path": "0/1/0",
+      "kind": "ordinary",
+      "members": [
+        {
+          "compiler_kind": "DeclStmt",
+          "element_kind": "Statement",
+          "ordinal": 0,
+          "origin": {
+            "end_byte": 302,
+            "file": "Arithmetic.cpp",
+            "start_byte": 291
+          },
+          "same_ast_pointer": true,
+          "source_path": "0/0"
+        },
+        {
+          "compiler_kind": "BinaryOperator",
+          "element_kind": "Statement",
+          "ordinal": 1,
+          "origin": {
+            "end_byte": 320,
+            "file": "Arithmetic.cpp",
+            "start_byte": 311
+          },
+          "same_ast_pointer": true,
+          "source_path": "0/1/0"
+        }
+      ],
+      "predecessor_block_ids": [
+        5
+      ],
+      "successors": [
+        {
+          "condition_source_path": "0/1/0",
+          "kind": "true_branch",
+          "ordinal": 0,
+          "source_branch_body_witness": "0/1/1",
+          "target_block_id": 3
+        },
+        {
+          "condition_source_path": "0/1/0",
+          "kind": "false_branch",
+          "ordinal": 1,
+          "source_branch_body_witness": "0/1/2",
+          "target_block_id": 2
+        }
+      ],
+      "terminator_source_path": "0/1"
+    },
+    {
+      "block_id": 5,
+      "condition_source_path": null,
+      "kind": "entry",
+      "members": [],
+      "predecessor_block_ids": [],
+      "successors": [
+        {
+          "condition_source_path": null,
+          "kind": "continuation",
+          "ordinal": 0,
+          "source_branch_body_witness": null,
+          "target_block_id": 4
+        }
+      ],
+      "terminator_source_path": null
+    }
+  ],
+  "cfg_block_count": 6,
+  "cfg_build_options": {
+    "AddCXXDefaultInitExprInAggregates": false,
+    "AddCXXDefaultInitExprInCtors": false,
+    "AddCXXNewAllocator": false,
+    "AddEHEdges": false,
+    "AddImplicitDtors": false,
+    "AddInitializers": false,
+    "AddLifetime": false,
+    "AddLoopExit": false,
+    "AddRichCXXConstructors": false,
+    "AddScopes": false,
+    "AddStaticInitBranches": false,
+    "AddTemporaryDtors": false,
+    "AddVirtualBaseBranches": false,
+    "MarkElidedCXXConstructors": false,
+    "OmitImplicitValueInitializers": false,
+    "PruneTriviallyFalseEdges": false,
+    "setAllAlwaysAdd": false
+  },
+  "cfg_member_count": 7,
+  "clang_version": "19.1.7",
+  "compiler_arguments": [
+    "clang-tool",
+    "-fsyntax-only",
+    "-x",
+    "c++",
+    "-std=c++17",
+    "--target=x86_64-pc-windows-msvc",
+    "-fms-extensions",
+    "-fms-compatibility",
+    "-fms-compatibility-version=19.44",
+    "-DNDEBUG",
+    "-nostdinc",
+    "-fno-delayed-template-parsing",
+    "-IX:/__capture/native",
+    "X:/__capture/native/Arithmetic.cpp"
+  ],
+  "entry_block_id": 5,
+  "exit_block_id": 0,
+  "function_usr": "c:@N@pilot@F@Choose#I#",
+  "inputs": [
+    {
+      "byte_length": 451,
+      "name": "Arithmetic.cpp",
+      "sha256": "0d45a74df34e1dc8e656f0c9e15adb7235a52672b06063ea74760aaa603a2603"
+    },
+    {
+      "byte_length": 179,
+      "name": "Arithmetic.hpp",
+      "sha256": "c4b178701eee5e955b7d34209334d84765296f61c4e2c22a3cf6a99c5134e2fd"
+    }
+  ],
+  "predeclared_scalar_source_point_observations": [
+    {
+      "block_id": 5,
+      "definition_parameter_origin": {
+        "end_byte": 283,
+        "file": "Arithmetic.cpp",
+        "start_byte": 274
+      },
+      "parameter_ordinal": 0,
+      "role": "parameter_entry",
+      "source_path": null
+    },
+    {
+      "containing_block_ids": [
+        4
+      ],
+      "origin": {
+        "end_byte": 316,
+        "file": "Arithmetic.cpp",
+        "start_byte": 311
+      },
+      "role": "condition_read",
+      "source_path": "0/1/0/0/0"
+    },
+    {
+      "containing_block_ids": [
+        3
+      ],
+      "origin": {
+        "end_byte": 348,
+        "file": "Arithmetic.cpp",
+        "start_byte": 343
+      },
+      "role": "argument_read",
+      "source_path": "0/1/1/1/1/0"
+    },
+    {
+      "containing_block_ids": [
+        3
+      ],
+      "origin": {
+        "end_byte": 352,
+        "file": "Arithmetic.cpp",
+        "start_byte": 330
+      },
+      "role": "true_assignment",
+      "source_path": "0/1/1"
+    },
+    {
+      "containing_block_ids": [
+        2
+      ],
+      "origin": {
+        "end_byte": 381,
+        "file": "Arithmetic.cpp",
+        "start_byte": 371
+      },
+      "role": "false_assignment",
+      "source_path": "0/1/2"
+    },
+    {
+      "containing_block_ids": [
+        1
+      ],
+      "origin": {
+        "end_byte": 400,
+        "file": "Arithmetic.cpp",
+        "start_byte": 394
+      },
+      "role": "return_read",
+      "source_path": "0/2/0/0"
+    }
+  ],
+  "producer": "independent native compiler CFG observation; not extractor or storage-event analysis",
+  "source_node_count": 22,
+  "source_nodes": [
+    {
+      "compiler_kind": "CompoundStmt",
+      "implicit": false,
+      "origin": {
+        "end_byte": 403,
+        "file": "Arithmetic.cpp",
+        "start_byte": 285
+      },
+      "path": "0"
+    },
+    {
+      "compiler_kind": "DeclStmt",
+      "implicit": false,
+      "origin": {
+        "end_byte": 302,
+        "file": "Arithmetic.cpp",
+        "start_byte": 291
+      },
+      "path": "0/0"
+    },
+    {
+      "compiler_kind": "VarDecl",
+      "implicit": false,
+      "origin": {
+        "end_byte": 301,
+        "file": "Arithmetic.cpp",
+        "start_byte": 291
+      },
+      "path": "0/0/0"
+    },
+    {
+      "compiler_kind": "IfStmt",
+      "implicit": false,
+      "origin": {
+        "end_byte": 381,
+        "file": "Arithmetic.cpp",
+        "start_byte": 307
+      },
+      "path": "0/1"
+    },
+    {
+      "compiler_kind": "BinaryOperator",
+      "implicit": false,
+      "origin": {
+        "end_byte": 320,
+        "file": "Arithmetic.cpp",
+        "start_byte": 311
+      },
+      "path": "0/1/0"
+    },
+    {
+      "compiler_kind": "ImplicitCastExpr",
+      "implicit": true,
+      "origin": {
+        "end_byte": 316,
+        "file": "Arithmetic.cpp",
+        "start_byte": 311
+      },
+      "path": "0/1/0/0"
+    },
+    {
+      "compiler_kind": "DeclRefExpr",
+      "implicit": false,
+      "origin": {
+        "end_byte": 316,
+        "file": "Arithmetic.cpp",
+        "start_byte": 311
+      },
+      "path": "0/1/0/0/0"
+    },
+    {
+      "compiler_kind": "IntegerLiteral",
+      "implicit": false,
+      "origin": {
+        "end_byte": 320,
+        "file": "Arithmetic.cpp",
+        "start_byte": 319
+      },
+      "path": "0/1/0/1"
+    },
+    {
+      "compiler_kind": "BinaryOperator",
+      "implicit": false,
+      "origin": {
+        "end_byte": 352,
+        "file": "Arithmetic.cpp",
+        "start_byte": 330
+      },
+      "path": "0/1/1"
+    },
+    {
+      "compiler_kind": "DeclRefExpr",
+      "implicit": false,
+      "origin": {
+        "end_byte": 336,
+        "file": "Arithmetic.cpp",
+        "start_byte": 330
+      },
+      "path": "0/1/1/0"
+    },
+    {
+      "compiler_kind": "CallExpr",
+      "implicit": false,
+      "origin": {
+        "end_byte": 352,
+        "file": "Arithmetic.cpp",
+        "start_byte": 339
+      },
+      "path": "0/1/1/1"
+    },
+    {
+      "compiler_kind": "ImplicitCastExpr",
+      "implicit": true,
+      "origin": {
+        "end_byte": 342,
+        "file": "Arithmetic.cpp",
+        "start_byte": 339
+      },
+      "path": "0/1/1/1/0"
+    },
+    {
+      "compiler_kind": "DeclRefExpr",
+      "implicit": false,
+      "origin": {
+        "end_byte": 342,
+        "file": "Arithmetic.cpp",
+        "start_byte": 339
+      },
+      "path": "0/1/1/1/0/0"
+    },
+    {
+      "compiler_kind": "ImplicitCastExpr",
+      "implicit": true,
+      "origin": {
+        "end_byte": 348,
+        "file": "Arithmetic.cpp",
+        "start_byte": 343
+      },
+      "path": "0/1/1/1/1"
+    },
+    {
+      "compiler_kind": "DeclRefExpr",
+      "implicit": false,
+      "origin": {
+        "end_byte": 348,
+        "file": "Arithmetic.cpp",
+        "start_byte": 343
+      },
+      "path": "0/1/1/1/1/0"
+    },
+    {
+      "compiler_kind": "IntegerLiteral",
+      "implicit": false,
+      "origin": {
+        "end_byte": 351,
+        "file": "Arithmetic.cpp",
+        "start_byte": 350
+      },
+      "path": "0/1/1/1/2"
+    },
+    {
+      "compiler_kind": "BinaryOperator",
+      "implicit": false,
+      "origin": {
+        "end_byte": 381,
+        "file": "Arithmetic.cpp",
+        "start_byte": 371
+      },
+      "path": "0/1/2"
+    },
+    {
+      "compiler_kind": "DeclRefExpr",
+      "implicit": false,
+      "origin": {
+        "end_byte": 377,
+        "file": "Arithmetic.cpp",
+        "start_byte": 371
+      },
+      "path": "0/1/2/0"
+    },
+    {
+      "compiler_kind": "IntegerLiteral",
+      "implicit": false,
+      "origin": {
+        "end_byte": 381,
+        "file": "Arithmetic.cpp",
+        "start_byte": 380
+      },
+      "path": "0/1/2/1"
+    },
+    {
+      "compiler_kind": "ReturnStmt",
+      "implicit": false,
+      "origin": {
+        "end_byte": 400,
+        "file": "Arithmetic.cpp",
+        "start_byte": 387
+      },
+      "path": "0/2"
+    },
+    {
+      "compiler_kind": "ImplicitCastExpr",
+      "implicit": true,
+      "origin": {
+        "end_byte": 400,
+        "file": "Arithmetic.cpp",
+        "start_byte": 394
+      },
+      "path": "0/2/0"
+    },
+    {
+      "compiler_kind": "DeclRefExpr",
+      "implicit": false,
+      "origin": {
+        "end_byte": 400,
+        "file": "Arithmetic.cpp",
+        "start_byte": 394
+      },
+      "path": "0/2/0/0"
+    }
+  ],
+  "unmapped_pointer_count": 0,
+  "unsupported_cfg_element_count": 0
+}

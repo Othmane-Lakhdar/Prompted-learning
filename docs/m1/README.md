@@ -45,3 +45,7 @@ The source-relations-input/1 fingerprint binds the consumed source rows, source 
 ## Weekly usage
 
 The full user policy is appended to [AGENTS.md](../../AGENTS.md). The coordinator and subagents check reliable weekly usage at bounded checkpoints, stop new substantive work at15% remaining or when reliable quota is unavailable, preserve changes and handoffs in PROJECT_STATE.md, and wait for explicit authorization after safe shutdown. Credits and resets are never used automatically.
+
+## M1C1 prerequisites
+
+The [C1 prerequisite gate](evidence/gate-m1c1-prerequisites.json) passed independent review and100/100 source-only compatibility tests under A005. Exact Choose selection, feature-bound fingerprints, typed CFG member provenance and the independent native oracle are frozen. The [common flow design](m1c-common-flow-design.md) fixes validation/replay/import boundaries. Product CFG/events and persisted replay remain to be implemented; this gate does not claim those features.

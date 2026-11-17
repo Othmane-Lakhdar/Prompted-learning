@@ -97,7 +97,11 @@ def semantic_fingerprint(request):
         del file['bytes_base64']
     for binding in selected['path_bindings']:
         del binding['physical_path']
-    return digest(canonical(['native-worker-semantic-input/1', selected]))
+    domain = 'native-worker-semantic-input/1'
+    if 'analysis_selection' in request:
+        selected['analysis_selection'] = copy.deepcopy(request['analysis_selection'])
+        domain = 'native-worker-semantic-input/2'
+    return digest(canonical([domain, selected]))
 
 
 def rehash(request, result=None):
@@ -349,9 +353,10 @@ def validate_result(request, result, correspondence_candidates, publication=True
 
 
 def make_fixture():
-    raw = '// café 😀\r\nint f(int value) { return value; }\r\n'.encode('utf8')
+    raw = '// café 😀\r\nnamespace pilot { int Choose(int value) { return value; } }\r\n'.encode('utf8')
     request = {'schema': 'native-worker-request/1', 'request_id': 'synthetic-contract-case', 'snapshot_id': 'snapshot:' + '1' * 64, 'context_id': 'build_context:' + '2' * 64, 'unit_id': 'compilation_unit:' + '3' * 64, 'capture_index_fingerprint': '4' * 64, 'semantic_input_fingerprint': '5' * 64, 'worker': {'name': 'prompted-learning-clang-worker', 'version': 'contract-fixture-1', 'clang_version': '19.1.7', 'binary_sha256': '6' * 64}, 'target': {'triple': 'x86_64-pc-windows-msvc', 'language_standard': 'c++17', 'ms_compatibility_version': '19.44'}, 'main_file_key': 'file:main', 'files': [{'key': 'file:main', 'file_version_id': 'file_version:' + '7' * 64, 'logical_path': 'pilot/main.cpp', 'original_sha256': digest(raw), 'byte_length': len(raw), 'encoding': 'utf-8', 'bom_bytes': 0, 'bytes_base64': base64.b64encode(raw).decode('ascii')}], 'options': [], 'path_bindings': [], 'budgets': {'time_ms': 10000, 'memory_bytes': 1048576, 'max_input_bytes': 1048576, 'max_result_bytes': 1048576, 'max_records': 100, 'max_operations': 100}}
     request['requested_features'] = ['source_semantics', 'cfg', 'storage_events']
+    request['analysis_selection'] = copy.deepcopy(CONTRACT['x-choose-cfg-policy']['selection_by_language']['cpp'])
     request['phase'] = 'final'
     request['expected_consumed_file_keys'] = ['file:main']
     rehash(request)
@@ -360,12 +365,13 @@ def make_fixture():
     result['consumed_file_keys'] = ['file:main']
     for family in ('spans', 'entities', 'types', 'signatures', 'appearances', 'bodies', 'operations', 'control_flow', 'external_symbols', 'unresolved_references', 'coverage', 'diagnostics', 'discovery_requests', 'entity_modifiers', 'annotations', 'preprocessing'):
         result[family] = []
-    result['spans'] = [{'key': 'span:body', 'file_key': 'file:main', 'start_byte': raw.index(b'{'), 'end_byte': raw.index(b'}') + 1, 'origin_kind': 'written', 'origin_stack': [], 'cause_span_key': None}]
+    result['spans'] = [{'key': 'span:body', 'file_key': 'file:main', 'start_byte': raw.index(b'{', raw.index(b'Choose')), 'end_byte': raw.index(b'}') + 1, 'origin_kind': 'written', 'origin_stack': [], 'cause_span_key': None}]
     def entity(key, kind, owner=None, ordinal=None):
-        return {'key': key, 'entity_kind': kind, 'written_name': key.split(':')[1], 'qualified_name': key.split(':')[1], 'compiler_identity_kind': 'parameter' if owner else 'compiler', 'compiler_key': None if owner else 'c:@F@f#I#', 'owner_entity_key': owner, 'declared_ordinal': ordinal, 'origin_span_key': 'span:body', 'linkage': 'no_linkage' if owner else 'external', 'access': None, 'compiler_signature_key': None, 'compiler_type_key': None, 'origin': 'written', 'resolution': 'resolved'}
+        return {'key': key, 'entity_kind': kind, 'written_name': key.split(':')[1], 'qualified_name': key.split(':')[1], 'compiler_identity_kind': 'parameter' if owner else 'compiler', 'compiler_key': None if owner else 'c:@N@pilot@F@Choose#I#', 'owner_entity_key': owner, 'declared_ordinal': ordinal, 'origin_span_key': 'span:body', 'linkage': 'no_linkage' if owner else 'external', 'access': None, 'compiler_signature_key': None, 'compiler_type_key': None, 'origin': 'written', 'resolution': 'resolved'}
     result['entities'] = [entity('entity:f', 'function'), entity('entity:value', 'parameter', 'entity:f', 0)]
     int_type = {'tag': 'builtin', 'name': 'int'}
-    signature_key = {'kind': 'function', 'name': 'f', 'generic_arity': 0, 'parameters': [{'type': int_type, 'passing': 'value'}], 'return_type': int_type, 'return_passing': 'value', 'qualifiers': [], 'calling_convention': None, 'language_linkage': 'C++', 'constraints': []}
+    signature_key = copy.deepcopy(request['analysis_selection']['selectors'][0]['compiler_signature_key'])
+    result['entities'][0].update(written_name='Choose', qualified_name='pilot::Choose')
     result['entities'][0]['compiler_signature_key'] = signature_key
     result['entities'][1]['compiler_type_key'] = int_type
     result['types'] = [{'key': 'type:int', 'compiler_type_key': int_type, 'named_entity_key': None, 'element_type_key': None, 'argument_type_keys': []}]
@@ -375,7 +381,7 @@ def make_fixture():
         return {'key': key, 'body_key': 'body:f', 'structural_path': path, 'parent_operation_key': parent, 'child_ordinal': ordinal, 'child_role': role, 'representation': 'semantic', 'operation_kind': kind, 'compiler_kind': {'block': 'CompoundStmt', 'return': 'ReturnStmt', 'reference': 'DeclRefExpr'}[kind], 'span_key': 'span:body', 'cause_span_key': None, 'implicit': False, 'semantic_role': role, 'execution_point': None, 'type_key': None, 'referenced_entity_key': 'entity:value' if kind == 'reference' else None, 'operator_kind': None, 'constant': None, 'operands': [], 'supported': True, 'unsupported_reason': None}
     result['operations'] = [operation('operation:root', 'block', [0], None, None, 'body'), operation('operation:return', 'return', [0, 0], 'operation:root', 0, 'return'), operation('operation:read', 'reference', [0, 0, 0], 'operation:return', 0, 'read')]
     def event(key, ordinal, kind, operation_key):
-        return {'key': key, 'ordinal': ordinal, 'event_kind': kind, 'storage_entity_key': 'entity:value', 'operation_key': operation_key, 'span_key': 'span:body', 'phase': 'entry' if kind == 'parameter_definition' else 'return_value', 'reason': None}
+        return {'key': key, 'ordinal': ordinal, 'event_kind': kind, 'storage_entity_key': 'entity:value', 'operation_key': operation_key, 'span_key': 'span:body', 'phase': 'entry' if kind == 'parameter_definition' else 'return', 'reason': None}
     result['control_flow'] = [{'key': 'cfg:f', 'body_key': 'body:f', 'status': 'complete', 'reason': None, 'entry_block_key': 'block:entry', 'exit_block_key': 'block:exit', 'blocks': [{'key': 'block:entry', 'ordinal': 0, 'kind': 'entry', 'operations': [], 'storage_events': [event('access:parameter', 0, 'parameter_definition', None)]}, {'key': 'block:return', 'ordinal': 1, 'kind': 'ordinary', 'operations': [{'ordinal': 0, 'operation_key': 'operation:return', 'correspondence': 'clang_ast_pointer', 'phase': 'branch_value', 'compiler_element_kind': 'CFGStmt'}], 'storage_events': [event('access:read', 0, 'read', 'operation:read')]}, {'key': 'block:exit', 'ordinal': 2, 'kind': 'exit', 'operations': [], 'storage_events': []}], 'edges': [{'key': 'edge:entry', 'source_block_key': 'block:entry', 'destination_block_key': 'block:return', 'kind': 'continuation', 'condition_operation_key': None, 'feasibility': 'not_established'}, {'key': 'edge:return', 'source_block_key': 'block:return', 'destination_block_key': 'block:exit', 'kind': 'return', 'condition_operation_key': None, 'feasibility': 'not_established'}]}]
     result['operations'][2]['type_key'] = 'type:int'
     result['coverage'] = [{'file_key': 'file:main', 'feature': feature, 'status': 'complete', 'reason': None, 'unparsed_span_keys': []} for name in ('source_semantics', 'cfg', 'storage_events') for feature in CONTRACT['x-worker-feature-policy'][name]]
@@ -444,6 +450,7 @@ validate_result(discovery_request, partial, candidates, publication=False)
 validate_identities(identity_fixture())
 source_request, source_result, source_candidates = make_fixture()
 source_request['requested_features'] = ['source_semantics']
+source_request.pop('analysis_selection')
 rehash(source_request, source_result)
 source_result['control_flow'][0].update(status='not_attempted', reason='not_requested', entry_block_key=None, exit_block_key=None, blocks=[], edges=[])
 for coverage in source_result['coverage']:

@@ -2754,8 +2754,8 @@
     {
       "id": "M1CDESIGN001",
       "stage": "M1C_design",
-      "status": "open",
-      "blocks_dependent_execution": true,
+      "status": "resolved",
+      "blocks_dependent_execution": false,
       "kind": "selected_cfg_scope_and_missing_native_oracle",
       "expected": "CFG/events have exact selected-body scope, truthful file coverage and independently verified compiler correspondence.",
       "observed": "FLOW-PILOT selects Choose only while existing requests select feature globally; native M0 evidence lacks exact CFG block/member/pointer correspondence oracle. No counts are inferred.",
@@ -2770,8 +2770,18 @@
         }
       ],
       "verification": {
-        "status": "design_only_pending_C0_gate_and_native_probe"
-      }
+        "status": "prerequisite_contract_and_oracle_independently_verified",
+        "contract_sha256": "5a4f5268a0ffd030e9a71d96748131eba0e99d88c7d1c6a36032b6599c01a915",
+        "schema_sha256": "51d54798e14137e484397a2cf205cbdd330fc38e86ad3aa5d594f2134fe135a9",
+        "oracle": "docs/m1/evidence/native-cfg-oracle-execution.json",
+        "scope": "Prerequisite design only; C1 product remains unimplemented.",
+        "gate": "docs/m1/evidence/gate-m1c1-prerequisites.json"
+      },
+      "verification_history": [
+        {
+          "status": "design_only_pending_C0_gate_and_native_probe"
+        }
+      ]
     },
     {
       "id": "M1C0TEST001",
@@ -2832,8 +2842,8 @@
     {
       "id": "M1CCFG001",
       "stage": "M1C1_design",
-      "status": "open",
-      "blocks_dependent_execution": true,
+      "status": "resolved",
+      "blocks_dependent_execution": false,
       "kind": "cfg_member_persistence_contract_gap",
       "expected": "Canonical CFG retains correspondence, phase and compiler element kind required by wire/prose and deterministic scalar replay.",
       "observed": "Existing cfg_operation contains only block_id,operation_id,ordinal; required member distinctions would be discarded.",
@@ -2850,8 +2860,18 @@
         }
       ],
       "verification": {
-        "status": "design_correction_reviewed_amendment_pending"
-      }
+        "status": "prerequisite_contract_and_oracle_independently_verified",
+        "contract_sha256": "5a4f5268a0ffd030e9a71d96748131eba0e99d88c7d1c6a36032b6599c01a915",
+        "schema_sha256": "51d54798e14137e484397a2cf205cbdd330fc38e86ad3aa5d594f2134fe135a9",
+        "oracle": "docs/m1/evidence/native-cfg-oracle-execution.json",
+        "scope": "Prerequisite design only; C1 product remains unimplemented.",
+        "gate": "docs/m1/evidence/gate-m1c1-prerequisites.json"
+      },
+      "verification_history": [
+        {
+          "status": "design_correction_reviewed_amendment_pending"
+        }
+      ]
     },
     {
       "id": "M1C0REVIEW001",
@@ -2885,6 +2905,127 @@
           "status": "corrections_and_focused_checks_pending"
         }
       ]
+    },
+    {
+      "id": "M1C0PUB001",
+      "stage": "M1C0_publication",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "kind": "compact_commit_response_shape",
+      "expected": "Publication verification reads commit SHA then fetches its complete Git object before guarded branch update.",
+      "observed": "Helper assumed create_commit returned tree/parents; tool returned only sha, causing a metadata TypeError after object creation. Branch was unchanged by that failed verification step.",
+      "affected": [
+        "publication orchestration"
+      ],
+      "corrective_action": "Created/retrieved compact commit SHA, fetched full Git object and verified parent/tree; guarded update, remote readback, fetch and exact-tree local reconciliation passed. An unreferenced intermediate commit object may exist; no worktree or branch work lost.",
+      "evidence": [
+        {
+          "commit": "4f1e2659be63000a1a35fe0582cae5a39e5d0a6c",
+          "tree": "34c5bf24d5f6c301adaa483607e784bc29fff0da",
+          "local_equivalent": "9d0955ebbd9c7ad7508adc37ddce432289474e9f"
+        }
+      ],
+      "verification": {
+        "status": "23_blobs_tree_parent_ref_and_local_reconciliation_verified"
+      }
+    },
+    {
+      "id": "M1C1TOOL001",
+      "stage": "M1C1_design",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "kind": "read_only_path_and_schema_lookup",
+      "expected": "Inventory identifies existing source/evidence paths and nested schema locations before reads.",
+      "observed": "Read-only inspections guessed a nonexistent CompilerFacts filename, passed an unsupported Windows wildcard path to rg, looked up cfg_operation one level too high, and guessed a missing Roslyn evidence filename. No files changed or product inference accepted from failures.",
+      "affected": [
+        "inspection helpers"
+      ],
+      "corrective_action": "Listed actual files, read CompilerContracts.cs and current retained producer records, used x-profile-table-ownership.tables.cfg_operation and directory/glob-aware searches.",
+      "evidence": [
+        {
+          "source": "Coordinator and A005 owner bounded inspection handoffs"
+        }
+      ],
+      "verification": {
+        "status": "corrected_reads_completed"
+      }
+    },
+    {
+      "id": "M1C1PROBE001",
+      "stage": "M1C1_native_oracle",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "kind": "probe_file_creation_quoting",
+      "expected": "Generate bounded independent probe files without evaluating CMake placeholders in the orchestration language.",
+      "observed": "First creation tool interpreted CMake ${LLVM_PACKAGE} in JavaScript and failed before writing files. Two subsequent helper errors occurred before documentation/manifest write: Markdown fence ended a JavaScript template, and Python rejected utf8-sig. Existing copied oracle bytes were preserved.",
+      "affected": [
+        "independent native CFG oracle prerequisite"
+      ],
+      "corrective_action": "Correct literal quoting, tilde Markdown fence and utf-8-sig codec; configure/build/run each once passed. All15 probe source/tool/log/output/binary bindings and raw-copy equality independently verified; no production worker changed.",
+      "evidence": [
+        {
+          "source": "Native owner preflight handoff"
+        },
+        {
+          "manifest": "docs/m1/evidence/native-cfg-oracle-execution.json",
+          "sha256": "fbf3810ba66fa40569c0ab2cb69ee0b562c9d69525694447a7c148e1745e4e68"
+        }
+      ],
+      "verification": {
+        "status": "literal_quoting_fixed_probe_built_and_ran",
+        "raw_report_sha256": "caf4a6abaaf19536e5cd897b5f5ba368ad31191d3a60adbccdce6ffb5f2102c6",
+        "probe_binary_sha256": "56341ae8b4e5e03cce3eadfd0f67341f3f653bc4bea373d72c3d1caa4178b534",
+        "exit_code": 0,
+        "independent_review": "passed",
+        "gate": "docs/m1/evidence/gate-m1c1-prerequisites.json"
+      }
+    },
+    {
+      "id": "M1C1DESIGN002",
+      "stage": "M1C1_common_design",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "kind": "replay_view_missing_operator_effect_discriminator",
+      "expected": "The typed source view and fingerprint contain every field consumed by scalar event/effect eligibility.",
+      "observed": "Initial view omitted operator_kind; unary negation and increment can share normalized/compiler kind and type but differ in storage effects. Independent review found this before product code.",
+      "affected": [
+        "scalar-local-events/1 replay",
+        "compiler-flow-source-view/1 input hash"
+      ],
+      "corrective_action": "Add operator_kind, semantic_role, representation and implicit explicitly; retain ordered child/operand roles. Declare constants/execution_point unused and require version change for future consumed attributes.",
+      "evidence": [
+        {
+          "source": "docs/m1/m1c-common-flow-design.md and independent design review"
+        }
+      ],
+      "verification": {
+        "status": "design_corrected_before_implementation",
+        "implementation_started": false,
+        "gate": "docs/m1/evidence/gate-m1c1-prerequisites.json"
+      }
+    },
+    {
+      "id": "M1CEVID001",
+      "stage": "M1C_evidence_publication",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "kind": "execution_manifest_vs_git_newline_digest",
+      "expected": "Published gate metadata hashes identify exact repository artifacts and preserve execution evidence.",
+      "observed": "C0 manifest execution hash0caf8344 identified local CRLF bytes, while Git published semantically identical LF bytes46d34b28. Pending C1 manifest had the same newline representation mismatch. Source/staged inputs and actual test report hashes remain exact. A design-snapshot helper expected an obsolete compiler-design status sentence and asserted before copying that second document; the common snapshot already copied was preserved. A staging verification helper then had an extra closing parenthesis and stopped at parse time; no byte check was claimed from that attempt.",
+      "affected": [
+        "C0/C1 prerequisite manifest digest verification"
+      ],
+      "corrective_action": "Preserve raw executed manifests externally, verify exact CRLF-to-LF conversion and equal JSON, add publication encoding record, correct gate canonical hashes with original execution hashes retained, and pin docs/m1 text to LF. No source/results changed and no test rerun justified. Verified the native owner had already updated the compiler status before review; its current canonical bytes exactly match reviewed b279c26a. Both reviewed design snapshots are preserved and hashed; only common opening status changed. Corrected the helper syntax and reran explicit staged/worktree byte comparisons and gate manifest hashes.",
+      "evidence": [
+        {
+          "source": "docs/m1/evidence/m1c-publication-encoding.json"
+        }
+      ],
+      "verification": {
+        "status": "independently_verified_exact_conversion_gate_hashes_and_fixture_attributes",
+        "source_or_test_changes": false,
+        "bridge": "docs/m1/evidence/m1c-publication-encoding.json"
+      }
     }
   ]
 }

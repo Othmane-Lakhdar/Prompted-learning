@@ -1,0 +1,870 @@
+{
+  "schema": "a005-design-cases/1",
+  "scope": "Contract/design vectors; no compiler CFG produced or executed.",
+  "prior_source_only": {
+    "native_source_request": {
+      "schema": "native-worker-request/1",
+      "request_id": "synthetic-contract-case",
+      "snapshot_id": "snapshot:1111111111111111111111111111111111111111111111111111111111111111",
+      "context_id": "build_context:2222222222222222222222222222222222222222222222222222222222222222",
+      "unit_id": "compilation_unit:3333333333333333333333333333333333333333333333333333333333333333",
+      "capture_index_fingerprint": "4444444444444444444444444444444444444444444444444444444444444444",
+      "semantic_input_fingerprint": "ebf3f6c8fbf90c7cacade52a30d02d175f0cb2006e30c30343181ab7beac09ce",
+      "worker": {
+        "name": "prompted-learning-clang-worker",
+        "version": "contract-fixture-1",
+        "clang_version": "19.1.7",
+        "binary_sha256": "6666666666666666666666666666666666666666666666666666666666666666"
+      },
+      "target": {
+        "triple": "x86_64-pc-windows-msvc",
+        "language_standard": "c++17",
+        "ms_compatibility_version": "19.44"
+      },
+      "main_file_key": "file:main",
+      "files": [
+        {
+          "key": "file:main",
+          "file_version_id": "file_version:7777777777777777777777777777777777777777777777777777777777777777",
+          "logical_path": "pilot/main.cpp",
+          "original_sha256": "76dd9eac6398a479ccacb36b4b0ffc30aac7a70a043ea7aa377d609fdc999695",
+          "byte_length": 51,
+          "encoding": "utf-8",
+          "bom_bytes": 0,
+          "bytes_base64": "Ly8gY2Fmw6kg8J+YgA0KaW50IGYoaW50IHZhbHVlKSB7IHJldHVybiB2YWx1ZTsgfQ0K"
+        }
+      ],
+      "options": [],
+      "path_bindings": [],
+      "budgets": {
+        "time_ms": 10000,
+        "memory_bytes": 1048576,
+        "max_input_bytes": 1048576,
+        "max_result_bytes": 1048576,
+        "max_records": 100,
+        "max_operations": 100
+      },
+      "requested_features": [
+        "source_semantics"
+      ],
+      "phase": "final",
+      "expected_consumed_file_keys": [
+        "file:main"
+      ],
+      "request_fingerprint": "679aa33fc9ed19054374fa35c364d553beffe8705f4326fa3bfed9daa05f486e"
+    },
+    "native_semantic_hash": "ebf3f6c8fbf90c7cacade52a30d02d175f0cb2006e30c30343181ab7beac09ce",
+    "native_request_hash": "679aa33fc9ed19054374fa35c364d553beffe8705f4326fa3bfed9daa05f486e"
+  },
+  "selection_by_language": {
+    "cpp": {
+      "policy": "choose-cfg/1",
+      "selectors": [
+        {
+          "compiler_identity_kind": "compiler",
+          "compiler_key": "c:@N@pilot@F@Choose#I#",
+          "compiler_signature_key": {
+            "calling_convention": "cdecl",
+            "constraints": [],
+            "generic_arity": 0,
+            "kind": "function",
+            "language_linkage": "C++",
+            "name": "Choose",
+            "parameters": [
+              {
+                "passing": "value",
+                "type": {
+                  "name": "int",
+                  "tag": "builtin"
+                }
+              }
+            ],
+            "qualifiers": [],
+            "return_passing": "value",
+            "return_type": {
+              "name": "int",
+              "tag": "builtin"
+            }
+          }
+        }
+      ],
+      "settings": {
+        "schema": "choose-cfg-settings/1",
+        "compiler_cfg_policy": "compiler_cfg_v1",
+        "event_policy": "scalar-local-events/1",
+        "tracked_storage": "owned_non_escaping_scalar",
+        "call_effect_policy": "by_value_cannot_write_tracked_storage",
+        "compiler_options": {
+          "PruneTriviallyFalseEdges": false,
+          "AddEHEdges": false,
+          "AddInitializers": false,
+          "AddImplicitDtors": false,
+          "AddLifetime": false,
+          "AddLoopExit": false,
+          "AddTemporaryDtors": false,
+          "AddScopes": false,
+          "AddStaticInitBranches": false,
+          "AddCXXNewAllocator": false,
+          "AddCXXDefaultInitExprInCtors": false,
+          "AddCXXDefaultInitExprInAggregates": false,
+          "AddRichCXXConstructors": false,
+          "MarkElidedCXXConstructors": false,
+          "AddVirtualBaseBranches": false,
+          "OmitImplicitValueInitializers": false
+        },
+        "limits": {
+          "max_selected_bodies": 1,
+          "max_cfg_blocks": 64,
+          "max_cfg_edges": 128,
+          "max_cfg_members": 512,
+          "max_storage_events": 128
+        }
+      }
+    },
+    "csharp": {
+      "policy": "choose-cfg/1",
+      "selectors": [
+        {
+          "compiler_identity_kind": "compiler",
+          "compiler_key": "M:Pilot.Arithmetic.Choose(System.Int32)",
+          "compiler_signature_key": {
+            "calling_convention": null,
+            "constraints": [],
+            "generic_arity": 0,
+            "kind": "method",
+            "language_linkage": null,
+            "name": "Choose",
+            "parameters": [
+              {
+                "passing": "value",
+                "type": {
+                  "name": "System.Int32",
+                  "tag": "builtin"
+                }
+              }
+            ],
+            "qualifiers": [
+              "static"
+            ],
+            "return_passing": "value",
+            "return_type": {
+              "name": "System.Int32",
+              "tag": "builtin"
+            }
+          }
+        }
+      ],
+      "settings": {
+        "schema": "choose-cfg-settings/1",
+        "compiler_cfg_policy": "compiler_cfg_v1",
+        "event_policy": "scalar-local-events/1",
+        "tracked_storage": "owned_non_escaping_scalar",
+        "call_effect_policy": "by_value_cannot_write_tracked_storage",
+        "compiler_options": {
+          "graph_creation": "ControlFlowGraph.Create(parentless_method_body)",
+          "correspondence_policy": "same_body_unique_syntax_kind_semantics/1"
+        },
+        "limits": {
+          "max_selected_bodies": 1,
+          "max_cfg_blocks": 64,
+          "max_cfg_edges": 128,
+          "max_cfg_members": 512,
+          "max_storage_events": 128
+        }
+      }
+    }
+  },
+  "prior_contract_sha256": "11b8c2c29bb401b72838df7ce565c44182a9a1edb46149116b96f1b047fc94ab",
+  "prior_schema_sha256": "126c053ffc3c40827b7a236d7d362977c1b5509d0634f3515c00fea4f639dfb2",
+  "native_flow_vectors": [
+    {
+      "schema": "native-worker-request/1",
+      "request_id": "synthetic-contract-case",
+      "snapshot_id": "snapshot:1111111111111111111111111111111111111111111111111111111111111111",
+      "context_id": "build_context:2222222222222222222222222222222222222222222222222222222222222222",
+      "unit_id": "compilation_unit:3333333333333333333333333333333333333333333333333333333333333333",
+      "capture_index_fingerprint": "4444444444444444444444444444444444444444444444444444444444444444",
+      "semantic_input_fingerprint": "cff939167eb27fbfccf4685225c77e85820960e1825bbe98dd6ac8ce493f6c52",
+      "worker": {
+        "name": "prompted-learning-clang-worker",
+        "version": "contract-fixture-1",
+        "clang_version": "19.1.7",
+        "binary_sha256": "6666666666666666666666666666666666666666666666666666666666666666"
+      },
+      "target": {
+        "triple": "x86_64-pc-windows-msvc",
+        "language_standard": "c++17",
+        "ms_compatibility_version": "19.44"
+      },
+      "main_file_key": "file:main",
+      "files": [
+        {
+          "key": "file:main",
+          "file_version_id": "file_version:7777777777777777777777777777777777777777777777777777777777777777",
+          "logical_path": "pilot/main.cpp",
+          "original_sha256": "76dd9eac6398a479ccacb36b4b0ffc30aac7a70a043ea7aa377d609fdc999695",
+          "byte_length": 51,
+          "encoding": "utf-8",
+          "bom_bytes": 0,
+          "bytes_base64": "Ly8gY2Fmw6kg8J+YgA0KaW50IGYoaW50IHZhbHVlKSB7IHJldHVybiB2YWx1ZTsgfQ0K"
+        }
+      ],
+      "options": [],
+      "path_bindings": [],
+      "budgets": {
+        "time_ms": 10000,
+        "memory_bytes": 1048576,
+        "max_input_bytes": 1048576,
+        "max_result_bytes": 1048576,
+        "max_records": 100,
+        "max_operations": 100
+      },
+      "requested_features": [
+        "source_semantics",
+        "cfg"
+      ],
+      "phase": "final",
+      "expected_consumed_file_keys": [
+        "file:main"
+      ],
+      "request_fingerprint": "1653f7669dac4989caf9873108355ef8338a4697dfe8f2478642cd972f965580",
+      "analysis_selection": {
+        "policy": "choose-cfg/1",
+        "selectors": [
+          {
+            "compiler_identity_kind": "compiler",
+            "compiler_key": "c:@N@pilot@F@Choose#I#",
+            "compiler_signature_key": {
+              "calling_convention": "cdecl",
+              "constraints": [],
+              "generic_arity": 0,
+              "kind": "function",
+              "language_linkage": "C++",
+              "name": "Choose",
+              "parameters": [
+                {
+                  "passing": "value",
+                  "type": {
+                    "name": "int",
+                    "tag": "builtin"
+                  }
+                }
+              ],
+              "qualifiers": [],
+              "return_passing": "value",
+              "return_type": {
+                "name": "int",
+                "tag": "builtin"
+              }
+            }
+          }
+        ],
+        "settings": {
+          "schema": "choose-cfg-settings/1",
+          "compiler_cfg_policy": "compiler_cfg_v1",
+          "event_policy": "scalar-local-events/1",
+          "tracked_storage": "owned_non_escaping_scalar",
+          "call_effect_policy": "by_value_cannot_write_tracked_storage",
+          "compiler_options": {
+            "PruneTriviallyFalseEdges": false,
+            "AddEHEdges": false,
+            "AddInitializers": false,
+            "AddImplicitDtors": false,
+            "AddLifetime": false,
+            "AddLoopExit": false,
+            "AddTemporaryDtors": false,
+            "AddScopes": false,
+            "AddStaticInitBranches": false,
+            "AddCXXNewAllocator": false,
+            "AddCXXDefaultInitExprInCtors": false,
+            "AddCXXDefaultInitExprInAggregates": false,
+            "AddRichCXXConstructors": false,
+            "MarkElidedCXXConstructors": false,
+            "AddVirtualBaseBranches": false,
+            "OmitImplicitValueInitializers": false
+          },
+          "limits": {
+            "max_selected_bodies": 1,
+            "max_cfg_blocks": 64,
+            "max_cfg_edges": 128,
+            "max_cfg_members": 512,
+            "max_storage_events": 128
+          }
+        }
+      }
+    },
+    {
+      "schema": "native-worker-request/1",
+      "request_id": "synthetic-contract-case",
+      "snapshot_id": "snapshot:1111111111111111111111111111111111111111111111111111111111111111",
+      "context_id": "build_context:2222222222222222222222222222222222222222222222222222222222222222",
+      "unit_id": "compilation_unit:3333333333333333333333333333333333333333333333333333333333333333",
+      "capture_index_fingerprint": "4444444444444444444444444444444444444444444444444444444444444444",
+      "semantic_input_fingerprint": "7974d1bfbd3cfd97a29ac65a7c8cacd38ab8a98382a215c418b9936cba2ada4d",
+      "worker": {
+        "name": "prompted-learning-clang-worker",
+        "version": "contract-fixture-1",
+        "clang_version": "19.1.7",
+        "binary_sha256": "6666666666666666666666666666666666666666666666666666666666666666"
+      },
+      "target": {
+        "triple": "x86_64-pc-windows-msvc",
+        "language_standard": "c++17",
+        "ms_compatibility_version": "19.44"
+      },
+      "main_file_key": "file:main",
+      "files": [
+        {
+          "key": "file:main",
+          "file_version_id": "file_version:7777777777777777777777777777777777777777777777777777777777777777",
+          "logical_path": "pilot/main.cpp",
+          "original_sha256": "76dd9eac6398a479ccacb36b4b0ffc30aac7a70a043ea7aa377d609fdc999695",
+          "byte_length": 51,
+          "encoding": "utf-8",
+          "bom_bytes": 0,
+          "bytes_base64": "Ly8gY2Fmw6kg8J+YgA0KaW50IGYoaW50IHZhbHVlKSB7IHJldHVybiB2YWx1ZTsgfQ0K"
+        }
+      ],
+      "options": [],
+      "path_bindings": [],
+      "budgets": {
+        "time_ms": 10000,
+        "memory_bytes": 1048576,
+        "max_input_bytes": 1048576,
+        "max_result_bytes": 1048576,
+        "max_records": 100,
+        "max_operations": 100
+      },
+      "requested_features": [
+        "source_semantics",
+        "cfg",
+        "storage_events"
+      ],
+      "phase": "final",
+      "expected_consumed_file_keys": [
+        "file:main"
+      ],
+      "request_fingerprint": "b38d7660379c9203644760e8c5c428f050af399c06e4ec494877c427a0db2059",
+      "analysis_selection": {
+        "policy": "choose-cfg/1",
+        "selectors": [
+          {
+            "compiler_identity_kind": "compiler",
+            "compiler_key": "c:@N@pilot@F@Choose#I#",
+            "compiler_signature_key": {
+              "calling_convention": "cdecl",
+              "constraints": [],
+              "generic_arity": 0,
+              "kind": "function",
+              "language_linkage": "C++",
+              "name": "Choose",
+              "parameters": [
+                {
+                  "passing": "value",
+                  "type": {
+                    "name": "int",
+                    "tag": "builtin"
+                  }
+                }
+              ],
+              "qualifiers": [],
+              "return_passing": "value",
+              "return_type": {
+                "name": "int",
+                "tag": "builtin"
+              }
+            }
+          }
+        ],
+        "settings": {
+          "schema": "choose-cfg-settings/1",
+          "compiler_cfg_policy": "compiler_cfg_v1",
+          "event_policy": "scalar-local-events/1",
+          "tracked_storage": "owned_non_escaping_scalar",
+          "call_effect_policy": "by_value_cannot_write_tracked_storage",
+          "compiler_options": {
+            "PruneTriviallyFalseEdges": false,
+            "AddEHEdges": false,
+            "AddInitializers": false,
+            "AddImplicitDtors": false,
+            "AddLifetime": false,
+            "AddLoopExit": false,
+            "AddTemporaryDtors": false,
+            "AddScopes": false,
+            "AddStaticInitBranches": false,
+            "AddCXXNewAllocator": false,
+            "AddCXXDefaultInitExprInCtors": false,
+            "AddCXXDefaultInitExprInAggregates": false,
+            "AddRichCXXConstructors": false,
+            "MarkElidedCXXConstructors": false,
+            "AddVirtualBaseBranches": false,
+            "OmitImplicitValueInitializers": false
+          },
+          "limits": {
+            "max_selected_bodies": 1,
+            "max_cfg_blocks": 64,
+            "max_cfg_edges": 128,
+            "max_cfg_members": 512,
+            "max_storage_events": 128
+          }
+        }
+      }
+    }
+  ],
+  "managed_source_vector": {
+    "components": {
+      "snapshot_id": "snapshot:1111111111111111111111111111111111111111111111111111111111111111",
+      "context_id": "build_context:2222222222222222222222222222222222222222222222222222222222222222",
+      "unit_id": "compilation_unit:3333333333333333333333333333333333333333333333333333333333333333",
+      "capture_index_fingerprint": "4444444444444444444444444444444444444444444444444444444444444444",
+      "producer": {
+        "name": "prompted-learning-managed-adapter",
+        "version": "contract-fixture-1",
+        "compiler_version": "4.14.0.0",
+        "binary_sha256": "6666666666666666666666666666666666666666666666666666666666666666"
+      },
+      "files": [
+        {
+          "key": "file:managed/0",
+          "file_version_id": "file_version:7777777777777777777777777777777777777777777777777777777777777777",
+          "logical_path": "csharp/Arithmetic.cs",
+          "original_sha256": "72006f84de73832687ed9c01b6c3c83b671a8afb6ceac104dfba39e721458aa4",
+          "byte_length": 473,
+          "encoding": "utf-8",
+          "bom_bytes": 0
+        },
+        {
+          "key": "file:managed/1",
+          "file_version_id": "file_version:8888888888888888888888888888888888888888888888888888888888888888",
+          "logical_path": "csharp/Arithmetic.More.cs",
+          "original_sha256": "1f35ac7b3c4d961afec435e863bcaa855f0ba06e2a2d864f5f6b34b8d368e72b",
+          "byte_length": 182,
+          "encoding": "utf-8",
+          "bom_bytes": 0
+        }
+      ],
+      "requested_features": [
+        "source_semantics"
+      ],
+      "expected_consumed_file_keys": [
+        "file:managed/0",
+        "file:managed/1"
+      ]
+    },
+    "semantic_input_fingerprint": "6984228fce1598b3c16c86046e6184c0324370331c2ca1ae12a87be0b43becbc"
+  },
+  "managed_flow_vectors": [
+    {
+      "components": {
+        "snapshot_id": "snapshot:1111111111111111111111111111111111111111111111111111111111111111",
+        "context_id": "build_context:2222222222222222222222222222222222222222222222222222222222222222",
+        "unit_id": "compilation_unit:3333333333333333333333333333333333333333333333333333333333333333",
+        "capture_index_fingerprint": "4444444444444444444444444444444444444444444444444444444444444444",
+        "producer": {
+          "name": "prompted-learning-managed-adapter",
+          "version": "contract-fixture-1",
+          "compiler_version": "4.14.0.0",
+          "binary_sha256": "6666666666666666666666666666666666666666666666666666666666666666"
+        },
+        "files": [
+          {
+            "key": "file:managed/0",
+            "file_version_id": "file_version:7777777777777777777777777777777777777777777777777777777777777777",
+            "logical_path": "csharp/Arithmetic.cs",
+            "original_sha256": "72006f84de73832687ed9c01b6c3c83b671a8afb6ceac104dfba39e721458aa4",
+            "byte_length": 473,
+            "encoding": "utf-8",
+            "bom_bytes": 0
+          },
+          {
+            "key": "file:managed/1",
+            "file_version_id": "file_version:8888888888888888888888888888888888888888888888888888888888888888",
+            "logical_path": "csharp/Arithmetic.More.cs",
+            "original_sha256": "1f35ac7b3c4d961afec435e863bcaa855f0ba06e2a2d864f5f6b34b8d368e72b",
+            "byte_length": 182,
+            "encoding": "utf-8",
+            "bom_bytes": 0
+          }
+        ],
+        "requested_features": [
+          "source_semantics",
+          "cfg"
+        ],
+        "expected_consumed_file_keys": [
+          "file:managed/0",
+          "file:managed/1"
+        ],
+        "analysis_selection": {
+          "policy": "choose-cfg/1",
+          "selectors": [
+            {
+              "compiler_identity_kind": "compiler",
+              "compiler_key": "M:Pilot.Arithmetic.Choose(System.Int32)",
+              "compiler_signature_key": {
+                "calling_convention": null,
+                "constraints": [],
+                "generic_arity": 0,
+                "kind": "method",
+                "language_linkage": null,
+                "name": "Choose",
+                "parameters": [
+                  {
+                    "passing": "value",
+                    "type": {
+                      "name": "System.Int32",
+                      "tag": "builtin"
+                    }
+                  }
+                ],
+                "qualifiers": [
+                  "static"
+                ],
+                "return_passing": "value",
+                "return_type": {
+                  "name": "System.Int32",
+                  "tag": "builtin"
+                }
+              }
+            }
+          ],
+          "settings": {
+            "schema": "choose-cfg-settings/1",
+            "compiler_cfg_policy": "compiler_cfg_v1",
+            "event_policy": "scalar-local-events/1",
+            "tracked_storage": "owned_non_escaping_scalar",
+            "call_effect_policy": "by_value_cannot_write_tracked_storage",
+            "compiler_options": {
+              "graph_creation": "ControlFlowGraph.Create(parentless_method_body)",
+              "correspondence_policy": "same_body_unique_syntax_kind_semantics/1"
+            },
+            "limits": {
+              "max_selected_bodies": 1,
+              "max_cfg_blocks": 64,
+              "max_cfg_edges": 128,
+              "max_cfg_members": 512,
+              "max_storage_events": 128
+            }
+          }
+        }
+      },
+      "semantic_input_fingerprint": "11794a261cc85c3c0a67a64b779d02dc3af9747799d037d028123ed0ef1534bf"
+    },
+    {
+      "components": {
+        "snapshot_id": "snapshot:1111111111111111111111111111111111111111111111111111111111111111",
+        "context_id": "build_context:2222222222222222222222222222222222222222222222222222222222222222",
+        "unit_id": "compilation_unit:3333333333333333333333333333333333333333333333333333333333333333",
+        "capture_index_fingerprint": "4444444444444444444444444444444444444444444444444444444444444444",
+        "producer": {
+          "name": "prompted-learning-managed-adapter",
+          "version": "contract-fixture-1",
+          "compiler_version": "4.14.0.0",
+          "binary_sha256": "6666666666666666666666666666666666666666666666666666666666666666"
+        },
+        "files": [
+          {
+            "key": "file:managed/0",
+            "file_version_id": "file_version:7777777777777777777777777777777777777777777777777777777777777777",
+            "logical_path": "csharp/Arithmetic.cs",
+            "original_sha256": "72006f84de73832687ed9c01b6c3c83b671a8afb6ceac104dfba39e721458aa4",
+            "byte_length": 473,
+            "encoding": "utf-8",
+            "bom_bytes": 0
+          },
+          {
+            "key": "file:managed/1",
+            "file_version_id": "file_version:8888888888888888888888888888888888888888888888888888888888888888",
+            "logical_path": "csharp/Arithmetic.More.cs",
+            "original_sha256": "1f35ac7b3c4d961afec435e863bcaa855f0ba06e2a2d864f5f6b34b8d368e72b",
+            "byte_length": 182,
+            "encoding": "utf-8",
+            "bom_bytes": 0
+          }
+        ],
+        "requested_features": [
+          "source_semantics",
+          "cfg",
+          "storage_events"
+        ],
+        "expected_consumed_file_keys": [
+          "file:managed/0",
+          "file:managed/1"
+        ],
+        "analysis_selection": {
+          "policy": "choose-cfg/1",
+          "selectors": [
+            {
+              "compiler_identity_kind": "compiler",
+              "compiler_key": "M:Pilot.Arithmetic.Choose(System.Int32)",
+              "compiler_signature_key": {
+                "calling_convention": null,
+                "constraints": [],
+                "generic_arity": 0,
+                "kind": "method",
+                "language_linkage": null,
+                "name": "Choose",
+                "parameters": [
+                  {
+                    "passing": "value",
+                    "type": {
+                      "name": "System.Int32",
+                      "tag": "builtin"
+                    }
+                  }
+                ],
+                "qualifiers": [
+                  "static"
+                ],
+                "return_passing": "value",
+                "return_type": {
+                  "name": "System.Int32",
+                  "tag": "builtin"
+                }
+              }
+            }
+          ],
+          "settings": {
+            "schema": "choose-cfg-settings/1",
+            "compiler_cfg_policy": "compiler_cfg_v1",
+            "event_policy": "scalar-local-events/1",
+            "tracked_storage": "owned_non_escaping_scalar",
+            "call_effect_policy": "by_value_cannot_write_tracked_storage",
+            "compiler_options": {
+              "graph_creation": "ControlFlowGraph.Create(parentless_method_body)",
+              "correspondence_policy": "same_body_unique_syntax_kind_semantics/1"
+            },
+            "limits": {
+              "max_selected_bodies": 1,
+              "max_cfg_blocks": 64,
+              "max_cfg_edges": 128,
+              "max_cfg_members": 512,
+              "max_storage_events": 128
+            }
+          }
+        }
+      },
+      "semantic_input_fingerprint": "ff60c51f46b1d16e46f0392025c7fe34375a7e7e733cff00ca2176e3feffbd65"
+    }
+  ],
+  "coverage_only_model": {
+    "scope": "Hand-authored selection/coverage states; not a CFG block or event oracle.",
+    "files": [
+      "file:main",
+      "file:other",
+      "file:header"
+    ],
+    "bodies": [
+      {
+        "key": "body:choose",
+        "file_key": "file:main",
+        "selector": {
+          "compiler_identity_kind": "compiler",
+          "compiler_key": "M:Pilot.Arithmetic.Choose(System.Int32)",
+          "compiler_signature_key": {
+            "calling_convention": null,
+            "constraints": [],
+            "generic_arity": 0,
+            "kind": "method",
+            "language_linkage": null,
+            "name": "Choose",
+            "parameters": [
+              {
+                "passing": "value",
+                "type": {
+                  "name": "System.Int32",
+                  "tag": "builtin"
+                }
+              }
+            ],
+            "qualifiers": [
+              "static"
+            ],
+            "return_passing": "value",
+            "return_type": {
+              "name": "System.Int32",
+              "tag": "builtin"
+            }
+          }
+        },
+        "source_status": "complete",
+        "flow_status": "complete",
+        "reason": null,
+        "entry": "block:entry",
+        "exit": "block:exit",
+        "blocks": [
+          "block:entry",
+          "block:exit"
+        ],
+        "edges": [
+          "edge:fixture"
+        ],
+        "events": [
+          "event:fixture"
+        ]
+      },
+      {
+        "key": "body:Add",
+        "file_key": "file:main",
+        "selector": {
+          "compiler_identity_kind": "compiler",
+          "compiler_key": "M:Pilot.Arithmetic.Add(System.Int32)",
+          "compiler_signature_key": {
+            "calling_convention": null,
+            "constraints": [],
+            "generic_arity": 0,
+            "kind": "method",
+            "language_linkage": null,
+            "name": "Add",
+            "parameters": [
+              {
+                "passing": "value",
+                "type": {
+                  "name": "System.Int32",
+                  "tag": "builtin"
+                }
+              }
+            ],
+            "qualifiers": [
+              "static"
+            ],
+            "return_passing": "value",
+            "return_type": {
+              "name": "System.Int32",
+              "tag": "builtin"
+            }
+          }
+        },
+        "source_status": "complete",
+        "flow_status": "not_attempted",
+        "reason": "not_selected",
+        "entry": null,
+        "exit": null,
+        "blocks": [],
+        "edges": [],
+        "events": []
+      },
+      {
+        "key": "body:AddWide",
+        "file_key": "file:other",
+        "selector": {
+          "compiler_identity_kind": "compiler",
+          "compiler_key": "M:Pilot.Arithmetic.AddWide(System.Int32)",
+          "compiler_signature_key": {
+            "calling_convention": null,
+            "constraints": [],
+            "generic_arity": 0,
+            "kind": "method",
+            "language_linkage": null,
+            "name": "AddWide",
+            "parameters": [
+              {
+                "passing": "value",
+                "type": {
+                  "name": "System.Int32",
+                  "tag": "builtin"
+                }
+              }
+            ],
+            "qualifiers": [
+              "static"
+            ],
+            "return_passing": "value",
+            "return_type": {
+              "name": "System.Int32",
+              "tag": "builtin"
+            }
+          }
+        },
+        "source_status": "complete",
+        "flow_status": "not_attempted",
+        "reason": "not_selected",
+        "entry": null,
+        "exit": null,
+        "blocks": [],
+        "edges": [],
+        "events": []
+      },
+      {
+        "key": "body:Unused",
+        "file_key": "file:other",
+        "selector": {
+          "compiler_identity_kind": "compiler",
+          "compiler_key": "M:Pilot.Arithmetic.Unused(System.Int32)",
+          "compiler_signature_key": {
+            "calling_convention": null,
+            "constraints": [],
+            "generic_arity": 0,
+            "kind": "method",
+            "language_linkage": null,
+            "name": "Unused",
+            "parameters": [
+              {
+                "passing": "value",
+                "type": {
+                  "name": "System.Int32",
+                  "tag": "builtin"
+                }
+              }
+            ],
+            "qualifiers": [
+              "static"
+            ],
+            "return_passing": "value",
+            "return_type": {
+              "name": "System.Int32",
+              "tag": "builtin"
+            }
+          }
+        },
+        "source_status": "complete",
+        "flow_status": "not_attempted",
+        "reason": "not_selected",
+        "entry": null,
+        "exit": null,
+        "blocks": [],
+        "edges": [],
+        "events": []
+      }
+    ],
+    "file_coverage": [
+      {
+        "file_key": "file:main",
+        "feature": "control_flow",
+        "status": "partial",
+        "reason": "not_selected_bodies"
+      },
+      {
+        "file_key": "file:main",
+        "feature": "storage_events",
+        "status": "partial",
+        "reason": "not_selected_bodies"
+      },
+      {
+        "file_key": "file:other",
+        "feature": "control_flow",
+        "status": "partial",
+        "reason": "not_selected_bodies"
+      },
+      {
+        "file_key": "file:other",
+        "feature": "storage_events",
+        "status": "partial",
+        "reason": "not_selected_bodies"
+      },
+      {
+        "file_key": "file:header",
+        "feature": "control_flow",
+        "status": "not_attempted",
+        "reason": "no_selected_body"
+      },
+      {
+        "file_key": "file:header",
+        "feature": "storage_events",
+        "status": "not_attempted",
+        "reason": "no_selected_body"
+      }
+    ],
+    "status": "partial",
+    "reason": "not_selected_bodies"
+  }
+}
