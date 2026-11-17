@@ -13,7 +13,7 @@
   "historical_checkpoint": "docs/checkpoints/2026-11-16-preimplementation.md",
   "capability_audit": "docs/capabilities.md",
   "deviation_log": "docs/deviations.json",
-  "next_stage": "Publish M1B, then M1C0 direct source call normalization; M1C flow remains gated by its prerequisite.",
+  "next_stage": "Publish C0, then freeze A005 and independent native CFG oracle before C1 implementation.",
   "notes": [
     "M0 completed with executable design checks and independent review. M1A is authorized; all later milestone and commit-unit gates remain in force.",
     "Verified local Windows execution replaces the failed cloud runner for this chat.",
@@ -45,7 +45,7 @@
   "local_preflight_report": "docs/preflight/2026-11-16-local/README.md",
   "publication_evidence": "docs/preflight/2026-11-16-local/publication.json",
   "specification_sources": "docs/specifications/sources.json",
-  "current_unit": "M1B",
+  "current_unit": "M1C1_prerequisites",
   "m0_gate": "docs/m0/evidence/gate.json",
   "m1_status": "in_progress",
   "m0_commit": "a7e02b472a59da9d270e58ccf696ffc3ad95498f",
@@ -54,7 +54,11 @@
   "execution_mode": "active",
   "m1a_status": "passed",
   "m1a_gate": "docs/m1/evidence/gate-m1a.json",
-  "m1b_status": "passed_pending_publication",
+  "m1b_status": "passed",
   "m1a_commit": "da35e5da506d08680f73de48408ba2b2c68b1d07",
-  "m1b_gate": "docs/m1/evidence/gate-m1b.json"
+  "m1b_gate": "docs/m1/evidence/gate-m1b.json",
+  "m1b_commit": "e8c6cca9162a860f49fd2568f33f1491db4d52d6",
+  "m1c_status": "C0_passed_C1_prerequisites_pending",
+  "m1c0_status": "passed",
+  "m1c0_gate": "docs/m1/evidence/gate-m1c0.json"
 }

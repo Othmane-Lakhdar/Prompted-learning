@@ -1,0 +1,42 @@
+{
+  "reports": [
+    {
+      "path": "C:/_Travail/tools/Prompted-Learning-inputs/m1-source-relations-report-1.json",
+      "sha256": "303a5951af1717c69241fa4647c21b2d4abbc836099e47f03218d835e8a8f3e9",
+      "tests": 5,
+      "failed": 3,
+      "status": "failed",
+      "scope": "owner focused; final frozen source is report4"
+    },
+    {
+      "path": "C:/_Travail/tools/Prompted-Learning-inputs/m1-source-relations-report-2.json",
+      "sha256": "14ac911637d5a33a30c23514f5ca64acc6ece93c5803003343020faa88f1abdd",
+      "tests": 5,
+      "failed": 0,
+      "status": "passed",
+      "scope": "owner focused; final frozen source is report4"
+    },
+    {
+      "path": "C:/_Travail/tools/Prompted-Learning-inputs/m1-source-relations-report-3.json",
+      "sha256": "207f132c2734f600a16b4cda36fa1bbe0d81bebc6b74457d64c7a7fb14dfacfe",
+      "tests": 5,
+      "failed": 0,
+      "status": "passed",
+      "scope": "owner focused; final frozen source is report4"
+    },
+    {
+      "path": "C:/_Travail/tools/Prompted-Learning-inputs/m1-source-relations-report-4.json",
+      "sha256": "94803516fddd8e029c696e95c4a30bb1f96c27816c64a4cd72913fcbe6bc8ec7",
+      "tests": 5,
+      "failed": 0,
+      "status": "passed",
+      "scope": "owner focused; final frozen source is report4"
+    }
+  ],
+  "integrated_report": {
+    "path": "C:/_Travail/tools/Prompted-Learning-inputs/m1c0-integrated-report.json",
+    "sha256": "09ec8b5f2a8dc3a1ea34daa5078bf18ebd77917d593726e223fed366eec36c68",
+    "tests": 100,
+    "failed": 0
+  }
+}

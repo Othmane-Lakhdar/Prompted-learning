@@ -2640,7 +2640,7 @@
     {
       "id": "M1BSEQ001",
       "stage": "M1B",
-      "status": "open",
+      "status": "resolved",
       "blocks_dependent_execution": false,
       "kind": "direct_call_normalization_handoff",
       "expected": "T03 direct call_site/occurrence/relationship records precede T04 analyses and profile/query use.",
@@ -2661,8 +2661,19 @@
         }
       ],
       "verification": {
-        "status": "ordered_plan_recorded_implementation_not_started"
-      }
+        "status": "passed_final_integration_and_independent_review",
+        "tests": 100,
+        "failed": 0,
+        "report": "docs/m1/evidence/m1c0-tests.json",
+        "report_sha256": "b7c2a09f6981356f37517b0e68207d2364a10efc8979da79c4c23102c9e7c9e3",
+        "history": "docs/m1/evidence/m1c0-validation-history.json",
+        "gate": "docs/m1/evidence/gate-m1c0.json"
+      },
+      "verification_history": [
+        {
+          "status": "ordered_plan_recorded_implementation_not_started"
+        }
+      ]
     },
     {
       "id": "M1BREF001",
@@ -2692,6 +2703,186 @@
       "verification_history": [
         {
           "status": "owner_correcting_and_testing"
+        }
+      ]
+    },
+    {
+      "id": "M1BPUB001",
+      "stage": "M1B_publication",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "kind": "payload_generation_execution_status",
+      "expected": "Bounded publication helper distinguishes running exec from failure and preserves generated exact bytes.",
+      "observed": "Helper returned a running session before producing its manifest; coordinator wrapper mistakenly treated absent exit_code as failure. Helper safely completed external payload files without changing repository.",
+      "affected": [
+        "publication orchestration"
+      ],
+      "corrective_action": "Read completed manifest; verify61 exact blobs and tree518ac42231f38416d446584355cb00b50912415f before guarded branch update. Fetch and local reconciliation passed; no work discarded.",
+      "evidence": [
+        {
+          "commit": "e8c6cca9162a860f49fd2568f33f1491db4d52d6",
+          "local_equivalent": "0e3f7a8a0e119cc59aa2d4ad093002c7b43cd0d0"
+        }
+      ],
+      "verification": {
+        "status": "published_tree_and_ref_verified"
+      }
+    },
+    {
+      "id": "M1CPLAN001",
+      "stage": "M1C_design",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "kind": "full_task_scope_vs_milestone_scope",
+      "expected": "FLOW-PILOT M1 supports only scalar Choose CFG/may-reaching-definitions; FLOW-EXPANSION root reachability/indirect candidates remain M3.",
+      "observed": "Forward ordered-step prose added scoped call/reachability based on full T04 task, although support-matrix gates those expansion analyses to M3. Discovered during design before implementation.",
+      "affected": [
+        "M1C ordered plan",
+        "M3 boundary"
+      ],
+      "corrective_action": "Correct milestones/checkpoint and notify all agents: C0 source selected-declaration records, C1 ChooseCFG/events, C2 scalar Choose definitions only. No early reachability/candidate implementation.",
+      "evidence": [
+        {
+          "source": "docs/m0/support-matrix.json FLOW-PILOT/FLOW-EXPANSION and independent review"
+        }
+      ],
+      "verification": {
+        "status": "plan_corrected_before_code",
+        "implementation_started": false
+      }
+    },
+    {
+      "id": "M1CDESIGN001",
+      "stage": "M1C_design",
+      "status": "open",
+      "blocks_dependent_execution": true,
+      "kind": "selected_cfg_scope_and_missing_native_oracle",
+      "expected": "CFG/events have exact selected-body scope, truthful file coverage and independently verified compiler correspondence.",
+      "observed": "FLOW-PILOT selects Choose only while existing requests select feature globally; native M0 evidence lacks exact CFG block/member/pointer correspondence oracle. No counts are inferred.",
+      "affected": [
+        "M1C1 feature request/acceptance",
+        "M1C2 event/solver inputs"
+      ],
+      "corrective_action": "Design A005 explicit versioned Choose identity/signature selection and fingerprint; mark unselected bodies not_attempted and file aggregates partial. After C0 gate, run bounded native CFG oracle prerequisite before implementation reliance.",
+      "evidence": [
+        {
+          "source": "Native compiler design review and frozen support matrix"
+        }
+      ],
+      "verification": {
+        "status": "design_only_pending_C0_gate_and_native_probe"
+      }
+    },
+    {
+      "id": "M1C0TEST001",
+      "stage": "M1C0",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "kind": "source_argument_mapping_and_test_expectations",
+      "expected": "Direct call normalization retains source expressions, language-specific primitive keys and declared parameter mapping.",
+      "observed": "First focused suite passed2/5. Managed and partial cases exposed wrapper child_role value confused with operand role argument. Native assertion incorrectly expected reference instead of retained implicit conversion; managed builtin test expected int instead of System.Int32.",
+      "affected": [
+        "M1C0 argument normalization",
+        "M1C0 test oracle"
+      ],
+      "corrective_action": "Owner corrected wrapper operand mapping and tests to preserve native conversion and language-specific primitive keys. No compiler output changed. Focused rerun pending.",
+      "evidence": [
+        {
+          "report": "C:/_Travail/tools/Prompted-Learning-inputs/m1-source-relations-report-1.json",
+          "tests": 5,
+          "failed": 3
+        }
+      ],
+      "verification": {
+        "status": "passed_final_integration_and_independent_review",
+        "tests": 100,
+        "failed": 0,
+        "report": "docs/m1/evidence/m1c0-tests.json",
+        "report_sha256": "b7c2a09f6981356f37517b0e68207d2364a10efc8979da79c4c23102c9e7c9e3",
+        "history": "docs/m1/evidence/m1c0-validation-history.json",
+        "gate": "docs/m1/evidence/gate-m1c0.json"
+      },
+      "verification_history": [
+        {
+          "status": "corrections_pending_rerun"
+        }
+      ]
+    },
+    {
+      "id": "M1C0TOOL001",
+      "stage": "M1C0",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "kind": "read_only_probe_encoding_alias",
+      "expected": "Read-only Python inspection accepts UTF8 BOM.",
+      "observed": "Probe used invalid utf8-sig codec alias and did not inspect data.",
+      "affected": [
+        "inspection helper"
+      ],
+      "corrective_action": "Corrected to utf-8-sig; subsequent read succeeded without changing product files.",
+      "evidence": [
+        {
+          "source": "C0 owner handoff"
+        }
+      ],
+      "verification": {
+        "status": "corrected_read_succeeded"
+      }
+    },
+    {
+      "id": "M1CCFG001",
+      "stage": "M1C1_design",
+      "status": "open",
+      "blocks_dependent_execution": true,
+      "kind": "cfg_member_persistence_contract_gap",
+      "expected": "Canonical CFG retains correspondence, phase and compiler element kind required by wire/prose and deterministic scalar replay.",
+      "observed": "Existing cfg_operation contains only block_id,operation_id,ordinal; required member distinctions would be discarded.",
+      "affected": [
+        "M1C1 A005 schema amendment",
+        "M1C2 persisted event replay"
+      ],
+      "corrective_action": "Reviewed design requires three typed columns with enum/nonempty checks, field dictionary/profile ownership updates and historical-schema rejection tests before C1 implementation. No mandatory-evidence payload workaround.",
+      "evidence": [
+        {
+          "source": "docs/m1/m1c-compiler-design.md",
+          "sha256": "a3753dc47fb7f87d736e89389553fe612cd4c7f186eb34fbc8d9614bfbac0035",
+          "review": "independent design PASS; implementation not run"
+        }
+      ],
+      "verification": {
+        "status": "design_correction_reviewed_amendment_pending"
+      }
+    },
+    {
+      "id": "M1C0REVIEW001",
+      "stage": "M1C0",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "kind": "collection_completeness_and_missing_summary",
+      "expected": "Known normalized call and relationship occurrence collections require complete underlying source/body scans; partial sources preserve unknown sets.",
+      "observed": "Independent review found relationship_occurrence was always known even for a partial body. Owner self-review found validator only checked existing summary rows, so a deleted summary could leave an unsupported known calls claim. Further review found persisted validation allowed unsupported promotion of broad/context-wide collections to known, and generic identities could bypass the source-relations provenance loop.",
+      "affected": [
+        "M1C0 knowledge-state truthfulness",
+        "persisted source relation validation"
+      ],
+      "corrective_action": "Owner derives relationship occurrence state from actual scan completeness, requires summary for normalized states/sites and adds partial/idempotence/deleted-summary negatives. Require conservative broad collection states and source-relations/1 identities for every C0 primary record/coverage; exercise tampering negatives.",
+      "evidence": [
+        {
+          "source": "Independent reviewer and owner bounded self-review"
+        }
+      ],
+      "verification": {
+        "status": "passed_final_integration_and_independent_review",
+        "tests": 100,
+        "failed": 0,
+        "report": "docs/m1/evidence/m1c0-tests.json",
+        "report_sha256": "b7c2a09f6981356f37517b0e68207d2364a10efc8979da79c4c23102c9e7c9e3",
+        "history": "docs/m1/evidence/m1c0-validation-history.json",
+        "gate": "docs/m1/evidence/gate-m1c0.json"
+      },
+      "verification_history": [
+        {
+          "status": "corrections_and_focused_checks_pending"
         }
       ]
     }

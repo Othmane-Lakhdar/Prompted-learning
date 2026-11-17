@@ -1,0 +1,30 @@
+[
+  {
+    "source": "C:/_Travail/tools/Prompted-Learning-inputs/m1c0-integrated-report.json",
+    "source_sha256": "09ec8b5f2a8dc3a1ea34daa5078bf18ebd77917d593726e223fed366eec36c68",
+    "destination": "docs/m1/evidence/m1c0-tests.json",
+    "destination_sha256": "b7c2a09f6981356f37517b0e68207d2364a10efc8979da79c4c23102c9e7c9e3",
+    "transformation": "CRLF to LF only"
+  },
+  {
+    "source": "C:/_Travail/tools/Prompted-Learning-inputs/m1-source-relations-report-4.json",
+    "source_sha256": "94803516fddd8e029c696e95c4a30bb1f96c27816c64a4cd72913fcbe6bc8ec7",
+    "destination": "docs/m1/evidence/m1c0-focused-tests.json",
+    "destination_sha256": "9093bafa50e17369ab786c84b232770c5b1c65bbe7877aded06fa188c3adbe45",
+    "transformation": "CRLF to LF only"
+  },
+  {
+    "source": "C:/_Travail/tools/Prompted-Learning-inputs/m1c0-integrated-tests/source-relations-csharp.json",
+    "source_sha256": "4d715d17d44af87f25dc9ccd44ea58d8071baae621f3144226ee3daf838d805b",
+    "destination": "docs/m1/evidence/m1c0-source-relations-csharp.json",
+    "destination_sha256": "4d715d17d44af87f25dc9ccd44ea58d8071baae621f3144226ee3daf838d805b",
+    "transformation": "exact bytes"
+  },
+  {
+    "source": "C:/_Travail/tools/Prompted-Learning-inputs/m1c0-integrated-tests/source-relations-cpp.json",
+    "source_sha256": "7731023eeb1fe3b1a61fd36fec3a5a7e9256bc88210c654dc898dba6c3c3abd9",
+    "destination": "docs/m1/evidence/m1c0-source-relations-cpp.json",
+    "destination_sha256": "7731023eeb1fe3b1a61fd36fec3a5a7e9256bc88210c654dc898dba6c3c3abd9",
+    "transformation": "exact bytes"
+  }
+]

@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "milestone": "M1C0",
+  "status": "passed",
+  "as_of_utc": "2026-11-17T11:27:17.671587+00:00",
+  "prerequisite_commit": "e8c6cca9162a860f49fd2568f33f1491db4d52d6",
+  "scope": "Collecting direct compiler-selected source call normalization over the frozen C#/C++ pilots; no runtime candidates or flow analyses.",
+  "build": {
+    "status": "passed",
+    "configuration": "Release",
+    "sdk": "10.0.404",
+    "warnings": 0,
+    "errors": 0,
+    "log": "C:/_Travail/tools/Prompted-Learning-inputs/m1c0-integrated-build.log"
+  },
+  "tests": {
+    "status": "passed",
+    "count": 100,
+    "failed": 0,
+    "groups": {
+      "Foundation": 10,
+      "Source": 13,
+      "Storage": 17,
+      "Context": 5,
+      "PilotGuard": 9,
+      "ContextStorage": 5,
+      "CompilerContract": 5,
+      "Managed": 8,
+      "Native": 4,
+      "NativeSemantic": 4,
+      "SemanticValidation": 2,
+      "NativeHost": 4,
+      "SemanticStorage": 9,
+      "SourceRelations": 5
+    },
+    "report": "m1c0-tests.json",
+    "report_sha256": "b7c2a09f6981356f37517b0e68207d2364a10efc8979da79c4c23102c9e7c9e3",
+    "raw_report": "C:/_Travail/tools/Prompted-Learning-inputs/m1c0-integrated-report.json",
+    "raw_report_sha256": "09ec8b5f2a8dc3a1ea34daa5078bf18ebd77917d593726e223fed366eec36c68",
+    "focused_report": "m1c0-focused-tests.json",
+    "focused_tests": 5,
+    "history": "m1c0-validation-history.json"
+  },
+  "review": {
+    "status": "passed",
+    "reviewer": "/root/preflight_review",
+    "verified_source_files": 76,
+    "verified_binary_paths": 8,
+    "verified_evidence_copies": 4,
+    "verified_after_final_test": true,
+    "findings": "All material C0 findings corrected and tested. Gate/state/deviation final prose authored subsequently by coordinator."
+  },
+  "inputs_manifest": "m1c0-reviewed-inputs.json",
+  "inputs_manifest_sha256": "0caf834404f88cb8084dd4c9a5a07ca1781693cb0e26df140b5ea89e7c1d1837",
+  "evidence_copies": "m1c0-evidence-copies.json",
+  "contract_sha256": "11b8c2c29bb401b72838df7ce565c44182a9a1edb46149116b96f1b047fc94ab",
+  "schema_sha256": "126c053ffc3c40827b7a236d7d362977c1b5509d0634f3515c00fea4f639dfb2",
+  "verified_outcomes": [
+    "Each language retains exactly one Choose to Add(int,int) selected declaration, original call occurrence and two correctly mapped source arguments. Native implicit conversion is retained; managed argument wrapper is unwrapped once.",
+    "Stable IDs and consumed-row/tool fingerprints survive repeat normalization without duplicate facts. Compiler provenance remains separate from derivation evidence.",
+    "Complete scans support known empty direct-call sets; partial and unsupported scans preserve located reasons and unknown occurrence collections. Broad/context incoming collections cannot claim completeness.",
+    "Persisted mutations of targets, argument mapping, origins, input source, tool descriptor, collection knowledge, summary coverage and producer identities are rejected.",
+    "M1A/M1B gates reject new relation tables and roll back; source relation gate remains collecting-only."
+  ],
+  "limitations": [
+    "Frozen pilot only. Source selection does not compute runtime candidates; target collections remain unknown/not_analyzed.",
+    "No CFG/events, reaching definitions, canonical finalization, profiles, queries or benchmark executed.",
+    "C1 requires A005 selection/fingerprints/typed CFG member schema and independently captured native CFG oracle."
+  ],
+  "resolved_deviations": [
+    "M1BSEQ001",
+    "M1C0TEST001",
+    "M1C0TOOL001",
+    "M1C0REVIEW001"
+  ],
+  "next_gate": "Publish this coherent C0 commit, then open C1 prerequisites before compiler-flow implementation.",
+  "usage": {
+    "checked_at": "2026-11-17T11:26:05.691Z",
+    "weekly_remaining_percent": 28,
+    "window_minutes": 10080,
+    "resets_at": 1795453198
+  }
+}

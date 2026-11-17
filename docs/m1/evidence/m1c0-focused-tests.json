@@ -1,0 +1,34 @@
+{
+  "stage": "M1C0",
+  "group": "SourceRelations",
+  "tests": 5,
+  "failed": 0,
+  "status": "passed",
+  "results": [
+    {
+      "name": "source_relations.actual_csharp_direct_call_and_exact_arguments",
+      "status": "passed",
+      "elapsed_ms": 21863.7402
+    },
+    {
+      "name": "source_relations.actual_cpp_direct_call_and_exact_arguments",
+      "status": "passed",
+      "elapsed_ms": 4591.6741
+    },
+    {
+      "name": "source_relations_prior_gate_and_unknown_unit_roll_back",
+      "status": "passed",
+      "elapsed_ms": 3671.177
+    },
+    {
+      "name": "source_relations_partial_and_unsupported_calls_preserve_located_uncertainty",
+      "status": "passed",
+      "elapsed_ms": 36729.5684
+    },
+    {
+      "name": "source_relations_persisted_corruption_and_runtime_candidates_are_rejected",
+      "status": "passed",
+      "elapsed_ms": 7068.878
+    }
+  ]
+}

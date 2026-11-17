@@ -29,6 +29,17 @@ public sealed class SemanticCollectionValidationException(SemanticCollectionVali
     public SemanticCollectionValidationResult Result { get; } = result;
 }
 
+public sealed record SourceRelationsValidationResult(IReadOnlyList<StorageIssue> Issues, int ProducedRecords)
+{
+    public bool IsValid => Issues.Count == 0;
+    public string Scope => "M1C0 collecting direct source calls only; no runtime candidates, CFG, data flow or finalization.";
+}
+public sealed class SourceRelationsValidationException(SourceRelationsValidationResult result)
+    : IOException("Source relation validation failed: " + string.Join("; ", result.Issues.Select(issue => issue.Code + ": " + issue.Message)))
+{
+    public SourceRelationsValidationResult Result { get; } = result;
+}
+
 /// <summary>Append-only collecting storage. It exposes neither arbitrary SQL nor dataset finalization.</summary>
 public sealed class CanonicalStore : IDisposable
 {
@@ -113,6 +124,12 @@ public sealed class CanonicalStore : IDisposable
         return new(result.Issues, result.ProducedRecords);
     }
 
+    public SourceRelationsValidationResult ValidateSourceRelationsCollection(CancellationToken cancellationToken = default)
+    {
+        var result = new FoundationValidator(this, connection, activeWrite?.Transaction, semanticCollection: true, sourceRelations: true).Validate(cancellationToken);
+        return new(result.Issues, result.ProducedRecords);
+    }
+
     internal void UpdateCollecting(string table, IReadOnlyDictionary<string, object?> expected,
         IReadOnlyDictionary<string, object?> changes, SqliteTransaction transaction)
     {
@@ -174,6 +191,7 @@ public sealed class CanonicalWrite : IDisposable
     internal CanonicalWrite(CanonicalStore store, SqliteTransaction transaction) { this.store = store; Transaction = transaction; }
     internal StorageSchema Schema => store.Schema;
     internal IReadOnlyList<IReadOnlyDictionary<string, object?>> ReadRows(string table) => store.ReadRows(table);
+    internal SourceRelationsValidationResult ValidateSourceRelations(CancellationToken cancellationToken) => store.ValidateSourceRelationsCollection(cancellationToken);
     internal T ImportOperation<T>(Func<T> import)
     {
         EnsureActive();
@@ -247,6 +265,21 @@ public sealed class CanonicalWrite : IDisposable
             cancellationToken.ThrowIfCancellationRequested();
             var result = store.ValidateSemanticCollection(cancellationToken);
             if (!result.IsValid) throw new SemanticCollectionValidationException(result);
+            cancellationToken.ThrowIfCancellationRequested();
+            Transaction.Commit(); closed = true; Transaction.Dispose(); store.EndWrite(this);
+            return result;
+        }
+        catch { Dispose(); throw; }
+    }
+
+    public SourceRelationsValidationResult CommitSourceRelationsCollection(CancellationToken cancellationToken = default)
+    {
+        EnsureActive();
+        try
+        {
+            cancellationToken.ThrowIfCancellationRequested();
+            var result = store.ValidateSourceRelationsCollection(cancellationToken);
+            if (!result.IsValid) throw new SourceRelationsValidationException(result);
             cancellationToken.ThrowIfCancellationRequested();
             Transaction.Commit(); closed = true; Transaction.Dispose(); store.EndWrite(this);
             return result;

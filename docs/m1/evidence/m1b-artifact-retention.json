@@ -1,0 +1,52 @@
+{
+  "stage": "M1B",
+  "commit": "e8c6cca9162a860f49fd2568f33f1491db4d52d6",
+  "created_utc": "2026-11-17T11:14:34.092781+00:00",
+  "purpose": "Immutable copy before subsequent builds; original reviewed manifest unchanged.",
+  "verified_gate_binaries": [
+    {
+      "original": "C:/_Travail/tools/Prompted-Learning-inputs/m1-build/bin/PromptedLearning.Core/release/PromptedLearning.Core.dll",
+      "preserved": "C:/_Travail/tools/Prompted-Learning-inputs/gates/m1b/bin/PromptedLearning.Core/release/PromptedLearning.Core.dll",
+      "sha256": "c28a2c55ee21b7285118bc3cfe59ddcc6cb348413c3a070fd9739f5b1ad83e02"
+    },
+    {
+      "original": "C:/_Travail/tools/Prompted-Learning-inputs/m1-build/bin/PromptedLearning.Tests/release/PromptedLearning.Core.dll",
+      "preserved": "C:/_Travail/tools/Prompted-Learning-inputs/gates/m1b/bin/PromptedLearning.Tests/release/PromptedLearning.Core.dll",
+      "sha256": "c28a2c55ee21b7285118bc3cfe59ddcc6cb348413c3a070fd9739f5b1ad83e02"
+    },
+    {
+      "original": "C:/_Travail/tools/Prompted-Learning-inputs/m1-build/bin/PromptedLearning.Managed/release/PromptedLearning.Managed.dll",
+      "preserved": "C:/_Travail/tools/Prompted-Learning-inputs/gates/m1b/bin/PromptedLearning.Managed/release/PromptedLearning.Managed.dll",
+      "sha256": "6ef1209a5c2f38ba79f2fb1cd97447b74f0a827c5ef450857ac98c4c7787f703"
+    },
+    {
+      "original": "C:/_Travail/tools/Prompted-Learning-inputs/m1-build/bin/PromptedLearning.Tests/release/PromptedLearning.Managed.dll",
+      "preserved": "C:/_Travail/tools/Prompted-Learning-inputs/gates/m1b/bin/PromptedLearning.Tests/release/PromptedLearning.Managed.dll",
+      "sha256": "6ef1209a5c2f38ba79f2fb1cd97447b74f0a827c5ef450857ac98c4c7787f703"
+    },
+    {
+      "original": "C:/_Travail/tools/Prompted-Learning-inputs/m1-build/bin/PromptedLearning.Storage/release/PromptedLearning.Storage.dll",
+      "preserved": "C:/_Travail/tools/Prompted-Learning-inputs/gates/m1b/bin/PromptedLearning.Storage/release/PromptedLearning.Storage.dll",
+      "sha256": "960fc32032885d751e45baba3761770b51e11d72038b397664566e2c5347cdc3"
+    },
+    {
+      "original": "C:/_Travail/tools/Prompted-Learning-inputs/m1-build/bin/PromptedLearning.Tests/release/PromptedLearning.Storage.dll",
+      "preserved": "C:/_Travail/tools/Prompted-Learning-inputs/gates/m1b/bin/PromptedLearning.Tests/release/PromptedLearning.Storage.dll",
+      "sha256": "960fc32032885d751e45baba3761770b51e11d72038b397664566e2c5347cdc3"
+    },
+    {
+      "original": "C:/_Travail/tools/Prompted-Learning-inputs/m1-build/bin/PromptedLearning.Tests/release/PromptedLearning.Tests.dll",
+      "preserved": "C:/_Travail/tools/Prompted-Learning-inputs/gates/m1b/bin/PromptedLearning.Tests/release/PromptedLearning.Tests.dll",
+      "sha256": "1a28ac1627034e3c80403fc377b9773295a0dec27c0b93623a7ea31b390d4bc2"
+    },
+    {
+      "original": "C:/_Travail/tools/Prompted-Learning-inputs/m1-native-build/Release/prompted-learning-clang-worker.exe",
+      "preserved": "C:/_Travail/tools/Prompted-Learning-inputs/gates/m1b/native/prompted-learning-clang-worker.exe",
+      "sha256": "954bd0629a3c21899116332346221ccf184ea74e8fb3c47c3ff2f08c5189092a"
+    }
+  ],
+  "retained_file_count": 79,
+  "retained_bytes": 91630566,
+  "full_inventory": "C:/_Travail/tools/Prompted-Learning-inputs/gates/m1b/inventory.json",
+  "inventory_sha256": "2aed712a5d5dd80e5852c9813f814ec6af0a468d64ede2d234ac38e64351d40b"
+}

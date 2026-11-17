@@ -6,7 +6,7 @@ using PromptedLearning.Core;
 
 namespace PromptedLearning.Storage;
 
-internal sealed partial class FoundationValidator(CanonicalStore store, SqliteConnection connection, SqliteTransaction? transaction, bool semanticCollection = false)
+internal sealed partial class FoundationValidator(CanonicalStore store, SqliteConnection connection, SqliteTransaction? transaction, bool semanticCollection = false, bool sourceRelations = false)
 {
     private static readonly HashSet<string> FoundationTables = new(StringComparer.Ordinal)
     {
@@ -18,7 +18,8 @@ internal sealed partial class FoundationValidator(CanonicalStore store, SqliteCo
     private static readonly string[] SemanticTables = ["entity", "entity_unit", "entity_modifier", "appearance", "type_node", "type_argument", "type_qualifier",
         "signature", "signature_qualifier", "parameter", "entity_detail", "member_relation", "body", "operation", "operation_child", "operation_operand",
         "annotation", "annotation_argument", "preprocessing", "external_symbol", "unresolved_reference", "coverage", "diagnostic"];
-    private readonly HashSet<string> SupportedTables = FoundationTables.Concat(semanticCollection ? SemanticTables : []).ToHashSet(StringComparer.Ordinal);
+    private static readonly string[] SourceRelationTables = ["relationship", "occurrence", "relationship_occurrence", "occurrence_argument", "call_site", "call_target", "call_argument"];
+    private readonly HashSet<string> SupportedTables = FoundationTables.Concat(semanticCollection ? SemanticTables : []).Concat(sourceRelations ? SourceRelationTables : []).ToHashSet(StringComparer.Ordinal);
     private static readonly Regex IdPattern = new("^[a-z][a-z0-9_-]*:[0-9a-f]{64}$", RegexOptions.CultureInvariant);
     private static readonly Regex HashPattern = new("^[0-9a-f]{64}$", RegexOptions.CultureInvariant);
     private readonly List<StorageIssue> issues = [];
@@ -72,6 +73,7 @@ internal sealed partial class FoundationValidator(CanonicalStore store, SqliteCo
         ValidateStatesAndScopes();
         ValidateOrdering();
         if (semanticCollection) ValidateSemanticRows();
+        if (sourceRelations) ValidateSourceRelationRows();
         return new(issues.AsReadOnly(), payload.Count);
     }
 
