@@ -2,8 +2,8 @@
   "schema_version": 1,
   "as_of": "2026-11-17",
   "project": "C++ and C# code extraction",
-  "stage": "M0",
-  "m0_status": "in_progress",
+  "stage": "M1",
+  "m0_status": "passed",
   "implementation_status": "not_started",
   "repository": "Othmane-Lakhdar/Prompted-learning",
   "work_branch": "codex/extractor-design-implementation",
@@ -13,9 +13,9 @@
   "historical_checkpoint": "docs/checkpoints/2026-11-16-preimplementation.md",
   "capability_audit": "docs/capabilities.md",
   "deviation_log": "docs/deviations.json",
-  "next_stage": "M0 field contracts and pilot gates under design; M1 blocked until reviewed M0 acceptance",
+  "next_stage": "M1A source, identity, context and canonical storage foundation; M1B waits for its checks",
   "notes": [
-    "Autonomous M0 design underway with separate contract, requirements and independent review agents; extractor implementation has not started.",
+    "M0 completed with executable design checks and independent review. M1A is authorized; all later milestone and commit-unit gates remain in force.",
     "Verified local Windows execution replaces the failed cloud runner for this chat.",
     "Coral tests passed after private SDK10 setup and explicit Release deployment; CppSharp native/CSharp PInvoke generator subset passed with one upstream ignore.",
     "Full CppSharp Windows C++CLI build/tests and broad extractor compatibility remain gates.",
@@ -44,5 +44,7 @@
   "preflight_status": "completed_with_declared_scope_limits",
   "local_preflight_report": "docs/preflight/2026-11-16-local/README.md",
   "publication_evidence": "docs/preflight/2026-11-16-local/publication.json",
-  "specification_sources": "docs/specifications/sources.json"
+  "specification_sources": "docs/specifications/sources.json",
+  "current_unit": "M1A",
+  "m0_gate": "docs/m0/evidence/gate.json"
 }

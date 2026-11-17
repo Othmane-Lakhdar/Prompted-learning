@@ -1,0 +1,250 @@
+{
+  "schema_version": 1,
+  "meaning": "Planned support is a test obligation, not an implemented capability. Complete is only within declared context/feature coverage. Unsupported required inputs block full target-project claims.",
+  "features": [
+    {
+      "id": "SRC-BYTES",
+      "language": "both",
+      "milestone": "M1",
+      "scope": "Exact bytes, hashes, file versions and span conversion for pilot UTF8; UTF16/BOM/CRLF conformance variants",
+      "fixtures": [
+        "FX-PILOT-CS",
+        "FX-PILOT-CPP",
+        "FX-ENCODINGS"
+      ],
+      "implementation_status": "not_implemented",
+      "unsupported_behavior": "Record region, feature and reason; retain source; affected analysis remains partial/not_attempted. Never label the supported fixture passed via unknown fallback."
+    },
+    {
+      "id": "CS-PILOT",
+      "language": "csharp",
+      "milestone": "M1",
+      "scope": "Namespace, one static partial class, four explicit methods, int/long signatures, parameter/local declarations, constants, binary +/>/-, direct calls, if/else and return",
+      "fixtures": [
+        "FX-PILOT-CS"
+      ],
+      "implementation_status": "not_implemented",
+      "unsupported_behavior": "Record region, feature and reason; retain source; affected analysis remains partial/not_attempted. Never label the supported fixture passed via unknown fallback."
+    },
+    {
+      "id": "CPP-PILOT",
+      "language": "cpp",
+      "milestone": "M1",
+      "scope": "Namespace, overloaded free functions, header declarations and definitions, int/long-long signatures, noinline, scalar locals, direct calls, if/else and return",
+      "fixtures": [
+        "FX-PILOT-CPP"
+      ],
+      "implementation_status": "not_implemented",
+      "unsupported_behavior": "Record region, feature and reason; retain source; affected analysis remains partial/not_attempted. Never label the supported fixture passed via unknown fallback."
+    },
+    {
+      "id": "CS-IDENTITY",
+      "language": "csharp",
+      "milestone": "M2",
+      "scope": "Distinct assemblies, nested/anonymous types, complete member/accessor inventory, generic constraints, inherited versus declared membership",
+      "fixtures": [
+        "FX-IDENTITY-CONTEXTS",
+        "FX-SOURCE-FAMILIES"
+      ],
+      "implementation_status": "not_implemented",
+      "unsupported_behavior": "Record region, feature and reason; retain source; affected analysis remains partial/not_attempted. Never label the supported fixture passed via unknown fallback."
+    },
+    {
+      "id": "CPP-IDENTITY",
+      "language": "cpp",
+      "milestone": "M2",
+      "scope": "Multiple translation units, internal/external linkage, namespaces/modules, aliases, templates and specialization identities",
+      "fixtures": [
+        "FX-IDENTITY-CONTEXTS",
+        "FX-SOURCE-FAMILIES",
+        "FX-MODULES"
+      ],
+      "implementation_status": "not_implemented",
+      "unsupported_behavior": "Record region, feature and reason; retain source; affected analysis remains partial/not_attempted. Never label the supported fixture passed via unknown fallback."
+    },
+    {
+      "id": "TYPES-SIGNATURES",
+      "language": "both",
+      "milestone": "M2",
+      "scope": "Structured qualifiers, pointer/reference/array/function/generic types, passing modes, defaults and calling conventions",
+      "fixtures": [
+        "FX-SOURCE-FAMILIES"
+      ],
+      "implementation_status": "not_implemented",
+      "unsupported_behavior": "Record region, feature and reason; retain source; affected analysis remains partial/not_attempted. Never label the supported fixture passed via unknown fallback."
+    },
+    {
+      "id": "DOC-ANNOTATIONS",
+      "language": "both",
+      "milestone": "M2",
+      "scope": "Documentation and annotation locations/arguments; documented claims not inferred guarantees",
+      "fixtures": [
+        "FX-SOURCE-FAMILIES"
+      ],
+      "implementation_status": "not_implemented",
+      "unsupported_behavior": "Record region, feature and reason; retain source; affected analysis remains partial/not_attempted. Never label the supported fixture passed via unknown fallback."
+    },
+    {
+      "id": "CPP-PREPROCESS",
+      "language": "cpp",
+      "milestone": "M2",
+      "scope": "Includes, macro spelling/expansion, conditional activity, inactive regions and capture dependencies",
+      "fixtures": [
+        "FX-PREPROCESS-GENERATED"
+      ],
+      "implementation_status": "not_implemented",
+      "unsupported_behavior": "Record region, feature and reason; retain source; affected analysis remains partial/not_attempted. Never label the supported fixture passed via unknown fallback."
+    },
+    {
+      "id": "CS-CONDITIONAL-GENERATED",
+      "language": "csharp",
+      "milestone": "M2",
+      "scope": "Conditional symbols and retained generated virtual files with generator provenance",
+      "fixtures": [
+        "FX-PREPROCESS-GENERATED"
+      ],
+      "implementation_status": "not_implemented",
+      "unsupported_behavior": "Record region, feature and reason; retain source; affected analysis remains partial/not_attempted. Never label the supported fixture passed via unknown fallback."
+    },
+    {
+      "id": "GROUPS",
+      "language": "both",
+      "milestone": "M2",
+      "scope": "Physical/logical groups, root depth, multi-context memberships, deduplicated edges and coverage/freshness",
+      "fixtures": [
+        "FX-GROUPS"
+      ],
+      "implementation_status": "not_implemented",
+      "unsupported_behavior": "Record region, feature and reason; retain source; affected analysis remains partial/not_attempted. Never label the supported fixture passed via unknown fallback."
+    },
+    {
+      "id": "FLOW-PILOT",
+      "language": "both",
+      "milestone": "M1",
+      "scope": "Scalar Choose body CFG and intraprocedural may-reaching-definitions for result; no global dead-code or runtime-value claims",
+      "fixtures": [
+        "FX-PILOT-CS",
+        "FX-PILOT-CPP"
+      ],
+      "implementation_status": "not_implemented",
+      "unsupported_behavior": "Record region, feature and reason; retain source; affected analysis remains partial/not_attempted. Never label the supported fixture passed via unknown fallback."
+    },
+    {
+      "id": "FLOW-EXPANSION",
+      "language": "both",
+      "milestone": "M3",
+      "scope": "Loops, short circuit, switch, initialization/cleanup, exceptions, captures, alias/pointer effects, indirect candidates and explicit-root reachability",
+      "fixtures": [
+        "FX-ADVANCED-FLOW"
+      ],
+      "implementation_status": "not_implemented",
+      "unsupported_behavior": "Record region, feature and reason; retain source; affected analysis remains partial/not_attempted. Never label the supported fixture passed via unknown fallback."
+    },
+    {
+      "id": "CS-ASYNC-ITERATORS",
+      "language": "csharp",
+      "milestone": "M3",
+      "scope": "Async/yield suspend/resume and disposal under explicit conservative model; source and compiler lowering separate",
+      "fixtures": [
+        "FX-ADVANCED-FLOW"
+      ],
+      "implementation_status": "not_implemented",
+      "unsupported_behavior": "Record region, feature and reason; retain source; affected analysis remains partial/not_attempted. Never label the supported fixture passed via unknown fallback."
+    },
+    {
+      "id": "CPP-TEMPLATE-ANALYSIS",
+      "language": "cpp",
+      "milestone": "M3",
+      "scope": "Selected compiler-known instantiations, dependent unresolved forms and substitutions; no enumeration of future instantiations",
+      "fixtures": [
+        "FX-ADVANCED-FLOW"
+      ],
+      "implementation_status": "not_implemented",
+      "unsupported_behavior": "Record region, feature and reason; retain source; affected analysis remains partial/not_attempted. Never label the supported fixture passed via unknown fallback."
+    },
+    {
+      "id": "BUDGETS",
+      "language": "both",
+      "milestone": "M3",
+      "scope": "Independent whole-unit selection and every specified per-unit/total/byte boundary for BD0.7/12/13",
+      "fixtures": [
+        "FX-FAILURE-EXPORT"
+      ],
+      "implementation_status": "not_implemented",
+      "unsupported_behavior": "Record region, feature and reason; retain source; affected analysis remains partial/not_attempted. Never label the supported fixture passed via unknown fallback."
+    },
+    {
+      "id": "MSBUILD-CONTEXT",
+      "language": "both",
+      "milestone": "M1",
+      "scope": "Evaluate explicit project/configuration/platform, selected items/options/references; separate observations from settings",
+      "fixtures": [
+        "FX-PILOT-CS",
+        "FX-PILOT-CPP"
+      ],
+      "implementation_status": "not_implemented",
+      "unsupported_behavior": "Record region, feature and reason; retain source; affected analysis remains partial/not_attempted. Never label the supported fixture passed via unknown fallback."
+    },
+    {
+      "id": "BUILD-EVIDENCE",
+      "language": "both",
+      "milestone": "M4",
+      "scope": "Declared/evaluated settings, action graph, actual run/log ingestion, generated/cache provenance, PE/PDB inspection with mapping gaps",
+      "fixtures": [
+        "FX-BUILD-EVIDENCE"
+      ],
+      "implementation_status": "not_implemented",
+      "unsupported_behavior": "Record region, feature and reason; retain source; affected analysis remains partial/not_attempted. Never label the supported fixture passed via unknown fallback."
+    },
+    {
+      "id": "FRESHNESS",
+      "language": "both",
+      "milestone": "M5",
+      "scope": "Source/settings/dependency/tool invalidation, preserved immutable prior datasets, measured incremental reuse",
+      "fixtures": [
+        "FX-FAILURE-EXPORT"
+      ],
+      "implementation_status": "not_implemented",
+      "unsupported_behavior": "Record region, feature and reason; retain source; affected analysis remains partial/not_attempted. Never label the supported fixture passed via unknown fallback."
+    },
+    {
+      "id": "ROBUSTNESS",
+      "language": "both",
+      "milestone": "M1",
+      "scope": "Invalid spans, invalid references, interrupted publishing, no hidden canonical reads; later stress at M5",
+      "fixtures": [
+        "FX-FAILURE-EXPORT"
+      ],
+      "implementation_status": "not_implemented",
+      "unsupported_behavior": "Record region, feature and reason; retain source; affected analysis remains partial/not_attempted. Never label the supported fixture passed via unknown fallback."
+    }
+  ],
+  "boundaries": [
+    {
+      "feature": "C++/CLI",
+      "status": "blocked_missing_toolchain_and_adapter_support",
+      "blocks": "full CppSharp Windows/CLI coverage",
+      "retained_scope": "verified native/CSharp-PInvoke subset; do not claim whole repository support"
+    },
+    {
+      "feature": "CMake and other build adapters",
+      "status": "schema_represented_adapter_not_selected_for_MSBuild_pilot",
+      "blocks": "claims of automatic evaluated support for those build systems"
+    },
+    {
+      "feature": "unrestricted MSVC/Clang compatibility",
+      "status": "not_established",
+      "verified": "exact native pilot and prior bounded probes only"
+    },
+    {
+      "feature": "application runtime observation BDR",
+      "status": "deferred_by_baseline",
+      "blocks": "runtime execution/value claims"
+    },
+    {
+      "feature": "Coral/CppSharp full extraction language-feature audit",
+      "status": "required_before_M2_real_resource_coverage_and_M5_target_claims",
+      "note": "Successful upstream compilation does not establish Roslyn/Clang extractor coverage."
+    }
+  ]
+}

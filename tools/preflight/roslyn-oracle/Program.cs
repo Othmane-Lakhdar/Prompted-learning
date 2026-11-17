@@ -13,7 +13,8 @@ var c=CSharpCompilation.Create("Pilot",trees,refs,new CSharpCompilationOptions(O
 var errors=c.GetDiagnostics().Where(d=>d.Severity==DiagnosticSeverity.Error).ToArray();
 if(errors.Length>0)throw new Exception(string.Join("\n",errors.Select(e=>e.ToString())));
 var method=trees.SelectMany(t=>t.GetRoot().DescendantNodes().OfType<MethodDeclarationSyntax>()).Single(m=>m.Identifier.Text=="Choose");
-var op=c.GetSemanticModel(method.SyntaxTree).GetOperation(method.Body!)!;
+var semanticModel=c.GetSemanticModel(method.SyntaxTree);
+var op=semanticModel.GetOperation(method.Body!)!;
 var rows=new List<object>();
 var originalOperations=new List<(IOperation Node,string Path)>();
 void Walk(IOperation node,string route){
@@ -30,7 +31,7 @@ Console.WriteLine(JsonSerializer.Serialize(new {node_count=rows.Count,kinds=rows
 if(args.Length>2 && args[2]=="--cfg") {
  // A capability oracle only: it observes compiler correspondence and does not
  // persist canonical records, implement a CFG adapter, or derive data flow.
- var executable=c.GetSemanticModel(method.SyntaxTree).GetOperation(method) as IMethodBodyOperation
+ var executable=semanticModel.GetOperation(method) as IMethodBodyOperation
      ?? throw new Exception("The compiler did not expose an executable method root.");
  var cfg=ControlFlowGraph.Create(executable);
  var observations=new List<object>();

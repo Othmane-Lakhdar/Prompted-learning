@@ -1,0 +1,255 @@
+{
+  "version": 1,
+  "rule": "Advance only after applicable prerequisite evidence is recorded and independent review has no unresolved blocking findings. A coherent intermediate commit does not mark a milestone complete.",
+  "milestones": [
+    {
+      "id": "M0",
+      "status": "passed",
+      "depends_on": [
+        "preflight_completed_with_declared_scope_limits"
+      ],
+      "tasks": [
+        "T01"
+      ],
+      "deliverables": [
+        "full source specification snapshots",
+        "every inventory sub-element mapped",
+        "field and relationship contracts",
+        "concrete normalized schema and vocabularies",
+        "source/identity/context/knowledge/evidence rules",
+        "canonical serializer/fingerprint/export/manifest/query contracts",
+        "pilot inputs and feature matrix",
+        "fixture programs and expected facts",
+        "24-question experiment and usable AI route",
+        "review and deviation outcomes"
+      ],
+      "exit_checks": [
+        "All exact source anchors and schema-column references resolve",
+        "Collection cardinality, ordering, applicability and knowledge-state addressing reviewed substantively",
+        "DDL plus positive/negative contract examples execute",
+        "Both declared pilot projects build; exact Clang/MSVC context and Roslyn operation oracles verified",
+        "All 24 gold questions and 360-trial protocol fixed before product outputs",
+        "Known design blockers corrected and independently rechecked"
+      ],
+      "prohibited_before_exit": [
+        "production extractor storage/producers",
+        "claiming M1 or later support"
+      ],
+      "gate": "evidence/gate.json"
+    },
+    {
+      "id": "M1",
+      "status": "ready",
+      "depends_on": [
+        "M0_passed"
+      ],
+      "tasks": [
+        "T02",
+        "T03",
+        "T04",
+        "T07",
+        "T08",
+        "T09",
+        "T10",
+        "T11",
+        "T12"
+      ],
+      "commit_units": [
+        {
+          "id": "M1A",
+          "scope": "Implement typed contracts, exact source archive, deterministic IDs, context capture and canonical validation",
+          "prerequisites": [
+            "M0_passed"
+          ]
+        },
+        {
+          "id": "M1B",
+          "scope": "Roslyn and native Clang pilot adapters with exact declared entity/operation outputs",
+          "prerequisites": [
+            "M1A_interface_and_source_contract_checks"
+          ]
+        },
+        {
+          "id": "M1C",
+          "scope": "Pilot branch CFG and intraprocedural scalar reaching definitions with evidence and uncertainty",
+          "prerequisites": [
+            "M1B_expected_facts_pass"
+          ]
+        },
+        {
+          "id": "M1D",
+          "scope": "Uncapped P1-P4 projections, minimal anchors, immutable publishing and bounded scoped queries",
+          "prerequisites": [
+            "M1C_canonical_validation_pass"
+          ]
+        },
+        {
+          "id": "M1E",
+          "scope": "Full pilot conformance, all scheduled AI trials and size/cost report; define later performance thresholds",
+          "prerequisites": [
+            "M1D_integrity_and_isolation_pass"
+          ]
+        }
+      ],
+      "exit_checks": [
+        "Both languages through one canonical dataset and all four exports",
+        "Exact pilot identity/operation/CFG/data-flow facts pass",
+        "Source fidelity and encoding cases pass",
+        "Retained semantic equivalence and reference integrity pass",
+        "Omitted detail unavailable; no hidden canonical reads",
+        "Re-export does not rerun analysis",
+        "Failure and publication checks pass",
+        "24x5x3 trial accounting with actual usage and fixed budgets; failed trials remain visible",
+        "First size/quality/cost report and independent review"
+      ],
+      "prohibited_before_exit": [
+        "full M2 source/organization expansion",
+        "M3 generalized analyses",
+        "M4 build-run/artifact producers"
+      ]
+    },
+    {
+      "id": "M2",
+      "status": "not_started",
+      "depends_on": [
+        "M1_passed"
+      ],
+      "tasks": [
+        "T02",
+        "T03",
+        "T05",
+        "T07",
+        "T09",
+        "T11",
+        "T12"
+      ],
+      "commit_units": [
+        "source entity/member/type and identity families",
+        "documentation/annotations/preprocessing/generated inputs",
+        "groups/views/counting/freshness",
+        "Coral and CppSharp declared-scope feature/region coverage",
+        "benchmark rerun"
+      ],
+      "exit_checks": [
+        "Every declared M2 feature passes exact fixtures",
+        "Reconciled multi-TU and multi-assembly identity/context isolation",
+        "Capture identities and retained nonoptional fields survive all profiles",
+        "Root visibility, deduplicated group counts and logical/physical separation",
+        "Both pinned real resources exercised with per-feature/region coverage and all unsupported requirements disclosed",
+        "Benchmark rerun where added capabilities affect questions"
+      ],
+      "prohibited_before_exit": [
+        "claiming full target support from source-row counts alone",
+        "M3 expansion before source prerequisites"
+      ]
+    },
+    {
+      "id": "M3",
+      "status": "not_started",
+      "depends_on": [
+        "M2_passed"
+      ],
+      "tasks": [
+        "T03",
+        "T04",
+        "T05",
+        "T07",
+        "T08",
+        "T09",
+        "T11",
+        "T12"
+      ],
+      "commit_units": [
+        "operation and exceptional/async/cleanup flow models",
+        "data-flow families and indirect call candidates",
+        "explicit-root reachability with witnesses and unknown boundaries",
+        "all per-unit/total/byte export controls",
+        "semantic and benchmark reruns"
+      ],
+      "exit_checks": [
+        "Every declared operation/analysis family passes positive and absence fixtures",
+        "May/must, external effects, alias uncertainty and candidate completeness preserved",
+        "All independent optional-section selection/budget boundaries pass",
+        "Whole units, canonical serializer byte counts and omission reasons reproducible",
+        "No dead-code or observed-runtime claims inferred improperly"
+      ]
+    },
+    {
+      "id": "M4",
+      "status": "not_started",
+      "depends_on": [
+        "M3_passed"
+      ],
+      "tasks": [
+        "T02",
+        "T06",
+        "T07",
+        "T09",
+        "T11",
+        "T12"
+      ],
+      "commit_units": [
+        "evaluated build definitions/items/dependencies",
+        "planned action and generation graphs",
+        "observed execution/log ingestion and reuse states",
+        "artifact/PE/PDB inspection and uncertain mappings",
+        "build provenance and benchmark validation"
+      ],
+      "exit_checks": [
+        "Declared/evaluated/expected/observed/skipped/cache states pass fixtures",
+        "Existing output alone never proves production by a run",
+        "Observed durations and unresolved binary mappings preserve missing states",
+        "Generated source and artifact evidence links validate",
+        "No BDR application runtime collection introduced"
+      ]
+    },
+    {
+      "id": "M5",
+      "status": "not_started",
+      "depends_on": [
+        "M4_passed",
+        "M1_performance_thresholds_fixed"
+      ],
+      "tasks": [
+        "T07",
+        "T10",
+        "T12"
+      ],
+      "commit_units": [
+        "real resource/multi-context scale runs",
+        "incremental invalidation and reuse evidence",
+        "cancellation/timeout/atomic-publication stress",
+        "full conformance and final comparison report",
+        "release documentation"
+      ],
+      "exit_checks": [
+        "All applicable fixture checks pass",
+        "Target-resource supported scope and required feature gates met",
+        "All omissions, failed/partial analyses and exclusions explained",
+        "Old snapshots/exports survive updates and failures",
+        "Measured thresholds established after M1 and before M5 pass",
+        "Profile recommendation is based on measured task/category/size tradeoffs"
+      ]
+    }
+  ],
+  "deviation_policy": {
+    "file": "../deviations.json",
+    "requirements": [
+      "Record expected/observed/evidence/affected/blocking/correction/verification before downstream reliance",
+      "Preserve failed attempts and resolved history",
+      "Do not turn unknown/not_run into passed or zero",
+      "No silent scope reduction; document and verify adaptations"
+    ]
+  },
+  "commit_policy": {
+    "branch": "codex/extractor-design-implementation",
+    "subjects": [
+      "docs(m0): ...",
+      "test(m0): ...",
+      "feat(m1): ...",
+      "fix(m1): ..."
+    ],
+    "body": "Purpose, actual validation and material limits; focus on one coherent task.",
+    "publication": "Read head, preserve tree, guarded non-force update, fetch/readback and compare local staged tree. Current HTTPS push authentication failure uses verified GitHub API alternative."
+  }
+}

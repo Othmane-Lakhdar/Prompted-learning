@@ -665,7 +665,7 @@
     },
     {
       "id": "M0DESIGN001",
-      "status": "open",
+      "status": "resolved",
       "kind": "schema_constraint_gap",
       "stage": "M0",
       "expected": "Unknown, unsupported, partial and omission states require a nonempty reason.",
@@ -680,15 +680,17 @@
         "reason-bearing state constraints",
         "M0 schema gate"
       ],
-      "blocks_dependent_execution": true,
+      "blocks_dependent_execution": false,
       "corrective_action": "Contract agent must add explicit non-NULL checks and demonstrate rejection with negative inserts.",
       "verification": {
-        "status": "pending"
+        "status": "passed_final_design_validation_and_independent_review",
+        "gate": "docs/m0/evidence/gate.json",
+        "reviewer": "preflight_review"
       }
     },
     {
       "id": "M0DESIGN002",
-      "status": "open",
+      "status": "resolved",
       "kind": "context_identity_gap",
       "stage": "M0",
       "expected": "A logical group/member pair can have distinct memberships in multiple build contexts.",
@@ -704,15 +706,17 @@
         "context isolation",
         "M0 schema gate"
       ],
-      "blocks_dependent_execution": true,
+      "blocks_dependent_execution": false,
       "corrective_action": "Define context-sensitive membership identity including context-independent semantics and validate both contexts coexist.",
       "verification": {
-        "status": "pending"
+        "status": "passed_final_design_validation_and_independent_review",
+        "gate": "docs/m0/evidence/gate.json",
+        "reviewer": "preflight_review"
       }
     },
     {
       "id": "M0DESIGN003",
-      "status": "open_under_design_review",
+      "status": "resolved",
       "kind": "optional_capture_ownership",
       "stage": "M0",
       "expected": "Required BD0.5 captured-variable identities survive all baseline profiles.",
@@ -735,15 +739,17 @@
         "BD0.5",
         "AC-PROFILES"
       ],
-      "blocks_dependent_execution": true,
+      "blocks_dependent_execution": false,
       "corrective_action": "Map compiler-established capture membership to retained member_relation(role=capture); keep derived effects in BD0.13; test P1 preservation.",
       "verification": {
-        "status": "pending_integrated_validation"
+        "status": "passed_final_design_validation_and_independent_review",
+        "gate": "docs/m0/evidence/gate.json",
+        "reviewer": "preflight_review"
       }
     },
     {
       "id": "M0DESIGN004",
-      "status": "open_under_design_review",
+      "status": "resolved",
       "kind": "field_collection_contract",
       "stage": "M0",
       "expected": "Collections have correct cardinality, global/per-role order and owner/context selectors, including known-empty versus uncollected.",
@@ -767,15 +773,17 @@
         "field_state",
         "M0 gate"
       ],
-      "blocks_dependent_execution": true,
+      "blocks_dependent_execution": false,
       "corrective_action": "Enumerate all required collections, correct cardinality/order, extend state addressing and add targeted negative validation.",
       "verification": {
-        "status": "pending_integrated_validation"
+        "status": "passed_final_design_validation_and_independent_review",
+        "gate": "docs/m0/evidence/gate.json",
+        "reviewer": "preflight_review"
       }
     },
     {
       "id": "M0DESIGN005",
-      "status": "open_under_design_review",
+      "status": "resolved",
       "kind": "evaluated_item_metadata_owner",
       "stage": "M0",
       "expected": "Evaluated item metadata links to its specific project item/participation and context.",
@@ -798,15 +806,17 @@
         "BDB.3",
         "BDB.4"
       ],
-      "blocks_dependent_execution": true,
+      "blocks_dependent_execution": false,
       "corrective_action": "Add a concrete item ownership reference and update dictionary, queries and validation.",
       "verification": {
-        "status": "pending_integrated_validation"
+        "status": "passed_final_design_validation_and_independent_review",
+        "gate": "docs/m0/evidence/gate.json",
+        "reviewer": "preflight_review"
       }
     },
     {
       "id": "M0DESIGN006",
-      "status": "open_under_design_review",
+      "status": "resolved",
       "kind": "contract_representation_gap",
       "stage": "M0",
       "expected": "Template substitutions, retained response-file dependencies and child-row field states have explicit representations.",
@@ -832,15 +842,17 @@
         "BDB.3",
         "field states"
       ],
-      "blocks_dependent_execution": true,
+      "blocks_dependent_execution": false,
       "corrective_action": "Add normalized template substitution, context_input and defined row-state addressing; validate mappings.",
       "verification": {
-        "status": "pending_integrated_validation"
+        "status": "passed_final_design_validation_and_independent_review",
+        "gate": "docs/m0/evidence/gate.json",
+        "reviewer": "preflight_review"
       }
     },
     {
       "id": "M0DESIGN007",
-      "status": "open_under_design_review",
+      "status": "resolved",
       "kind": "vocabulary_and_endpoint_gap",
       "stage": "M0",
       "expected": "Shared passing/access/file-role vocabularies and each relationship endpoint/direction are concrete.",
@@ -864,10 +876,12 @@
         "BD0.10",
         "M0 gate"
       ],
-      "blocks_dependent_execution": true,
+      "blocks_dependent_execution": false,
       "corrective_action": "Declare enumerations and complete directional endpoint contracts, with validation.",
       "verification": {
-        "status": "pending_integrated_validation"
+        "status": "passed_final_design_validation_and_independent_review",
+        "gate": "docs/m0/evidence/gate.json",
+        "reviewer": "preflight_review"
       }
     },
     {
@@ -988,7 +1002,7 @@
     },
     {
       "id": "M0DESIGN008",
-      "status": "corrected_pending_final_review",
+      "status": "resolved",
       "kind": "scalar_state_representation",
       "stage": "M0",
       "expected": "Retained binary bytes can lack text encoding; parameter default null and string null remain distinct.",
@@ -1007,15 +1021,17 @@
         "source retrieval",
         "default values"
       ],
-      "blocks_dependent_execution": true,
+      "blocks_dependent_execution": false,
       "corrective_action": "Separate byte availability from decoded-text state and tag defaults; executable positive/negative checks cover both.",
       "verification": {
-        "status": "design_checks_passed_review_pending"
+        "status": "passed_final_design_validation_and_independent_review",
+        "gate": "docs/m0/evidence/gate.json",
+        "reviewer": "preflight_review"
       }
     },
     {
       "id": "M0TEST001",
-      "status": "corrected_pending_final_review",
+      "status": "resolved",
       "kind": "fixture_coverage_gap",
       "stage": "M0",
       "expected": "Declared documentation/annotation/signature/module/group behavior has exact fixture expectations.",
@@ -1034,15 +1050,17 @@
         "CPP-IDENTITY",
         "AC-GROUPS"
       ],
-      "blocks_dependent_execution": true,
+      "blocks_dependent_execution": false,
       "corrective_action": "Add exact programs/expected facts and explicit C++20 module compatibility prerequisite; preserve capture identities across P1-P4.",
       "verification": {
-        "status": "reviewer_confirmed_added_coverage_final_gate_pending"
+        "status": "passed_final_design_validation_and_independent_review",
+        "gate": "docs/m0/evidence/gate.json",
+        "reviewer": "preflight_review"
       }
     },
     {
       "id": "M0TEST002",
-      "status": "corrected_pending_final_review",
+      "status": "resolved",
       "kind": "benchmark_grading_and_context",
       "stage": "M0",
       "expected": "Score semantic correctness under explicit context and ordering, without undisclosed formatting gold.",
@@ -1056,15 +1074,17 @@
         "AC-AI",
         "first comparison"
       ],
-      "blocks_dependent_execution": true,
+      "blocks_dependent_execution": false,
       "corrective_action": "Freeze per-question contexts/representation/order, concrete overload signatures, semantic-equivalence rules and positive/negative grading examples before outputs.",
       "verification": {
-        "status": "revised_before_any_extractor_output_final_review_pending"
+        "status": "passed_final_design_validation_and_independent_review",
+        "gate": "docs/m0/evidence/gate.json",
+        "reviewer": "preflight_review"
       }
     },
     {
       "id": "M0DESIGN009",
-      "status": "open_under_design_review",
+      "status": "resolved",
       "kind": "source_arm_api_contract",
       "stage": "M0",
       "expected": "Baseline discovery/search/retrieval has strict schemas, limits, cursor/citation and isolation rules.",
@@ -1085,15 +1105,17 @@
         "AC-AI",
         "profile source fallback"
       ],
-      "blocks_dependent_execution": true,
+      "blocks_dependent_execution": false,
       "corrective_action": "Define capture-index/1, source-query/1 and source-response/1 shared across arms; no canonical/gold/other-profile reads. Clarify archive-relative blob keys and separately measured pinned-handle integrity preparation; allow identical source operations/policy citations for every benchmark question.",
       "verification": {
-        "status": "pending"
+        "status": "passed_final_design_validation_and_independent_review",
+        "gate": "docs/m0/evidence/gate.json",
+        "reviewer": "preflight_review"
       }
     },
     {
       "id": "M0DESIGN010",
-      "status": "open_under_design_review",
+      "status": "resolved",
       "kind": "builtin_annotation_identity",
       "stage": "M0",
       "expected": "C++ builtin attribute names are retrievable without fabricated attribute types.",
@@ -1107,10 +1129,12 @@
         "BD0.9",
         "C++ annotations"
       ],
-      "blocks_dependent_execution": true,
+      "blocks_dependent_execution": false,
       "corrective_action": "Register cpp-attribute/1 spelling/namespace/syntax extension while retaining normalized owner/span/arguments and explicit not_applicable type.",
       "verification": {
-        "status": "pending"
+        "status": "passed_final_design_validation_and_independent_review",
+        "gate": "docs/m0/evidence/gate.json",
+        "reviewer": "preflight_review"
       }
     },
     {
@@ -1166,7 +1190,7 @@
       "kind": "text_encoding_and_line_endings",
       "stage": "M0",
       "expected": "UTF8/LF contract bytes and stable heading/schema hashes survive Windows checkout.",
-      "observed": "Python locale/newline defaults caused contract-doc mojibake/CRLF; a heading-slug validator initially retained CR and missed an anchor. Schema hash would change under Git newline conversion.",
+      "observed": "Python locale/newline defaults caused contract-doc mojibake/CRLF; a heading-slug validator initially retained CR and missed an anchor. Schema hash would change under Git newline conversion. During gate bookkeeping, a newline-specific README replacement missed its CRLF line; readback caught the unchanged status before publication.",
       "evidence": [
         {
           "records": [
@@ -1182,7 +1206,7 @@
         "schema/source hashes"
       ],
       "blocks_dependent_execution": false,
-      "corrective_action": "Use explicit UTF8/LF; normalize owned docs before freeze, trim CR in heading slug parsing, enforce Git LF attributes, refresh dictionary digest and rerun validation.",
+      "corrective_action": "Use explicit UTF8/LF; normalize owned docs before freeze, trim CR in heading slug parsing, enforce Git LF attributes, refresh dictionary digest and rerun validation. Update the stage by parsed line and verify readback before publication.",
       "verification": {
         "status": "passed",
         "schema_sha256": "c434aa20fdd652c3378322f8321ccbee18f08590d5bfa18013729d1e931d1319"
@@ -1218,15 +1242,15 @@
       "id": "M0DESIGN011",
       "kind": "typed_worker_interface",
       "expected": "The native worker and orchestrator share a concrete versioned typed request/result contract before parallel implementation.",
-      "observed": "M0 initially described the worker architecture but did not freeze captured inputs, local keys/references, CFG correspondence, errors and coverage or final-ID ownership.",
+      "observed": "M0 initially described the worker architecture but did not freeze captured inputs, local keys/references, CFG correspondence, errors and coverage or final-ID ownership. Review of the first typed wire draft then found missing existing pilot facts: C++ noinline/include information and C# static/partial modifiers. Further draft review found unavailable CFGs requiring fabricated entry/exit keys, overly broad reference families, and unspecified worker-fingerprint preimages. Independent negative probing also reproduced false-complete acceptance for requested CFG/events with no graph and for complete bodies whose existing operations had no root link.",
       "affected": [
         "M1A interfaces",
         "M1B native adapter",
         "M1C CFG/data-flow"
       ],
-      "corrective_action": "Define strict typed worker schemas, host-owned canonical identity assignment and unambiguous original-operation/CFG correspondence before opening M1.",
+      "corrective_action": "Define strict typed worker schemas, host-owned canonical identity assignment and unambiguous original-operation/CFG correspondence before opening M1. Represent unavailable graphs without invented blocks, constrain typed references, define exact fingerprints and explicitly select source versus CFG features to preserve M1B/M1C boundaries. Require complete body-root and requested graph coverage consistency; add explicit rejection cases before gate acceptance.",
       "stage": "M0",
-      "status": "open_under_design_review",
+      "status": "resolved",
       "evidence": [
         {
           "review": "m0_requirements feasibility cross-check",
@@ -1235,11 +1259,26 @@
         {
           "record": "docs/m0/evidence/roslyn-cfg-correspondence.json",
           "result": "Compiler CFG operations are cloned instances; branch and return values must be included explicitly."
+        },
+        {
+          "review": "preflight_review early typed-wire inspection",
+          "result": "bounded additions requested for existing M1 obligations"
+        },
+        {
+          "review": "preflight_review draft wire review",
+          "record": "docs/m0/validate-worker-contracts.py",
+          "result": "Independent negative acceptance-rule cases under construction; not product validation"
+        },
+        {
+          "review": "preflight_review independent malformed-result probes",
+          "result": "Two additional completeness traps reproduced and assigned for correction"
         }
       ],
-      "blocks_dependent_execution": true,
+      "blocks_dependent_execution": false,
       "verification": {
-        "status": "pending_contract_correction_and_independent_review"
+        "status": "passed_final_design_validation_and_independent_review",
+        "gate": "docs/m0/evidence/gate.json",
+        "reviewer": "preflight_review"
       }
     },
     {
@@ -1254,16 +1293,18 @@
       ],
       "corrective_action": "Specify a topological identity recipe using normalized provider descriptors and primitive compiler keys; derive spans independently of body ownership; normalize physical path-bearing options.",
       "stage": "M0",
-      "status": "open_under_design_review",
+      "status": "resolved",
       "evidence": [
         {
           "review": "m0_requirements feasibility cross-check",
           "record": "docs/m0/contracts.md"
         }
       ],
-      "blocks_dependent_execution": true,
+      "blocks_dependent_execution": false,
       "verification": {
-        "status": "pending_contract_correction_and_independent_review"
+        "status": "passed_final_design_validation_and_independent_review",
+        "gate": "docs/m0/evidence/gate.json",
+        "reviewer": "preflight_review"
       }
     },
     {
@@ -1278,16 +1319,18 @@
       ],
       "corrective_action": "Freeze per-table payload ownership and closure order, limit anchor fields, and reference body/context/tool/result analysis inputs without enumerating all optional nodes.",
       "stage": "M0",
-      "status": "open_under_design_review",
+      "status": "resolved",
       "evidence": [
         {
           "review": "m0_requirements feasibility cross-check",
           "record": "docs/m0/contracts.md"
         }
       ],
-      "blocks_dependent_execution": true,
+      "blocks_dependent_execution": false,
       "verification": {
-        "status": "pending_contract_correction_and_independent_review"
+        "status": "passed_final_design_validation_and_independent_review",
+        "gate": "docs/m0/evidence/gate.json",
+        "reviewer": "preflight_review"
       }
     },
     {
@@ -1310,6 +1353,106 @@
       "corrective_action": "Verified no existing ignore rules; M1 foundation setup must add scoped output ignores and keep external input/build archives outside tracked files. Use rg -g for extension filtering instead of a wildcard directory argument on this shell.",
       "verification": {
         "status": "resolved_by_inventory"
+      }
+    },
+    {
+      "id": "M0TEST003",
+      "stage": "M0",
+      "status": "resolved",
+      "kind": "compiler_oracle_confound",
+      "expected": "CFG/source operation identity comparison uses one SemanticModel for both trees.",
+      "observed": "Initial oracle requested two SemanticModel instances, so different operation objects could also reflect that choice.",
+      "evidence": [
+        {
+          "record": "docs/m0/evidence/roslyn-cfg-correspondence.json"
+        }
+      ],
+      "affected": [
+        "M1B/M1C correspondence assumption"
+      ],
+      "blocks_dependent_execution": false,
+      "corrective_action": "Reuse one SemanticModel and repeat build/probe; preserve original results and commands. CFG output is byte-identical and original22-node source oracle unchanged.",
+      "verification": {
+        "status": "replication_passed_independently_reviewed",
+        "reviewer": "preflight_review",
+        "source_sha256": "4c442c0623cccaa112bf253cf97294c3322f90a7eec349e8fdeb4145158443c6",
+        "report_sha256": "1ec6877e631ee25ef4efad087ddd4f9ace7f087aa77ddc4c3e247c8a0c2af4a1"
+      }
+    },
+    {
+      "id": "M0DESIGN014",
+      "stage": "M0",
+      "status": "resolved",
+      "kind": "snapshot_knowledge_owner",
+      "expected": "Unavailable snapshot revision/modification fields have concrete knowledge-state/evidence ownership.",
+      "observed": "The new standalone-snapshot prose conflicted with field_state and record_evidence ownership, whose FKs require record rows; no standalone state envelope was defined.",
+      "evidence": [
+        {
+          "review": "preflight_review snapshot consistency check",
+          "records": [
+            "docs/m0/contracts.md",
+            "docs/m0/field-dictionary.json",
+            "docs/m0/schema.sql"
+          ]
+        }
+      ],
+      "affected": [
+        "snapshot.vcs_revision",
+        "snapshot.local_modifications_included",
+        "canonical registry validation"
+      ],
+      "blocks_dependent_execution": false,
+      "corrective_action": "Use an explicitly required snapshot registry/typed-row pair with context-independent self-snapshot scope, acyclic primitive ID recipe and existing field_state/evidence support; reconcile matrix, dictionary and validators.",
+      "verification": {
+        "status": "passed_final_design_validation_and_independent_review",
+        "gate": "docs/m0/evidence/gate.json",
+        "reviewer": "preflight_review"
+      }
+    },
+    {
+      "id": "M0OPS009",
+      "stage": "M0",
+      "status": "resolved",
+      "kind": "design_inspection_shape",
+      "expected": "Inspect table-ownership metadata using its object/dictionary shape.",
+      "observed": "A read-only inspection treated the table dictionary as a list and raised TypeError. No artifact was mutated.",
+      "evidence": [
+        {
+          "review": "m0_requirements execution report",
+          "result": "Corrected inspection shape; validators passed thereafter"
+        }
+      ],
+      "affected": [
+        "M0 inspection tooling"
+      ],
+      "blocks_dependent_execution": false,
+      "corrective_action": "Use keyed dictionary iteration. Separately confirmed an apparent Int64 bound difference was Node numeric display rounding; raw/Python schema still contains exact9223372036854775807, so no schema correction was made.",
+      "verification": {
+        "status": "resolved_no_artifact_damage"
+      }
+    },
+    {
+      "id": "M0OPS010",
+      "stage": "M0",
+      "status": "resolved",
+      "kind": "concurrent_contract_fixture_update",
+      "expected": "Synthetic worker examples conform to the current wire revision before an integrated validation run.",
+      "observed": "An intermediate worker validation failed after the concurrently edited schema newly required phase and lifecycle fields; the examples still used the prior draft.",
+      "evidence": [
+        {
+          "review": "m0_requirements execution report",
+          "record": "docs/m0/evidence/worker-validation-gate.json"
+        }
+      ],
+      "affected": [
+        "M0 wire design validation"
+      ],
+      "blocks_dependent_execution": false,
+      "corrective_action": "Update synthetic request/result fixtures and fingerprints for explicit discovery/final phase; freeze all owned files, then run all three validators together.",
+      "verification": {
+        "status": "passed_after_freeze",
+        "positive_worker_cases": 6,
+        "negative_worker_cases": 38
       }
     }
   ]

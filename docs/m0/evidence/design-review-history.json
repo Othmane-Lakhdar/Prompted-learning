@@ -60,7 +60,59 @@
       "limits": [
         "Overall reopened M0 gate still pending new worker/identity/projection contracts"
       ]
+    },
+    {
+      "reviewer": "preflight_review",
+      "stage": "M0",
+      "verdict": "passed_oracle_correction",
+      "finding": "M0TEST003",
+      "hashes": {
+        "../../tools/preflight/roslyn-oracle/Program.cs": "4c442c0623cccaa112bf253cf97294c3322f90a7eec349e8fdeb4145158443c6",
+        "evidence/roslyn-cfg-correspondence.json": "1ec6877e631ee25ef4efad087ddd4f9ace7f087aa77ddc4c3e247c8a0c2af4a1"
+      },
+      "verified": [
+        "One SemanticModel reused for both GetOperation calls",
+        "Replication commands exited0 and raw hashes match",
+        "CFG byte-identical; source oracle unchanged"
+      ]
+    },
+    {
+      "reviewer": "preflight_review",
+      "stage": "M0",
+      "verdict": "passed_final_integrated_review",
+      "hashes": {
+        "schema.sql": "c434aa20fdd652c3378322f8321ccbee18f08590d5bfa18013729d1e931d1319",
+        "contracts.json": "99b7d121ab836d600dc42ea9cf694596d42f3349fa1168953dc8ebd67a7f6653",
+        "contracts.md": "dadb109de522824c8aea383110857869169eef0caadcad1a4da3f0ac98fe9a8f",
+        "field-dictionary.json": "e3b8fb37a778fe8d5d21cc659e83dbd8e5ea86efaaee36417e9381c4557ce823",
+        "requirements.json": "fef843c0fdda5c78f2c03d0ec68d130074271b45abfcb1e7227409c43b6fb809",
+        "traceability.md": "b01b95981e1c032d436a2a612eed5058a049123a84f63c28a01be9fd5f30c5c9",
+        "requirements-validation.mjs": "8341d3d4ea124ddac498405912c392e149b3aa2686483e96fd740f0eded79325",
+        "validate-contracts.py": "9d0ca57e4c825dd29fa2bcc8adf9e18ae9cfc3dde30b3a5254908e0bcbe617d5",
+        "validate-worker-contracts.py": "b295366734b7ad21e7fedc77aaa76c643e708f3cbef9197db43b1432778b477e",
+        "acceptance.json": "72d6e518fb4f4732e65f4495bdca9cd48d1210de3a23c2bfa35989beb219da4c",
+        "pilot.json": "cb58c2059ae2a01dfbb4725f88bb517995a94c1588458ee8aef87c431a86cddb",
+        "support-matrix.json": "3720c59bf27b2497c87319d58233f4ef14fa093a98b929e9ca8a21748745151c",
+        "benchmark.json": "2dfa6855477dc9db2d47b1fce1b502b71f4069d4c79222014957aed707892f8f",
+        "benchmark-protocol.md": "2c4147236a819642874eda9a34b99069c1943c0975e0ae464d46750090282add",
+        "benchmark-instructions.txt": "5738a5fd0098d5df917d38d151f156e47346fab0d49682b2e3e80f47ddd35be8",
+        "benchmark-decision.schema.json": "4d765a8a1303a166dfb76cf76438d83800a5b7d869337329a6594cb94ec01b00"
+      },
+      "validation": {
+        "contract_checks": 86,
+        "requirements_negative_cases": 19,
+        "worker_positive_cases": 6,
+        "worker_negative_cases": 38
+      },
+      "additional_checks": [
+        "Every ownership/unit join matches an actual DDL FK",
+        "Snapshot registry pair permits unknown/null states with evidence",
+        "Discovery/final consumed-input stabilization",
+        "All M0 JSON and local Markdown targets parse/resolve",
+        "No unresolved material design findings"
+      ],
+      "scope": "Design contracts and bounded capability readiness only. No product implementation or experiment acceptance is inferred."
     }
   ],
-  "current_gate": "pending_new_contract_corrections_and_independent_review"
+  "current_gate": "passed"
 }

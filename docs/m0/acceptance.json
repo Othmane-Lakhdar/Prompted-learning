@@ -1,0 +1,880 @@
+{
+  "schema_version": 1,
+  "status": "design_expectations_not_executed_product_tests",
+  "oracle_policy": "Expected source semantics are fixed before extractor output. Compiler-native AST/IOperation inspection is independent capability evidence; it does not replace semantic assertions. Any correction to an expected fact must preserve old expectation, reason and review in the deviation record.",
+  "checks": [
+    {
+      "id": "AC-INVENTORY",
+      "stage": "M0",
+      "assertion": "Every nonempty inventory source unit and compound field has a concrete disposition; all schema paths and producer/evidence/query/fixture references resolve; no generic placeholder can close a requirement.",
+      "status": "specified_not_run"
+    },
+    {
+      "id": "AC-SNAPSHOT",
+      "stage": "M1",
+      "assertion": "All captured file bytes/hashes match pilot manifest; byte-identical distinct paths retain distinct file identities; changing working files cannot alter prior retrieval.",
+      "status": "specified_not_run"
+    },
+    {
+      "id": "AC-ENCODING",
+      "stage": "M1",
+      "assertion": "Every FX-ENCODINGS exact span resolves to encoded 7; BOM/CRLF/multibyte boundaries are preserved, and invalid intervals fail.",
+      "status": "specified_not_run"
+    },
+    {
+      "id": "AC-IDENTITY",
+      "stage": "M1-M2",
+      "assertion": "Pilot exact entities and overloads match; broader assembly/TU fixtures pass at M2; declared members link to their declaring owner.",
+      "status": "specified_not_run"
+    },
+    {
+      "id": "AC-CONTEXT",
+      "stage": "M1-M2",
+      "assertion": "Every semantic fact resolves to exactly its allowed context membership; FLAG variants have no cross-context edge; repeated logical memberships coexist.",
+      "status": "specified_not_run"
+    },
+    {
+      "id": "AC-PROFILES",
+      "stage": "M1",
+      "assertion": "P1/P2/P3/P4 omit exactly [7,12,13]/[7,12]/[7]/[]; same canonical retained semantic IDs/values and schema definitions; re-export runs no analyzers. Compiler-established BD0.5 capture identity lists survive in every profile even when BD0.13 capture effects are omitted.",
+      "status": "specified_not_run"
+    },
+    {
+      "id": "AC-REFERENCES",
+      "stage": "M1",
+      "assertion": "Every reference resolves to a retained record, minimal omitted anchor or explicit unresolved reference. Creating a dangling reference must fail validation.",
+      "status": "specified_not_run"
+    },
+    {
+      "id": "AC-ISOLATION",
+      "stage": "M1",
+      "assertion": "Profile query code opens only selected profile and declared archive; P1 detail calls cannot read nearby canonical/other-profile files; source fallback is separately metered.",
+      "status": "specified_not_run"
+    },
+    {
+      "id": "AC-BUDGETS",
+      "stage": "M3",
+      "assertion": "Test every per-unit/total/payload-byte boundary below/at/above, deterministic stable-key order, whole units, result-family selection and required metadata overhead.",
+      "status": "specified_not_run"
+    },
+    {
+      "id": "AC-SEMANTICS",
+      "stage": "M1-M3",
+      "assertion": "Exact pilot def-use/branch/call facts pass, may differs from must, unsupported regions remain explicit; advanced semantic fixture cases pass before declared support.",
+      "status": "specified_not_run"
+    },
+    {
+      "id": "AC-EXTERNAL",
+      "stage": "M1-M2",
+      "assertion": "External symbol descriptive payload contains only qualified identity/signature/library; no body or expanded member inventory is exported.",
+      "status": "specified_not_run"
+    },
+    {
+      "id": "AC-GROUPS",
+      "stage": "M2",
+      "assertion": "FX-GROUPS exact pair/occurrence/contributor counts and root visibility pass; logical and physical group identities differ; cycle evidence links to original edges.",
+      "status": "specified_not_run"
+    },
+    {
+      "id": "AC-BUILD",
+      "stage": "M1-M4",
+      "assertion": "M1 evaluated selection differs from observation; M4 FX-BUILD-EVIDENCE states and no-false-production assertions pass.",
+      "status": "specified_not_run"
+    },
+    {
+      "id": "AC-FRESHNESS",
+      "stage": "M5",
+      "assertion": "Each changed dependency class invalidates affected findings while old immutable datasets and source bytes remain addressable.",
+      "status": "specified_not_run"
+    },
+    {
+      "id": "AC-FAILURE",
+      "stage": "M1-M5",
+      "assertion": "Malformed inputs, unsupported syntax, cancellation, budgets and interrupted publish are explicit failed/partial outcomes; prior valid packages remain readable.",
+      "status": "specified_not_run"
+    },
+    {
+      "id": "AC-REPRODUCIBILITY",
+      "stage": "M1-M5",
+      "assertion": "Same canonical data/policy produces identical semantic payload/omissions excluding declared operational metadata; source and settings changes alter semantic identity.",
+      "status": "specified_not_run"
+    },
+    {
+      "id": "AC-AI",
+      "stage": "M1-M5",
+      "assertion": "Record all 24 fixed questions × 5 arms × 3 fresh attempts, including failures; same controlled protocol and budgets; actual usage, costs when known, citations, uncertainty and blinded grading.",
+      "status": "specified_not_run"
+    }
+  ],
+  "fixtures": [
+    {
+      "id": "FX-PILOT-CS",
+      "stage": "M1",
+      "files": [
+        "tests/fixtures/pilot/csharp/Arithmetic.cs",
+        "tests/fixtures/pilot/csharp/Arithmetic.More.cs",
+        "tests/fixtures/pilot/csharp/Pilot.csproj"
+      ],
+      "context": "pilot-csharp-release-x64",
+      "expect": {
+        "type": {
+          "qualified_name": "Pilot.Arithmetic",
+          "written_declarations": 2,
+          "canonical_entities": 1,
+          "kind": "class",
+          "modifiers": [
+            "public",
+            "static",
+            "partial"
+          ]
+        },
+        "explicit_methods": [
+          {
+            "name": "Choose",
+            "parameters": [
+              "System.Int32"
+            ],
+            "returns": "System.Int32"
+          },
+          {
+            "name": "Add",
+            "parameters": [
+              "System.Int32",
+              "System.Int32"
+            ],
+            "returns": "System.Int32"
+          },
+          {
+            "name": "Add",
+            "parameters": [
+              "System.Int64",
+              "System.Int64"
+            ],
+            "returns": "System.Int64"
+          },
+          {
+            "name": "Unused",
+            "parameters": [
+              "System.Int32"
+            ],
+            "returns": "System.Int32"
+          }
+        ],
+        "declared_owner": "Pilot.Arithmetic",
+        "choose": {
+          "parameters": [
+            "value"
+          ],
+          "locals": [
+            "result"
+          ],
+          "condition": "value > 0",
+          "true_assignment": "result = Add(value, 1)",
+          "false_assignment": "result = 0",
+          "return": "result",
+          "direct_calls": [
+            {
+              "target": "Pilot.Arithmetic.Add(System.Int32,System.Int32)",
+              "count": 1
+            }
+          ],
+          "return_reaching_definitions": [
+            {
+              "definition": "true_assignment",
+              "certainty": "may"
+            },
+            {
+              "definition": "false_assignment",
+              "certainty": "may"
+            }
+          ],
+          "unconditional_must_reaching_definition": null,
+          "operation_node_count": 22,
+          "implicit_operation_count": 0
+        },
+        "forbidden": [
+          "separate entity for each partial declaration",
+          "joining the Add overloads",
+          "Choose calling the Int64 overload",
+          "labeling Unused dead solely from no local call sites",
+          "assuming a runtime value for value"
+        ],
+        "operation_oracle": "Pinned Roslyn IOperation tree; preserve semantic wrappers/implicit conversions, source origin and child order as contracts.md specifies."
+      }
+    },
+    {
+      "id": "FX-PILOT-CPP",
+      "stage": "M1",
+      "files": [
+        "tests/fixtures/pilot/native/Arithmetic.cpp",
+        "tests/fixtures/pilot/native/Arithmetic.hpp",
+        "tests/fixtures/pilot/native/Pilot.vcxproj"
+      ],
+      "context": "pilot-native-release-x64",
+      "expect": {
+        "namespace": "pilot",
+        "explicit_functions": [
+          {
+            "name": "Choose",
+            "parameters": [
+              "int"
+            ],
+            "returns": "int",
+            "declarations": 2,
+            "definitions": 1,
+            "attributes": [
+              "noinline"
+            ]
+          },
+          {
+            "name": "Add",
+            "parameters": [
+              "int",
+              "int"
+            ],
+            "returns": "int",
+            "declarations": 2,
+            "definitions": 1
+          },
+          {
+            "name": "Add",
+            "parameters": [
+              "long long",
+              "long long"
+            ],
+            "returns": "long long",
+            "declarations": 2,
+            "definitions": 1
+          },
+          {
+            "name": "Unused",
+            "parameters": [
+              "int"
+            ],
+            "returns": "int",
+            "declarations": 2,
+            "definitions": 1
+          }
+        ],
+        "canonical_function_count": 4,
+        "include_edges": [
+          {
+            "source": "Arithmetic.cpp",
+            "target": "Arithmetic.hpp",
+            "occurrences": 1
+          }
+        ],
+        "choose": {
+          "parameters": [
+            "value"
+          ],
+          "locals": [
+            "result"
+          ],
+          "condition": "value > 0",
+          "true_assignment": "result = Add(value, 1)",
+          "false_assignment": "result = 0",
+          "return": "result",
+          "direct_calls": [
+            {
+              "target": "pilot::Add(int,int)",
+              "count": 1
+            }
+          ],
+          "return_reaching_definitions": [
+            {
+              "definition": "true_assignment",
+              "certainty": "may"
+            },
+            {
+              "definition": "false_assignment",
+              "certainty": "may"
+            }
+          ],
+          "unconditional_must_reaching_definition": null,
+          "operation_node_count": 22,
+          "implicit_casts": [
+            "LValueToRValue:condition value",
+            "FunctionToPointerDecay:Add",
+            "LValueToRValue:argument value",
+            "LValueToRValue:return result"
+          ]
+        },
+        "forbidden": [
+          "merging Add overloads",
+          "splitting header declarations from matching definitions",
+          "calling the long-long overload from Choose",
+          "proving Unused dead",
+          "claiming mathematical value+1 for overflowing signed input"
+        ],
+        "operation_oracle": "Pinned Clang AST for exact Windows x64/MSVC19.44 dialect; preserve ImplicitCastExpr roles instead of deleting semantic nodes."
+      }
+    },
+    {
+      "id": "FX-ENCODINGS",
+      "stage": "M1",
+      "recipe": {
+        "text": "// café 🚀\r\nclass É { int F() => 7; }\r\n",
+        "variants": [
+          "UTF8 without BOM",
+          "UTF8 with EFBBBF BOM",
+          "UTF16LE with FFFE BOM",
+          "UTF16BE with FEFF BOM"
+        ],
+        "source_unit": "C# compile string decoded strictly with recorded encoding; UTF16 code-unit offsets mapped to original byte boundaries"
+      },
+      "expect": {
+        "retained_bytes": "exact variant bytes, including BOM and CRLF",
+        "span_text": "7",
+        "span_offset": "index of encoded 7 bytes including BOM; zero-based half-open interval",
+        "utf8_comment_width_bytes": 15,
+        "invalid_cases": [
+          "start=-1",
+          "end before start",
+          "end past file length",
+          "boundary inside UTF8 multibyte scalar",
+          "boundary between UTF16 surrogate halves"
+        ],
+        "missing_encoding": "source bytes can remain retrievable; decoded span retrieval must report unknown encoding, not invent UTF8"
+      },
+      "mutation": {
+        "action": "change working source after capture",
+        "expected": "old dataset still returns original bytes/hash; new capture receives a different file-version identity"
+      }
+    },
+    {
+      "id": "FX-IDENTITY-CONTEXTS",
+      "stage": "M2",
+      "programs": [
+        {
+          "language": "csharp",
+          "files": {
+            "A.cs": "namespace N; public partial class C { public int F(int x)=>x; }",
+            "B.cs": "namespace N; public partial class C { public long F(long x)=>x; }"
+          },
+          "contexts": [
+            "assembly One",
+            "assembly Two"
+          ],
+          "expect": {
+            "types_per_assembly": 1,
+            "type_appearances_per_assembly": 2,
+            "distinct_types_across_assemblies": 2,
+            "overloads_per_type": 2
+          }
+        },
+        {
+          "language": "cpp",
+          "files": {
+            "shared.hpp": "int Public(int);\n",
+            "a.cpp": "#include \"shared.hpp\"\nstatic int Same(){return 1;}\nint Public(int x){return x;}\n",
+            "b.cpp": "#include \"shared.hpp\"\nstatic int Same(){return 2;}\nint Use(){return Public(Same());}\n"
+          },
+          "expect": {
+            "Public_entities": 1,
+            "Public_unit_memberships": 2,
+            "Same_entities": 2,
+            "Same_linkage": "internal",
+            "Use_target": "Public(int)",
+            "name_merge_forbidden": true
+          }
+        },
+        {
+          "language": "csharp",
+          "files": {
+            "Conditional.cs": "class C { int F(){\n#if FLAG\nreturn 1;\n#else\nreturn 2;\n#endif\n} }\n"
+          },
+          "contexts": [
+            "FLAG defined",
+            "FLAG absent"
+          ],
+          "expect": {
+            "returns_by_context": [
+              1,
+              2
+            ],
+            "cross_context_execution_edges": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "FX-SOURCE-FAMILIES",
+      "stage": "M2",
+      "programs": [
+        {
+          "language": "csharp",
+          "files": {
+            "Families.cs": "using System;\nnamespace Families;\npublic interface I { int P { get; } }\npublic class C<T> : I where T : class, new() {\n public const int K=3; public int Field=1;\n public int P { get; private set; }\n public int this[int i] { get => i; set { Field=value; } }\n public event Action? Changed;\n public C(){ P=2; }\n public void Raise(){ Changed?.Invoke(); }\n public static C<T> operator +(C<T> a,C<T> b)=>a;\n}\npublic enum E : byte { A=1, B=A+1 }\npublic delegate int D(ref int value);\n\npublic static class Docs {\n /// <summary>Legacy callable.</summary>\n [Obsolete(\"Use New\", false)]\n public static int Old(int value=3, params int[] rest)=>value;\n public static void Modes(in int a, out int b){b=a;}\n public static Func<int> Capture(){int captured=7; return ()=>captured;}\n}\n"
+          },
+          "expect": {
+            "C_declared_type_parameters": [
+              {
+                "name": "T",
+                "constraints": [
+                  "reference_type",
+                  "public_parameterless_constructor"
+                ]
+              }
+            ],
+            "constant_K": 3,
+            "enumerators": {
+              "A": 1,
+              "B": 2
+            },
+            "enum_underlying_type": "System.Byte",
+            "P_accessors": [
+              "get",
+              "set"
+            ],
+            "P_set_access": "private",
+            "index_parameters": [
+              "System.Int32"
+            ],
+            "event_handler_type": "System.Action",
+            "delegate_passing_mode": "ref",
+            "inherited_member_definitions_copied": 0,
+            "external_expanded_member_inventories": 0,
+            "documentation": {
+              "owner": "Families.Docs.Old",
+              "summary": "Legacy callable.",
+              "is_behavior_guarantee": false
+            },
+            "annotation": {
+              "owner": "Families.Docs.Old",
+              "type": "System.ObsoleteAttribute",
+              "arguments": [
+                {
+                  "position": 0,
+                  "type": "string",
+                  "value": "Use New"
+                },
+                {
+                  "position": 1,
+                  "type": "bool",
+                  "value": false
+                }
+              ]
+            },
+            "default_parameter": {
+              "owner": "Old",
+              "name": "value",
+              "type": "System.Int32",
+              "value": 3
+            },
+            "params_array": {
+              "name": "rest",
+              "element_type": "System.Int32",
+              "rank": 1,
+              "variadic": true
+            },
+            "passing_modes": {
+              "a": "in",
+              "b": "out"
+            },
+            "capture_identity": {
+              "variable": "captured",
+              "owner": "lambda in Capture",
+              "relationship": "member_relation role=capture",
+              "retained_profiles": [
+                "P1",
+                "P2",
+                "P3",
+                "P4"
+              ],
+              "derived_capture_effects": "separate BD0.13 payload; optional without removing retained identity"
+            }
+          }
+        },
+        {
+          "language": "cpp",
+          "files": {
+            "families.cpp": "namespace families {\nunion U { int i; float f; };\nenum class E : unsigned char { A=1, B=2 };\nstruct B { virtual int f() const { return 1; } virtual ~B(){} };\nstruct D : B { unsigned bits:3; int f() const override { return 2; } };\ntemplate<class T> struct Box { T value; };\nusing IntBox=Box<int>;\nint use(const int* p, int& r){ r=*p; return r; }\n}\n\n/// Legacy native callable.\n[[deprecated(\"use New\")]] int Old(int value=3);\nint __cdecl Signature(const int (&values)[2], int (*callback)(int));\n\nint Capture(){int captured=7; auto f=[captured](){return captured;}; return f();}\n"
+          },
+          "expect": {
+            "union_members": [
+              "i",
+              "f"
+            ],
+            "enum_values": {
+              "A": 1,
+              "B": 2
+            },
+            "bit_field_width": 3,
+            "override_direction": "D::f -> B::f",
+            "base_direction": "D -> B",
+            "alias": "IntBox -> Box<int>",
+            "template_substitution": "T -> int",
+            "use_parameter_types": [
+              "pointer to const int",
+              "lvalue reference to int"
+            ],
+            "destructor_origin": "written",
+            "documentation": {
+              "owner": "Old",
+              "text": "Legacy native callable.",
+              "is_behavior_guarantee": false
+            },
+            "annotation": {
+              "owner": "Old",
+              "name": "deprecated",
+              "argument": "use New"
+            },
+            "default_parameter": {
+              "owner": "Old",
+              "name": "value",
+              "type": "int",
+              "value": 3
+            },
+            "structured_signature": {
+              "owner": "Signature",
+              "parameters": [
+                "lvalue reference to array[2] of const int",
+                "pointer to function(int)->int"
+              ],
+              "written_calling_convention": "__cdecl",
+              "effective_abi": "selected Windows x64 target default"
+            },
+            "capture_identity": {
+              "variable": "captured",
+              "owner": "lambda in Capture",
+              "relationship": "member_relation role=capture",
+              "retained_profiles": [
+                "P1",
+                "P2",
+                "P3",
+                "P4"
+              ],
+              "derived_capture_effects": "separate BD0.13 payload; optional without removing retained identity"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "FX-PREPROCESS-GENERATED",
+      "stage": "M2",
+      "programs": [
+        {
+          "language": "cpp",
+          "files": {
+            "macro.hpp": "#define INC(x) ((x)+1)\n",
+            "main.cpp": "#include \"macro.hpp\"\n#if FLAG\nint F(int x){return INC(x);}\n#else\nint F(int x){return x;}\n#endif\n"
+          },
+          "contexts": [
+            "FLAG=1",
+            "FLAG=0"
+          ],
+          "expect": {
+            "include_occurrences": 1,
+            "macro_definition": "INC",
+            "expansion_context": "FLAG=1",
+            "inactive_regions_retained": true,
+            "spelling_and_expansion_distinct": true
+          }
+        },
+        {
+          "language": "csharp",
+          "files": {
+            "generated://Generator.g.cs": "namespace Generated; public class G { public int Value => 3; }\n"
+          },
+          "provenance": {
+            "generator": "fixture-generator-v1",
+            "input": "fixture-schema-v1",
+            "output_kind": "virtual"
+          },
+          "expect": {
+            "virtual_file_retained": true,
+            "source_value": 3,
+            "generator_link_required": true,
+            "application_runtime_observation": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "FX-GROUPS",
+      "stage": "M2",
+      "recipe": {
+        "files": [
+          "root.cs",
+          "sub/a.cs",
+          "sub/deep/b.cs"
+        ],
+        "logical_namespaces": [
+          "Shared",
+          "Shared",
+          "Other"
+        ],
+        "contexts": [
+          "A",
+          "B"
+        ],
+        "occurrence_edges": [
+          [
+            "root.cs",
+            "sub/a.cs",
+            "o1"
+          ],
+          [
+            "root.cs",
+            "sub/a.cs",
+            "o2"
+          ],
+          [
+            "sub/a.cs",
+            "root.cs",
+            "o3"
+          ]
+        ],
+        "memberships": [
+          [
+            "logical:Shared",
+            "root.cs",
+            "A"
+          ],
+          [
+            "logical:Shared",
+            "root.cs",
+            "B"
+          ]
+        ]
+      },
+      "expect": {
+        "selected_root_depth": 0,
+        "depth_one_visible_files": [
+          "root.cs",
+          "sub/a.cs"
+        ],
+        "root_file_visible": true,
+        "physical_and_logical_ids_distinct": true,
+        "directed_pairs": 2,
+        "occurrences": 3,
+        "unique_contributing_files": 2,
+        "strongly_connected_components_with_cycle": 1,
+        "context_memberships_for_root": 2,
+        "overlap_rollup_rule": "deduplicate underlying IDs; do not sum overlapping child counts",
+        "depth_one_rollup": {
+          "sub": [
+            "sub/a.cs",
+            "sub/deep/b.cs"
+          ]
+        },
+        "rollup_does_not_delete_deeper_files": true
+      }
+    },
+    {
+      "id": "FX-ADVANCED-FLOW",
+      "stage": "M3",
+      "programs": [
+        {
+          "language": "csharp",
+          "source": "static int Loop(int n){int x=0; while(n-->0){x=x+1;} return x;}",
+          "expect": {
+            "loop_back_edge": true,
+            "return_definition_sources": [
+              "initial x=0",
+              "loop x=x+1"
+            ],
+            "certainty": "may"
+          },
+          "wrapper": "public static class Flow { static void Log(){} <source> }"
+        },
+        {
+          "language": "csharp",
+          "source": "static int Cleanup(bool b){try { if(b) throw new System.Exception(); return 1; } finally { Log(); }}",
+          "prerequisite": "Fixture defines Log as a local internal method; System.Exception remains external.",
+          "expect": {
+            "normal_and_exceptional_finally": true,
+            "unmodeled_external_exception_effects_explicit": true
+          },
+          "wrapper": "public static class Flow { static void Log(){} <source> }"
+        },
+        {
+          "language": "csharp",
+          "source": "static System.Func<int> Capture(){int x=1; return ()=>x;}",
+          "expect": {
+            "captured_variable": "x",
+            "closure_origin": "implicit cause at lambda",
+            "invented_closure_source_text": false
+          },
+          "wrapper": "public static class Flow { static void Log(){} <source> }"
+        },
+        {
+          "language": "cpp",
+          "source": "int Alias(int* p,int* q){*p=1; return *q;}",
+          "expect": {
+            "possible_alias": true,
+            "returned_constant_without_alias_assumption": "unknown",
+            "certainty": "may"
+          }
+        },
+        {
+          "language": "cpp",
+          "source": "int Indirect(int(*f)(int),int x){return f(x);}",
+          "expect": {
+            "dispatch": "function_pointer",
+            "candidate_set_complete": false,
+            "unresolved_remainder_reason_required": true
+          }
+        },
+        {
+          "language": "csharp",
+          "source": "static async System.Threading.Tasks.Task<int> Async(){await System.Threading.Tasks.Task.Yield(); return 1;}",
+          "expect": {
+            "suspend_resume_explicit": true,
+            "semantic_and_lowered_operations_distinct": true
+          },
+          "wrapper": "public static class Flow { static void Log(){} <source> }"
+        },
+        {
+          "language": "csharp",
+          "source": "static System.Collections.Generic.IEnumerable<int> Values(){yield return 1; yield return 2;}",
+          "expect": {
+            "yield_order": [
+              1,
+              2
+            ],
+            "suspend_resume_and_disposal_policy_required": true
+          },
+          "wrapper": "public static class Flow { static void Log(){} <source> }"
+        },
+        {
+          "language": "cpp",
+          "source": "template<class T> T twice(T x){return x+x;} int Use(){return twice(2);}",
+          "expect": {
+            "known_instantiation": "twice<int>",
+            "substitution": "T -> int",
+            "future_instantiation_enumeration": false
+          }
+        }
+      ],
+      "reachability": {
+        "root": "Choose(int)",
+        "scope": "closed internal call graph for this explicitly declared analysis only",
+        "expect_reachable": [
+          "Choose(int)",
+          "Add(int,int)"
+        ],
+        "outside": [
+          "Unused(int)",
+          "Add(wide,wide)"
+        ],
+        "outside_means_dead": false,
+        "unknown_external_callback_boundary": "Open-library policy must retain potential external entry and callback uncertainty."
+      },
+      "memory_assumptions": "Pointer fixtures assume valid accessible non-null storage unless a separate invalid-memory case is named; aliasing remains unknown."
+    },
+    {
+      "id": "FX-BUILD-EVIDENCE",
+      "stage": "M4",
+      "recipe": {
+        "declared_action": "compile input.cpp -> output.obj",
+        "runs": [
+          {
+            "id": "R1",
+            "exit_code": 0,
+            "log": "compile executed",
+            "output": "output.obj",
+            "hash": "h1"
+          },
+          {
+            "id": "R2",
+            "exit_code": null,
+            "log": "compile skipped: inputs up to date",
+            "output": "output.obj",
+            "hash": "h1"
+          },
+          {
+            "id": "R3",
+            "exit_code": null,
+            "log": "restored output.obj from cache key K",
+            "output": "output.obj",
+            "hash": "h1"
+          },
+          {
+            "id": "R4",
+            "exit_code": 1,
+            "log": "compile failed; old output.obj still exists",
+            "output": "output.obj",
+            "hash": "h1"
+          }
+        ]
+      },
+      "expect": {
+        "states": [
+          "succeeded",
+          "skipped",
+          "cache_restored",
+          "failed"
+        ],
+        "R2_produced": false,
+        "R3_produced": false,
+        "R4_produced": false,
+        "existing_file_alone_proves_run_production": false,
+        "unmeasured_durations": "not_collected, not zero",
+        "artifact_mapping_missing_debug_info": "unknown with reason",
+        "recorded_application_execution": false
+      },
+      "prerequisite": "Concrete build-log dialect fixtures and real PE/PDB inspection inputs must be captured and pinned before M4 producer tests; synthetic h1 is a symbolic hash, never a valid production fingerprint."
+    },
+    {
+      "id": "FX-FAILURE-EXPORT",
+      "stage": "M1-M5",
+      "cases": [
+        {
+          "stage": "M1",
+          "action": "interrupt staged profile write after records but before validation",
+          "expected": "prior published package byte hashes unchanged; staging not advertised as succeeded"
+        },
+        {
+          "stage": "M1",
+          "action": "query P1 body/control_flow/data_flow with canonical file present nearby",
+          "expected": "omitted_by_profile; no canonical file access"
+        },
+        {
+          "stage": "M1",
+          "action": "corrupt retained reference",
+          "expected": "canonical/export validation fails; no final publication"
+        },
+        {
+          "stage": "M3",
+          "action": "caps below/at/above whole-unit node/block/edge/finding/serialized-byte counts",
+          "expected": "omit/include/include entire unit deterministically; no partial graph and explicit reason"
+        },
+        {
+          "stage": "M3",
+          "action": "zero cap, unlimited cap, absent selection, empty selection, unknown IDs, negative caps, unknown keys",
+          "expected": "respectively no units/all units/all eligible/no units/config error/config error/config error"
+        },
+        {
+          "stage": "M5",
+          "action": "change source, compiler setting, resolved dependency or tool version independently",
+          "expected": "dependent derived inputs fingerprint changes; old snapshot remains retrievable; unaffected reuse requires dependency evidence"
+        }
+      ]
+    },
+    {
+      "id": "FX-MODULES",
+      "stage": "M2",
+      "language": "cpp",
+      "files": {
+        "M.cppm": "export module M;\nexport int f(){return 1;}\n",
+        "Use.cpp": "import M;\nint g(){return f();}\n"
+      },
+      "prerequisite": "Separate C++20 module compilation contexts and module-interface artifact compatibility must be verified before declaring this feature supported; the C++17 pilot does not enable it.",
+      "expect": {
+        "module": "M",
+        "exported_entities": [
+          "f"
+        ],
+        "consumer_imports": [
+          "M"
+        ],
+        "resolved_call": "g -> M::f",
+        "module_vs_namespace_distinct": true
+      },
+      "status": "specified_pending_prerequisite"
+    }
+  ]
+}

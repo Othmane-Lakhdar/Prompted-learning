@@ -2,7 +2,7 @@
 
 Planning and implementation workspace for a C++ and C# code-extraction tool.
 
-Current stage: M0 design and independent review are in progress after the completed preflight. Extractor implementation has not started. The remaining worker, identity and projection findings must pass review before M1.
+Current stage: M0 design passed independent review. M1A foundation is ready to begin; implementation acceptance remains gated.
 
 - [M0 contracts, acceptance plan and evidence](docs/m0/README.md)
 - [Capability inventory and checked status](docs/capabilities.md)
