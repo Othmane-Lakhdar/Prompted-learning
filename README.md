@@ -2,7 +2,7 @@
 
 Planning and implementation workspace for a C++ and C# code-extraction tool.
 
-Current stage: M0 design passed independent review. M1A foundation passed59 tests and independent review. M1B compiler adapters are next; later milestone gates remain in force.
+Current stage: M0 design and M1A foundation passed independent review. M1B compiler adapters, captured native hosting and canonical semantic storage passed95 tests and independent review. M1C and later milestone gates remain in force.
 
 - [M0 contracts, acceptance plan and evidence](docs/m0/README.md)
 - [M1 foundation scope and verification](docs/m1/README.md)

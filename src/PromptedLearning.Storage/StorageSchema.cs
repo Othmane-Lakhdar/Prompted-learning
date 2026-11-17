@@ -70,6 +70,12 @@ internal sealed class StorageSchema
 
     private static void VerifyExactSchema(SqliteConnection actual)
     {
+        using (var capability = actual.CreateCommand())
+        {
+            capability.CommandText = "SELECT sql FROM sqlite_schema WHERE type='table' AND name='preprocessing'";
+            if (capability.ExecuteScalar() is string definition && !definition.Contains("'pragma'", StringComparison.Ordinal))
+                throw new InvalidDataException("SQLite schema lacks the M1B pragma preprocessing capability (A004). Create a fresh collecting generation; in-place migration is not supported and this database was not changed.");
+        }
         using var expected = new SqliteConnection("Data Source=:memory:;Pooling=False;Foreign Keys=True");
         expected.Open();
         using (var command = expected.CreateCommand())

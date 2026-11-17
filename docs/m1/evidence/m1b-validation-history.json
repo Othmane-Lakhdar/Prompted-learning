@@ -1,0 +1,384 @@
+{
+  "schema_version": 1,
+  "scope": "Historical actual reports including failures and prior binaries. Final M1B gate binds only final integrated95test report and reviewed manifest.",
+  "reports": [
+    {
+      "file": "C:/_Travail/tools/Prompted-Learning-inputs/m1-context-tests-report-2.json",
+      "sha256": "bab8793bf3bd39d3fed02bfb11766fa25cefb44b1b6f6b79fa7e1ae8ea7966de",
+      "reported_stage": "M1A",
+      "group": "context",
+      "tests": 3,
+      "failed": 1,
+      "status": "failed"
+    },
+    {
+      "file": "C:/_Travail/tools/Prompted-Learning-inputs/m1-context-tests-report-3.json",
+      "sha256": "0e2b23866f41ae8141df091916f45f162d535efc1e7f7e3427fef794b7cfc438",
+      "reported_stage": "M1A",
+      "group": "context",
+      "tests": 3,
+      "failed": 0,
+      "status": "passed"
+    },
+    {
+      "file": "C:/_Travail/tools/Prompted-Learning-inputs/m1-context-tests-report-4.json",
+      "sha256": "18c123842c4bf08e8850a0241d5bf43933648e7d9f2e4d0e439788f3fd9cd37e",
+      "reported_stage": "M1A",
+      "group": "context",
+      "tests": 5,
+      "failed": 0,
+      "status": "passed"
+    },
+    {
+      "file": "C:/_Travail/tools/Prompted-Learning-inputs/m1-context-tests-report.json",
+      "sha256": "5101048bd4a5950185c4bd0a6a8cc36241cff3d19c73979d767a607ed83409e5",
+      "reported_stage": "M1A",
+      "group": "context",
+      "tests": 2,
+      "failed": 0,
+      "status": "passed"
+    },
+    {
+      "file": "C:/_Travail/tools/Prompted-Learning-inputs/m1-foundation-tests-report-final.json",
+      "sha256": "e8404030e56585a7d5038c120f04b46a5d388f1290a59ef84e04f8281d30d5aa",
+      "reported_stage": "M1A",
+      "group": "foundation",
+      "tests": 10,
+      "failed": 0,
+      "status": "passed"
+    },
+    {
+      "file": "C:/_Travail/tools/Prompted-Learning-inputs/m1-foundation-tests-report.json",
+      "sha256": "6d4d9a9834913ad511db841107b3ec07802bb4873915335009ab62d38b6bfbff",
+      "reported_stage": "M1A",
+      "group": "foundation",
+      "tests": 9,
+      "failed": 0,
+      "status": "passed"
+    },
+    {
+      "file": "C:/_Travail/tools/Prompted-Learning-inputs/m1-integrated-tests-report.json",
+      "sha256": "2abfb85e421076c8a86f4877143707d6621fdea0f843e7a19efabc68663266e9",
+      "reported_stage": "M1A",
+      "group": "all",
+      "tests": 59,
+      "failed": 0,
+      "status": "passed"
+    },
+    {
+      "file": "C:/_Travail/tools/Prompted-Learning-inputs/m1-managed-tests-report-2.json",
+      "sha256": "ef65b41307a8ae38def8447c58999b5236f5fcd44eaca3342aefc407b636bbd3",
+      "reported_stage": "M1B",
+      "group": "Managed",
+      "tests": 6,
+      "failed": 0,
+      "status": "passed"
+    },
+    {
+      "file": "C:/_Travail/tools/Prompted-Learning-inputs/m1-managed-tests-report-3.json",
+      "sha256": "37a65b0fdd5ef2e89fcf87eecdd4ef4b9e2fef5860610489515ec79df756addb",
+      "reported_stage": "M1B",
+      "group": "Managed",
+      "tests": 7,
+      "failed": 0,
+      "status": "passed"
+    },
+    {
+      "file": "C:/_Travail/tools/Prompted-Learning-inputs/m1-managed-tests-report-4.json",
+      "sha256": "d60695222c72811c300b310d72c230aae3fd8d94f5db939aa4a060a5547e8d8c",
+      "reported_stage": "M1B",
+      "group": "Managed",
+      "tests": 8,
+      "failed": 1,
+      "status": "failed"
+    },
+    {
+      "file": "C:/_Travail/tools/Prompted-Learning-inputs/m1-managed-tests-report-5.json",
+      "sha256": "23b8c91fcb62010feac8ab1ed6229107ef83885519e713b56b3b2edb1b83e69c",
+      "reported_stage": "M1B",
+      "group": "Managed",
+      "tests": 8,
+      "failed": 0,
+      "status": "passed"
+    },
+    {
+      "file": "C:/_Travail/tools/Prompted-Learning-inputs/m1-managed-tests-report.json",
+      "sha256": "275646abfbb6254e0de80d28eba6c69ecc3c5dad3822773ad579dc4dec48476f",
+      "reported_stage": "M1A",
+      "group": "Managed",
+      "tests": 6,
+      "failed": 2,
+      "status": "failed"
+    },
+    {
+      "file": "C:/_Travail/tools/Prompted-Learning-inputs/m1-native-semantic-report-1.json",
+      "sha256": "2c6a27be102179168d957e5cb0a2af4a4298522d8c43317c686b2a050c8f826d",
+      "reported_stage": "M1B",
+      "group": "NativeSemantic",
+      "tests": 4,
+      "failed": 4,
+      "status": "failed"
+    },
+    {
+      "file": "C:/_Travail/tools/Prompted-Learning-inputs/m1-native-semantic-report-2.json",
+      "sha256": "c5cc74ae3de58a615b4bcd1bd6b1fbde0fe36bfc84ec74987ca6e937faef8184",
+      "reported_stage": "M1B",
+      "group": "NativeSemantic",
+      "tests": 4,
+      "failed": 0,
+      "status": "passed"
+    },
+    {
+      "file": "C:/_Travail/tools/Prompted-Learning-inputs/m1-native-semantic-report-3.json",
+      "sha256": "ba1225dbfca40d264a9e67fc869e32d5f7e572d8563b602ed927d48ac9b760c1",
+      "reported_stage": "M1B",
+      "group": "NativeSemantic",
+      "tests": 4,
+      "failed": 0,
+      "status": "passed"
+    },
+    {
+      "file": "C:/_Travail/tools/Prompted-Learning-inputs/m1-native-tests-report-1.json",
+      "sha256": "741b743030c15dcf4d87cd329d12252bdfbe3a9b6553ef3ad88a73449c02ee39",
+      "reported_stage": "M1B",
+      "group": "Native",
+      "tests": 4,
+      "failed": 3,
+      "status": "failed"
+    },
+    {
+      "file": "C:/_Travail/tools/Prompted-Learning-inputs/m1-native-tests-report-2.json",
+      "sha256": "af11836fa40ac6c1cfa1aa9f323610ac88cc3b5358165d4e66a92902a3dd8c60",
+      "reported_stage": "M1B",
+      "group": "Native",
+      "tests": 4,
+      "failed": 2,
+      "status": "failed"
+    },
+    {
+      "file": "C:/_Travail/tools/Prompted-Learning-inputs/m1-native-tests-report-3.json",
+      "sha256": "43d0a49c582912ce5c8e582e8c81344b7d84b393ce892b2955d26b55e35ba900",
+      "reported_stage": "M1B",
+      "group": "Native",
+      "tests": 4,
+      "failed": 0,
+      "status": "passed"
+    },
+    {
+      "file": "C:/_Travail/tools/Prompted-Learning-inputs/m1-native-tests-report-4.json",
+      "sha256": "9a440578219f86a62e8c963ef836a0128f0993dc750c8fee2b54d8f9c653ad7c",
+      "reported_stage": "M1B",
+      "group": "Native",
+      "tests": 4,
+      "failed": 0,
+      "status": "passed"
+    },
+    {
+      "file": "C:/_Travail/tools/Prompted-Learning-inputs/m1-native-tests-report-5.json",
+      "sha256": "87e2f992f11129e5718007ab019ebf56219cdb7b20f78d2ed7e4131f09be4710",
+      "reported_stage": "M1B",
+      "group": "Native",
+      "tests": 4,
+      "failed": 0,
+      "status": "passed"
+    },
+    {
+      "file": "C:/_Travail/tools/Prompted-Learning-inputs/m1-pilot-guard-tests-report.json",
+      "sha256": "8855f1001ea841800ce8c519d8ef87e7ca4d1c812caad452ec936e9466766ea2",
+      "reported_stage": "M1A",
+      "group": "PilotGuard",
+      "tests": 9,
+      "failed": 0,
+      "status": "passed"
+    },
+    {
+      "file": "C:/_Travail/tools/Prompted-Learning-inputs/m1-semantic-storage-foundation-regression.json",
+      "sha256": "6eddb1b59f6d6084a360298afaf83dcd5ccaf1a0abc7383a8a9fbd4b99d08b7a",
+      "reported_stage": "M1A",
+      "group": "Storage",
+      "tests": 17,
+      "failed": 0,
+      "status": "passed"
+    },
+    {
+      "file": "C:/_Travail/tools/Prompted-Learning-inputs/m1-semantic-storage-report-2.json",
+      "sha256": "b95fd4ad363ae6c72a7867e968414a6dd72a08bcda33edc2fdaf69a147c01f89",
+      "reported_stage": "M1B",
+      "group": "SemanticStorage",
+      "tests": 6,
+      "failed": 2,
+      "status": "failed"
+    },
+    {
+      "file": "C:/_Travail/tools/Prompted-Learning-inputs/m1-semantic-storage-report-3.json",
+      "sha256": "d3fab981123d2217707a90e1178ce0a6805ef1a90dee067abd52765e78e85b91",
+      "reported_stage": "M1B",
+      "group": "SemanticStorage",
+      "tests": 7,
+      "failed": 0,
+      "status": "passed"
+    },
+    {
+      "file": "C:/_Travail/tools/Prompted-Learning-inputs/m1-semantic-storage-report-4.json",
+      "sha256": "b4d0ae6022f0a1dc2ddc82dbfc1e650a243bfcc67f9bbecf09eb3a3318d95bb3",
+      "reported_stage": "M1B",
+      "group": "SemanticStorage",
+      "tests": 7,
+      "failed": 0,
+      "status": "passed"
+    },
+    {
+      "file": "C:/_Travail/tools/Prompted-Learning-inputs/m1-semantic-storage-report-5.json",
+      "sha256": "bb26f361acbce4bd199ff55df4b07645c8c49649d898aa0de5eb41e487fda6c5",
+      "reported_stage": "M1B",
+      "group": "SemanticStorage",
+      "tests": 9,
+      "failed": 0,
+      "status": "passed"
+    },
+    {
+      "file": "C:/_Travail/tools/Prompted-Learning-inputs/m1-semantic-storage-report.json",
+      "sha256": "724a7b5f99e1bb2ffaf0c997acad0e7f65373e33c269026f9f14855b431a2e2a",
+      "reported_stage": "M1B",
+      "group": "SemanticStorage",
+      "tests": 4,
+      "failed": 3,
+      "status": "failed"
+    },
+    {
+      "file": "C:/_Travail/tools/Prompted-Learning-inputs/m1-storage-tests-report-2.json",
+      "sha256": "ee5d388f6816a321879ff555b5691bf1f8332ab6eedbdf666628ec51c92a5fa7",
+      "reported_stage": "M1A",
+      "group": "Storage",
+      "tests": 17,
+      "failed": 0,
+      "status": "passed"
+    },
+    {
+      "file": "C:/_Travail/tools/Prompted-Learning-inputs/m1-storage-tests-report.json",
+      "sha256": "e3100a9783647b51fdf9346319b460b58bd3c7d0f33e27e6bce7ad8812f718bd",
+      "reported_stage": "M1A",
+      "group": "Storage",
+      "tests": 15,
+      "failed": 5,
+      "status": "failed"
+    },
+    {
+      "file": "C:/_Travail/tools/Prompted-Learning-inputs/m1b-common-tests-report-1.json",
+      "sha256": "49ea954d998697a0635fe3310d6f56912339c48423f3af4230cbbd337ec8e3c9",
+      "reported_stage": "M1B",
+      "group": "SemanticValidation",
+      "tests": 2,
+      "failed": 0,
+      "status": "passed"
+    },
+    {
+      "file": "C:/_Travail/tools/Prompted-Learning-inputs/m1b-compilercontract-report-2.json",
+      "sha256": "57ae60ed7882355c1095a73263025f30d44fdf0ee96324276ee2bbf1ad1ae1ed",
+      "reported_stage": "M1B",
+      "group": "CompilerContract",
+      "tests": 5,
+      "failed": 1,
+      "status": "failed"
+    },
+    {
+      "file": "C:/_Travail/tools/Prompted-Learning-inputs/m1b-compilercontract-report-3.json",
+      "sha256": "7c6322da1da6588d7557ae2dde584976c5932c5478b2ece8c5d9497e3776c196",
+      "reported_stage": "M1B",
+      "group": "CompilerContract",
+      "tests": 5,
+      "failed": 0,
+      "status": "passed"
+    },
+    {
+      "file": "C:/_Travail/tools/Prompted-Learning-inputs/m1b-contract-tests-report.json",
+      "sha256": "c9af6f04e7723f598d447a306b2090186c537638508d9fd21ea63e596a15d587",
+      "reported_stage": "M1B",
+      "group": "CompilerContract",
+      "tests": 4,
+      "failed": 0,
+      "status": "passed"
+    },
+    {
+      "file": "C:/_Travail/tools/Prompted-Learning-inputs/m1b-integrated-final-report-2.json",
+      "sha256": "7bff817a975820ecfd1e10216460c03a4b70ee83c65cfc0bbcb128a5cce7a4ac",
+      "reported_stage": "M1B",
+      "group": "all",
+      "tests": 95,
+      "failed": 0,
+      "status": "passed"
+    },
+    {
+      "file": "C:/_Travail/tools/Prompted-Learning-inputs/m1b-integrated-final-report.json",
+      "sha256": "18fab6eacb480258d477b82717ffc267eca805d103c4fdcc56332d0d153dc437",
+      "reported_stage": "M1B",
+      "group": "all",
+      "tests": 93,
+      "failed": 0,
+      "status": "passed"
+    },
+    {
+      "file": "C:/_Travail/tools/Prompted-Learning-inputs/m1b-managed-report-3.json",
+      "sha256": "05f668218f576a13eeede66bd4d4c285fa31036f28b8dc75544cd79d507440d0",
+      "reported_stage": "M1B",
+      "group": "Managed",
+      "tests": 8,
+      "failed": 0,
+      "status": "passed"
+    },
+    {
+      "file": "C:/_Travail/tools/Prompted-Learning-inputs/m1b-nativehost-report-2.json",
+      "sha256": "04bc0c45f458753ddbca9657e1b282296844638745f297e9111dfa7f8e968752",
+      "reported_stage": "M1B",
+      "group": "NativeHost",
+      "tests": 3,
+      "failed": 3,
+      "status": "failed"
+    },
+    {
+      "file": "C:/_Travail/tools/Prompted-Learning-inputs/m1b-nativehost-report-3.json",
+      "sha256": "64638edc01a418bd2c686dd6f1364980485552251521fd4bb1852876a970e3a4",
+      "reported_stage": "M1B",
+      "group": "NativeHost",
+      "tests": 3,
+      "failed": 0,
+      "status": "passed"
+    },
+    {
+      "file": "C:/_Travail/tools/Prompted-Learning-inputs/m1b-nativehost-report-4.json",
+      "sha256": "c4010f09b6363409844046461a8568069cb08721dfe77482999561c3352ec542",
+      "reported_stage": "M1B",
+      "group": "NativeHost",
+      "tests": 4,
+      "failed": 0,
+      "status": "passed"
+    },
+    {
+      "file": "C:/_Travail/tools/Prompted-Learning-inputs/m1b-semanticvalidation-report-2.json",
+      "sha256": "47d8b1cc662fe1da7f76de494fdb7059485733b8c013c1156589e25bc923f8d7",
+      "reported_stage": "M1B",
+      "group": "SemanticValidation",
+      "tests": 2,
+      "failed": 0,
+      "status": "passed"
+    },
+    {
+      "file": "C:/_Travail/tools/Prompted-Learning-inputs/m1b-semanticvalidation-report-3.json",
+      "sha256": "840ce2622ca8c163adeacf75c099a542e0b33c3dccd0cdf971d531e924dfbe00",
+      "reported_stage": "M1B",
+      "group": "SemanticValidation",
+      "tests": 2,
+      "failed": 0,
+      "status": "passed"
+    },
+    {
+      "file": "C:/_Travail/tools/Prompted-Learning-inputs/m1b-semanticvalidation-report-4.json",
+      "sha256": "b44871049a4382778b94d5535933b834d612aea6c077d656a335eb6d51cadb6f",
+      "reported_stage": "M1B",
+      "group": "SemanticValidation",
+      "tests": 2,
+      "failed": 0,
+      "status": "passed"
+    }
+  ]
+}

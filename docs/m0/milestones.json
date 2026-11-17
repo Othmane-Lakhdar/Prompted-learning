@@ -70,14 +70,22 @@
           "prerequisites": [
             "M1A_interface_and_source_contract_checks"
           ],
-          "status": "ready_after_gate_publication"
+          "status": "passed_pending_publication",
+          "gate": "../m1/evidence/gate-m1b.json"
         },
         {
           "id": "M1C",
-          "scope": "Pilot branch CFG and intraprocedural scalar reaching definitions with evidence and uncertainty",
+          "scope": "Normalize direct pilot call sites/relationships from accepted source operations, then pilot branch CFG and intraprocedural scalar reaching definitions with evidence and uncertainty",
           "prerequisites": [
             "M1B_expected_facts_pass"
-          ]
+          ],
+          "ordered_steps": [
+            "M1C0: finish T03 normalized direct call_site/occurrence/relationship mappings retained only as operation targets by scoped M1B",
+            "M1C1: compiler CFG and source-operation correspondence",
+            "M1C2: bounded scalar reaching definitions and explicitly scoped call/reachability analysis",
+            "M1C3: canonical semantic validation and independent gate review"
+          ],
+          "sequencing_note": "M1B is not full T03 completion. Direct source call-site facts are T03 inputs to T04; only analysis-dependent candidates/reachability belong to T04. No M1C implementation is authorized before M1B gate publication."
         },
         {
           "id": "M1D",

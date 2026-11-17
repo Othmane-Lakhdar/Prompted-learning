@@ -1,6 +1,6 @@
-# M1 foundation implementation
+# M1 pilot implementation
 
-M1A implements shared contracts, exact captured source, stable identity, evaluated pilot contexts and collecting SQLite storage. The [M1A gate](evidence/gate-m1a.json) **passed** with59 tests and independent review. M1B compiler adapters are next; flow analysis, exports and queries remain gated. Read [PROJECT_STATE.md](../../PROJECT_STATE.md) for the current assignments and latest verified evidence, and [deviations](../deviations.json) for failures and corrections.
+M1A implements shared contracts, exact captured source, stable identity, evaluated pilot contexts and collecting SQLite storage. The [M1A gate](evidence/gate-m1a.json) **passed** with59 tests and independent review. The [M1B gate](evidence/gate-m1b.json) passed95 tests and independent review for compiler adapters and collecting semantic storage; flow analysis, exports and queries remain gated. Read [PROJECT_STATE.md](../../PROJECT_STATE.md) for the current assignments and latest verified evidence, and [deviations](../deviations.json) for failures and corrections.
 
 ## Scope and boundaries
 
@@ -17,11 +17,20 @@ The host targets .NET 10. The analyzed managed pilot retains its selected .NET S
 Build with a .NET10 SDK and direct artifacts outside the checkout. The executable behavior suite deliberately fails when no tests are selected. It covers exact bytes/encodings, pinned archive behavior, source tamper/cancellation, strict IDs and schemas, database constraints/rollback, evaluated context inputs and integration. Negative cases pass only when the expected deviation is detected.
 
 ```powershell
+$env:PL_NATIVE_WORKER = 'C:/_Travail/tools/Prompted-Learning-inputs/m1-native-build/Release/prompted-learning-clang-worker.exe'
 & 'C:/_Travail/tools/Prompted-Learning-inputs/toolchains/dotnet-10.0.404/dotnet.exe' build PromptedLearning.slnx --configuration Release --artifacts-path C:/_Travail/tools/Prompted-Learning-inputs/m1-build --nologo
 & 'C:/_Travail/tools/Prompted-Learning-inputs/toolchains/dotnet-10.0.404/dotnet.exe' 'C:/_Travail/tools/Prompted-Learning-inputs/m1-build/bin/PromptedLearning.Tests/release/PromptedLearning.Tests.dll' --group all --project-root C:/_Travail/tools/Prompted-Learning --scratch C:/_Travail/tools/Prompted-Learning-inputs/m1-integrated-tests --report C:/_Travail/tools/Prompted-Learning-inputs/m1-integrated-tests-report.json
 ```
 
-`--group` can select Foundation, Source, Storage, Context PilotGuard or ContextStorage instead of all. `PL_MSBUILD` overrides the declared Visual Studio MSBuild executable path; a different toolchain/settings envelope may be explicitly rejected by the bounded pilot guard. Raw execution reports remain external; reviewed evidence is copied into [evidence](evidence/) without substituting upstream test success for extractor correctness.
+Build the [native worker](../../src/PromptedLearning.Native/README.md) before running all tests. `--group` can select Foundation, Source, Storage, Context, PilotGuard, ContextStorage, CompilerContract, Managed, Native, NativeSemantic, SemanticValidation, NativeHost or SemanticStorage. `PL_MSBUILD` overrides the declared Visual Studio MSBuild executable path; a different toolchain/settings envelope may be explicitly rejected by the bounded pilot guard. Raw execution reports remain external; reviewed evidence is copied into [evidence](evidence/) without substituting upstream test success for extractor correctness.
+
+## M1B source semantics
+
+The [M1B design](m1b-design.md) describes the exact compiler input boundary. `ManagedPilotAdapter` runs pinned Roslyn4.14 over captured bytes and verified reference images. `NativePilotAdapter` runs pinned Clang19.1.7 through the bounded native process host, observes captured header consumption, creates the final compilation-unit identity and reruns with that exact input set. Missing capture expansion explicitly returns to source capture; working-source fallback is never used.
+
+`SemanticResultValidator` checks scope, producer, source intervals, origins, primitive types/signatures, references, operation topology, argument mappings and coverage before canonical IDs are assigned. `ImportSemanticUnit` revalidates its inputs and imports within a transaction. `CommitSemanticCollection` is a collecting-only gate separate from `CommitFoundation`; failed validation rolls back. Partial source results preserve located coverage, body reasons and unknown collection states. Direct call targets remain in operations. Normalized direct relationship/call-site mapping is the first M1C prerequisite step, finishing T03 source work before T04 flow/call analyses; M1B does not claim all of T03 complete. CFG, data-flow, documentation, export and query producers retain their later-stage boundaries.
+
+The managed adapter uses cooperative cancellation and a bounded exact-pilot input size; it does not claim hard process isolation. The native host attaches a Windows memory Job before sending request bytes and enforces wall-time/output limits. Pinned runtime startup precedes attachment. Schema amendments A002-A004 are recorded explicitly: transport-neutral facts, abstract function-type signatures, and native pragma storage. Existing M1A database schemas are rejected without an in-place migration; use a fresh collecting generation with the amended schema.
 
 [A001](contract-amendments.json) permits an unknown source-manifest hash on early failed/cancelled archive preparation. Successful preparation still requires the actual verified hash. The original M0 gate/hash remains historical; the M1 gate must identify the reviewed amended contract.
 

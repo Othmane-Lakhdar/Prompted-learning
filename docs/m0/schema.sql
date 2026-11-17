@@ -475,7 +475,7 @@ CREATE TABLE operation_operand (
 
 CREATE TABLE preprocessing (
     id TEXT PRIMARY KEY REFERENCES record(id),
-    event_kind TEXT NOT NULL CHECK(event_kind IN ('macro_definition','macro_invocation','conditional','inactive_region','include','import','forced_include','generated_origin')),
+    event_kind TEXT NOT NULL CHECK(event_kind IN ('macro_definition','macro_invocation','conditional','inactive_region','include','import','forced_include','pragma','generated_origin')),
     span_id TEXT REFERENCES source_span(id),
     name TEXT,
     expression_text TEXT,

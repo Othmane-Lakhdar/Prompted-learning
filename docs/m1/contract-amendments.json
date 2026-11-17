@@ -12,6 +12,59 @@
       "original_contract_sha256": "99b7d121ab836d600dc42ea9cf694596d42f3349fa1168953dc8ebd67a7f6653",
       "contract_sha256": "c2d3075882bffd7d2668495c0cfc83aeaed827f8502e905e4bf3119a3bf13faa",
       "verification": "Independent review accepted A001; Source13 early cancellation/index-hash-failure reports and Foundation10 passed-with-null rejection passed. All three amended design validators passed. Final M1A integration gate remains separate."
+    },
+    {
+      "id": "A002",
+      "stage": "M1B",
+      "status": "reviewed_tests_passed",
+      "requirement": "In-process C# uses the same typed compiler facts without false Clang metadata.",
+      "problem": "Existing frozen native envelope requires native worker name and clang_version; reusing it verbatim for Roslyn would fabricate producer provenance.",
+      "change": "Add semantic-facts and semantic-unit-result schemas by JSON Pointer references to unchanged native property schemas; explicit transport-neutral producer metadata. Common semantic validation follows schema checks. Common semantic-entity references every native property but permits null linkage for C#; language-aware common validation enforces applicability. Native wire is unchanged.",
+      "prior_commit": "da35e5da506d08680f73de48408ba2b2c68b1d07",
+      "prior_contract_sha256": "c2d3075882bffd7d2668495c0cfc83aeaed827f8502e905e4bf3119a3bf13faa",
+      "contract_sha256": "8f4020e7e3bd8977110b207e035ff746aac3c037155cefa2a132977ba4553e96",
+      "native_definitions_unchanged": true,
+      "design": "docs/m1/m1b-design.md",
+      "verification": {
+        "gate": "evidence/gate-m1b.json",
+        "tests": 95,
+        "failed": 0,
+        "reviewer": "/root/preflight_review"
+      }
+    },
+    {
+      "id": "A003",
+      "stage": "M1B",
+      "status": "reviewed_tests_passed",
+      "requirement": "Structured function types retain precise signatures without arbitrary callable ownership.",
+      "problem": "Native direct-call decay includes function/pointer types, but signature identity only permitted a named callable owner despite existing function_type vocabulary.",
+      "change": "Add function_type_id signature components alternative; preserve entity-owned recipe; abstract parameters and body absence explicitly applicable. SQL and native wire unchanged.",
+      "prior_contract_sha256": "8f4020e7e3bd8977110b207e035ff746aac3c037155cefa2a132977ba4553e96",
+      "contract_sha256": "11b8c2c29bb401b72838df7ce565c44182a9a1edb46149116b96f1b047fc94ab",
+      "design": "docs/m0/contracts.md#function-type-signature-ownership-a003",
+      "verification": {
+        "gate": "evidence/gate-m1b.json",
+        "tests": 95,
+        "failed": 0,
+        "reviewer": "/root/preflight_review"
+      }
+    },
+    {
+      "id": "A004",
+      "stage": "M1B",
+      "status": "reviewed_tests_passed",
+      "requirement": "Preserve captured native pragma directive without dropping or relabeling compiler evidence.",
+      "problem": "Native wire preprocessing enum already admits pragma and actual pilot emits pragma once, but canonical SQL/dictionary omitted this enum member.",
+      "change": "Add pragma to preprocessing.event_kind SQL CHECK and dictionary enum. No new column or wire shape. M1B opens a newly created collecting generation; old M1A schema is not silently migrated.",
+      "prior_schema_sha256": "c434aa20fdd652c3378322f8321ccbee18f08590d5bfa18013729d1e931d1319",
+      "schema_sha256": "126c053ffc3c40827b7a236d7d362977c1b5509d0634f3515c00fea4f639dfb2",
+      "contract_sha256": "11b8c2c29bb401b72838df7ce565c44182a9a1edb46149116b96f1b047fc94ab",
+      "verification": {
+        "gate": "evidence/gate-m1b.json",
+        "tests": 95,
+        "failed": 0,
+        "reviewer": "/root/preflight_review"
+      }
     }
   ]
 }

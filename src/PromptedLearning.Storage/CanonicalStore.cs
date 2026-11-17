@@ -18,6 +18,17 @@ public sealed class FoundationValidationException(FoundationValidationResult res
     public FoundationValidationResult Result { get; } = result;
 }
 
+public sealed record SemanticCollectionValidationResult(IReadOnlyList<StorageIssue> Issues, int ProducedRecords)
+{
+    public bool IsValid => Issues.Count == 0;
+    public string Scope => "M1B collecting source semantics only; no CFG, data flow, export or finalization.";
+}
+public sealed class SemanticCollectionValidationException(SemanticCollectionValidationResult result)
+    : IOException("Semantic collection validation failed: " + string.Join("; ", result.Issues.Select(issue => issue.Code + ": " + issue.Message)))
+{
+    public SemanticCollectionValidationResult Result { get; } = result;
+}
+
 /// <summary>Append-only collecting storage. It exposes neither arbitrary SQL nor dataset finalization.</summary>
 public sealed class CanonicalStore : IDisposable
 {
@@ -96,6 +107,29 @@ public sealed class CanonicalStore : IDisposable
     public FoundationValidationResult ValidateFoundation(CancellationToken cancellationToken = default)
         => new FoundationValidator(this, connection, activeWrite?.Transaction).Validate(cancellationToken);
 
+    public SemanticCollectionValidationResult ValidateSemanticCollection(CancellationToken cancellationToken = default)
+    {
+        var result = new FoundationValidator(this, connection, activeWrite?.Transaction, semanticCollection: true).Validate(cancellationToken);
+        return new(result.Issues, result.ProducedRecords);
+    }
+
+    internal void UpdateCollecting(string table, IReadOnlyDictionary<string, object?> expected,
+        IReadOnlyDictionary<string, object?> changes, SqliteTransaction transaction)
+    {
+        if (table is not ("compilation_unit" or "unit_input" or "field_state")) throw new InvalidOperationException("Only collecting compiler-observation transitions are permitted.");
+        var definition = Schema.Tables[table];
+        if (changes.Keys.Any(key => !definition.Columns.ContainsKey(key) || definition.PrimaryKey.Contains(key)))
+            throw new ArgumentException("A collecting transition cannot alter its identity.");
+        if (!definition.PrimaryKey.All(expected.ContainsKey)) throw new ArgumentException("A collecting transition requires the complete key.");
+        using var command = connection.CreateCommand(); command.Transaction = transaction;
+        var values = changes.ToArray(); var guards = expected.ToArray();
+        command.CommandText = "UPDATE " + StorageSchema.Quote(table) + " SET " + string.Join(",", values.Select((pair, index) => StorageSchema.Quote(pair.Key) + "=$v" + index))
+            + " WHERE " + string.Join(" AND ", guards.Select((pair, index) => StorageSchema.Quote(pair.Key) + " IS $g" + index));
+        for (var index = 0; index < values.Length; index++) command.Parameters.AddWithValue("$v" + index, values[index].Value ?? DBNull.Value);
+        for (var index = 0; index < guards.Length; index++) command.Parameters.AddWithValue("$g" + index, guards[index].Value ?? DBNull.Value);
+        if (command.ExecuteNonQuery() != 1) throw new InvalidDataException("Collecting transition no longer matches the retained state.");
+    }
+
     internal void Insert(string table, IReadOnlyDictionary<string, object?> values, SqliteTransaction transaction)
     {
         if (!Schema.Tables.TryGetValue(table, out var definition)) throw new ArgumentException("Unknown table.", nameof(table));
@@ -146,6 +180,8 @@ public sealed class CanonicalWrite : IDisposable
         try { return import(); }
         catch { faulted = true; throw; }
     }
+    internal void UpdateCollecting(string table, IReadOnlyDictionary<string, object?> expected, IReadOnlyDictionary<string, object?> changes)
+        => ImportOperation(() => { store.UpdateCollecting(table, expected, changes, Transaction); return true; });
     public void Insert(string table, IReadOnlyDictionary<string, object?> values)
     {
         EnsureActive();
@@ -196,6 +232,21 @@ public sealed class CanonicalWrite : IDisposable
             cancellationToken.ThrowIfCancellationRequested();
             var result = store.ValidateFoundation(cancellationToken);
             if (!result.IsValid) throw new FoundationValidationException(result);
+            cancellationToken.ThrowIfCancellationRequested();
+            Transaction.Commit(); closed = true; Transaction.Dispose(); store.EndWrite(this);
+            return result;
+        }
+        catch { Dispose(); throw; }
+    }
+
+    public SemanticCollectionValidationResult CommitSemanticCollection(CancellationToken cancellationToken = default)
+    {
+        EnsureActive();
+        try
+        {
+            cancellationToken.ThrowIfCancellationRequested();
+            var result = store.ValidateSemanticCollection(cancellationToken);
+            if (!result.IsValid) throw new SemanticCollectionValidationException(result);
             cancellationToken.ThrowIfCancellationRequested();
             Transaction.Commit(); closed = true; Transaction.Dispose(); store.EndWrite(this);
             return result;

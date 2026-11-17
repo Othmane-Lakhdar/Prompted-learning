@@ -7167,21 +7167,42 @@
               "const": "signature/1"
             },
             "components": {
-              "type": "object",
-              "properties": {
-                "callable_entity_id": {
-                  "type": "string",
-                  "pattern": "^[a-z][a-z0-9_-]*:[0-9a-f]{64}$"
+              "oneOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "callable_entity_id": {
+                      "type": "string",
+                      "pattern": "^[a-z][a-z0-9_-]*:[0-9a-f]{64}$"
+                    },
+                    "compiler_signature_key": {
+                      "$ref": "#/$defs/compiler-signature-key"
+                    }
+                  },
+                  "required": [
+                    "callable_entity_id",
+                    "compiler_signature_key"
+                  ],
+                  "additionalProperties": false
                 },
-                "compiler_signature_key": {
-                  "$ref": "#/$defs/compiler-signature-key"
+                {
+                  "type": "object",
+                  "properties": {
+                    "compiler_signature_key": {
+                      "$ref": "#/$defs/compiler-signature-key"
+                    },
+                    "function_type_id": {
+                      "type": "string",
+                      "pattern": "^[a-z][a-z0-9_-]*:[0-9a-f]{64}$"
+                    }
+                  },
+                  "required": [
+                    "function_type_id",
+                    "compiler_signature_key"
+                  ],
+                  "additionalProperties": false
                 }
-              },
-              "required": [
-                "callable_entity_id",
-                "compiler_signature_key"
-              ],
-              "additionalProperties": false
+              ]
             }
           },
           "required": [
@@ -17357,6 +17378,261 @@
           }
         }
       ]
+    },
+    "semantic-facts": {
+      "type": "object",
+      "properties": {
+        "spans": {
+          "$ref": "#/$defs/native-worker-result/properties/spans"
+        },
+        "entities": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/semantic-entity"
+          }
+        },
+        "types": {
+          "$ref": "#/$defs/native-worker-result/properties/types"
+        },
+        "signatures": {
+          "$ref": "#/$defs/native-worker-result/properties/signatures"
+        },
+        "appearances": {
+          "$ref": "#/$defs/native-worker-result/properties/appearances"
+        },
+        "bodies": {
+          "$ref": "#/$defs/native-worker-result/properties/bodies"
+        },
+        "operations": {
+          "$ref": "#/$defs/native-worker-result/properties/operations"
+        },
+        "control_flow": {
+          "$ref": "#/$defs/native-worker-result/properties/control_flow"
+        },
+        "external_symbols": {
+          "$ref": "#/$defs/native-worker-result/properties/external_symbols"
+        },
+        "unresolved_references": {
+          "$ref": "#/$defs/native-worker-result/properties/unresolved_references"
+        },
+        "coverage": {
+          "$ref": "#/$defs/native-worker-result/properties/coverage"
+        },
+        "diagnostics": {
+          "$ref": "#/$defs/native-worker-result/properties/diagnostics"
+        },
+        "discovery_requests": {
+          "$ref": "#/$defs/native-worker-result/properties/discovery_requests"
+        },
+        "entity_modifiers": {
+          "$ref": "#/$defs/native-worker-result/properties/entity_modifiers"
+        },
+        "annotations": {
+          "$ref": "#/$defs/native-worker-result/properties/annotations"
+        },
+        "preprocessing": {
+          "$ref": "#/$defs/native-worker-result/properties/preprocessing"
+        }
+      },
+      "required": [
+        "spans",
+        "entities",
+        "types",
+        "signatures",
+        "appearances",
+        "bodies",
+        "operations",
+        "control_flow",
+        "external_symbols",
+        "unresolved_references",
+        "coverage",
+        "diagnostics",
+        "discovery_requests",
+        "entity_modifiers",
+        "annotations",
+        "preprocessing"
+      ],
+      "additionalProperties": false
+    },
+    "semantic-unit-result": {
+      "type": "object",
+      "properties": {
+        "schema": {
+          "const": "semantic-unit-result/1"
+        },
+        "snapshot_id": {
+          "$ref": "#/$defs/native-worker-result/properties/snapshot_id"
+        },
+        "context_id": {
+          "$ref": "#/$defs/native-worker-result/properties/context_id"
+        },
+        "unit_id": {
+          "$ref": "#/$defs/native-worker-result/properties/unit_id"
+        },
+        "semantic_input_fingerprint": {
+          "$ref": "#/$defs/native-worker-result/properties/semantic_input_fingerprint"
+        },
+        "status": {
+          "$ref": "#/$defs/native-worker-result/properties/status"
+        },
+        "stop_reason": {
+          "$ref": "#/$defs/native-worker-result/properties/stop_reason"
+        },
+        "consumed_file_keys": {
+          "$ref": "#/$defs/native-worker-result/properties/consumed_file_keys"
+        },
+        "capture_index_fingerprint": {
+          "$ref": "#/$defs/native-worker-request/properties/capture_index_fingerprint"
+        },
+        "producer": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "enum": [
+                "prompted-learning-roslyn-adapter",
+                "prompted-learning-clang-worker"
+              ]
+            },
+            "version": {
+              "type": "string",
+              "minLength": 1
+            },
+            "compiler_version": {
+              "type": "string",
+              "minLength": 1
+            },
+            "binary_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          },
+          "required": [
+            "name",
+            "version",
+            "compiler_version",
+            "binary_sha256"
+          ],
+          "additionalProperties": false
+        },
+        "facts": {
+          "$ref": "#/$defs/semantic-facts"
+        }
+      },
+      "required": [
+        "schema",
+        "snapshot_id",
+        "context_id",
+        "unit_id",
+        "semantic_input_fingerprint",
+        "status",
+        "stop_reason",
+        "consumed_file_keys",
+        "capture_index_fingerprint",
+        "producer",
+        "facts"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "complete"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "stop_reason": {
+                "type": "null"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "stop_reason": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "semantic-entity": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "$ref": "#/$defs/native-worker-result/properties/entities/items/properties/key"
+        },
+        "entity_kind": {
+          "$ref": "#/$defs/native-worker-result/properties/entities/items/properties/entity_kind"
+        },
+        "written_name": {
+          "$ref": "#/$defs/native-worker-result/properties/entities/items/properties/written_name"
+        },
+        "qualified_name": {
+          "$ref": "#/$defs/native-worker-result/properties/entities/items/properties/qualified_name"
+        },
+        "compiler_identity_kind": {
+          "$ref": "#/$defs/native-worker-result/properties/entities/items/properties/compiler_identity_kind"
+        },
+        "compiler_key": {
+          "$ref": "#/$defs/native-worker-result/properties/entities/items/properties/compiler_key"
+        },
+        "owner_entity_key": {
+          "$ref": "#/$defs/native-worker-result/properties/entities/items/properties/owner_entity_key"
+        },
+        "declared_ordinal": {
+          "$ref": "#/$defs/native-worker-result/properties/entities/items/properties/declared_ordinal"
+        },
+        "origin_span_key": {
+          "$ref": "#/$defs/native-worker-result/properties/entities/items/properties/origin_span_key"
+        },
+        "linkage": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/native-worker-result/properties/entities/items/properties/linkage"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "access": {
+          "$ref": "#/$defs/native-worker-result/properties/entities/items/properties/access"
+        },
+        "compiler_signature_key": {
+          "$ref": "#/$defs/native-worker-result/properties/entities/items/properties/compiler_signature_key"
+        },
+        "compiler_type_key": {
+          "$ref": "#/$defs/native-worker-result/properties/entities/items/properties/compiler_type_key"
+        },
+        "origin": {
+          "$ref": "#/$defs/native-worker-result/properties/entities/items/properties/origin"
+        },
+        "resolution": {
+          "$ref": "#/$defs/native-worker-result/properties/entities/items/properties/resolution"
+        }
+      },
+      "required": [
+        "key",
+        "entity_kind",
+        "written_name",
+        "qualified_name",
+        "compiler_identity_kind",
+        "compiler_key",
+        "owner_entity_key",
+        "declared_ordinal",
+        "origin_span_key",
+        "linkage",
+        "access",
+        "compiler_signature_key",
+        "compiler_type_key",
+        "origin",
+        "resolution"
+      ],
+      "additionalProperties": false
     }
   },
   "x-data-flow-families": [
@@ -19149,21 +19425,42 @@
       "family": "signature",
       "recipe_kind": "typed_components",
       "components_schema": {
-        "type": "object",
-        "properties": {
-          "callable_entity_id": {
-            "type": "string",
-            "pattern": "^[a-z][a-z0-9_-]*:[0-9a-f]{64}$"
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "callable_entity_id": {
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9_-]*:[0-9a-f]{64}$"
+              },
+              "compiler_signature_key": {
+                "$ref": "#/$defs/compiler-signature-key"
+              }
+            },
+            "required": [
+              "callable_entity_id",
+              "compiler_signature_key"
+            ],
+            "additionalProperties": false
           },
-          "compiler_signature_key": {
-            "$ref": "#/$defs/compiler-signature-key"
+          {
+            "type": "object",
+            "properties": {
+              "compiler_signature_key": {
+                "$ref": "#/$defs/compiler-signature-key"
+              },
+              "function_type_id": {
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9_-]*:[0-9a-f]{64}$"
+              }
+            },
+            "required": [
+              "function_type_id",
+              "compiler_signature_key"
+            ],
+            "additionalProperties": false
           }
-        },
-        "required": [
-          "callable_entity_id",
-          "compiler_signature_key"
-        ],
-        "additionalProperties": false
+        ]
       }
     },
     "parameter/1": {

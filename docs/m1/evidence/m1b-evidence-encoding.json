@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "files": [
+    {
+      "source": "C:/_Travail/tools/Prompted-Learning-inputs/m1b-integrated-final-report-2.json",
+      "destination": "docs/m1/evidence/m1b-tests.json",
+      "source_sha256": "7bff817a975820ecfd1e10216460c03a4b70ee83c65cfc0bbcb128a5cce7a4ac",
+      "destination_sha256": "b6075db2ff2438d2a69b8c538f7a1530b73e43f8e1465c572ebced5e69b0970c",
+      "transformation": "CRLF_to_LF_only"
+    },
+    {
+      "source": "C:/_Travail/tools/Prompted-Learning-inputs/m1-semantic-storage-tests-5/accepted-result-csharp.json",
+      "destination": "docs/m1/evidence/m1b-accepted-csharp.json",
+      "source_sha256": "5084c856622d79a47c3d97050f7f52abed8e0c3ea43bb12283f58f8bee45e499",
+      "destination_sha256": "5084c856622d79a47c3d97050f7f52abed8e0c3ea43bb12283f58f8bee45e499",
+      "transformation": "none"
+    },
+    {
+      "source": "C:/_Travail/tools/Prompted-Learning-inputs/m1-semantic-storage-tests-5/accepted-result-cpp.json",
+      "destination": "docs/m1/evidence/m1b-accepted-cpp.json",
+      "source_sha256": "3f9528813237ffd307017f2854f79f257435d56027dba555279a7d9a8c3c158c",
+      "destination_sha256": "3f9528813237ffd307017f2854f79f257435d56027dba555279a7d9a8c3c158c",
+      "transformation": "none"
+    },
+    {
+      "source": "C:/_Travail/tools/Prompted-Learning-inputs/m1-semantic-storage-tests-5/accepted-result-partial.json",
+      "destination": "docs/m1/evidence/m1b-accepted-partial.json",
+      "source_sha256": "d840d9dcf216be165ee9e09bd78d735a4dd4cdd4ed2efe706ad82f4320acd8f0",
+      "destination_sha256": "d840d9dcf216be165ee9e09bd78d735a4dd4cdd4ed2efe706ad82f4320acd8f0",
+      "transformation": "none"
+    }
+  ]
+}

@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "contract_defined_review_pending",
   "source_schema": "schema.sql",
-  "schema_sha256": "c434aa20fdd652c3378322f8321ccbee18f08590d5bfa18013729d1e931d1319",
+  "schema_sha256": "126c053ffc3c40827b7a236d7d362977c1b5509d0634f3515c00fea4f639dfb2",
   "interpretation": "Physical scalar fields are listed exactly once. Logical collections and inventory requirements are separately identified. Table and collection contracts supply inherited owner and ordering rules; they do not claim implementation. Read every field with its exact DDL constraint and normative contract. Null is never a substitute for a field knowledge state.",
   "milestone_interpretation": "implementation_stage is the section main expansion milestone, not a claim that its complete schema is implemented or permission to implement later-stage features early. M1 includes only the separately accepted pilot slice; support-matrix and acceptance gates govern that slice.",
   "producers": [
@@ -14713,7 +14713,8 @@
         "Enforce exact DDL definition: function_signature_id TEXT REFERENCES signature(id)",
         "Reference must resolve to signature.id; cross-context and endpoint-kind checks also apply.",
         "Validate null versus explicit field_state and inactive-variant applicability.",
-        "Structured types distinguish pointer-to-const from const-pointer, ordered template/type arguments, passing modes and callable qualifiers; signatures distinguish overloads."
+        "Structured types distinguish pointer-to-const from const-pointer, ordered template/type arguments, passing modes and callable qualifiers; signatures distinguish overloads.",
+        "A003: function types reference their own abstract signature; callable_id equals this type ID. Primitive type ID construction excludes this payload backlink."
       ],
       "inventory_requirements": [
         "BD0.5.T012",
@@ -15236,7 +15237,8 @@
         "Enforce exact DDL definition: callable_id TEXT NOT NULL REFERENCES record(id)",
         "Reference must resolve to record.id; cross-context and endpoint-kind checks also apply.",
         "Reject absence or invalid value.",
-        "Structured types distinguish pointer-to-const from const-pointer, ordered template/type arguments, passing modes and callable qualifiers; signatures distinguish overloads."
+        "Structured types distinguish pointer-to-const from const-pointer, ordered template/type arguments, passing modes and callable qualifiers; signatures distinguish overloads.",
+        "A003: entity-owned signature uses callable_entity_id; abstract function-type signature uses function_type_id resolving to type_node(type_kind=function), with matching primitive and backlink."
       ],
       "inventory_requirements": [
         "BD0.6.F009"
@@ -15924,7 +15926,8 @@
         "Enforce exact DDL definition: entity_id TEXT REFERENCES entity(id)",
         "Reference must resolve to entity.id; cross-context and endpoint-kind checks also apply.",
         "Validate null versus explicit field_state and inactive-variant applicability.",
-        "Structured types distinguish pointer-to-const from const-pointer, ordered template/type arguments, passing modes and callable qualifiers; signatures distinguish overloads."
+        "Structured types distinguish pointer-to-const from const-pointer, ordered template/type arguments, passing modes and callable qualifiers; signatures distinguish overloads.",
+        "A003: abstract function-type signature parameters have null entity/name/defaults with not_applicable states; no fabricated declared parameter entities."
       ],
       "inventory_requirements": [],
       "contract_refs": [
@@ -19904,6 +19907,7 @@
           "include",
           "import",
           "forced_include",
+          "pragma",
           "generated_origin"
         ]
       },
@@ -19920,7 +19924,7 @@
       "section": "BD0.8",
       "evidence": "record -> record_evidence -> evidence(kind=compiler|source|evaluation); active context and macro origin",
       "validation": [
-        "Enforce exact DDL definition: event_kind TEXT NOT NULL CHECK(event_kind IN ('macro_definition','macro_invocation','conditional','inactive_region','include','import','forced_include','generated_origin'))",
+        "Enforce exact DDL definition: event_kind TEXT NOT NULL CHECK(event_kind IN ('macro_definition','macro_invocation','conditional','inactive_region','include','import','forced_include','pragma','generated_origin'))",
         "Validate lexical/value encoding and the named vocabulary; SQL storage type alone is insufficient.",
         "Reject absence or invalid value.",
         "Inactive branches retain bytes and unestablished semantic coverage; macros retain spelling and expansion origins; forced includes identify their build setting."
@@ -44503,21 +44507,42 @@
           "recipe_ref": "contracts.json#/x-identity-recipes/signature~11",
           "meaning": "Exact registered signature identity inputs; canonical key dependencies obey the acyclic construction layers, and primitive compiler/provider keys are not display labels.",
           "component_schema": {
-            "type": "object",
-            "properties": {
-              "callable_entity_id": {
-                "type": "string",
-                "pattern": "^[a-z][a-z0-9_-]*:[0-9a-f]{64}$"
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "callable_entity_id": {
+                    "type": "string",
+                    "pattern": "^[a-z][a-z0-9_-]*:[0-9a-f]{64}$"
+                  },
+                  "compiler_signature_key": {
+                    "$ref": "#/$defs/compiler-signature-key"
+                  }
+                },
+                "required": [
+                  "callable_entity_id",
+                  "compiler_signature_key"
+                ],
+                "additionalProperties": false
               },
-              "compiler_signature_key": {
-                "$ref": "#/$defs/compiler-signature-key"
+              {
+                "type": "object",
+                "properties": {
+                  "compiler_signature_key": {
+                    "$ref": "#/$defs/compiler-signature-key"
+                  },
+                  "function_type_id": {
+                    "type": "string",
+                    "pattern": "^[a-z][a-z0-9_-]*:[0-9a-f]{64}$"
+                  }
+                },
+                "required": [
+                  "function_type_id",
+                  "compiler_signature_key"
+                ],
+                "additionalProperties": false
               }
-            },
-            "required": [
-              "callable_entity_id",
-              "compiler_signature_key"
-            ],
-            "additionalProperties": false
+            ]
           },
           "local_key_parts": []
         },

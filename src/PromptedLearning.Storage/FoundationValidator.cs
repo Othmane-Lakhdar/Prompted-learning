@@ -6,15 +6,19 @@ using PromptedLearning.Core;
 
 namespace PromptedLearning.Storage;
 
-internal sealed class FoundationValidator(CanonicalStore store, SqliteConnection connection, SqliteTransaction? transaction)
+internal sealed partial class FoundationValidator(CanonicalStore store, SqliteConnection connection, SqliteTransaction? transaction, bool semanticCollection = false)
 {
-    private static readonly HashSet<string> SupportedTables = new(StringComparer.Ordinal)
+    private static readonly HashSet<string> FoundationTables = new(StringComparer.Ordinal)
     {
         "schema_info", "dataset", "snapshot", "record", "field_state", "record_extension", "evidence", "record_evidence",
         "source_root", "exclusion", "source_blob", "source_file", "file_version", "file_path", "source_span",
         "project", "project_language", "solution", "solution_project", "configuration_mapping", "build_context",
         "context_setting", "context_input", "context_tool", "tool", "compilation_unit", "unit_input", "dependency"
     };
+    private static readonly string[] SemanticTables = ["entity", "entity_unit", "entity_modifier", "appearance", "type_node", "type_argument", "type_qualifier",
+        "signature", "signature_qualifier", "parameter", "entity_detail", "member_relation", "body", "operation", "operation_child", "operation_operand",
+        "annotation", "annotation_argument", "preprocessing", "external_symbol", "unresolved_reference", "coverage", "diagnostic"];
+    private readonly HashSet<string> SupportedTables = FoundationTables.Concat(semanticCollection ? SemanticTables : []).ToHashSet(StringComparer.Ordinal);
     private static readonly Regex IdPattern = new("^[a-z][a-z0-9_-]*:[0-9a-f]{64}$", RegexOptions.CultureInvariant);
     private static readonly Regex HashPattern = new("^[0-9a-f]{64}$", RegexOptions.CultureInvariant);
     private readonly List<StorageIssue> issues = [];
@@ -67,6 +71,7 @@ internal sealed class FoundationValidator(CanonicalStore store, SqliteConnection
         ValidateSources();
         ValidateStatesAndScopes();
         ValidateOrdering();
+        if (semanticCollection) ValidateSemanticRows();
         return new(issues.AsReadOnly(), payload.Count);
     }
 
@@ -99,6 +104,13 @@ internal sealed class FoundationValidator(CanonicalStore store, SqliteConnection
             var id = Text(row, "record_id")!;
             Guard("record_extension", id, "extension_invalid", () =>
             {
+                if (semanticCollection && Text(row, "schema_name") == "cpp-attribute" && Number(row, "schema_version") == 1)
+                {
+                    using var attribute = CanonicalJson.Parse(Encoding.UTF8.GetBytes(Text(row, "payload_json")!));
+                    ContractCatalog.Default.Validate("cpp-attribute", attribute.RootElement);
+                    Require(payload.TryGetValue(id, out var annotation) && annotation.Table == "annotation", "C++ attribute extension requires an annotation owner.");
+                    return;
+                }
                 if (Text(row, "schema_name") != "identity-input" || Number(row, "schema_version") != 1)
                     throw new InvalidDataException("Extension is not registered for an M1A foundation owner.");
                 using var document = CanonicalJson.Parse(Encoding.UTF8.GetBytes(Text(row, "payload_json")!));
@@ -200,7 +212,9 @@ internal sealed class FoundationValidator(CanonicalStore store, SqliteConnection
                 }
                 if (Text(row, "language") == "cpp") Require(actual.Count(x => Text(x, "role") == "main" && Equals(x["file_version_id"], row["main_file_version_id"])) == 1, "Native unit must name exactly its main input.");
                 break;
-            default: ValidateGenericIdentity(id, table, row, c); break;
+            default:
+                if (!semanticCollection || !ValidateSemanticIdentity(id, table, row, c)) ValidateGenericIdentity(id, table, row, c);
+                break;
         }
     }
 

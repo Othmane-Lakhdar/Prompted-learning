@@ -22,7 +22,7 @@ foreach (var test in cases)
     try { await test.Run(); results.Add(new { name = test.Name, status = "passed", elapsed_ms = watch.Elapsed.TotalMilliseconds }); }
     catch (Exception error) { failed++; results.Add(new { name = test.Name, status = "failed", elapsed_ms = watch.Elapsed.TotalMilliseconds, error = error.ToString() }); }
 }
-var report = new { stage = "M1A", group, tests = cases.Length, failed, status = failed == 0 ? "passed" : "failed", results };
+var report = new { stage = values.GetValueOrDefault("--stage", "M1B"), group, tests = cases.Length, failed, status = failed == 0 ? "passed" : "failed", results };
 var output = JsonSerializer.Serialize(report, new JsonSerializerOptions { WriteIndented = true }) + "\n";
 Console.Write(output);
 if (values.TryGetValue("--report", out var reportPath)) await File.WriteAllTextAsync(reportPath, output);

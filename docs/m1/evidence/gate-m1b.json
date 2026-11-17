@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "milestone": "M1B",
+  "status": "passed",
+  "as_of_utc": "2026-11-17T10:51:33.491278+00:00",
+  "prerequisite_commit": "da35e5da506d08680f73de48408ba2b2c68b1d07",
+  "scope": "Exact frozen C# and C++ pilot compiler source semantics, captured-input host validation and collecting canonical import. Not full T03 or M1 completion.",
+  "build": {
+    "status": "passed",
+    "configuration": "Release",
+    "sdk": "10.0.404",
+    "warnings": 0,
+    "errors": 0,
+    "log": "C:/_Travail/tools/Prompted-Learning-inputs/m1b-integrated-build-2.log"
+  },
+  "tests": {
+    "status": "passed",
+    "count": 95,
+    "failed": 0,
+    "report": "m1b-tests.json",
+    "report_sha256": "b6075db2ff2438d2a69b8c538f7a1530b73e43f8e1465c572ebced5e69b0970c",
+    "raw_report": "C:/_Travail/tools/Prompted-Learning-inputs/m1b-integrated-final-report-2.json",
+    "raw_report_sha256": "7bff817a975820ecfd1e10216460c03a4b70ee83c65cfc0bbcb128a5cce7a4ac",
+    "groups": {
+      "Foundation": 10,
+      "Source": 13,
+      "Storage": 17,
+      "Context": 5,
+      "PilotGuard": 9,
+      "ContextStorage": 5,
+      "CompilerContract": 5,
+      "Managed": 8,
+      "Native": 4,
+      "NativeSemantic": 4,
+      "SemanticValidation": 2,
+      "NativeHost": 4,
+      "SemanticStorage": 9
+    }
+  },
+  "review": {
+    "status": "passed",
+    "reviewer": "/root/preflight_review",
+    "verified_source_files": 71,
+    "verified_binary_paths": 8,
+    "verified_report_copies": 4,
+    "verified_after_final_test": true,
+    "manifest_sha256": "40fd4c7448b0fd4f2dd495f9038016b4d2c274f83e54ccc050a7646cad8b17c0",
+    "findings": "All material M1B source/storage findings corrected and exercised; no new material finding. Gate/state/deviation final prose was written subsequently by coordinator."
+  },
+  "inputs_manifest": "m1b-reviewed-inputs.json",
+  "contract_sha256": "11b8c2c29bb401b72838df7ce565c44182a9a1edb46149116b96f1b047fc94ab",
+  "schema_sha256": "126c053ffc3c40827b7a236d7d362977c1b5509d0634f3515c00fea4f639dfb2",
+  "native_binary_sha256": "954bd0629a3c21899116332346221ccf184ea74e8fb3c47c3ff2f08c5189092a",
+  "amendments": [
+    "A002",
+    "A003",
+    "A004"
+  ],
+  "verified_outcomes": [
+    "Both exact22-node Choose operation trees match independent expectations, including four native implicit casts, complete structural/semantic roles, targets, types, constants and original byte intervals.",
+    "Managed partial type/native redeclarations reconcile; overloads and parameter/local owners remain distinct.",
+    "Final native main/included_header unit is created only after captured discovery and exact final consumed-set verification.",
+    "Host verifies scope/tool/input fingerprints, typed graphs, providers, source origins and coverage; malformed input/result and bounded processing failures cannot publish facts.",
+    "Atomic canonical import preserves complete and partial source facts, located unsupported coverage/reasons and explicit unrequested states; low-level corruption/null/backlink/qualifier cases reject.",
+    "A004 schema capability is exact and historical databases are rejected without migration/mutation; CommitFoundation still rejects semantic records."
+  ],
+  "limitations": [
+    "Frozen pilot only; public Coral/CppSharp extraction expansion remains M2. Full CppSharp C++/CLI build boundary remains recorded.",
+    "Managed cancellation is cooperative; no hard managed process isolation claim. Native Job attaches before input-driven processing; pinned runtime startup precedes assignment.",
+    "A new collecting generation is required for amended schema; no in-place migration.",
+    "Direct normalized call_site/occurrence/relationship records remain M1C0 T03 work; direct target/parameter evidence is retained in operations.",
+    "No CFG, dataflow, complete canonical finalization, profiles, queries, benchmark or later-stage claim."
+  ],
+  "next_gate": "Publish this coherent M1B change; then M1C0 direct source call normalization before M1C flow/analysis steps.",
+  "usage": {
+    "checked_at": "2026-11-17T10:49:33.262Z",
+    "weekly_remaining_percent": 35,
+    "window_minutes": 10080,
+    "resets_at": 1795453198
+  },
+  "design_validation": {
+    "requirements": {
+      "report": "m1b-requirements-validation.json",
+      "status": "passed",
+      "negative_cases": 19
+    },
+    "contracts": {
+      "report": "m1b-contract-validation.json",
+      "status": "passed",
+      "checks": 86
+    },
+    "worker": {
+      "report": "m1b-worker-contract-validation.json",
+      "status": "passed",
+      "positive_cases": 6,
+      "negative_cases": 38
+    }
+  }
+}

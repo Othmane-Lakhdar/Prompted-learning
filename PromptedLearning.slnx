@@ -1,5 +1,6 @@
 <Solution>
   <Project Path="src/PromptedLearning.Core/PromptedLearning.Core.csproj" />
+  <Project Path="src/PromptedLearning.Managed/PromptedLearning.Managed.csproj" />
   <Project Path="src/PromptedLearning.Storage/PromptedLearning.Storage.csproj" />
   <Project Path="tests/PromptedLearning.Tests/PromptedLearning.Tests.csproj" />
 </Solution>

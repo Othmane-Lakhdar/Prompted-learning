@@ -2000,6 +2000,700 @@
         "status": "passed",
         "review": "Independent reviewer verified all six original/repository transformations, identical JSON values, both hash sets and unchanged32 reviewed source/contract files."
       }
+    },
+    {
+      "id": "M1BDESIGN001",
+      "stage": "M1B",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "kind": "managed_common_result_carrier",
+      "expected": "Truthful Roslyn producer provenance with same typed source facts.",
+      "observed": "The only frozen transport envelope is Clang-specific; it cannot truthfully carry an in-process Roslyn result unchanged.",
+      "affected": [
+        "managed adapter",
+        "shared validation"
+      ],
+      "evidence": [
+        {
+          "review": "Independent M1B design review"
+        }
+      ],
+      "corrective_action": "A002 additive common carrier/facts by reference, unchanged native schemas; runtime shape negatives and independent review.",
+      "verification": {
+        "status": "passed_current_integration_and_independent_review",
+        "gate": "docs/m1/evidence/gate-m1b.json",
+        "tests": 95,
+        "failed": 0,
+        "reviewed_inputs_sha256": "40fd4c7448b0fd4f2dd495f9038016b4d2c274f83e54ccc050a7646cad8b17c0",
+        "history": "Earlier failed reports and narrower passing outcomes remain preserved in evidence and m1b-validation-history.json."
+      },
+      "verification_history": [
+        {
+          "status": "runtime_checks_pending"
+        }
+      ]
+    },
+    {
+      "id": "M1BOPS001",
+      "stage": "M1B",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "kind": "bounded_inspection_and_patch_misses",
+      "expected": "Find actual fixture/oracle paths, compiler tools and exact patch context.",
+      "observed": "Coordinator guessed absent per-fixture JSON/oracle filename and a patch context fragment; native owner found cmake absent from PATH. Failed reads/patch made no changes.",
+      "affected": [
+        "inspection and tool discovery"
+      ],
+      "evidence": [
+        {
+          "review": "Coordinator/native owner observed outputs"
+        },
+        {
+          "review": "Additional bounded command mistakes: guessed Core subdirectory, Windows rg glob argument, no-op malformed patch path and test DLL path; corrected actual paths, no data mutation or test pass claimed."
+        }
+      ],
+      "corrective_action": "Read acceptance.json fixture arrays and actual Preflight.RoslynOracle.csproj; apply patch against full heading; use verified VS bundled CMake path.",
+      "verification": {
+        "status": "actual_paths_and_corrected_patch_verified"
+      }
+    },
+    {
+      "stage": "M1B",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "affected": [
+        "managed semantic producer",
+        "shared semantic validation/import"
+      ],
+      "evidence": [
+        {
+          "review": "Coordinator and independent reviewer inspected current adapter and actual reports"
+        }
+      ],
+      "id": "M1BMANAGED001",
+      "kind": "managed_failure_envelope",
+      "expected": "Malformed scope/provider inputs return explicit failed outcomes without partial semantic acceptance.",
+      "observed": "First managed6-case suite4passed2failed because InvalidDataException was not caught by IOException filter; first report also retained prior runner stageM1A label.",
+      "corrective_action": "Catch InvalidDataException explicitly; runner supports --stage and defaultsM1B; report2 six passed. Preserve original failed report.",
+      "verification": {
+        "status": "passed_current_integration_and_independent_review",
+        "gate": "docs/m1/evidence/gate-m1b.json",
+        "tests": 95,
+        "failed": 0,
+        "reviewed_inputs_sha256": "40fd4c7448b0fd4f2dd495f9038016b4d2c274f83e54ccc050a7646cad8b17c0",
+        "history": "Earlier failed reports and narrower passing outcomes remain preserved in evidence and m1b-validation-history.json."
+      },
+      "verification_history": [
+        {
+          "status": "bounded_rerun_passed_shared_semantic_gate_pending",
+          "report": "C:/_Travail/tools/Prompted-Learning-inputs/m1-managed-tests-report-2.json"
+        }
+      ]
+    },
+    {
+      "stage": "M1B",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "affected": [
+        "managed semantic producer",
+        "shared semantic validation/import"
+      ],
+      "evidence": [
+        {
+          "review": "Coordinator and independent reviewer inspected current adapter and actual reports"
+        }
+      ],
+      "id": "M1BNORM001",
+      "kind": "managed_normalized_vocabulary_and_read_roles",
+      "expected": "Typed facts use frozen entity/constant vocabulary and distinguish structural position from read/destination/call semantics.",
+      "observed": "Managed adapter emitted local rather than local_variable, int32/int64 constant tags rather than signed_integer, and copied child_role into semantic_role for reference reads. Six passing tests had not asserted those meanings.",
+      "corrective_action": "Correct normalized tags/semantic roles and add assertions across actual compiler results; retain previous report as insufficient coverage.",
+      "verification": {
+        "status": "passed_current_integration_and_independent_review",
+        "gate": "docs/m1/evidence/gate-m1b.json",
+        "tests": 95,
+        "failed": 0,
+        "reviewed_inputs_sha256": "40fd4c7448b0fd4f2dd495f9038016b4d2c274f83e54ccc050a7646cad8b17c0",
+        "history": "Earlier failed reports and narrower passing outcomes remain preserved in evidence and m1b-validation-history.json."
+      },
+      "verification_history": [
+        {
+          "status": "owner_correcting"
+        }
+      ]
+    },
+    {
+      "stage": "M1B",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "affected": [
+        "managed semantic producer",
+        "shared semantic validation/import"
+      ],
+      "evidence": [
+        {
+          "review": "Coordinator and independent reviewer inspected current adapter and actual reports"
+        }
+      ],
+      "id": "M1BGRAPH001",
+      "kind": "operand_role_ordinals_and_implicit_origin_stack",
+      "expected": "Operand ordinals are contiguous within role and implicit span causes match finite origin-stack suffix.",
+      "observed": "Adapter used child index for mixed operand roles and emitted implicit cause links with empty origin stacks; expression-bodied methods exercise these despite Choose having0implicit nodes.",
+      "corrective_action": "Number operands per role; retain written causing frames and test all method bodies/canonical source-span identities.",
+      "verification": {
+        "status": "passed_current_integration_and_independent_review",
+        "gate": "docs/m1/evidence/gate-m1b.json",
+        "tests": 95,
+        "failed": 0,
+        "reviewed_inputs_sha256": "40fd4c7448b0fd4f2dd495f9038016b4d2c274f83e54ccc050a7646cad8b17c0",
+        "history": "Earlier failed reports and narrower passing outcomes remain preserved in evidence and m1b-validation-history.json."
+      },
+      "verification_history": [
+        {
+          "status": "owner_correcting"
+        }
+      ]
+    },
+    {
+      "stage": "M1B",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "affected": [
+        "M1B adapters and common validation"
+      ],
+      "verification": {
+        "status": "passed_current_integration_and_independent_review",
+        "gate": "docs/m1/evidence/gate-m1b.json",
+        "tests": 95,
+        "failed": 0,
+        "reviewed_inputs_sha256": "40fd4c7448b0fd4f2dd495f9038016b4d2c274f83e54ccc050a7646cad8b17c0",
+        "history": "Earlier failed reports and narrower passing outcomes remain preserved in evidence and m1b-validation-history.json."
+      },
+      "id": "M1BNATIVEBUILD001",
+      "kind": "native_resource_and_library_build",
+      "expected": "Pinned worker compiles with strict warnings and exact embedded schema.",
+      "observed": "First native build failed: embedded C++ contract string exceeded MSVC literal limit, LLVM JSON Object/Array required explicit copy/move, and an unused LLVM header conversion triggered /WX.",
+      "corrective_action": "Embed schema as Windows RCDATA resource, use explicit LLVM value ownership, narrowly handle external-header warning without loosening application checks.",
+      "evidence": [
+        {
+          "file": "C:/_Travail/tools/Prompted-Learning-inputs/m1-native-build-1.log"
+        },
+        {
+          "reports": [
+            "m1-native-build-2.log",
+            "m1-native-build-3.log",
+            "m1-native-build-4.log"
+          ],
+          "observed": "Windows resource narrow/wide macro mismatch also failed; MAKEINTRESOURCEW(10) fixed it. Build4 passed without warnings/errors; runtime tests pending."
+        }
+      ],
+      "verification_history": [
+        {
+          "status": "correction_pending"
+        }
+      ]
+    },
+    {
+      "stage": "M1B",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "affected": [
+        "M1B adapters and common validation"
+      ],
+      "verification": {
+        "status": "passed_current_integration_and_independent_review",
+        "gate": "docs/m1/evidence/gate-m1b.json",
+        "tests": 95,
+        "failed": 0,
+        "reviewed_inputs_sha256": "40fd4c7448b0fd4f2dd495f9038016b4d2c274f83e54ccc050a7646cad8b17c0",
+        "history": "Earlier failed reports and narrower passing outcomes remain preserved in evidence and m1b-validation-history.json."
+      },
+      "id": "M1BAPPLIC001",
+      "kind": "managed_field_applicability_and_input_failure",
+      "expected": "C# inapplicable linkage/access are null with explicit states; unmeasured output hash is not_collected and available assembly version remains known; malformed declared inputs return explicit failure.",
+      "observed": "Native-shared entity schema forced C# no_linkage; adapter used none access and not_applicable output hash/version. LINQ cardinality/NotSupportedException could escape expected malformed-input failure path.",
+      "corrective_action": "A002 common entity linkage nullable while native unchanged; emit applicability correctly, known compiler assembly version/uncollected output hash; explicit malformed input checks and failure tests.",
+      "evidence": [
+        {
+          "review": "Independent reviewer and managed owner"
+        },
+        {
+          "report": "C:/_Travail/tools/Prompted-Learning-inputs/m1-managed-tests-report-4.json",
+          "tests": 8,
+          "passed": 7,
+          "failed": 1,
+          "observed": "Actual Roslyn namespace accessibility string must be overridden by semantic inapplicability; owner correcting without weakening assertion."
+        }
+      ],
+      "verification_history": [
+        {
+          "status": "correction_pending"
+        }
+      ]
+    },
+    {
+      "id": "M1BNATIVE001",
+      "stage": "M1B",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "kind": "windows_captured_vfs_mapping",
+      "expected": "Native worker parses only captured virtual files and maps every consumed input back to its captured identity.",
+      "observed": "First native runtime suite passed1/4: /__capture was drive-relative on Windows. Second run exposed header callback backslash separators, leaving parsed header unmapped.",
+      "affected": [
+        "native semantic producer",
+        "host final input closure"
+      ],
+      "corrective_action": "Use stable X:/__capture in-memory mount and normalize virtual separators; never add real filesystem overlay. Third native suite passed4/4.",
+      "evidence": [
+        {
+          "report": "C:/_Travail/tools/Prompted-Learning-inputs/m1-native-tests-report-1.json"
+        },
+        {
+          "report": "C:/_Travail/tools/Prompted-Learning-inputs/m1-native-tests-report-2.json"
+        },
+        {
+          "report": "C:/_Travail/tools/Prompted-Learning-inputs/m1-native-tests-report-3.json"
+        }
+      ],
+      "verification": {
+        "status": "passed_current_integration_and_independent_review",
+        "gate": "docs/m1/evidence/gate-m1b.json",
+        "tests": 95,
+        "failed": 0,
+        "reviewed_inputs_sha256": "40fd4c7448b0fd4f2dd495f9038016b4d2c274f83e54ccc050a7646cad8b17c0",
+        "history": "Earlier failed reports and narrower passing outcomes remain preserved in evidence and m1b-validation-history.json."
+      },
+      "verification_history": [
+        {
+          "status": "owner_rerun_passed_independent_and_host_validation_pending"
+        }
+      ]
+    },
+    {
+      "stage": "M1B",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "affected": [
+        "M1B semantic acceptance and storage"
+      ],
+      "verification": {
+        "status": "passed_current_integration_and_independent_review",
+        "gate": "docs/m1/evidence/gate-m1b.json",
+        "tests": 95,
+        "failed": 0,
+        "reviewed_inputs_sha256": "40fd4c7448b0fd4f2dd495f9038016b4d2c274f83e54ccc050a7646cad8b17c0",
+        "history": "Earlier failed reports and narrower passing outcomes remain preserved in evidence and m1b-validation-history.json."
+      },
+      "id": "M1BCOMMON001",
+      "kind": "shared_semantic_acceptance_gaps",
+      "expected": "Reject contradictory typed references and compiler primitive facts before canonical import.",
+      "observed": "Review found composite primitive mismatch, missing callable signature details, crossbody operands/local owners, representation mismatches, annotation constants and invented providers could pass.",
+      "corrective_action": "Add exact consistency checks and host-held provider descriptors; actual managed positive+mutation suite2/2 passed before provider tightening, fresh test pending.",
+      "evidence": [
+        {
+          "source": "Coordinator/independent reviewer/native owner reports and actual tool outputs"
+        }
+      ],
+      "verification_history": [
+        {
+          "status": "correction_implemented_verification_pending"
+        }
+      ]
+    },
+    {
+      "stage": "M1B",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "affected": [
+        "M1B semantic acceptance and storage"
+      ],
+      "verification": {
+        "status": "passed_current_integration_and_independent_review",
+        "gate": "docs/m1/evidence/gate-m1b.json",
+        "tests": 95,
+        "failed": 0,
+        "reviewed_inputs_sha256": "40fd4c7448b0fd4f2dd495f9038016b4d2c274f83e54ccc050a7646cad8b17c0",
+        "history": "Earlier failed reports and narrower passing outcomes remain preserved in evidence and m1b-validation-history.json."
+      },
+      "id": "M1BNATIVE002",
+      "kind": "native_normalized_origin_and_access",
+      "expected": "Native semantic facts satisfy common origin/applicability contract.",
+      "observed": "NativeSemantic report1 all4 cases blocked by positive precondition: implicit cause with empty stack; access none inapplicable.",
+      "corrective_action": "Native owner fixed stack and null access; report2 passed4/4 with prior compiled tests; fresh current oracle build pending.",
+      "evidence": [
+        {
+          "source": "Coordinator/independent reviewer/native owner reports and actual tool outputs"
+        }
+      ],
+      "verification_history": [
+        {
+          "status": "correction_implemented_verification_pending"
+        }
+      ]
+    },
+    {
+      "stage": "M1B",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "affected": [
+        "M1B semantic acceptance and storage"
+      ],
+      "verification": {
+        "status": "passed_current_integration_and_independent_review",
+        "gate": "docs/m1/evidence/gate-m1b.json",
+        "tests": 95,
+        "failed": 0,
+        "reviewed_inputs_sha256": "40fd4c7448b0fd4f2dd495f9038016b4d2c274f83e54ccc050a7646cad8b17c0",
+        "history": "Earlier failed reports and narrower passing outcomes remain preserved in evidence and m1b-validation-history.json."
+      },
+      "id": "M1BTYPE001",
+      "kind": "function_type_signature_identity",
+      "expected": "Native function-pointer types preserve structured abstract callable signature.",
+      "observed": "Existing signature identity only allowed named entity ownership despite function_type vocabulary and payload pointer.",
+      "corrective_action": "A003 additive function_type_id identity alternative reviewed in design; exact old entity recipe preserved. Importer/runtime evidence pending.",
+      "evidence": [
+        {
+          "source": "Coordinator/independent reviewer/native owner reports and actual tool outputs"
+        }
+      ],
+      "verification_history": [
+        {
+          "status": "correction_implemented_verification_pending"
+        }
+      ]
+    },
+    {
+      "stage": "M1B",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "affected": [
+        "M1B semantic acceptance and storage"
+      ],
+      "verification": {
+        "status": "passed_current_integration_and_independent_review",
+        "gate": "docs/m1/evidence/gate-m1b.json",
+        "tests": 95,
+        "failed": 0,
+        "reviewed_inputs_sha256": "40fd4c7448b0fd4f2dd495f9038016b4d2c274f83e54ccc050a7646cad8b17c0",
+        "history": "Earlier failed reports and narrower passing outcomes remain preserved in evidence and m1b-validation-history.json."
+      },
+      "id": "M1BEXEC001",
+      "kind": "shared_build_and_evidence_version",
+      "expected": "Tests execute only binaries built from the stated current source.",
+      "observed": "Native private host build3 collided with Storage partial edits; CS0103 missing methods. Subsequent prior DLL run4 passed but omitted new AST oracle.",
+      "corrective_action": "Record prior-binary scope; wait Storage-ready then rebuild and run current Native+NativeSemantic. No current-source gate claimed.",
+      "evidence": [
+        {
+          "source": "Coordinator/independent reviewer/native owner reports and actual tool outputs"
+        }
+      ],
+      "verification_history": [
+        {
+          "status": "correction_implemented_verification_pending"
+        }
+      ]
+    },
+    {
+      "stage": "M1B",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "affected": [
+        "M1B semantic acceptance and storage"
+      ],
+      "verification": {
+        "status": "passed_current_integration_and_independent_review",
+        "gate": "docs/m1/evidence/gate-m1b.json",
+        "tests": 95,
+        "failed": 0,
+        "reviewed_inputs_sha256": "40fd4c7448b0fd4f2dd495f9038016b4d2c274f83e54ccc050a7646cad8b17c0",
+        "history": "Earlier failed reports and narrower passing outcomes remain preserved in evidence and m1b-validation-history.json."
+      },
+      "id": "M1BMEM001",
+      "kind": "native_preparse_memory_budget",
+      "expected": "Bound native request-dependent processing by requested memory budget.",
+      "observed": "Worker installed requested job after frame/hash/parse; host had only wall/output cap.",
+      "corrective_action": "Host creates Job before launch and attaches before sending any request bytes, bounding input-driven frame/hash/parse; startup before attachment disclosed. Actual integration pending.",
+      "evidence": [
+        {
+          "source": "Coordinator/independent reviewer/native owner reports and actual tool outputs"
+        }
+      ],
+      "verification_history": [
+        {
+          "status": "correction_implemented_verification_pending"
+        }
+      ]
+    },
+    {
+      "stage": "M1B",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "affected": [
+        "M1B semantic acceptance and storage"
+      ],
+      "verification": {
+        "status": "passed_contract_design_checks",
+        "contract_sha256": "11b8c2c29bb401b72838df7ce565c44182a9a1edb46149116b96f1b047fc94ab"
+      },
+      "id": "M1BDOC001",
+      "kind": "contract_line_endings",
+      "expected": "Frozen contract inputs use UTF8 LF.",
+      "observed": "A003 Python Windows writes introduced CRLF, design validator rejected before checks.",
+      "corrective_action": "Normalize exact contract/dictionary/prose bytes to LF, refresh A003 hash; rerun design validator.",
+      "evidence": [
+        {
+          "source": "Coordinator/independent reviewer/native owner reports and actual tool outputs"
+        }
+      ]
+    },
+    {
+      "id": "M1BHOST001",
+      "stage": "M1B",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "kind": "native_discovery_payload_boundary",
+      "expected": "Discovery cannot be accepted as semantic payload; unit input roles match frozen SQL.",
+      "observed": "NativeHost first3 tests failed at shared positive prerequisite: discovery includes provisional semantic arrays. Storage owner also caught include role vs frozen included_header before any persistence.",
+      "affected": [
+        "native host",
+        "semantic storage integration"
+      ],
+      "corrective_action": "Corrected included_header role directly in identity; native owner inspecting discovery callbacks before host constraint changes.",
+      "evidence": [
+        {
+          "report": "C:/_Travail/tools/Prompted-Learning-inputs/m1b-nativehost-report-2.json"
+        }
+      ],
+      "verification": {
+        "status": "passed_current_integration_and_independent_review",
+        "gate": "docs/m1/evidence/gate-m1b.json",
+        "tests": 95,
+        "failed": 0,
+        "reviewed_inputs_sha256": "40fd4c7448b0fd4f2dd495f9038016b4d2c274f83e54ccc050a7646cad8b17c0",
+        "history": "Earlier failed reports and narrower passing outcomes remain preserved in evidence and m1b-validation-history.json."
+      },
+      "verification_history": [
+        {
+          "status": "root_native_host_three_passed_review_pending",
+          "report": "C:/_Travail/tools/Prompted-Learning-inputs/m1b-nativehost-report-3.json"
+        }
+      ]
+    },
+    {
+      "id": "M1BTEST001",
+      "stage": "M1B",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "kind": "identity_negative_test_wrong_api",
+      "expected": "Test identity schema rejects extra fields through validating Envelope API.",
+      "observed": "New A003 test expected Create hash helper to validate schema; CompilerContract4/5 passed1failed. Create intentionally only hashes; Envelope/Verify validate.",
+      "affected": [
+        "A003 validation evidence"
+      ],
+      "corrective_action": "Call Envelope for negative checks; retain unchanged Create algorithm and prior-ID equality assertion.",
+      "evidence": [
+        {
+          "report": "C:/_Travail/tools/Prompted-Learning-inputs/m1b-compilercontract-report-2.json"
+        }
+      ],
+      "verification": {
+        "status": "passed",
+        "report": "C:/_Travail/tools/Prompted-Learning-inputs/m1b-compilercontract-report-3.json",
+        "tests": 5
+      }
+    },
+    {
+      "id": "M1BSTORAGE001",
+      "stage": "M1B",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "kind": "semantic_null_state_and_test_environment",
+      "expected": "Nullable semantic fields carry valid explicit states; actual native integration uses verified executable.",
+      "observed": "First storage4 tests1passed3failed: missing dictionary tuple lookup returned (null,null), causing field_state NOTNULL failure; native test env omitted PL_NATIVE_WORKER. Transactions rolled back.",
+      "affected": [
+        "canonical semantic import"
+      ],
+      "corrective_action": "Use explicit TryGetValue fallback; set native executable per test process; rebuild and rerun.",
+      "evidence": [
+        {
+          "report": "C:/_Travail/tools/Prompted-Learning-inputs/m1-semantic-storage-report.json"
+        }
+      ],
+      "verification": {
+        "status": "passed_current_integration_and_independent_review",
+        "gate": "docs/m1/evidence/gate-m1b.json",
+        "tests": 95,
+        "failed": 0,
+        "reviewed_inputs_sha256": "40fd4c7448b0fd4f2dd495f9038016b4d2c274f83e54ccc050a7646cad8b17c0",
+        "history": "Earlier failed reports and narrower passing outcomes remain preserved in evidence and m1b-validation-history.json."
+      },
+      "verification_history": [
+        {
+          "status": "owner_correcting"
+        }
+      ]
+    },
+    {
+      "id": "M1BPARTIAL001",
+      "stage": "M1B",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "kind": "partial_coverage_evidence_loss",
+      "expected": "Partial source facts retain unsupported spans/body reasons and truthful collection knowledge.",
+      "observed": "Review found first importer draft ignored unparsed_span_keys/body.reason and marked all produced collections known. Common validator accepted truthful partial input, so canonical mapping could lose uncertainty.",
+      "affected": [
+        "canonical semantic import",
+        "later coverage assumptions"
+      ],
+      "corrective_action": "Retain per-span coverage and body-subject operations coverage with reasons; unknown collection states for partial; add actual-result partial mutation integration test.",
+      "evidence": [
+        {
+          "review": "Independent Storage review"
+        }
+      ],
+      "verification": {
+        "status": "passed_current_integration_and_independent_review",
+        "gate": "docs/m1/evidence/gate-m1b.json",
+        "tests": 95,
+        "failed": 0,
+        "reviewed_inputs_sha256": "40fd4c7448b0fd4f2dd495f9038016b4d2c274f83e54ccc050a7646cad8b17c0",
+        "history": "Earlier failed reports and narrower passing outcomes remain preserved in evidence and m1b-validation-history.json."
+      },
+      "verification_history": [
+        {
+          "status": "owner_correcting"
+        }
+      ]
+    },
+    {
+      "id": "M1BSTORAGE002",
+      "stage": "M1B",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "kind": "canonical_semantic_constraint_gaps",
+      "expected": "Public low-level writes cannot bypass typed semantics at M1B commit.",
+      "observed": "Review found operation operands could target wrong-family registry/body or parameter; entity_detail signature owner/backlink and qualifier primitive consistency missing.",
+      "affected": [
+        "canonical semantic validation"
+      ],
+      "corrective_action": "Add typed/owner/primitive checks and malformed-row transaction rollback tests.",
+      "evidence": [
+        {
+          "review": "Independent Storage review"
+        },
+        {
+          "review": "Final pass found null+explicit-state loopholes for required invocation/wrapper parameter_id and callable entity_detail.signature_id; owner correcting and adding required-applicability negatives before final freeze."
+        },
+        {
+          "report": "C:/_Travail/tools/Prompted-Learning-inputs/m1b-integrated-final-report.json",
+          "tests": 93,
+          "failed": 0,
+          "scope": "Combined pre-final-review-correction build. Final null/applicability and reference-use corrections require refreshed build/tests; not M1B gate approval."
+        }
+      ],
+      "verification": {
+        "status": "passed_current_integration_and_independent_review",
+        "gate": "docs/m1/evidence/gate-m1b.json",
+        "tests": 95,
+        "failed": 0,
+        "reviewed_inputs_sha256": "40fd4c7448b0fd4f2dd495f9038016b4d2c274f83e54ccc050a7646cad8b17c0",
+        "history": "Earlier failed reports and narrower passing outcomes remain preserved in evidence and m1b-validation-history.json."
+      },
+      "verification_history": [
+        {
+          "status": "owner_correcting"
+        }
+      ]
+    },
+    {
+      "id": "M1BPRAGMA001",
+      "stage": "M1B",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "kind": "native_wire_sql_enum_mismatch",
+      "expected": "Canonical storage represents the pragma event already allowed by frozen native wire.",
+      "observed": "SemanticStorage run2:4passed2failed; native inserts fail SQLCHECK because pragma omitted, while actual captured header emits pragma once. Managed complete/partial and rollback tests passed.",
+      "affected": [
+        "canonical native preprocessing",
+        "M1B gate"
+      ],
+      "corrective_action": "A004 add pragma SQL/dictionary enum and capabilityguard for old M1A schema; rebuild new collecting generation and rerun.",
+      "evidence": [
+        {
+          "report": "C:/_Travail/tools/Prompted-Learning-inputs/m1-semantic-storage-report-2.json"
+        }
+      ],
+      "verification": {
+        "status": "passed_current_integration_and_independent_review",
+        "gate": "docs/m1/evidence/gate-m1b.json",
+        "tests": 95,
+        "failed": 0,
+        "reviewed_inputs_sha256": "40fd4c7448b0fd4f2dd495f9038016b4d2c274f83e54ccc050a7646cad8b17c0",
+        "history": "Earlier failed reports and narrower passing outcomes remain preserved in evidence and m1b-validation-history.json."
+      },
+      "verification_history": [
+        {
+          "status": "amended_pending_rerun"
+        }
+      ]
+    },
+    {
+      "id": "M1BSEQ001",
+      "stage": "M1B",
+      "status": "open",
+      "blocks_dependent_execution": false,
+      "kind": "direct_call_normalization_handoff",
+      "expected": "T03 direct call_site/occurrence/relationship records precede T04 analyses and profile/query use.",
+      "observed": "Scoped M1B retains resolved call target/parameter facts in operations while separate normalized producer tables remain not_collected; full T03 is incomplete.",
+      "affected": [
+        "M1C initial source normalization",
+        "M1D projection/query assumptions"
+      ],
+      "corrective_action": "Explicit M1C0 step finishes T03 mappings after M1B gate and before M1C1+ analyses. M1B gate claims only its narrow exact entity/operation scope.",
+      "must_resolve_before": [
+        "M1C analysis uses normalized call-site facts",
+        "M1C gate",
+        "M1D projection and queries"
+      ],
+      "evidence": [
+        {
+          "source": "docs/specifications/tasks.md T03/T04; independent sequencing review"
+        }
+      ],
+      "verification": {
+        "status": "ordered_plan_recorded_implementation_not_started"
+      }
+    },
+    {
+      "id": "M1BREF001",
+      "stage": "M1B",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "kind": "reference_appearance_unit_role",
+      "expected": "An accepted reference appearance maps to entity_unit use, not declaration.",
+      "observed": "Importer used definition vs else declaration mapping for all appearances; reference enum was already permitted in common contract.",
+      "affected": [
+        "canonical source occurrence mapping"
+      ],
+      "corrective_action": "Map reference to use explicitly and assert accepted-fact reference mutation; no new discovery feature.",
+      "evidence": [
+        {
+          "review": "Independent final Storage review"
+        }
+      ],
+      "verification": {
+        "status": "passed_current_integration_and_independent_review",
+        "gate": "docs/m1/evidence/gate-m1b.json",
+        "tests": 95,
+        "failed": 0,
+        "reviewed_inputs_sha256": "40fd4c7448b0fd4f2dd495f9038016b4d2c274f83e54ccc050a7646cad8b17c0",
+        "history": "Earlier failed reports and narrower passing outcomes remain preserved in evidence and m1b-validation-history.json."
+      },
+      "verification_history": [
+        {
+          "status": "owner_correcting_and_testing"
+        }
+      ]
     }
   ]
 }
