@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../PromptedLearning.Core/PromptedLearning.Core.csproj" />
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="9.0.8" />
+    <PackageReference Include="SQLitePCLRaw.bundle_e_sqlite3" Version="2.1.14" />
+    <EmbeddedResource Include="../../docs/m0/schema.sql" LogicalName="PromptedLearning.Storage.schema.sql" />
+    <EmbeddedResource Include="../../docs/m0/field-dictionary.json" LogicalName="PromptedLearning.Storage.field-dictionary.json" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,25 @@
+{
+  "stage": "M1A",
+  "group": "context",
+  "tests": 3,
+  "failed": 1,
+  "status": "failed",
+  "results": [
+    {
+      "name": "evaluated pilot contexts and provider fingerprints",
+      "status": "failed",
+      "elapsed_ms": 2721.2299,
+      "error": "System.NotSupportedException: M1 pilot rejects local/custom build imports: C:\\WINDOWS\\Microsoft.NET\\Framework\\v4.0.30319\\Microsoft.Xaml.targets\r\n   at PromptedLearning.Core.MsBuildDefinitions.FingerprintAsync(String preprocessed, MsBuildRequest request, CancellationToken token) in C:\\_Travail\\tools\\Prompted-Learning\\src\\PromptedLearning.Core\\Build\\MsBuildDefinitions.cs:line 46\r\n   at PromptedLearning.Core.MsBuildEvaluator.EvaluateAsync(MsBuildRequest request, CancellationToken cancellationToken) in C:\\_Travail\\tools\\Prompted-Learning\\src\\PromptedLearning.Core\\Build\\MsBuildEvaluator.cs:line 59\r\n   at PromptedLearning.Tests.ContextTests.\u003C\u003Ec__DisplayClass0_0.\u003C\u003CCases\u003Eb__0\u003Ed.MoveNext() in C:\\_Travail\\tools\\Prompted-Learning\\tests\\PromptedLearning.Tests\\ContextTests.cs:line 19\r\n--- End of stack trace from previous location ---\r\n   at Program.\u003CMain\u003E$(String[] args) in C:\\_Travail\\tools\\Prompted-Learning\\tests\\PromptedLearning.Tests\\Program.cs:line 22"
+    },
+    {
+      "name": "context acquisition honors pre-cancellation",
+      "status": "passed",
+      "elapsed_ms": 4.4496
+    },
+    {
+      "name": "context acquisition bounds preprocessing output",
+      "status": "passed",
+      "elapsed_ms": 328.9234
+    }
+  ]
+}

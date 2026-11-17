@@ -1,73 +1,84 @@
 # Persistent project checkpoint
 
-Updated: 17 November 2026, Europe/Paris. Execution mode: **ACTIVE under weekly usage policy**. This is a rolling execution checkpoint, not a claim that M1A passed.
+Updated: 17 November 2026, Europe/Paris. Execution mode: ACTIVE under the weekly usage policy.
 
-## Objective and gates
+## Objective and current gate
 
-Implement the complete C++/C# extraction project described in all 33 inventory sections in `docs/specifications/`, using one canonical dataset, captured source, explicit coverage/uncertainty, four SQLite exports and bounded retrieval. Preserve `docs/m0/milestones.json`, the complete M0 contracts, acceptance fixtures, benchmark plan and `docs/deviations.json`.
+Implement the complete C++/C# extraction project in all 33 specification sections, one canonical dataset, exact captured source, explicit uncertainty/coverage, four SQLite profile exports and bounded retrieval. Full sources and the implementation plan remain in docs/specifications and docs/m0; this checkpoint does not replace them.
 
-Preflight completed with declared limits; M0 passed independent review and executable design checks. Current phase **M1A: source capture, stable identities, evaluated build context and canonical storage**. M1A integration and final review are incomplete. Do not implement M1B compiler adapters, M1C flow/finalization, M1D exports/queries or later milestones until their preceding gates pass. M1E includes the actual 360-run retrieval comparison; it has not run.
+Preflight completed with declared limits. M0 passed and was published at a7e02b472a59da9d270e58ccf696ffc3ad95498f. M1A now passed: docs/m1/evidence/gate-m1a.json. M1B compiler adapters may start after that gate is published. M1C flow, M1D exports/queries, M1E benchmark and M2-M5 remain gated. The 360-trial comparison has not run.
 
-`[CHECKPOINT]` still returns discussion/planning to `docs/checkpoints/2026-11-17-post-preflight.md` without discarding subsequent work. This file preserves the latest execution state for normal resumption.
+The historical [CHECKPOINT] command still returns discussion/planning to docs/checkpoints/2026-11-17-post-preflight.md without deleting later work. This file is the rolling execution checkpoint for normal continuation.
 
-## Usage and coordination
+## Usage
 
-Reliable account tool `get_usage_limits`, bucket `codex`, weekly window 10,080 minutes: **43% used / 57% remaining**, checked 17 November 2026 before policy activation. Reset Unix time: `1795453198`. No credits or resets used. The >15% condition permits continuation; the temporary coordination hold while checking quota did not trigger threshold-based SAFE PAUSE. Recheck at reasonable bounded execution checkpoints. At <=15%, or if reliable usage becomes unavailable, follow AGENTS.md shutdown and wait for explicit user authorization after the report.
+Last reliable coordinator check: get_usage_limits, codex weekly window10080 minutes, 51% remaining at2026-11-17T09:36:41Z; reset Unix1795453198. Initial policy activation check was57%; no resets or credits were used. Policy is in AGENTS.md without removing earlier instructions and applies to all agents.
 
-All three agents received the policy hold and supplied handoffs. At handoff no agent build/test/write operation remained running. Process inspection showed reusable MSBuild nodes and a compiler server; these are not evidence of an active build and were left intact. No critical transaction or migration was active.
+Continue only above15% with reliable usage information. At15% or unavailable quota, stop new substantive work, collect bounded handoffs, preserve state, report and wait for explicit user authorization. The initial verification hold was temporary; reliable quota allowed continuation and did not trigger threshold SAFE PAUSE.
 
-## Repository and preserved modifications
+## Repository and changes
 
-- Checkout: `C:\_Travail\tools\Prompted-Learning`.
-- Branch: `codex/extractor-design-implementation`.
-- Last committed/published implementation baseline: `a7e02b472a59da9d270e58ccf696ffc3ad95498f` (M0 gate), tree `515858ff3758dce6723d342ab0c768309af84af3`.
-- Uncommitted M1A: `.gitignore`, `PromptedLearning.slnx`, `src/`, `tests/PromptedLearning.Tests/`, `docs/m1/contract-amendments.json`; modifications to `docs/m0/contracts.json`, `docs/m0/contracts.md`, `docs/deviations.json`, `docs/project-state.json`. This checkpoint and appended AGENTS.md policy are additional documentation changes.
-- User files `Coral-main.zip` and `CppSharp-main.zip` remain untouched/untracked. Do not stage them.
-- Third-party sources, toolchains, builds, databases and raw reports live in `C:\_Travail\tools\Prompted-Learning-inputs`, not the project Git tree.
-- Local commits work. Local HTTPS push failed authentication in preflight; connected GitHub API publication was verified. Read remote head, preserve base tree, compare exact tree/blob hashes and update with expected head, never force. Do not replace dirty working files when reconciling API commits.
+- Checkout: C:/_Travail/tools/Prompted-Learning.
+- Branch: codex/extractor-design-implementation.
+- Current published HEAD before M1A publication: 993966098c70c26fa71f63171ac5bfae826a9e9d, tree2965cb1ae56821024a0807b6d416f7e7ddca0cc8. This is the policy/checkpoint commit; its original local equivalent fbaf86fbd5169159d060ffd4b256ae811fd718ad had the exact same tree.
+- M1A changes are staged for one coherent foundation commit: solution/projects, Core source/identity/context implementation, Storage,59 tests, A001 amendment, evidence, state and deviation updates. Publication is the immediate next step.
+- Coral-main.zip and CppSharp-main.zip remain untouched/untracked; never stage them.
+- External resources, toolchains, build products, databases and raw reports: C:/_Travail/tools/Prompted-Learning-inputs. No cleanup/deletion is needed.
 
-## Verified outcomes and decisions
+Local commits work; HTTPS push authentication failed in preflight. Use the verified connected GitHub API publication route: read remote head, upload exact staged blobs, compare each blob SHA and full tree SHA, create commit on expected parent, guarded non-force update, fetch/readback, then reconcile local ref only while preserving index/worktree. Never rewrite contracts JSON through JavaScript number parsing: it contains Int64 limits. Upload raw UTF-8/base64 bytes.
 
-- M0 frozen schema: 114 tables / 783 fields; all 33 specification sections retained. Design checks previously passed: requirements 19 negatives, contracts 86 checks, worker schemas 6 positive / 38 negative. Original reviewed contract JSON SHA256 `99b7d121ab836d600dc42ea9cf694596d42f3349fa1168953dc8ebd67a7f6653`; original M0 gate evidence remains historical.
-- Two pinned real resources: Coral `320c90de59d9cf81a56f3265d8a5d4a1777431ce`, small 207,801 bytes / 57 selected files; CppSharp `42ccd59b112072a6bcf3e1406efca174a46c8cf8`, medium 2,353,348 bytes / 231 files. Upstream checks passed within documented scopes; these do not establish extractor coverage. Full CppSharp C++/CLI remains blocked by missing toolchain and its incremental cleanup issue remains recorded.
-- Shared Core canonical JSON/stable IDs/runtime schema checks implemented. Foundation suite **9/9 passed** in `..\Prompted-Learning-inputs\m1-foundation-tests-report.json`. Handles exact UTF-8 ordering/escaping, Int64-only numbers, malformed UTF-16, validated identity envelopes, prefixItems/contains semantics and unknown schema keywords. Final integrated review is pending.
-- Source owner reports latest exact suite **13/13 passed**, report `..\Prompted-Learning-inputs\m1a-source-tests\source-results-final.json`; earlier Core Release build had zero warnings/errors. Captures evaluated input lists, strict raw/text decoding, verified pinned archive handles, sealing and bounded preparation. Source search/query/cursors remain M1D.
-- Storage owner reports latest private build zero warnings/errors and suite **17/17 passed**, report `..\Prompted-Learning-inputs\m1-storage-tests-report-2.json`; earlier failed report preserved as `m1-storage-tests-report.json`. Normalized SQLite creation/import/identity validation/rollback implemented. Minimum native SQLite >=3.50.2 test passed; record exact version during integration. Store remains collecting, without later-stage completeness claims.
-- M1A contract amendment A001: failed/cancelled source preparation may have null manifest hash before a trusted index exists; passed preparation still requires real 64-hex hash. This removes fabricated all-zero evidence. `docs/m1/contract-amendments.json` preserves M0 hashes. Amended contracts JSON SHA256 `c2d3075882bffd7d2668495c0cfc83aeaed827f8502e905e4bf3119a3bf13faa`. Reviewer found amendment structurally sound; rerun design checks and inspect fresh report evidence before closing.
-- NuGet restore exposed vulnerable SQLitePCLRaw transitive 2.1.10. Explicit bundle 2.1.14 restored without suppressing audit; Microsoft.Data.Sqlite remains 9.0.8. Actual behavior/version and final review remain required.
-- Host SDK is private .NET 10.0.404; analyzed C# pilot retains SDK 9.0.304, net8.0 reference pack 8.0.19, language 12. Do not add a root global.json that changes pilot SDK selection.
-- Context identity fingerprint is SHA256 of canonical identity components without LF. Context setting compiler_option uses literal descriptor value (empty name) or normalized path descriptor option plus `<root_key>/relative_path`. Provider dependency path is normalized. Retain typed descriptors in identity inputs.
+## Verified M1A outcome
 
-## Assignments, handoffs and pending findings
+- Fresh Release build with private SDK10.0.404 passed with zero warnings/errors.
+- Integrated suite59/59 passed: Foundation10, Source13, Storage17, Context5, PilotGuard9, ContextStorage5.
+- Independent reviewer inspected the actual staged diff, checked all32 source/contract hashes,3 built binaries including deployed copies,6 frozen pilot files, and actual capture-index/manifest/6 blob bytes. No material findings remain.
+- Gate evidence: docs/m1/evidence/gate-m1a.json, m1a-tests.json, m1a-reviewed-inputs.json, context-storage-evidence.json and sqlite-provider.json.
+- Original execution report SHA256: 2abfb85e421076c8a86f4877143707d6621fdea0f843e7a19efabc68663266e9. Repository LF copy SHA256: be45706bcf8138da855c46e7b9d306b9a43ece86a99dadcdbb4bedc34c9ef3d2. Evidence encoding transformations and original hashes are in docs/m1/evidence/evidence-encoding.json.
+- Reviewed-input manifest SHA256: c5a4f58dae1c6e32c23d50bcab1d3fc9febb5845d49f367e403afa30fabb301a.
+- Actual integrated capture index: 6610083eaedef443ad14f3cfeb2eb82f95680b7b5794c4a45adb0457527327e2; source manifest: cd19d549bc11869ce6f04ed9918f801c1f8642bddf850fb8fa58ad4b2eeaf53e.
+- Actual SQLite3.54.0 / Microsoft.Data.Sqlite assembly9.0.8.0; bundle2.1.14 fixed the originally vulnerable transitive package without suppressing audit.
+- All three amended design validators passed: requirements19 negatives, contracts86 checks, worker6 positive/38 negative. Design reports are not product extraction claims.
 
-| Agent | Ownership / latest status | Next action |
-|---|---|---|
-| `/root` | Shared Core, scaffolding, `Core/Build/MsBuildEvaluator.cs`, FoundationTests/ContextTests, integration, gates, deviations, publication. Latest root build output after adding evaluator/context tests was truncated; do not assume it passed. | Inspect files/status; run one fresh integrated build and bounded suites; integrate actual evaluated contexts/providers/units with captured source/store. |
-| `/root/m0_requirements` | `Core/Source/*.cs`, `Tests/Source/SourceTests.cs`. Source13 passed, active session50956 exited0. Nullable failure hash and early cancellation/index failure tests done; junction escape test replaces unavailable privileged symlink; CS4007 span-await compile error fixed. Duplicate exact exclusions now rejected. No active operation at handoff. | Review fresh exact source report; resolve only concrete integration/review findings. |
-| `/root/m0_contracts` | StorageSchema, CanonicalStore, FoundationValidator, CapturedSourceImport and StorageTests; root owns csproj. Storage17 passed, build39857/test29002 exited0. Collection role names, shared blobs, unknown vs not_collected and reversed exclusions corrected. | Independent verification of current fixes, then root context/source ingestion integration. |
-| `/root/preflight_review` | Read-only independent review. Prior M0 approved. Root Core fixes reviewed; latest combined report and context sufficiency pending. No active processes or changes. | Verify current exclusion correction/importer states against fresh tests; review bounded context options/tools/providers/imported inputs and actual integrated evidence; give gate verdict only when complete. |
+A001 permits null source_manifest_hash on early failed/cancelled preparation, never on success. It is independently reviewed and tested. Amended contracts hashc2d3075882bffd7d2668495c0cfc83aeaed827f8502e905e4bf3119a3bf13faa; original M0 approval/hash99b7d121ab836d600dc42ea9cf694596d42f3349fa1168953dc8ebd67a7f6653 remains historical.
 
-Keep separate write ownership; no agent commits/state changes without coordinator agreement. Read updated AGENTS.md before restarting substantial work. Agent reports above are handoff evidence, not a substitute for coordinator inspection and independent gate approval.
+## Implementation decisions and next-stage constraints
 
-Open deviations include M1CORE001/002, M1BUILD001/002, M1SOURCE001, M1STORE001/002/003, M1DESIGN001, M1TEST001; M1OPS001 (wrong output path) is resolved. Read exact entries for status/evidence before closing. Newly observed exclusion-order mismatch and SourceTests CS4007 need explicit history if not already logged. An apply_patch path typo caused no changes, then was corrected by source owner.
+Core implements strict canonical JSON and identity preimages, frozen runtime schemas, exact source capture/strict decoding/sealing and bounded pinned archive reads. Source search/cursors remain M1D. Storage is normalized, transactional and collecting only; no semantic finalizer or complete future collections are claimed.
 
-Context evaluator is new and **not yet verified as complete**. It evaluates the exact pilot via MSBuild, captures selected properties/items and hashes references/tool. Review compiler/tool identity (currently MSBuild plus toolset properties), imported build input closure, full relevant option coverage and path-sensitive semantics. Do not generalize pilot support or treat missing inputs as empty. Root has not yet integrated actual evaluated providers/context/source records into a canonical store.
+MsBuildEvaluator is restricted to the frozen Release/x64 pilots. It verifies project/source hashes before/after evaluation, explicit item groups, native compiler FileVersion19.44.35215.0/toolset14.44.35207, options, compiler/analyzer/reference hashes and imported build definitions before/after. Import locators use logical roots; raw installed definition content is hashed unchanged. Only registered NuGet path fields in exact supported scaffolding are normalized. The inherited child environment is frozen; CL/_CL_ are rejected and environment values are never persisted.
 
-## Commands and exact continuation
+ContextImport binds all captured pilot descriptors/hash/length/identity to that evaluation without rereading working source. It preserves evaluated source/reference order and explicit knowledge states. Managed compilation unit is not_attempted with observed_consumed not_collected. Native units are deferred as not_collected/native_input_discovery_not_run until M1B establishes consumed headers. Do not create provisional native unit IDs/facts in canonical storage.
 
-Private host: `C:\_Travail\tools\Prompted-Learning-inputs\toolchains\dotnet-10.0.404\dotnet.exe`.
-MSBuild: `C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild.exe`.
+M1B must add the actual analysis adapter descriptor through the explicit AnalysisTools request before final context/unit IDs, revalidate tools/providers before using them, consume captured bytes, verify final discovered input closure, and implement only exact frozen entity/operation expectations. Discovery/final passes and worker messages remain governed by docs/m0/contracts.json/md. Do not implement CFG/reaching definitions before M1C.
 
-```powershell
-& 'C:/_Travail/tools/Prompted-Learning-inputs/toolchains/dotnet-10.0.404/dotnet.exe' build PromptedLearning.slnx --configuration Release --artifacts-path C:/_Travail/tools/Prompted-Learning-inputs/m1-build --nologo --verbosity minimal
-& 'C:/_Travail/tools/Prompted-Learning-inputs/toolchains/dotnet-10.0.404/dotnet.exe' 'C:/_Travail/tools/Prompted-Learning-inputs/m1-build/bin/PromptedLearning.Tests/release/PromptedLearning.Tests.dll' --group all --project-root C:/_Travail/tools/Prompted-Learning --scratch C:/_Travail/tools/Prompted-Learning-inputs/m1-integrated-tests --report C:/_Travail/tools/Prompted-Learning-inputs/m1-integrated-tests-report.json
-node docs/m0/requirements-validation.mjs
-python docs/m0/validate-contracts.py --dependency-path C:/_Travail/tools/Prompted-Learning-inputs/m0-jsonschema
-python docs/m0/validate-worker-contracts.py --dependency-path C:/_Travail/tools/Prompted-Learning-inputs/m0-jsonschema
-```
+Host uses private SDK10; analyzed managed pilot must retain SDK9.0.304/net8.0 refs8.0.19/C#12. Do not add root global.json. MSBuild is VS2022 Community17.14.19; Roslyn adapter target4.14.0; Clang target19.1.7 with declared MSVC compatibility arguments.
 
-1. Read AGENTS.md, this file, machine-readable state, relevant M0 plan/contracts and deviation entries. Verify branch/status and current usage; no tests merely for rereading a checkpoint.
-2. Reactivate reviewer for current Source13/Storage17 evidence and context sufficiency. Source/storage owners address concrete findings only within M1A.
-3. Verify root evaluator/context tests, integrate pilot capture/context/provider/unit/store, preserve failures and exact new evidence. Root owns `m1-build`; agents use separate artifact directories.
-4. Run appropriate final M1A checks plus amended contract validators once stable. Review actual diff and evidence, resolve only demonstrated fixes, then commit/publish coherent changes. M1B remains blocked until M1A gate passes.
-5. Continue M1B -> M1C -> M1D -> M1E and later milestones under their gates and weekly quota checks. Update this checkpoint at meaningful changes and before any safe shutdown.
+All M1A deviations are now resolved with gate evidence; retain full history in docs/deviations.json, including failed runs. External limits remain: full CppSharp C++/CLI toolchain missing, upstream cleanup issue, local HTTPS push authentication, unexecuted later-stage gates. Do not silently broaden support from foundation tests.
+
+## Test resources
+
+Coral pin320c90de59d9cf81a56f3265d8a5d4a1777431ce: small207801 selected bytes/57 files. CppSharp pin42ccd59b112072a6bcf3e1406efca174a46c8cf8: medium2353348 bytes/231 files. Exact metric/exclusions/pins remain docs/testing/candidates.json. Upstream declared tests passed in preflight; extractor coverage on these resources remains M2.
+
+## Agent handoffs and processes
+
+- /root: shared Core/scaffolding/context, integration, gates/deviations/publication. Integrated build and test session45888 exited0. No active build/test/transaction.
+- /root/m0_requirements: source capture/archive and PilotInputGuard/guard tests; Source13 and guard9 passed. Files frozen, idle, no active processes. Next possible bounded assignment: managed adapter or input/host validation within M1B.
+- /root/m0_contracts: canonical storage/import and ContextStorage tests; Storage17 and actual integration5 passed. Files frozen, idle, no active processes. Next possible bounded assignment: native worker or semantic import, with fresh explicit ownership.
+- /root/preflight_review: independent M1A PASS with hashes/archive verification; idle, no file writes/processes. Reactivate for M1B design boundary and actual implementation review after assignment.
+- Reusable MSBuild nodes/compiler server may remain idle; no critical transaction or migration is active. Do not terminate unrelated processes.
+
+Agents must reread AGENTS.md and this checkpoint, check reliable quota, and receive bounded ownership before substantial work. Keep the reviewer independent.
+
+## Commands and precise next steps
+
+Private host: C:/_Travail/tools/Prompted-Learning-inputs/toolchains/dotnet-10.0.404/dotnet.exe.
+Build: host build PromptedLearning.slnx --configuration Release --artifacts-path C:/_Travail/tools/Prompted-Learning-inputs/m1-build --nologo --verbosity minimal.
+Test runner: C:/_Travail/tools/Prompted-Learning-inputs/m1-build/bin/PromptedLearning.Tests/release/PromptedLearning.Tests.dll.
+Run with host and --group all --project-root C:/_Travail/tools/Prompted-Learning --scratch <new external folder> --report <external report>.
+Groups: Foundation, Source, Storage, Context, PilotGuard, ContextStorage. Do not repeat passed checks unless changes or a concrete concern justify it.
+Design commands remain node docs/m0/requirements-validation.mjs and python docs/m0/validate-contracts.py / validate-worker-contracts.py --dependency-path C:/_Travail/tools/Prompted-Learning-inputs/m0-jsonschema.
+
+1. Finish state/document staging checks and publish M1A through guarded API/tree readback. Record actual resulting commit here and in machine-readable state.
+2. Recheck weekly usage and dispatch only M1B bounded adapter/host tasks with nonoverlapping ownership; read worker contracts, fixture gold and support matrix before code.
+3. Implement managed/native pilot semantic producers and exact conformance/integration tests; log errors before downstream reliance; obtain independent review and commit at M1B gate.
+4. Only then M1C -> M1D -> M1E -> M2-M5 under the original plan and weekly usage policy.

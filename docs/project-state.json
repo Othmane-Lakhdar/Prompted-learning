@@ -4,7 +4,7 @@
   "project": "C++ and C# code extraction",
   "stage": "M1",
   "m0_status": "passed",
-  "implementation_status": "not_started",
+  "implementation_status": "in_progress",
   "repository": "Othmane-Lakhdar/Prompted-learning",
   "work_branch": "codex/extractor-design-implementation",
   "base_commit": "7bb07d6680bb78ee45e3da86ebd2b9ce52c176ad",
@@ -13,7 +13,7 @@
   "historical_checkpoint": "docs/checkpoints/2026-11-16-preimplementation.md",
   "capability_audit": "docs/capabilities.md",
   "deviation_log": "docs/deviations.json",
-  "next_stage": "M1A source, identity, context and canonical storage foundation; M1B waits for its checks",
+  "next_stage": "M1B compiler adapters for exact pilot entities/operations; M1C remains gated",
   "notes": [
     "M0 completed with executable design checks and independent review. M1A is authorized; all later milestone and commit-unit gates remain in force.",
     "Verified local Windows execution replaces the failed cloud runner for this chat.",
@@ -45,6 +45,14 @@
   "local_preflight_report": "docs/preflight/2026-11-16-local/README.md",
   "publication_evidence": "docs/preflight/2026-11-16-local/publication.json",
   "specification_sources": "docs/specifications/sources.json",
-  "current_unit": "M1A",
-  "m0_gate": "docs/m0/evidence/gate.json"
+  "current_unit": "M1B",
+  "m0_gate": "docs/m0/evidence/gate.json",
+  "m1_status": "in_progress",
+  "m0_commit": "a7e02b472a59da9d270e58ccf696ffc3ad95498f",
+  "execution_checkpoint": "PROJECT_STATE.md",
+  "weekly_usage_policy": "AGENTS.md",
+  "execution_mode": "active",
+  "m1a_status": "passed",
+  "m1a_gate": "docs/m1/evidence/gate-m1a.json",
+  "m1b_status": "ready_after_gate_publication"
 }

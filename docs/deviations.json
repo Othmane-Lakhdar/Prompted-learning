@@ -1454,6 +1454,552 @@
         "positive_worker_cases": 6,
         "negative_worker_cases": 38
       }
+    },
+    {
+      "stage": "M1A",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "evidence": [
+        {
+          "review": "preflight_review code inspection"
+        }
+      ],
+      "id": "M1CORE001",
+      "kind": "lossy_unicode_input",
+      "expected": "Reject malformed UTF16 before any framework conversion can replace it.",
+      "observed": "Independent code review found char inputs, identity envelopes and a source DTO helper could bypass prevalidation through SerializeToElement; arbitrary value-type reflection could recurse.",
+      "corrective_action": "Reject invalid char/string inputs before conversion, route envelopes/source DTOs through canonical validation, reject unsupported scalar types and bound reflection depth.",
+      "affected": [
+        "portable identity",
+        "source fidelity"
+      ],
+      "verification": {
+        "status": "passed",
+        "gate": "docs/m1/evidence/gate-m1a.json",
+        "report": "docs/m1/evidence/m1a-tests.json",
+        "review": "Independent actual staged-code, report, file/binary/archive-hash review passed; all59 tests passed."
+      }
+    },
+    {
+      "stage": "M1A",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "evidence": [
+        {
+          "review": "preflight_review code inspection"
+        }
+      ],
+      "id": "M1CORE002",
+      "kind": "schema_vocabulary_coverage",
+      "expected": "Runtime validator implements every validation keyword in the frozen schema.",
+      "observed": "Review found prefixItems and contains absent in the first runtime validator draft.",
+      "corrective_action": "Implement tuple-prefix/items offset and contains semantics; test actual frozen generic identity tuple and requested-feature rule; unsupported keywords fail loading.",
+      "affected": [
+        "wire/identity validation"
+      ],
+      "verification": {
+        "status": "passed",
+        "gate": "docs/m1/evidence/gate-m1a.json",
+        "report": "docs/m1/evidence/m1a-tests.json",
+        "review": "Independent actual staged-code, report, file/binary/archive-hash review passed; all59 tests passed."
+      }
+    },
+    {
+      "stage": "M1A",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "evidence": [
+        {
+          "url": "https://github.com/advisories/GHSA-2m69-gcr7-jv3q"
+        },
+        {
+          "url": "https://www.nuget.org/packages/SQLitePCLRaw.bundle_e_sqlite3/2.1.14"
+        }
+      ],
+      "id": "M1BUILD001",
+      "kind": "vulnerable_transitive_dependency",
+      "expected": "Restore/build succeeds without suppressing package vulnerability checks.",
+      "observed": "First full solution restore failed NU1903 for SQLitePCLRaw.lib.e_sqlite3 2.1.10 through Microsoft.Data.Sqlite9.0.8 (GHSA-2m69-gcr7-jv3q). A guessed upstream release-tag URL returned404; official NuGet package metadata was available.",
+      "corrective_action": "Retain Microsoft.Data.Sqlite9.0.8 API package; explicitly pin SQLitePCLRaw.bundle_e_sqlite3 2.1.14 on the same2.1 series, verify resolved dependencies/actual native version and full storage behavior. No audit suppression.",
+      "affected": [
+        "SQLite foundation",
+        "M0 producer dependency selection adaptation"
+      ],
+      "verification": {
+        "status": "passed",
+        "gate": "docs/m1/evidence/gate-m1a.json",
+        "report": "docs/m1/evidence/m1a-tests.json",
+        "review": "Independent actual staged-code, report, file/binary/archive-hash review passed; all59 tests passed."
+      }
+    },
+    {
+      "stage": "M1A",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "evidence": [
+        {
+          "review": "preflight_review and coordinator build"
+        }
+      ],
+      "id": "M1BUILD002",
+      "kind": "initial_storage_compile",
+      "expected": "Foundation solution compiles with nullable warnings treated as errors.",
+      "observed": "First compile found sealed InvalidDataException inheritance in storage; next found nullable comparer mismatches and one possibly-null state path dereference.",
+      "affected": [
+        "M1A compile gate"
+      ],
+      "corrective_action": "Use IOException for validation exception; expose null-aware UTF8 comparer; fix state-path null handling before rebuilding.",
+      "verification": {
+        "status": "passed",
+        "gate": "docs/m1/evidence/gate-m1a.json",
+        "report": "docs/m1/evidence/m1a-tests.json",
+        "review": "Independent actual staged-code, report, file/binary/archive-hash review passed; all59 tests passed."
+      }
+    },
+    {
+      "stage": "M1A",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "evidence": [
+        {
+          "review": "preflight_review and coordinator build"
+        }
+      ],
+      "id": "M1SOURCE001",
+      "kind": "capture_consistency_and_limits",
+      "expected": "Seal/decode/archive preparation validate the same bytes and immutable descriptors with bounded I/O.",
+      "observed": "Independent review found mutable public descriptors could disagree with identity/index, decoding could read different bytes than those hashed, and slow I/O needed preparation deadline cancellation. Empty text intervals also needed encoding-boundary validation.",
+      "affected": [
+        "source fidelity",
+        "source preparation"
+      ],
+      "corrective_action": "Validate descriptor/identity/manifest consistency, decode captured verified bytes, bind I/O to deadline cancellation and check empty interval boundaries through pinned-byte lookaround.",
+      "verification": {
+        "status": "passed",
+        "gate": "docs/m1/evidence/gate-m1a.json",
+        "report": "docs/m1/evidence/m1a-tests.json",
+        "review": "Independent actual staged-code, report, file/binary/archive-hash review passed; all59 tests passed."
+      }
+    },
+    {
+      "stage": "M1A",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "evidence": [
+        {
+          "review": "preflight_review and coordinator build"
+        }
+      ],
+      "id": "M1STORE001",
+      "kind": "reopened_schema_constraints",
+      "expected": "Opening an existing canonical store rejects weakened constraints.",
+      "observed": "Initial Open compared table/column names and types only; equivalent names with removed CHECK/FK constraints could pass.",
+      "affected": [
+        "storage integrity"
+      ],
+      "corrective_action": "Compare actual sqlite_schema definitions including constraints/indexes against fresh embedded DDL; add tampered-schema Open rejection test.",
+      "verification": {
+        "status": "passed",
+        "gate": "docs/m1/evidence/gate-m1a.json",
+        "report": "docs/m1/evidence/m1a-tests.json",
+        "review": "Independent actual staged-code, report, file/binary/archive-hash review passed; all59 tests passed."
+      }
+    },
+    {
+      "stage": "M1A",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "evidence": [
+        {
+          "record": "docs/m1/contract-amendments.json"
+        }
+      ],
+      "verification": {
+        "status": "passed",
+        "gate": "docs/m1/evidence/gate-m1a.json",
+        "report": "docs/m1/evidence/m1a-tests.json",
+        "review": "Independent actual staged-code, report, file/binary/archive-hash review passed; all59 tests passed."
+      },
+      "id": "M1DESIGN001",
+      "kind": "unknown_preparation_manifest_hash",
+      "expected": "Early preparation failure preserves unknown manifest hash explicitly.",
+      "observed": "M0 preparation report required a hash even before trusted index read; first implementation used a zero placeholder.",
+      "corrective_action": "A001 permits null only on failed/cancelled preparation; require real hash on passed. Original M0 reviewed hashes retained in history; independent amendment review and actual failure tests required.",
+      "affected": [
+        "source preparation reports"
+      ]
+    },
+    {
+      "stage": "M1A",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "evidence": [
+        {
+          "review": "implementation owner/coordinator"
+        }
+      ],
+      "verification": {
+        "status": "passed",
+        "gate": "docs/m1/evidence/gate-m1a.json",
+        "report": "docs/m1/evidence/m1a-tests.json",
+        "review": "Independent actual staged-code, report, file/binary/archive-hash review passed; all59 tests passed."
+      },
+      "id": "M1TEST001",
+      "kind": "windows_symlink_fixture_privilege",
+      "expected": "Exercise outside-root reparse escape rejection.",
+      "observed": "11 of12 source tests passed; remaining fixture setup failed at Directory.CreateSymbolicLink because this user lacks that Windows privilege.",
+      "corrective_action": "Use a directory junction within the scratch area to exercise the same reparse escape; preserve failed run and report symlink creation capability as unavailable.",
+      "affected": [
+        "source reparse test"
+      ]
+    },
+    {
+      "stage": "M1A",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "evidence": [
+        {
+          "review": "implementation owner/coordinator"
+        }
+      ],
+      "verification": {
+        "status": "passed",
+        "gate": "docs/m1/evidence/gate-m1a.json",
+        "report": "docs/m1/evidence/m1a-tests.json",
+        "review": "Independent actual staged-code, report, file/binary/archive-hash review passed; all59 tests passed."
+      },
+      "id": "M1STORE002",
+      "kind": "source_import_collection_and_deduplication",
+      "expected": "Valid source capture imports pass knowledge-state validation and shared blobs deduplicate across snapshots.",
+      "observed": "Initial storage suite10/15 passed: importer used table names instead of declared collection roles in four scenarios, and second snapshot inserted a duplicate shared source_blob.",
+      "corrective_action": "Use dictionary collection roles and deduplicate identical verified blob records; preserve failed report and rerun.",
+      "affected": [
+        "source storage integration"
+      ]
+    },
+    {
+      "stage": "M1A",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "evidence": [
+        {
+          "review": "implementation owner/coordinator"
+        }
+      ],
+      "verification": {
+        "status": "passed_after_successful_build"
+      },
+      "id": "M1OPS001",
+      "kind": "test_runner_before_successful_build",
+      "expected": "Run tests from a verified successful build output.",
+      "observed": "Coordinator tried the integrated tests DLL before a full solution build had succeeded; file was absent because prior storage compilation failed.",
+      "corrective_action": "Wait for successful integrated build and reported actual output path; subsequent foundation suite9/9 passed.",
+      "affected": [
+        "test execution accounting"
+      ]
+    },
+    {
+      "id": "M1STORE003",
+      "stage": "M1A",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "kind": "capture_failure_knowledge_state",
+      "expected": "Attempted failed capture uses unknown hash/length, distinct from deliberate not-collected input.",
+      "observed": "Importer initially marked all unavailable content hash/length as not_collected, including attempted failures.",
+      "evidence": [
+        {
+          "review": "preflight_review and storage owner"
+        }
+      ],
+      "affected": [
+        "field knowledge state",
+        "source storage"
+      ],
+      "corrective_action": "Use attempt-aware unknown versus not_collected states and a persisted missing-file versus deliberate-exclusion test.",
+      "verification": {
+        "status": "passed",
+        "gate": "docs/m1/evidence/gate-m1a.json",
+        "report": "docs/m1/evidence/m1a-tests.json",
+        "review": "Independent actual staged-code, report, file/binary/archive-hash review passed; all59 tests passed."
+      }
+    },
+    {
+      "stage": "M1A",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "affected": [
+        "M1A source/storage integration"
+      ],
+      "evidence": [
+        {
+          "review": "owner handoff and coordinator/reviewer verification"
+        }
+      ],
+      "id": "M1STORE004",
+      "kind": "exclusion_order_identity_join",
+      "expected": "Valid declared exclusion order imports without changing its identity.",
+      "observed": "Reviewer found reversed two-rule declarations rejected because validator compared a sorted reconstruction to caller order.",
+      "corrective_action": "Compare persisted exclusion facts as rule/reason sets while preserving exact declared policy order; reject exact duplicate pairs.",
+      "verification": {
+        "status": "owner_tests_passed_independent_review_closed",
+        "evidence": "m1-storage-tests-report-2.json: reversed exclusions test passed; reviewer confirmed current code."
+      }
+    },
+    {
+      "stage": "M1A",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "affected": [
+        "M1A source/storage integration"
+      ],
+      "evidence": [
+        {
+          "review": "owner handoff and coordinator/reviewer verification"
+        }
+      ],
+      "id": "M1BUILD003",
+      "kind": "span_across_async_test_compile",
+      "expected": "Source tests compile without retaining a span across await.",
+      "observed": "CS4007 in SourceTests line192 interrupted shared build.",
+      "corrective_action": "Await bytes into a local before SequenceEqual; Source13 and fresh integrated build passed.",
+      "verification": {
+        "status": "passed"
+      }
+    },
+    {
+      "stage": "M1A",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "affected": [
+        "M1A source/storage integration"
+      ],
+      "evidence": [
+        {
+          "review": "owner handoff and coordinator/reviewer verification"
+        }
+      ],
+      "id": "M1OPS002",
+      "kind": "patch_path_typo",
+      "expected": "Apply source correction to intended owned file.",
+      "observed": "Source owner reports one mistyped apply_patch path failed without changes.",
+      "corrective_action": "Corrected path and completed Source13 tests.",
+      "verification": {
+        "status": "passed"
+      }
+    },
+    {
+      "id": "M1CONTEXT001",
+      "stage": "M1A",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "kind": "incomplete_context_inputs_and_absence_claims",
+      "expected": "Pilot context identity binds actual selected compiler, relevant options, imported definitions and verified input scope.",
+      "observed": "Early evaluator retained only MSBuild tool and selected options, and asserted absent generated/runtime/path-sensitive inputs without an exact-pilot guard. Review found imported props changes and checked arithmetic were not reliably bound.",
+      "affected": [
+        "M1A context identity",
+        "M1B adapter prerequisites",
+        "Q11 checked arithmetic"
+      ],
+      "evidence": [
+        {
+          "review": "Independent reviewer identified concrete missing compiler/options/import/input guards; initial context2 tests had not covered them."
+        }
+      ],
+      "corrective_action": "Constrain to frozen pilot files, preserve expanded settings, compiler/analyzer tools, before/after imported-definition fingerprint and explicit queried item groups; M1B appends actual analysis adapter descriptor before IDs freeze.",
+      "verification": {
+        "status": "passed",
+        "gate": "docs/m1/evidence/gate-m1a.json",
+        "report": "docs/m1/evidence/m1a-tests.json",
+        "review": "Independent actual staged-code, report, file/binary/archive-hash review passed; all59 tests passed."
+      }
+    },
+    {
+      "id": "M1CONTEXT002",
+      "stage": "M1A",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "kind": "premature_native_unit_persistence",
+      "expected": "No provisional native consumed-input identities enter canonical storage before discovery establishes closure.",
+      "observed": "Initial context importer implementation inserted a native main-only compilation unit with not_attempted status; owner identified conflict with frozen discovery boundary before relying on it.",
+      "affected": [
+        "M1A context import",
+        "M1B native discovery"
+      ],
+      "evidence": [
+        {
+          "review": "Storage owner and coordinator"
+        }
+      ],
+      "corrective_action": "Defer native compilation_unit persistence until M1B establishes consumed inputs; retain evaluated project/context/tools and explicit pending state now. C# full evaluated source/reference unit remains not_attempted.",
+      "verification": {
+        "status": "passed",
+        "gate": "docs/m1/evidence/gate-m1a.json",
+        "report": "docs/m1/evidence/m1a-tests.json",
+        "review": "Independent actual staged-code, report, file/binary/archive-hash review passed; all59 tests passed."
+      }
+    },
+    {
+      "id": "M1CONTEXT003",
+      "stage": "M1A",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "kind": "installed_import_root_inventory",
+      "expected": "All actual frozen pilot installed MSBuild imports are fingerprinted under stable logical roots.",
+      "observed": "Context suite2/3 passed; main case rejected Microsoft.Xaml.targets under Windows/Microsoft.NET, an installed framework import absent from initial allowed-root inventory.",
+      "affected": [
+        "M1A definition closure"
+      ],
+      "evidence": [
+        {
+          "report": "C:/_Travail/tools/Prompted-Learning-inputs/m1-context-tests-report-2.json"
+        }
+      ],
+      "corrective_action": "Add explicit windows-dotnet-framework installed root, retaining raw hashes and rejecting other unrecognized/local roots.",
+      "verification": {
+        "status": "passed",
+        "gate": "docs/m1/evidence/gate-m1a.json",
+        "report": "docs/m1/evidence/m1a-tests.json",
+        "review": "Independent actual staged-code, report, file/binary/archive-hash review passed; all59 tests passed."
+      }
+    },
+    {
+      "id": "M1OPS003",
+      "stage": "M1A",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "kind": "windows_search_glob_path",
+      "expected": "Inspect existing compiler probe output directories.",
+      "observed": "rg received a literal m0-roslyn* directory glob on Windows and reported OS error123; no files changed.",
+      "affected": [
+        "tool discovery only"
+      ],
+      "evidence": [
+        {
+          "review": "Coordinator observed command result"
+        }
+      ],
+      "corrective_action": "Used actual directory inventory and evaluated compiler paths instead of unsupported path glob expansion.",
+      "verification": {
+        "status": "actual_evaluated_compiler_files_read"
+      }
+    },
+    {
+      "id": "M1CONTEXT004",
+      "stage": "M1A",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "kind": "evaluation_capture_input_gap",
+      "expected": "Stored context only asserts frozen pilot semantics for captured bytes verified against that same pilot.",
+      "observed": "Importer checked captured project hash but not captured source/header hashes, so source mutation between evaluation and capture could pass.",
+      "affected": [
+        "context source binding",
+        "M1B input correctness"
+      ],
+      "evidence": [
+        {
+          "review": "Independent reviewer inspected current ContextImport.Run"
+        }
+      ],
+      "corrective_action": "Validate captured descriptors against frozen hash/length expectations before context insertion, without rereading working files; add mutation and transaction rollback regression.",
+      "verification": {
+        "status": "passed",
+        "gate": "docs/m1/evidence/gate-m1a.json",
+        "report": "docs/m1/evidence/m1a-tests.json",
+        "review": "Independent actual staged-code, report, file/binary/archive-hash review passed; all59 tests passed."
+      }
+    },
+    {
+      "stage": "M1A",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "evidence": [
+        {
+          "review": "Independent review"
+        }
+      ],
+      "verification": {
+        "status": "passed",
+        "gate": "docs/m1/evidence/gate-m1a.json",
+        "report": "docs/m1/evidence/m1a-tests.json",
+        "review": "Independent actual staged-code, report, file/binary/archive-hash review passed; all59 tests passed."
+      },
+      "id": "M1CONTEXT005",
+      "kind": "native_environment_and_tool_baseline",
+      "expected": "Native context accepts only declared compiler version/settings and no hidden CL/_CL_ options.",
+      "observed": "Inherited compiler environment options were neither fingerprinted nor rejected; MSVC ProductVersion differs from compiler FileVersion; several nonbaseline semantic settings were only hashed.",
+      "corrective_action": "Reject CL/_CL_, freeze child environment, retain actual cl FileVersion and verify frozen compiler/toolset/semantic baseline.",
+      "affected": [
+        "native pilot compatibility",
+        "context provenance"
+      ]
+    },
+    {
+      "stage": "M1A",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "evidence": [
+        {
+          "review": "Independent review"
+        }
+      ],
+      "verification": {
+        "status": "passed",
+        "gate": "docs/m1/evidence/gate-m1a.json",
+        "report": "docs/m1/evidence/m1a-tests.json",
+        "review": "Independent actual staged-code, report, file/binary/archive-hash review passed; all59 tests passed."
+      },
+      "id": "M1CONTEXT006",
+      "kind": "evaluated_input_order",
+      "expected": "Preserve ordered evaluated reference and unit-source inputs.",
+      "observed": "Evaluator sorted references by AssemblyName; importer sorted sources by logical path, reversing the pilot Compile order.",
+      "corrective_action": "Retain actual MSBuild item order and assert source/reference sequences in integration.",
+      "affected": [
+        "ordered context and unit identity"
+      ]
+    },
+    {
+      "id": "M1OPS004",
+      "stage": "M1A",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "kind": "read_path_typos",
+      "expected": "Read actual source model and relevant test files.",
+      "observed": "Guard owner reported two harmless read-path typos, including nonexistent CaptureModels.cs; no writes or deletions resulted.",
+      "evidence": [
+        {
+          "review": "Owner handoff"
+        }
+      ],
+      "affected": [
+        "inspection only"
+      ],
+      "corrective_action": "Read actual SourceModels.cs and correct files before implementation.",
+      "verification": {
+        "status": "passed",
+        "report": "PilotGuard9 and integrated59 passed"
+      }
+    },
+    {
+      "id": "M1PUB001",
+      "stage": "M1A",
+      "status": "resolved",
+      "blocks_dependent_execution": false,
+      "kind": "evidence_line_ending_hash_basis",
+      "expected": "Gate hashes match the published report bytes while preserving original execution evidence.",
+      "observed": "Pre-publication staged-byte verification detected CRLF report hashes differed after Git normalized repository copies to LF; publication stopped before a remote update.",
+      "affected": [
+        "portable gate evidence"
+      ],
+      "evidence": [
+        {
+          "file": "docs/m1/evidence/evidence-encoding.json"
+        }
+      ],
+      "corrective_action": "Normalize repository evidence copies explicitly to LF, retain external originals and both hashes, and bind gate to repository-copy hash. Only CRLF sequences changed.",
+      "verification": {
+        "status": "passed",
+        "review": "Independent reviewer verified all six original/repository transformations, identical JSON values, both hash sets and unchanged32 reviewed source/contract files."
+      }
     }
   ]
 }

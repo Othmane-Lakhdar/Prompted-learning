@@ -1,0 +1,304 @@
+{
+  "stage": "M1A",
+  "group": "all",
+  "tests": 59,
+  "failed": 0,
+  "status": "passed",
+  "results": [
+    {
+      "name": "evaluated pilot contexts and provider fingerprints",
+      "status": "passed",
+      "elapsed_ms": 25876.5895
+    },
+    {
+      "name": "context acquisition honors pre-cancellation",
+      "status": "passed",
+      "elapsed_ms": 7.4071
+    },
+    {
+      "name": "context acquisition bounds preprocessing output",
+      "status": "passed",
+      "elapsed_ms": 561.8963
+    },
+    {
+      "name": "unrecognized local imports cannot silently change pilot semantics",
+      "status": "passed",
+      "elapsed_ms": 3737.6696
+    },
+    {
+      "name": "native injected environment options are rejected",
+      "status": "passed",
+      "elapsed_ms": 8.9291
+    },
+    {
+      "name": "canonical exact UTF8, escapes and row LF",
+      "status": "passed",
+      "elapsed_ms": 28.0165
+    },
+    {
+      "name": "canonical keys use UTF8 order rather than UTF16 ordinal",
+      "status": "passed",
+      "elapsed_ms": 5.7499
+    },
+    {
+      "name": "reject duplicate keys and non-Int64 semantic numbers",
+      "status": "passed",
+      "elapsed_ms": 2.3449
+    },
+    {
+      "name": "reject malformed UTF16 before framework replacement",
+      "status": "passed",
+      "elapsed_ms": 2.6684
+    },
+    {
+      "name": "independent Python SHA256 identity vectors",
+      "status": "passed",
+      "elapsed_ms": 18.0652
+    },
+    {
+      "name": "full frozen catalog loads; identity tuple has exact positions",
+      "status": "passed",
+      "elapsed_ms": 20.0492
+    },
+    {
+      "name": "Draft2020 prefixItems applies items only after tuple prefix",
+      "status": "passed",
+      "elapsed_ms": 1.196
+    },
+    {
+      "name": "frozen contains rule requires CFG for storage events",
+      "status": "passed",
+      "elapsed_ms": 1.33
+    },
+    {
+      "name": "catalog rejects unimplemented validation keywords",
+      "status": "passed",
+      "elapsed_ms": 0.5737
+    },
+    {
+      "name": "A001 unknown preparation hash is permitted only before success",
+      "status": "passed",
+      "elapsed_ms": 15.5199
+    },
+    {
+      "name": "pilot_guard.frozen_inputs_and_relocation",
+      "status": "passed",
+      "elapsed_ms": 42.5381
+    },
+    {
+      "name": "pilot_guard.changed_source_and_project_rejected_without_msbuild",
+      "status": "passed",
+      "elapsed_ms": 55.8379
+    },
+    {
+      "name": "pilot_guard.unknown_configuration_and_project_rejected_without_msbuild",
+      "status": "passed",
+      "elapsed_ms": 3.7059
+    },
+    {
+      "name": "pilot_guard.pre_cancelled_validation_does_not_read",
+      "status": "passed",
+      "elapsed_ms": 1.7696
+    },
+    {
+      "name": "pilot_guard.captured_versions_bind_evaluation_without_working_file_reads",
+      "status": "passed",
+      "elapsed_ms": 433.9244
+    },
+    {
+      "name": "pilot_guard.synthetic_selected_sets_and_absence_evidence",
+      "status": "passed",
+      "elapsed_ms": 4.9269
+    },
+    {
+      "name": "pilot_guard.synthetic_managed_runtime_generated_and_path_features",
+      "status": "passed",
+      "elapsed_ms": 11.2205
+    },
+    {
+      "name": "pilot_guard.synthetic_native_forced_input_and_pch_rejection",
+      "status": "passed",
+      "elapsed_ms": 7.2242
+    },
+    {
+      "name": "pilot_guard.synthetic_analyzer_location_and_fingerprint",
+      "status": "passed",
+      "elapsed_ms": 3.8927
+    },
+    {
+      "name": "source.strict_encoding_offsets_and_original_line_endings",
+      "status": "passed",
+      "elapsed_ms": 6.0523
+    },
+    {
+      "name": "source.malformed_and_utf32_remain_explicit",
+      "status": "passed",
+      "elapsed_ms": 7.218
+    },
+    {
+      "name": "source.same_bytes_distinct_files_and_portable_snapshot",
+      "status": "passed",
+      "elapsed_ms": 305.5726
+    },
+    {
+      "name": "source.archive_ignores_changed_working_files_and_pins_blobs",
+      "status": "passed",
+      "elapsed_ms": 214.7534
+    },
+    {
+      "name": "source.exact_text_ranges_and_empty_scalar_boundaries",
+      "status": "passed",
+      "elapsed_ms": 88.9288
+    },
+    {
+      "name": "source.utf16_bom_and_surrogate_empty_ranges",
+      "status": "passed",
+      "elapsed_ms": 209.1803
+    },
+    {
+      "name": "source.unavailable_malformed_and_decode_limit_keep_truthful_states",
+      "status": "passed",
+      "elapsed_ms": 122.6324
+    },
+    {
+      "name": "source.stable_read_retry_and_persistent_change",
+      "status": "passed",
+      "elapsed_ms": 60.2067
+    },
+    {
+      "name": "source.virtual_inputs_explicit_selection_and_new_snapshot",
+      "status": "passed",
+      "elapsed_ms": 133.024
+    },
+    {
+      "name": "source.seal_rejects_forged_descriptors_and_in_place_extension",
+      "status": "passed",
+      "elapsed_ms": 150.0062
+    },
+    {
+      "name": "source.hash_tamper_detected_and_failed_open_releases_handles",
+      "status": "passed",
+      "elapsed_ms": 150.9556
+    },
+    {
+      "name": "source.cancellation_and_preparation_limits",
+      "status": "passed",
+      "elapsed_ms": 358.6022
+    },
+    {
+      "name": "source.path_case_collisions_and_reparse_escape",
+      "status": "passed",
+      "elapsed_ms": 286.0744
+    },
+    {
+      "name": "Actual evaluated contexts preserve tools, providers, ordered options and managed inputs",
+      "status": "passed",
+      "elapsed_ms": 22142.2028
+    },
+    {
+      "name": "Repeated context import reuses stable records without operational output hash drift",
+      "status": "passed",
+      "elapsed_ms": 2837.8727
+    },
+    {
+      "name": "Missing reference descriptors cannot become a known empty reference set",
+      "status": "passed",
+      "elapsed_ms": 70.6886
+    },
+    {
+      "name": "Unqueried item categories cannot be interpreted as complete context inputs",
+      "status": "passed",
+      "elapsed_ms": 62.808
+    },
+    {
+      "name": "Captured source mutation after evaluation rejects context import and rolls back",
+      "status": "passed",
+      "elapsed_ms": 16969.0563
+    },
+    {
+      "name": "SQLite provider meets the fixed security minimum",
+      "status": "passed",
+      "elapsed_ms": 9.3898
+    },
+    {
+      "name": "Captured text, binary and unavailable bytes retain states and snapshot identity",
+      "status": "passed",
+      "elapsed_ms": 304.9712
+    },
+    {
+      "name": "Committed foundation survives reopen without finalization",
+      "status": "passed",
+      "elapsed_ms": 2321.5093
+    },
+    {
+      "name": "Attempted unavailable capture remains unknown while deliberate omission is not collected",
+      "status": "passed",
+      "elapsed_ms": 95.2681
+    },
+    {
+      "name": "Reversed exclusion rule order remains importable and preserves declared policy",
+      "status": "passed",
+      "elapsed_ms": 140.7965
+    },
+    {
+      "name": "Disposed or cancelled staging writes leave no partial records",
+      "status": "passed",
+      "elapsed_ms": 110.6432
+    },
+    {
+      "name": "Constrained insertion rejects SQL identifiers and implicit numeric conversion",
+      "status": "passed",
+      "elapsed_ms": 62.7592
+    },
+    {
+      "name": "Open rejects extra columns and weakened CHECK constraints",
+      "status": "passed",
+      "elapsed_ms": 2206.03
+    },
+    {
+      "name": "Typed values cannot disagree with a valid identity envelope",
+      "status": "passed",
+      "elapsed_ms": 48.8452
+    },
+    {
+      "name": "Invalid identity hash is rejected before insertion and faults its transaction",
+      "status": "passed",
+      "elapsed_ms": 39.101
+    },
+    {
+      "name": "Snapshot typed payload without registry pair is rejected",
+      "status": "passed",
+      "elapsed_ms": 62.4717
+    },
+    {
+      "name": "Registry anchor without typed payload is rejected in canonical storage",
+      "status": "passed",
+      "elapsed_ms": 67.9792
+    },
+    {
+      "name": "Field state rejects wrong owner, missing row and contradictory known value",
+      "status": "passed",
+      "elapsed_ms": 140.5411
+    },
+    {
+      "name": "Cross-snapshot evidence cannot silently attach to another capture",
+      "status": "passed",
+      "elapsed_ms": 100.7963
+    },
+    {
+      "name": "Source span bounds are checked against the retained byte length",
+      "status": "passed",
+      "elapsed_ms": 68.4756
+    },
+    {
+      "name": "Context options bind identity, field states and contiguous ordering",
+      "status": "passed",
+      "elapsed_ms": 117.871
+    },
+    {
+      "name": "M1A refuses a finalized dataset state",
+      "status": "passed",
+      "elapsed_ms": 51.8353
+    }
+  ]
+}

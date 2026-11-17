@@ -1,0 +1,5 @@
+{
+  "native_sqlite_version": "3.54.0",
+  "minimum_version": "3.50.2",
+  "managed_provider_assembly_version": "9.0.8.0"
+}

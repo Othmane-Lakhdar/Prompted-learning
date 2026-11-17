@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "hash_basis": "Actual files used for the successful integrated build/test; Git may normalize source line endings on publication.",
+  "source_files": [
+    {
+      "path": "src/PromptedLearning.Core/Build/MsBuildDefinitions.cs",
+      "sha256": "f04299d3becbdad81ba56572aa726ef89b69d62db1f3a790301905d46566537a"
+    },
+    {
+      "path": "src/PromptedLearning.Core/Build/MsBuildEvaluator.cs",
+      "sha256": "f47705d2d6e965b97be28ebfd2fb02149b98caee62bced43c8cd03b46723a1a7"
+    },
+    {
+      "path": "src/PromptedLearning.Core/Build/PilotInputGuard.cs",
+      "sha256": "cadde70bfc6a2b3424d9ff7bca6cfcfe88b8763629597674300219832acb3445"
+    },
+    {
+      "path": "src/PromptedLearning.Core/CanonicalJson.cs",
+      "sha256": "e2ab199d5a69888c1cd2edf368874c4ab1d3025733d29e78f9ffca665fafd646"
+    },
+    {
+      "path": "src/PromptedLearning.Core/ContractCatalog.cs",
+      "sha256": "1999f8e7470fece013f889094362919524703e4d456c9472bb5ddd88989c5c3b"
+    },
+    {
+      "path": "src/PromptedLearning.Core/PromptedLearning.Core.csproj",
+      "sha256": "9b4d7c52a4450ba869d4f3461ecfdbd3252ce0b945638709e6f412bf0bc7a39d"
+    },
+    {
+      "path": "src/PromptedLearning.Core/Source/CaptureService.cs",
+      "sha256": "2c2abb89d709be42a6d6d42e1e69854628460d69ac4635b9d15ddac78653f07e"
+    },
+    {
+      "path": "src/PromptedLearning.Core/Source/SourceArchive.cs",
+      "sha256": "b8b5a9974f7f083dcb56af5e5e8b42e60c84f1ba91377d8c76178ded7ba42ef9"
+    },
+    {
+      "path": "src/PromptedLearning.Core/Source/SourceDecoder.cs",
+      "sha256": "9048411254d3caf73b4a67e3851ff771e7ae8a0b5767961f7b2499c851bd26f0"
+    },
+    {
+      "path": "src/PromptedLearning.Core/Source/SourceModels.cs",
+      "sha256": "e18bf5afc304b289ba511c752bb314ed26566e5975c2e20e559efa2932fda57b"
+    },
+    {
+      "path": "src/PromptedLearning.Core/Source/SourcePaths.cs",
+      "sha256": "cb8dd61cdd7f8429a90faedc76aa44acc204d4e9af209c83301c16466a5b5735"
+    },
+    {
+      "path": "src/PromptedLearning.Core/StableId.cs",
+      "sha256": "1bb1cb10947f913eb381ab5962ca29e6e7058e6076b05ce303420948afa94b2e"
+    },
+    {
+      "path": "src/PromptedLearning.Storage/CanonicalStore.cs",
+      "sha256": "c98fc684b5c8a5dfbac843dd1dd5aa58b97fbb79bf95c57280155bc8c78400c0"
+    },
+    {
+      "path": "src/PromptedLearning.Storage/CapturedSourceImport.cs",
+      "sha256": "ec0c03a1634b3ead4be378625f36b0332682fedcf9a09886e9fb9fdb959100ff"
+    },
+    {
+      "path": "src/PromptedLearning.Storage/ContextImport.cs",
+      "sha256": "8b91ae3c87b5d98390e669c14986035b56631087ddd50845d910d5c09ba9e022"
+    },
+    {
+      "path": "src/PromptedLearning.Storage/FoundationValidator.cs",
+      "sha256": "04891f9b5837c395c7ffe47e560a914e997edec6fba1e63c9b64ebed76eee7ca"
+    },
+    {
+      "path": "src/PromptedLearning.Storage/PromptedLearning.Storage.csproj",
+      "sha256": "4fd06d584076434c3c337832c4bb7c759144277c8c99ca77380b4282a35950e0"
+    },
+    {
+      "path": "src/PromptedLearning.Storage/StorageSchema.cs",
+      "sha256": "43bd5be483ddc5df50cd1ca03fc4ba2e6a0e73d5e5ad8f24872313740a506c0c"
+    },
+    {
+      "path": "tests/PromptedLearning.Tests/ContextTests.cs",
+      "sha256": "9092219613afe9df635d1a26435c96aa23a534dadf18bd6aa544287526b184a7"
+    },
+    {
+      "path": "tests/PromptedLearning.Tests/FoundationTests.cs",
+      "sha256": "640cabdf261a22a075c6bb0f2a0ccf5311d826db948476f3a4c7a31de5cca03e"
+    },
+    {
+      "path": "tests/PromptedLearning.Tests/PilotGuardTests.cs",
+      "sha256": "e6b89d4f64b174c03df55f8f911460a45180c2b2f15a2e54baa186173474efaf"
+    },
+    {
+      "path": "tests/PromptedLearning.Tests/Program.cs",
+      "sha256": "4591d40629a3c7b8381900e11a863e25fd1217061c7e5813b337328cfd2e9bc9"
+    },
+    {
+      "path": "tests/PromptedLearning.Tests/PromptedLearning.Tests.csproj",
+      "sha256": "6ed3df74af5f876d1d9c733bc989098ecd4b3d54777d251bf4f3529b706afc4f"
+    },
+    {
+      "path": "tests/PromptedLearning.Tests/Source/SourceTests.cs",
+      "sha256": "65d222eb2cd344c57ef5cb5d1f7cb79b127cb2bd535ce25673b9222543726ec5"
+    },
+    {
+      "path": "tests/PromptedLearning.Tests/Storage/ContextStorageTests.cs",
+      "sha256": "1557d5c15ec35b98e6335032fc601b2398d69509117f57776d720d6ac5f01f21"
+    },
+    {
+      "path": "tests/PromptedLearning.Tests/Storage/StorageTests.cs",
+      "sha256": "68d11fc29dac63b0efd4fd04c2c899614985b88b5f5ee149926782d938ea3920"
+    },
+    {
+      "path": "tests/PromptedLearning.Tests/TestSupport.cs",
+      "sha256": "72e4bb5bc8f98ace42307b32bc040c748cb006a3a9f203390d262c063406b372"
+    },
+    {
+      "path": "PromptedLearning.slnx",
+      "sha256": "f0cb431f053ff36337a0c671803be857b2a108d3c70db57c1408f80d06f52148"
+    },
+    {
+      "path": "docs/m0/contracts.json",
+      "sha256": "c2d3075882bffd7d2668495c0cfc83aeaed827f8502e905e4bf3119a3bf13faa"
+    },
+    {
+      "path": "docs/m0/schema.sql",
+      "sha256": "c434aa20fdd652c3378322f8321ccbee18f08590d5bfa18013729d1e931d1319"
+    },
+    {
+      "path": "docs/m0/field-dictionary.json",
+      "sha256": "e3b8fb37a778fe8d5d21cc659e83dbd8e5ea86efaaee36417e9381c4557ce823"
+    },
+    {
+      "path": "docs/m0/pilot.json",
+      "sha256": "cb58c2059ae2a01dfbb4725f88bb517995a94c1588458ee8aef87c431a86cddb"
+    }
+  ],
+  "build_binaries": [
+    {
+      "relative_to_inputs": "m1-build/bin/PromptedLearning.Core/release/PromptedLearning.Core.dll",
+      "sha256": "6353ed1d469123e2508235342d27adb63b5bca341b88ebaa551d7ca35dde2250"
+    },
+    {
+      "relative_to_inputs": "m1-build/bin/PromptedLearning.Storage/release/PromptedLearning.Storage.dll",
+      "sha256": "d7eb9b48cf40998305c4021c50c0bfc78d253e132bc18f97027720fe406796dd"
+    },
+    {
+      "relative_to_inputs": "m1-build/bin/PromptedLearning.Tests/release/PromptedLearning.Tests.dll",
+      "sha256": "b8b02ac7892bf553b2f872b6e2ecb46cc585257fd9654df2249f515b03e7cea3"
+    }
+  ],
+  "tests": 59,
+  "failed": 0
+}

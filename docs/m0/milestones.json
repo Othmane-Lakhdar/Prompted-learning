@@ -39,7 +39,7 @@
     },
     {
       "id": "M1",
-      "status": "ready",
+      "status": "in_progress",
       "depends_on": [
         "M0_passed"
       ],
@@ -60,14 +60,17 @@
           "scope": "Implement typed contracts, exact source archive, deterministic IDs, context capture and canonical validation",
           "prerequisites": [
             "M0_passed"
-          ]
+          ],
+          "status": "passed",
+          "gate": "../m1/evidence/gate-m1a.json"
         },
         {
           "id": "M1B",
           "scope": "Roslyn and native Clang pilot adapters with exact declared entity/operation outputs",
           "prerequisites": [
             "M1A_interface_and_source_contract_checks"
-          ]
+          ],
+          "status": "ready_after_gate_publication"
         },
         {
           "id": "M1C",

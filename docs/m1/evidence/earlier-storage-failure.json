@@ -1,0 +1,89 @@
+{
+  "stage": "M1A",
+  "group": "Storage",
+  "tests": 15,
+  "failed": 5,
+  "status": "failed",
+  "results": [
+    {
+      "name": "SQLite provider meets the fixed security minimum",
+      "status": "passed",
+      "elapsed_ms": 332.1037
+    },
+    {
+      "name": "Captured text, binary and unavailable bytes retain states and snapshot identity",
+      "status": "failed",
+      "elapsed_ms": 1100.9455,
+      "error": "PromptedLearning.Storage.FoundationValidationException: Foundation validation failed: field_state_path: Unknown collection role.; field_state_path: Unknown collection role.; field_state_path: Unknown collection role.; field_state_path: Unknown collection role.; field_state_path: Unknown collection role.; field_state_path: Unknown collection role.\r\n   at PromptedLearning.Storage.CanonicalWrite.CommitFoundation(CancellationToken cancellationToken) in C:\\_Travail\\tools\\Prompted-Learning\\src\\PromptedLearning.Storage\\CanonicalStore.cs:line 177\r\n   at PromptedLearning.Tests.StorageTests.\u003C\u003Ec__DisplayClass0_0.\u003C\u003CCases\u003Eb__1\u003Ed.MoveNext() in C:\\_Travail\\tools\\Prompted-Learning\\tests\\PromptedLearning.Tests\\Storage\\StorageTests.cs:line 24\r\n--- End of stack trace from previous location ---\r\n   at Program.\u003CMain\u003E$(String[] args) in C:\\_Travail\\tools\\Prompted-Learning\\tests\\PromptedLearning.Tests\\Program.cs:line 22"
+    },
+    {
+      "name": "Committed foundation survives reopen without finalization",
+      "status": "failed",
+      "elapsed_ms": 1034.0906,
+      "error": "PromptedLearning.Storage.FoundationValidationException: Foundation validation failed: field_state_path: Unknown collection role.; field_state_path: Unknown collection role.; field_state_path: Unknown collection role.; field_state_path: Unknown collection role.; field_state_path: Unknown collection role.; field_state_path: Unknown collection role.\r\n   at PromptedLearning.Storage.CanonicalWrite.CommitFoundation(CancellationToken cancellationToken) in C:\\_Travail\\tools\\Prompted-Learning\\src\\PromptedLearning.Storage\\CanonicalStore.cs:line 177\r\n   at PromptedLearning.Tests.StorageTests.\u003C\u003Ec__DisplayClass0_0.\u003C\u003CCases\u003Eb__2\u003Ed.MoveNext() in C:\\_Travail\\tools\\Prompted-Learning\\tests\\PromptedLearning.Tests\\Storage\\StorageTests.cs:line 36\r\n--- End of stack trace from previous location ---\r\n   at Program.\u003CMain\u003E$(String[] args) in C:\\_Travail\\tools\\Prompted-Learning\\tests\\PromptedLearning.Tests\\Program.cs:line 22"
+    },
+    {
+      "name": "Disposed or cancelled staging writes leave no partial records",
+      "status": "failed",
+      "elapsed_ms": 88.6778,
+      "error": "PromptedLearning.Storage.FoundationValidationException: Foundation validation failed: field_state_path: Unknown collection role.; field_state_path: Unknown collection role.; field_state_path: Unknown collection role.; field_state_path: Unknown collection role.; field_state_path: Unknown collection role.; field_state_path: Unknown collection role.\r\n   at PromptedLearning.Storage.CanonicalWrite.CommitFoundation(CancellationToken cancellationToken) in C:\\_Travail\\tools\\Prompted-Learning\\src\\PromptedLearning.Storage\\CanonicalStore.cs:line 177\r\n   at PromptedLearning.Tests.StorageTests.\u003C\u003Ec__DisplayClass0_0.\u003C\u003CCases\u003Eb__3\u003Ed.MoveNext() in C:\\_Travail\\tools\\Prompted-Learning\\tests\\PromptedLearning.Tests\\Storage\\StorageTests.cs:line 52\r\n--- End of stack trace from previous location ---\r\n   at Program.\u003CMain\u003E$(String[] args) in C:\\_Travail\\tools\\Prompted-Learning\\tests\\PromptedLearning.Tests\\Program.cs:line 22"
+    },
+    {
+      "name": "Constrained insertion rejects SQL identifiers and implicit numeric conversion",
+      "status": "passed",
+      "elapsed_ms": 28.412
+    },
+    {
+      "name": "Open rejects extra columns and weakened CHECK constraints",
+      "status": "passed",
+      "elapsed_ms": 1850.1444
+    },
+    {
+      "name": "Typed values cannot disagree with a valid identity envelope",
+      "status": "passed",
+      "elapsed_ms": 51.7465
+    },
+    {
+      "name": "Invalid identity hash is rejected before insertion and faults its transaction",
+      "status": "passed",
+      "elapsed_ms": 116.0029
+    },
+    {
+      "name": "Snapshot typed payload without registry pair is rejected",
+      "status": "passed",
+      "elapsed_ms": 39.5162
+    },
+    {
+      "name": "Registry anchor without typed payload is rejected in canonical storage",
+      "status": "passed",
+      "elapsed_ms": 43.5758
+    },
+    {
+      "name": "Field state rejects wrong owner, missing row and contradictory known value",
+      "status": "passed",
+      "elapsed_ms": 126.0511
+    },
+    {
+      "name": "Cross-snapshot evidence cannot silently attach to another capture",
+      "status": "failed",
+      "elapsed_ms": 47.5218,
+      "error": "Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 19: \u0027UNIQUE constraint failed: source_blob.storage_key\u0027.\r\n   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()\r\n   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteNonQuery()\r\n   at PromptedLearning.Storage.CanonicalStore.Insert(String table, IReadOnlyDictionary\u00602 values, SqliteTransaction transaction) in C:\\_Travail\\tools\\Prompted-Learning\\src\\PromptedLearning.Storage\\CanonicalStore.cs:line 126\r\n   at PromptedLearning.Storage.CanonicalWrite.Insert(String table, IReadOnlyDictionary\u00602 values) in C:\\_Travail\\tools\\Prompted-Learning\\src\\PromptedLearning.Storage\\CanonicalStore.cs:line 144\r\n   at PromptedLearning.Storage.CapturedSourceImport.ImportCapturedSources(CanonicalWrite write, CapturedInputs capture, DateTimeOffset capturedUtc, String vcsRevision, Nullable\u00601 localModificationsIncluded) in C:\\_Travail\\tools\\Prompted-Learning\\src\\PromptedLearning.Storage\\CapturedSourceImport.cs:line 52\r\n   at PromptedLearning.Tests.StorageTests.\u003C\u003Ec__DisplayClass0_0.\u003C\u003CCases\u003Eb__11\u003Ed.MoveNext() in C:\\_Travail\\tools\\Prompted-Learning\\tests\\PromptedLearning.Tests\\Storage\\StorageTests.cs:line 121\r\n--- End of stack trace from previous location ---\r\n   at Program.\u003CMain\u003E$(String[] args) in C:\\_Travail\\tools\\Prompted-Learning\\tests\\PromptedLearning.Tests\\Program.cs:line 22"
+    },
+    {
+      "name": "Source span bounds are checked against the retained byte length",
+      "status": "passed",
+      "elapsed_ms": 59.6555
+    },
+    {
+      "name": "Context options bind identity, field states and contiguous ordering",
+      "status": "failed",
+      "elapsed_ms": 58.521,
+      "error": "PromptedLearning.Storage.FoundationValidationException: Foundation validation failed: field_state_path: Unknown collection role.; field_state_path: Unknown collection role.; field_state_path: Unknown collection role.; field_state_path: Unknown collection role.; field_state_path: Unknown collection role.; field_state_path: Unknown collection role.\r\n   at PromptedLearning.Storage.CanonicalWrite.CommitFoundation(CancellationToken cancellationToken) in C:\\_Travail\\tools\\Prompted-Learning\\src\\PromptedLearning.Storage\\CanonicalStore.cs:line 177\r\n   at PromptedLearning.Tests.StorageTests.\u003C\u003Ec__DisplayClass0_0.\u003C\u003CCases\u003Eb__13\u003Ed.MoveNext() in C:\\_Travail\\tools\\Prompted-Learning\\tests\\PromptedLearning.Tests\\Storage\\StorageTests.cs:line 144\r\n--- End of stack trace from previous location ---\r\n   at Program.\u003CMain\u003E$(String[] args) in C:\\_Travail\\tools\\Prompted-Learning\\tests\\PromptedLearning.Tests\\Program.cs:line 22"
+    },
+    {
+      "name": "M1A refuses a finalized dataset state",
+      "status": "passed",
+      "elapsed_ms": 41.0156
+    }
+  ]
+}

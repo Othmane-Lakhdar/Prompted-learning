@@ -1,0 +1,10 @@
+{
+  "checked_at": "2026-11-17T09:36:41.880Z",
+  "source": "get_usage_limits",
+  "bucket": "codex",
+  "window_duration_mins": 10080,
+  "remaining_percent": 51,
+  "resets_at": 1795453198,
+  "execution_mode": "active",
+  "reset_or_credit_actions": "none"
+}

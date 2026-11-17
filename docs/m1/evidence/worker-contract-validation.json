@@ -1,0 +1,204 @@
+{
+  "status": "passed_design_validation",
+  "positive_cases": [
+    "synthetic_native_wire",
+    "synthetic_managed_correspondence_semantics",
+    "truthful_partial_discovery",
+    "acyclic_captured_source_identities",
+    "source_only_features_leave_cfg_unattempted",
+    "failed_cfg_without_fabricated_blocks"
+  ],
+  "negative_cases_rejected": [
+    {
+      "name": "duplicate_local_key",
+      "rejected_by": "ValueError",
+      "reason": "duplicate local key: entity:f"
+    },
+    {
+      "name": "dangling_entity_reference",
+      "rejected_by": "ValueError",
+      "reason": "dangling local reference: entity:missing"
+    },
+    {
+      "name": "wrong_kind_reference",
+      "rejected_by": "ValidationError",
+      "reason": "'body:f' is not valid under any of the given schemas"
+    },
+    {
+      "name": "canonical_ID_in_local_namespace",
+      "rejected_by": "ValidationError",
+      "reason": "'snapshot:1111111111111111111111111111111111111111111111111111111111111111' is not valid under any of the given schemas"
+    },
+    {
+      "name": "wrong_context_echo",
+      "rejected_by": "ValueError",
+      "reason": "result correlation/scope/tool mismatch: context_id"
+    },
+    {
+      "name": "wrong_request_hash_echo",
+      "rejected_by": "ValueError",
+      "reason": "result correlation/scope/tool mismatch: request_fingerprint"
+    },
+    {
+      "name": "discovery_facts_published",
+      "rejected_by": "ValueError",
+      "reason": "discovery facts cannot be published"
+    },
+    {
+      "name": "final_consumed_set_missing_main",
+      "rejected_by": "ValueError",
+      "reason": "successful parse did not consume main file"
+    },
+    {
+      "name": "newly_consumed_already_captured_header_requires_rerun",
+      "rejected_by": "ValueError",
+      "reason": "final consumed-input set is unstable or discovery remains"
+    },
+    {
+      "name": "wrong_input_bytes_with_valid_request_hash",
+      "rejected_by": "ValueError",
+      "reason": "input bytes/hash/length mismatch"
+    },
+    {
+      "name": "canonical_form_discovered_key",
+      "rejected_by": "ValueError",
+      "reason": "canonical ID emitted as discovered local key"
+    },
+    {
+      "name": "named_type_points_to_existing_file",
+      "rejected_by": "ValidationError",
+      "reason": "'file:main' is not valid under any of the given schemas"
+    },
+    {
+      "name": "integer_exceeds_int64",
+      "rejected_by": "ValidationError",
+      "reason": "9223372036854775808 is greater than the maximum of 9223372036854775807"
+    },
+    {
+      "name": "out_of_bounds_span",
+      "rejected_by": "ValueError",
+      "reason": "invalid byte span"
+    },
+    {
+      "name": "reversed_span",
+      "rejected_by": "ValueError",
+      "reason": "invalid byte span"
+    },
+    {
+      "name": "span_inside_utf8_scalar",
+      "rejected_by": "ValueError",
+      "reason": "span splits encoded scalar"
+    },
+    {
+      "name": "source_origin_cycle",
+      "rejected_by": "ValueError",
+      "reason": "source origin cycle"
+    },
+    {
+      "name": "operation_parent_cycle",
+      "rejected_by": "ValueError",
+      "reason": "body root ownership mismatch"
+    },
+    {
+      "name": "complete_with_discovered_input",
+      "rejected_by": "ValueError",
+      "reason": "final consumed-input set is unstable or discovery remains"
+    },
+    {
+      "name": "complete_with_partial_coverage",
+      "rejected_by": "ValueError",
+      "reason": "complete result has incomplete input coverage"
+    },
+    {
+      "name": "complete_with_unsupported_operation",
+      "rejected_by": "ValueError",
+      "reason": "complete result has unsupported operation"
+    },
+    {
+      "name": "missing_file_coverage",
+      "rejected_by": "ValueError",
+      "reason": "missing/duplicate file-feature coverage"
+    },
+    {
+      "name": "requested_cfg_outcome_omitted",
+      "rejected_by": "ValueError",
+      "reason": "requested CFG lacks per-body outcome"
+    },
+    {
+      "name": "complete_body_root_omitted",
+      "rejected_by": "ValueError",
+      "reason": "complete body lacks root operation"
+    },
+    {
+      "name": "detached_body_root",
+      "rejected_by": "ValueError",
+      "reason": "body operations have a detached or unregistered root"
+    },
+    {
+      "name": "missing_parameter_owner",
+      "rejected_by": "ValueError",
+      "reason": "parameter identity lacks owner/ordinal"
+    },
+    {
+      "name": "return_read_omitted",
+      "rejected_by": "ValueError",
+      "reason": "branch/return value read omitted from flow events"
+    },
+    {
+      "name": "duplicate_storage_event",
+      "rejected_by": "ValueError",
+      "reason": "duplicate storage evaluation event"
+    },
+    {
+      "name": "assignment_destination_read",
+      "rejected_by": "ValueError",
+      "reason": "assignment destination incorrectly read"
+    },
+    {
+      "name": "return_not_to_exit",
+      "rejected_by": "ValueError",
+      "reason": "return edge does not reach exit"
+    },
+    {
+      "name": "conditional_edge_without_complement",
+      "rejected_by": "ValueError",
+      "reason": "conditional branch labels are not explicit complements"
+    },
+    {
+      "name": "cross_body_cfg_reference",
+      "rejected_by": "ValueError",
+      "reason": "requested CFG lacks per-body outcome"
+    },
+    {
+      "name": "wrong_semantic_fingerprint_with_valid_request_hash",
+      "rejected_by": "ValueError",
+      "reason": "semantic input fingerprint mismatch"
+    },
+    {
+      "name": "ambiguous_cfg_source_correspondence",
+      "rejected_by": "ValueError",
+      "reason": "CFG source correspondence is absent/ambiguous"
+    },
+    {
+      "name": "identity_wrong_preimage",
+      "rejected_by": "ValueError",
+      "reason": "identity preimage does not match ID"
+    },
+    {
+      "name": "identity_span_depends_on_body",
+      "rejected_by": "ValidationError",
+      "reason": "{'schema': 'identity-input/1', 'domain': 'source_span/1', 'components': {'file_version_id': 'file_version:bc84a985073067b00f56e69f86eab9bde60484dcbb95efacfe492cdc9476caa7', 'start_byte': 0, 'end_byte': 1, 'origin_kind': 'written', 'origin_stack': [], 'body_id': 'body:8888888888888888888888888888888888888888888888888888888888888888'}} is not valid under any of the given schemas"
+    },
+    {
+      "name": "identity_own_id_component",
+      "rejected_by": "ValidationError",
+      "reason": "{'schema': 'identity-input/1', 'domain': 'snapshot/1', 'components': {'repository_identity': 'fixture', 'roots': [{'root_key': 'pilot', 'boundary': 'internal', 'exclusions': []}], 'files': [{'root_key': 'pilot', 'relative_path': 'main.cpp', 'content_hash': 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'availability': 'available', 'origin': 'written'}], 'own_canonical_id': 'snapshot:bd7c747bdc70dbc1a5784374b720998502387d80097b568f2f08162b1109379f'}} is not valid under any of the given schemas"
+    },
+    {
+      "name": "identity_dependency_cycle",
+      "rejected_by": "ValueError",
+      "reason": "identity preimage cycle"
+    }
+  ],
+  "scope": "Hand-authored message/schema and semantic-contract mutation checks only. No compiler extraction, canonical persistence, profile export, IPC, source archive implementation or AI benchmark is executed."
+}

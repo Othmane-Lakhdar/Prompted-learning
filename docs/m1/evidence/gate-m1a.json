@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "stage": "M1A",
+  "status": "passed",
+  "as_of": "2026-11-17",
+  "reviewer": "/root/preflight_review",
+  "scope": "Frozen Windows pilot source/identity/evaluated-context/collecting-SQLite foundation only",
+  "parent_commit": "993966098c70c26fa71f63171ac5bfae826a9e9d",
+  "build": {
+    "sdk": "10.0.404",
+    "configuration": "Release",
+    "warnings": 0,
+    "errors": 0
+  },
+  "tests": {
+    "report": "m1a-tests.json",
+    "passed": 59,
+    "failed": 0,
+    "groups": {
+      "Foundation": 10,
+      "Source": 13,
+      "Storage": 17,
+      "Context": 5,
+      "PilotGuard": 9,
+      "ContextStorage": 5
+    },
+    "sha256": "be45706bcf8138da855c46e7b9d306b9a43ece86a99dadcdbb4bedc34c9ef3d2",
+    "raw_execution_report_sha256": "2abfb85e421076c8a86f4877143707d6621fdea0f843e7a19efabc68663266e9",
+    "encoding_record": "evidence-encoding.json"
+  },
+  "reviewed_inputs": {
+    "manifest": "m1a-reviewed-inputs.json",
+    "sha256": "c5a4f58dae1c6e32c23d50bcab1d3fc9febb5845d49f367e403afa30fabb301a",
+    "verified_files": 32,
+    "verified_binaries": 3
+  },
+  "archive": {
+    "files": 6,
+    "capture_index_fingerprint": "6610083eaedef443ad14f3cfeb2eb82f95680b7b5794c4a45adb0457527327e2",
+    "source_manifest_hash": "cd19d549bc11869ce6f04ed9918f801c1f8642bddf850fb8fa58ad4b2eeaf53e",
+    "independent_readback": "passed"
+  },
+  "contract_amendment": {
+    "id": "A001",
+    "status": "reviewed_passed",
+    "sha256": "c2d3075882bffd7d2668495c0cfc83aeaed827f8502e905e4bf3119a3bf13faa"
+  },
+  "independent_review": {
+    "status": "passed",
+    "staged_diff_reviewed": true,
+    "source_and_binary_hashes_verified": true,
+    "staged_whitespace_check": "passed",
+    "frozen_pilot_hashes_verified": 6,
+    "unresolved_material_findings": [],
+    "evidence_encoding_transformations_verified": 6
+  },
+  "next_unit": "M1B",
+  "next_unit_conditions": [
+    "Record/publish M1A gate before implementation",
+    "Bind actual analysis adapter descriptor before final context and unit IDs",
+    "Validate actual consumed input closure; no provisional native IDs/facts enter canonical storage",
+    "Read and implement exact frozen entity/operation expectations; M1C flow remains gated"
+  ],
+  "not_claimed": [
+    "general project support",
+    "M1B compiler adapters",
+    "native finalized compilation units",
+    "operation/CFG/dataflow extraction",
+    "canonical finalization",
+    "exports or queries",
+    "observed build runs",
+    "AI benchmark trials",
+    "M2-M5 support"
+  ]
+}

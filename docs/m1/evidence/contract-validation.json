@@ -1,0 +1,370 @@
+{
+  "validator": "m0-contracts/1",
+  "status": "passed",
+  "scope": "Design DDL and JSON envelopes only. No extractor, query service, archive reader, semantic finalizer, or milestone gate is executed.",
+  "checks": [
+    {
+      "name": "explicit_utf8_lf_inputs",
+      "status": "passed"
+    },
+    {
+      "name": "ddl_creates_with_foreign_keys_enabled",
+      "status": "passed"
+    },
+    {
+      "name": "empty_schema_integrity",
+      "status": "passed"
+    },
+    {
+      "name": "unknown_field_rejects_null_reason",
+      "status": "passed"
+    },
+    {
+      "name": "unknown_field_rejects_empty_reason",
+      "status": "passed"
+    },
+    {
+      "name": "unknown_field_rejects_whitespace_reason",
+      "status": "passed"
+    },
+    {
+      "name": "unknown_field_accepts_explained_state",
+      "status": "passed"
+    },
+    {
+      "name": "snapshot_registry_pair_supports_state_evidence_and_identity_input",
+      "status": "passed"
+    },
+    {
+      "name": "seed_foreign_key_integrity",
+      "status": "passed"
+    },
+    {
+      "name": "unsupported_operation_requires_reason",
+      "status": "passed"
+    },
+    {
+      "name": "unknown_effect_requires_reason",
+      "status": "passed"
+    },
+    {
+      "name": "incomplete_call_requires_remainder",
+      "status": "passed"
+    },
+    {
+      "name": "partial_coverage_requires_reason",
+      "status": "passed"
+    },
+    {
+      "name": "skipped_execution_requires_reason",
+      "status": "passed"
+    },
+    {
+      "name": "omitted_reference_requires_reason",
+      "status": "passed"
+    },
+    {
+      "name": "omitted_unit_requires_reason",
+      "status": "passed"
+    },
+    {
+      "name": "membership_context_key_must_match",
+      "status": "passed"
+    },
+    {
+      "name": "item_metadata_requires_owner",
+      "status": "passed"
+    },
+    {
+      "name": "invalid_access_is_rejected",
+      "status": "passed"
+    },
+    {
+      "name": "invalid_return_passing_is_rejected",
+      "status": "passed"
+    },
+    {
+      "name": "invalid_file_role_is_rejected",
+      "status": "passed"
+    },
+    {
+      "name": "same_membership_retains_two_contexts_and_independent_scope",
+      "status": "passed"
+    },
+    {
+      "name": "retained_binary_bytes_do_not_require_encoding",
+      "status": "passed"
+    },
+    {
+      "name": "one_entity_retains_multiple_compilation_units",
+      "status": "passed"
+    },
+    {
+      "name": "nonfile_item_metadata_retains_distinct_owners",
+      "status": "passed"
+    },
+    {
+      "name": "known_null_and_string_null_defaults_stay_distinct",
+      "status": "passed"
+    },
+    {
+      "name": "isolated_inserts_rolled_back",
+      "status": "passed"
+    },
+    {
+      "name": "draft202012_schema_is_well_formed",
+      "status": "passed"
+    },
+    {
+      "name": "capabilities_request_validates",
+      "status": "passed"
+    },
+    {
+      "name": "query_unknown_top_level_rejected",
+      "status": "passed"
+    },
+    {
+      "name": "query_unknown_operation_rejected",
+      "status": "passed"
+    },
+    {
+      "name": "query_unknown_argument_rejected",
+      "status": "passed"
+    },
+    {
+      "name": "query_negative_limit_rejected",
+      "status": "passed"
+    },
+    {
+      "name": "query_graph_without_limits_rejected",
+      "status": "passed"
+    },
+    {
+      "name": "bounded_groups_request_validates",
+      "status": "passed"
+    },
+    {
+      "name": "source_capabilities_request_validates",
+      "status": "passed"
+    },
+    {
+      "name": "literal_source_search_request_validates",
+      "status": "passed"
+    },
+    {
+      "name": "source_rejects_canonical_database_selector",
+      "status": "passed"
+    },
+    {
+      "name": "source_rejects_semantic_operation",
+      "status": "passed"
+    },
+    {
+      "name": "source_rejects_regex_search",
+      "status": "passed"
+    },
+    {
+      "name": "source_rejects_locale_case_policy",
+      "status": "passed"
+    },
+    {
+      "name": "source_rejects_negative_read_budget",
+      "status": "passed"
+    },
+    {
+      "name": "source_rejects_parent_path_filter",
+      "status": "passed"
+    },
+    {
+      "name": "source_rejects_absolute_path_filter",
+      "status": "passed"
+    },
+    {
+      "name": "capture_index_with_source_metadata_validates",
+      "status": "passed"
+    },
+    {
+      "name": "capture_index_rejects_semantic_facts",
+      "status": "passed"
+    },
+    {
+      "name": "available_capture_requires_hash",
+      "status": "passed"
+    },
+    {
+      "name": "capture_requires_explicit_collection_policy",
+      "status": "passed"
+    },
+    {
+      "name": "capture_policy_rejects_observation_conclusion",
+      "status": "passed"
+    },
+    {
+      "name": "supplied_evidence_policy_requires_file_ids",
+      "status": "passed"
+    },
+    {
+      "name": "source_only_capability_response_validates",
+      "status": "passed"
+    },
+    {
+      "name": "source_capabilities_rejects_semantic_feature_inventory",
+      "status": "passed"
+    },
+    {
+      "name": "bound_source_cursor_shape_validates",
+      "status": "passed"
+    },
+    {
+      "name": "source_cursor_rejects_arbitrary_filesystem_path",
+      "status": "passed"
+    },
+    {
+      "name": "builtin_cpp_attribute_spelling_validates_without_type",
+      "status": "passed"
+    },
+    {
+      "name": "builtin_cpp_extension_rejects_fabricated_type_field",
+      "status": "passed"
+    },
+    {
+      "name": "ownership_matrix_covers_every_table_exactly",
+      "status": "passed"
+    },
+    {
+      "name": "ownership_keys_and_joins_match_ddl",
+      "status": "passed"
+    },
+    {
+      "name": "optional_family_tables_are_exact",
+      "status": "passed"
+    },
+    {
+      "name": "retained_conclusion_can_reference_minimal_operation_anchor",
+      "status": "passed"
+    },
+    {
+      "name": "anchor_cannot_pull_field_state",
+      "status": "passed"
+    },
+    {
+      "name": "anchor_cannot_pull_record_evidence",
+      "status": "passed"
+    },
+    {
+      "name": "anchor_cannot_pull_record_extension",
+      "status": "passed"
+    },
+    {
+      "name": "anchor_cannot_pull_operation_child",
+      "status": "passed"
+    },
+    {
+      "name": "anchor_cannot_pull_operation_operand",
+      "status": "passed"
+    },
+    {
+      "name": "anchor_cannot_pull_member_relation",
+      "status": "passed"
+    },
+    {
+      "name": "anchor_cannot_pull_template_substitution",
+      "status": "passed"
+    },
+    {
+      "name": "field_state_cannot_reveal_omitted_child_key",
+      "status": "passed"
+    },
+    {
+      "name": "analysis_dependency_cannot_catalog_omitted_operations",
+      "status": "passed"
+    },
+    {
+      "name": "analysis_header_cannot_embed_optional_findings",
+      "status": "passed"
+    },
+    {
+      "name": "analysis_assumptions_cannot_embed_optional_graph",
+      "status": "passed"
+    },
+    {
+      "name": "evidence_cannot_embed_ast_dump",
+      "status": "passed"
+    },
+    {
+      "name": "evidence_cannot_embed_cfg_dump",
+      "status": "passed"
+    },
+    {
+      "name": "evidence_cannot_embed_dataflow_dump",
+      "status": "passed"
+    },
+    {
+      "name": "evidence_detail_rejects_unregistered_fact_text",
+      "status": "passed"
+    },
+    {
+      "name": "diagnostics_and_coverage_cannot_dump_omitted_successful_payload",
+      "status": "passed"
+    },
+    {
+      "name": "source_storage_key_is_relative_to_sources_root",
+      "status": "passed"
+    },
+    {
+      "name": "source_storage_key_rejects_duplicate_sources_component",
+      "status": "passed"
+    },
+    {
+      "name": "explicit_archive_preparation_report_validates",
+      "status": "passed"
+    },
+    {
+      "name": "preparation_cannot_pass_over_byte_limit",
+      "status": "passed"
+    },
+    {
+      "name": "preparation_cannot_pass_over_handle_limit",
+      "status": "passed"
+    },
+    {
+      "name": "preparation_cannot_pass_over_time_limit",
+      "status": "passed"
+    },
+    {
+      "name": "failed_preparation_requires_reason",
+      "status": "passed"
+    },
+    {
+      "name": "preparation_disallows_unverified_path_reopen_mode",
+      "status": "passed"
+    },
+    {
+      "name": "same_length_tamper_failure_report_validates",
+      "status": "passed"
+    },
+    {
+      "name": "same_length_changed_bytes_have_different_digest",
+      "status": "passed"
+    }
+  ],
+  "validation_dependencies": {
+    "jsonschema": "4.23.0",
+    "attrs": "26.1.0",
+    "jsonschema-specifications": "2025.9.1",
+    "referencing": "0.37.0",
+    "rpds-py": "2026.9.1",
+    "typing-extensions": "4.16.0"
+  },
+  "python_version": "3.11.9",
+  "sqlite_version": "3.45.1",
+  "inputs_sha256": {
+    "schema.sql": "c434aa20fdd652c3378322f8321ccbee18f08590d5bfa18013729d1e931d1319",
+    "contracts.json": "c2d3075882bffd7d2668495c0cfc83aeaed827f8502e905e4bf3119a3bf13faa",
+    "contracts.md": "b3bda4a955e79ac47e56adae3bb2dbe28d317f76354ddaa28444d5a324aa4a0f"
+  },
+  "table_count": 114,
+  "column_count": 783,
+  "projection_test_boundary": "Ownership keys/joins checked against DDL, then finite adversarial models checked. No exporter, semantic text classifier, OS pinning guarantee or archive reader was executed.",
+  "isolated_sql_test_boundary": "Typed-table checks used a deliberately incomplete deferred-FK transaction, then rollback. Their positive inserts prove representability and constraints only, not semantic validity."
+}

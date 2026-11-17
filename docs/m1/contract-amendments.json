@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "amendments": [
+    {
+      "id": "A001",
+      "stage": "M1A",
+      "status": "reviewed_tests_passed",
+      "requirement": "Unknown data is explicit and never replaced with fabricated values.",
+      "problem": "Early source archive preparation failure/cancellation can occur before any trusted manifest hash is known, but the original schema required a hash.",
+      "change": "source_manifest_hash is nullable for failed/cancelled preparation; passed still requires64hex. Existing reason/outcome discriminators explain missing value.",
+      "original_m0_commit": "a7e02b472a59da9d270e58ccf696ffc3ad95498f",
+      "original_contract_sha256": "99b7d121ab836d600dc42ea9cf694596d42f3349fa1168953dc8ebd67a7f6653",
+      "contract_sha256": "c2d3075882bffd7d2668495c0cfc83aeaed827f8502e905e4bf3119a3bf13faa",
+      "verification": "Independent review accepted A001; Source13 early cancellation/index-hash-failure reports and Foundation10 passed-with-null rejection passed. All three amended design validators passed. Final M1A integration gate remains separate."
+    }
+  ]
+}

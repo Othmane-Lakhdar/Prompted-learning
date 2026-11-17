@@ -1,0 +1,7 @@
+# Host outputs; pinned resources and run archives are kept in the sibling inputs directory.
+**/bin/
+**/obj/
+.vs/
+artifacts/
+__pycache__/
+*.user

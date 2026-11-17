@@ -1,0 +1,34 @@
+{
+  "stage": "M1A",
+  "group": "ContextStorage",
+  "tests": 5,
+  "failed": 0,
+  "status": "passed",
+  "results": [
+    {
+      "name": "Actual evaluated contexts preserve tools, providers, ordered options and managed inputs",
+      "status": "passed",
+      "elapsed_ms": 22665.4981
+    },
+    {
+      "name": "Repeated context import reuses stable records without operational output hash drift",
+      "status": "passed",
+      "elapsed_ms": 3363.4078
+    },
+    {
+      "name": "Missing reference descriptors cannot become a known empty reference set",
+      "status": "passed",
+      "elapsed_ms": 92.8386
+    },
+    {
+      "name": "Unqueried item categories cannot be interpreted as complete context inputs",
+      "status": "passed",
+      "elapsed_ms": 139.2579
+    },
+    {
+      "name": "Captured source mutation after evaluation rejects context import and rolls back",
+      "status": "passed",
+      "elapsed_ms": 8147.0944
+    }
+  ]
+}

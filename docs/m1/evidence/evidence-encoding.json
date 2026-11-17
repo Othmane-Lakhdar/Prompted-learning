@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "reason": "Git text normalization must not invalidate recorded repository evidence hashes.",
+  "copies": [
+    {
+      "path": "docs/m1/evidence/context-storage-evidence.json",
+      "raw_report_sha256": "7b2495ad91ea01b703a3efabc00ede5da3ff92c2f2d13c252ebc323fa88ea376",
+      "repository_sha256": "a981fd9bdfaf2237d07c9352e41fb18c4b035656703b318efb1d13757cbecd4a",
+      "transformation": "CRLF to LF only; external originals retained"
+    },
+    {
+      "path": "docs/m1/evidence/context-storage-tests.json",
+      "raw_report_sha256": "4a8940df2bf79c9bea83439493b9553e6028cb4c0cec05d28af3e9c8afd26b14",
+      "repository_sha256": "76cb75b1b390051ecaa664b91fd987e0ffb57a137f4839600d12a4353e9fb96a",
+      "transformation": "CRLF to LF only; external originals retained"
+    },
+    {
+      "path": "docs/m1/evidence/earlier-context-failure.json",
+      "raw_report_sha256": "bab8793bf3bd39d3fed02bfb11766fa25cefb44b1b6f6b79fa7e1ae8ea7966de",
+      "repository_sha256": "b50df6073bfe028798e10065ced4d6e40fc16b99b700846a69dea6aa2e185b70",
+      "transformation": "CRLF to LF only; external originals retained"
+    },
+    {
+      "path": "docs/m1/evidence/earlier-storage-failure.json",
+      "raw_report_sha256": "e3100a9783647b51fdf9346319b460b58bd3c7d0f33e27e6bce7ad8812f718bd",
+      "repository_sha256": "871aebfbb8c3badddb41bd79324bec2800b55b5fba564763ff69eaac1c7181c9",
+      "transformation": "CRLF to LF only; external originals retained"
+    },
+    {
+      "path": "docs/m1/evidence/m1a-tests.json",
+      "raw_report_sha256": "2abfb85e421076c8a86f4877143707d6621fdea0f843e7a19efabc68663266e9",
+      "repository_sha256": "be45706bcf8138da855c46e7b9d306b9a43ece86a99dadcdbb4bedc34c9ef3d2",
+      "transformation": "CRLF to LF only; external originals retained"
+    },
+    {
+      "path": "docs/m1/evidence/sqlite-provider.json",
+      "raw_report_sha256": "b4b5bf5194618780e71575235145d9a2ebe4c2bd8e3b5ad4cf9fd776185dc7f0",
+      "repository_sha256": "be6e2696d7619d370b00310fae1da650a20c66b94f40aea9e9bd12161f7e625e",
+      "transformation": "CRLF to LF only; external originals retained"
+    }
+  ]
+}
